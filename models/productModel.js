@@ -1,30 +1,27 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const productSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+const productSchema = new Schema({
     name: {
         type: String,
-        required: [true, 'A tour must have a name'],
+        required: [true, 'A product must have a name'],
         unique: true,
         trim: true,
         maxlength: [
             40,
-            'A tour name must have less or equal then 40 characters'
+            'A product name must have less than or equal to 40 characters'
         ],
         minlength: [
-            10,
-            'A tour name must have more or equal then 10 characters'
+            1,
+            'A product name must have more than or equal to 1 characters'
         ]
         // validate: [validator.isAlpha, 'Tour name must only contain characters']
     },
+    brand: String,
     slug: String,
     sku: String,
     department: String, //top level of category
     category: String, // category path
-    collection: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: 'Collection'
-    },
     price: {
         type: Number,
         required: [true, 'A product must have a price']
@@ -36,7 +33,7 @@ const productSchema = new mongoose.Schema({
     status: {
         type: Boolean
     },
-    imageCover: {
+    coverImage: {
         type: String,
         required: [true, 'A product must have a cover image']
     },

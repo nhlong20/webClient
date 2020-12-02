@@ -1,5 +1,4 @@
-{
-    "products": [
+[
         {
             "name": "Lava",
             "brand": "Jackson",
@@ -7,7 +6,7 @@
             "color": "Black",
             "status": "1",
             "description": "Phối màu đen nhám cùng các điểm nhấn Rosegold tạo nên vẻ đẹp nổi bật, mạnh mẽ cho người đàn ông cá tính khi sở hữu Lava.",
-            "image": "https://curnonwatch.com/media/catalog/product/l/a/lava.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/l/a/lava.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -17,7 +16,7 @@
             "color": "Black",
             "status": "1",
             "description": "Sự kết hợp giữa Silver và Black tạo nên vẻ đẹp hiện đại, tối giản và giúp cổ tay bạn được chú ý trên nền mọi trang phục.",
-            "image": "https://curnonwatch.com/media/catalog/product/t/h/thunder.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/t/h/thunder.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -27,7 +26,7 @@
             "color": "Black",
             "status": "1",
             "description": "Với texture đặc biệt trên mặt đồng hồ kết hợp cùng Rosegold và Black giúp “Bão sa Mạc” trở thành điểm nhấn khác biệt và mạnh mẽ nhất.",
-            "image": "https://curnonwatch.com/media/catalog/product/s/a/sandstorm.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/s/a/sandstorm.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -37,7 +36,7 @@
             "color": "Black",
             "status": "1",
             "description": "Phối màu Batman của vòng Bezel trên nền kim loại Silver sẽ đem đến cho bạn sự năng động và sự dễ dàng kết hợp trang phục.",
-            "image": "https://curnonwatch.com/media/catalog/product/b/l/blizzard.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/b/l/blizzard.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -47,7 +46,7 @@
             "color": "Black",
             "status": "1",
             "description": "Phần khung và Dây thép không gỉ Silver cùng phối màu Pepsi kinh điển trên vòng Bezel sẽ đem đến cho bạn sự phóng khoáng và trưởng thành.",
-            "image": "https://curnonwatch.com/media/catalog/product/e/a/earthquake.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/e/a/earthquake.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -57,7 +56,7 @@
             "color": "Navy",
             "status": "1",
             "description": "Là người trẻ, bạn nghiêm túc trong công việc và năng động trong những hoạt động với bạn bè? Đồng hồ Kashmir Swank chính là sự lựa chọn hoàn hảo nhất. Thiết kế mặt đồng hồ màu xanh ấn tượng, kết hợp cùng dây kim loại bạc tạo nên một tổng thể trẻ trung, khác biệt, nhưng vẫn cực kì lịch lãm khi đi làm.",
-            "image": "https://curnonwatch.com/media/catalog/product/b/x/bx.swank.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/b/x/bx.swank.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -67,7 +66,7 @@
             "color": "Black",
             "status": "1",
             "description": "Ấn tượng và sắc bén, chính là những cá tính của người đàn ông thời hiện đại, và cũng chính là điểm nổi bật của đồng hồ Kashmir Sharp. Không cần quá nhiều màu sắc hay sự phức tạp, Kashmir Sharp chính là minh chứng rõ ràng nhất cho việc bạn chỉ cần một chiếc đồng hồ phù hợp, đủ ấn tượng và sắc bén để tự tin trải nghiệm cuộc sống.",
-            "image": "https://curnonwatch.com/media/catalog/product/v/d/vd.sharp.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/v/d/vd.sharp.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -77,7 +76,7 @@
             "color": "Black",
             "status": "1",
             "description": "Là một trong những phối màu sang trọng và bán chạy nhất của Curnon, đồng hồ Weimar Herbert dành cho các chàng trai yêu thích phong cách cổ điển và muốn tạo điểm nhấn tinh tế cho bộ trang phục của mình.",
-            "image": "https://curnonwatch.com/media/catalog/product/h/e/herbert.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/h/e/herbert.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -87,7 +86,7 @@
             "color": "Navy",
             "status": "1",
             "description": "Là sự kết hợp hoàn hảo giữa màu sắc và chất liệu dây thép mạnh mẽ, Colosseum Sterling chính là tuyên ngôn mạnh mẽ nhất của một người đàn ông trưởng thành.",
-            "image": "https://curnonwatch.com/media/catalog/product/s/t/sterling.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/s/t/sterling.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "42MM"
         },
         {
@@ -97,7 +96,7 @@
             "color": "Black",
             "status": "1",
             "description": "Dòng đồng hồ mặt chữ nhật đầu tiên cho nam của Curnon ra đời với tiếng nói góc cạnh, dám dấn thân và khác biệt cùng những chi tiết hiện đại được tô điểm trên nền thiết kế cổ điển.",
-            "image": "https://curnonwatch.com/media/catalog/product/t/a/tad.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/t/a/tad.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "32x38MM"
         },
         {
@@ -107,7 +106,7 @@
             "color": "Black",
             "status": "1",
             "description": "Dòng đồng hồ mặt chữ nhật đầu tiên cho nam của Curnon ra đời với tiếng nói góc cạnh, dám dấn thân và khác biệt cùng những chi tiết hiện đại được tô điểm trên nền thiết kế cổ điển.",
-            "image": "https://curnonwatch.com/media/catalog/product/a/l/alexei.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/a/l/alexei.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "32x38MM"
         },
         {
@@ -117,7 +116,7 @@
             "color": "Black",
             "status": "1",
             "description": "Được mệnh danh là Ngôi sao vụt sáng hay The Beast của Curnon, Colosseum Nova mang thiết kế đầy ấn tượng với tông màu đen huyền bí và màu kim ánh vàng, đem đến sự mạnh mẽ, nổi bật cho mọi chàng trai đeo nó.",
-            "image": "https://curnonwatch.com/media/catalog/product/n/o/nova.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/n/o/nova.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "42MM"
         },
         {
@@ -127,7 +126,7 @@
             "color": "Black",
             "status": "1",
             "description": "Một chiếc Đồng hồ dành cho những chàng trai yêu thích sự sang trọng và cổ điển. Với sự kết hợp giữa mặt kính vòm, sắc đen cùng rosegold đầy quyến rũ, đồng hồ Weimar Paul sẽ giúp bạn nâng tầm bất cứ bộ trang phục nào.",
-            "image": "https://curnonwatch.com/media/catalog/product/p/a/paul.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/p/a/paul.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -137,7 +136,7 @@
             "color": "Black",
             "status": "1",
             "description": "Đồng hồ Colosseum Mace mang thiết kế tối giản và được kết hợp với tone màu Silver nhám đặc biệt, tạo nên sự mạnh mẻ, khỏe khoắn cho những người đàn ông sở hữu nó.",
-            "image": "https://curnonwatch.com/media/catalog/product/m/a/mace.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/m/a/mace.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "42MM"
         },
         {
@@ -147,7 +146,7 @@
             "color": "White",
             "status": "1",
             "description": "Với tông màu trắng và bạc, kết hợp cùng điểm nhấn xanh Navy tinh tế, đồng hồ Kashmir Calm là sự lựa chọn số một cho những bạn trẻ yêu thích sự đơn giản nhưng không hề đơn điệu. Bền bỉ như chính cái tên của mình nhờ trang bị dây kim loại màu bạc, đồng hồ Kashmir Calm sẽ cùng bạn tự tin trong mọi hoạt động hàng ngày.",
-            "image": "https://curnonwatch.com/media/catalog/product/b/t/bt.calm.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/b/t/bt.calm.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "42MM"
         },
         {
@@ -157,7 +156,7 @@
             "color": "Navy",
             "status": "1",
             "description": "Kết hợp giữa mặt xanh độc đáo và dây da đen sang trọng, đồng hồ Kashmir Grand chính là lựa chọn cho những người đàn ông trưởng thành, chín chắn và mong muốn sự tự tin trong những sự kiện quan trọng.",
-            "image": "https://curnonwatch.com/media/catalog/product/b/x/bx.grand.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/b/x/bx.grand.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -167,7 +166,7 @@
             "color": "Navy",
             "status": "1",
             "description": "Đồng hồ Colosseum Guandao được ví như mũi giáo, đại diện cho người đàn ông mạnh mẽ tiến về phía trước, và luôn tự tin với chiếc đồng hồ hiện đại trên tay.",
-            "image": "https://curnonwatch.com/media/catalog/product/g/u/guandao.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/g/u/guandao.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "42MM"
         },
         {
@@ -177,7 +176,7 @@
             "color": "White",
             "status": "1",
             "description": "Dòng đồng hồ mặt chữ nhật đầu tiên cho nam của Curnon ra đời với tiếng nói góc cạnh, dám dấn thân và khác biệt cùng những chi tiết hiện đại được tô điểm trên nền thiết kế cổ điển.",
-            "image": "https://curnonwatch.com/media/catalog/product/m/a/maximus.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/m/a/maximus.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "32X38MM"
         },
         {
@@ -187,7 +186,7 @@
             "color": "White",
             "status": "1",
             "description": "Với thiết kế tối giản sử dụng tông màu đen chủ đạo và dây kim loại, đồng hồ Kashmir Robust mang đến sự mạnh mẽ, bí ẩn cùng tính ứng dụng cao, giúp bạn vững vàng trước mọi điều kiện môi trường và thời tiết trong hoạt động hàng ngày.",
-            "image": "https://curnonwatch.com/media/catalog/product/d/_/d.robust.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/d/_/d.robust.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "40MM"
         },
         {
@@ -197,7 +196,7 @@
             "color": "Black",
             "status": "0",
             "description": "Ra mắt vào ngày Lễ tình nhân Valentine, Colosseum Cannon khoác lên một lớp áo đen huyền bí cùng dây thép mạnh mẽ như khẳng định chất đàn ông cho những ai diện nó trên tay.",
-            "image": "https://curnonwatch.com/media/catalog/product/c/a/cannon.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/c/a/cannon.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "42MM"
         },
         {
@@ -207,8 +206,7 @@
             "color": "Navy",
             "status": "0",
             "description": "Dòng đồng hồ mặt chữ nhật đầu tiên cho nam của Curnon ra đời với tiếng nói góc cạnh, dám dấn thân và khác biệt cùng những chi tiết hiện đại được tô điểm trên nền thiết kế cổ điển.",
-            "image": "https://curnonwatch.com/media/catalog/product/c/o/constaintine.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
+            "coverImage": "https://curnonwatch.com/media/catalog/product/c/o/constaintine.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
             "size": "32X38MM"
         }
     ]
-}
