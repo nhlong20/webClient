@@ -725,7 +725,16 @@ img {
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 600px;
+    height: 900px;
+    .welcome-container{
+        padding-left: 95px;
+        @media #{$breakpoint-md} {
+            padding-left: 50px
+        }
+        @media #{$breakpoint-xs} {
+            padding-left: 20px
+        }
+    }
     @media #{$breakpoint-md} {
         height: 450px;
     }
@@ -733,21 +742,22 @@ img {
         height: 350px;
     }
     .hero-content {
-        h6 {
-            font-size: 18px;
-            color: $text-color;
-            margin-bottom: 10px;
-        }
+        
         h2 {
-            font-size: 60px;
-            color: $heading-color;
-            margin-bottom: 50px;
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 10px;
             @media #{$breakpoint-md} {
-                font-size: 48px;
+                font-size: 32px;
             }
             @media #{$breakpoint-xs} {
-                font-size: 30px;
+                font-size: 24px;
             }
+        }
+        p {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
         }
     }
 }

@@ -8,7 +8,7 @@ const ejs = require('ejs');
 
 var indexRouter = require('./routes/indexRoute');
 var usersRouter = require('./routes/userRoute');
-var collection = require('./routes/collectionRoute');
+var productRouter = require('./routes/productRoute');
 
 var app = express();
 
@@ -23,7 +23,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/product', productRouter);
+app.use('/user', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

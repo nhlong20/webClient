@@ -18,6 +18,13 @@ const productSchema = new mongoose.Schema({
     },
     slug: String,
     sku: String,
+    department: String, //top level of category
+    category: String, // category path
+    collection: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'Collection'
+    },
     price: {
         type: Number,
         required: [true, 'A product must have a price']
@@ -37,17 +44,14 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, 'A product must have color']
     },
-    images: [{
-     type: String
-    }],
+    images: [
+        {
+            type: String
+        }
+    ],
     size: {
         type: String,
         required: [true, 'A product must have sizes']
-    },
-    collection: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: 'Collection'
     }
 });
 
