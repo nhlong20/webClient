@@ -24,8 +24,8 @@ const DB_options = {
 };
 // Connect to the DB
 mongoose
-  .connect(DB, DB_options)
-  .then(() => console.log('DB connection successful!'));
+    .connect(DB, DB_options)
+    .then(() => console.log('DB connection successful!'));
 
 /**
  * Get port from environment and store in Express.

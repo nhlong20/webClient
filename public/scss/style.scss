@@ -925,20 +925,24 @@ img {
         }
     }
     .product-description {
+        text-align: center;
         position: relative;
         z-index: 1;
         padding-top: 25px;
         span {
-            font-size: 10px;
+            font-size: 0.8rem;
             text-transform: uppercase;
             color: $text-color;
             margin-bottom: 15px;
             letter-spacing: 0.75px;
             font-weight: 600;
         }
-        h6 {
+        .product-name{
             color: #222222;
             margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.8rem;
         }
         p {
             margin-bottom: 0;

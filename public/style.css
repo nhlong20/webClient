@@ -1125,13 +1125,14 @@ img {
 }
 
 .single-product-wrapper .product-description {
+  text-align: center;
   position: relative;
   z-index: 1;
   padding-top: 25px;
 }
 
 .single-product-wrapper .product-description span {
-  font-size: 10px;
+  font-size: 0.8rem;
   text-transform: uppercase;
   color: #787878;
   margin-bottom: 15px;
@@ -1139,9 +1140,12 @@ img {
   font-weight: 600;
 }
 
-.single-product-wrapper .product-description h6 {
+.single-product-wrapper .product-description .product-name {
   color: #222222;
   margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.8rem;
 }
 
 .single-product-wrapper .product-description p {

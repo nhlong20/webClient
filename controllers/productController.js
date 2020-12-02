@@ -1,8 +1,12 @@
 const fs = require('fs');
-const products = JSON.parse(fs.readFileSync(`${__dirname}/../data/products.json`));
+let {products} = JSON.parse(fs.readFileSync(`${__dirname}/../data/products.json`));
 
 
 exports.getAllProducts = (req,res)=>{
- console.log("i'm in");
- res.render('shop');
+ console.log('ssssssssssssssssssssssssssss')
+ console.log(Array.isArray(products));
+ res.render('shop', {products});
+}
+exports.getProduct = (req,res)=>{
+ res.render('single-product-details');
 }

@@ -1,6 +1,8 @@
 {
-    "products": [{
-            "name": "Jackson Lava",
+    "products": [
+        {
+            "name": "Lava",
+            "brand": "Jackson",
             "price": "3199000",
             "color": "Black",
             "status": "1",
@@ -9,7 +11,8 @@
             "size": "40MM"
         },
         {
-            "name": "Jackson Thunder",
+            "name": "Thunder",
+            "brand": "Jackson",
             "price": "3199000",
             "color": "Black",
             "status": "1",
@@ -18,7 +21,8 @@
             "size": "40MM"
         },
         {
-            "name": "Jackson Sandstorm",
+            "name": "Sandstorm",
+            "brand": "Jackson",
             "price": "3199000",
             "color": "Black",
             "status": "1",
@@ -27,7 +31,8 @@
             "size": "40MM"
         },
         {
-            "name": "Jackson Blizzard",
+            "name": "Blizzard",
+            "brand": "Jackson",
             "price": "3199000",
             "color": "Black",
             "status": "1",
@@ -36,7 +41,8 @@
             "size": "40MM"
         },
         {
-            "name": "Jackson Earthquake",
+            "name": "Earthquake",
+            "brand": "Jackson",
             "price": "3199000",
             "color": "Black",
             "status": "1",
@@ -45,7 +51,8 @@
             "size": "40MM"
         },
         {
-            "name": "Kashmir Swank",
+            "name": "Swank",
+            "brand": "Kashmir",
             "price": "2299000",
             "color": "Navy",
             "status": "1",
@@ -54,7 +61,8 @@
             "size": "40MM"
         },
         {
-            "name": "Kashmir Sharp",
+            "name": "Sharp",
+            "brand": "Kashmir",
             "price": "2299000",
             "color": "Black",
             "status": "1",
@@ -63,7 +71,8 @@
             "size": "40MM"
         },
         {
-            "name": "Weimar Herbert",
+            "name": "Herbert",
+            "brand": "Weimar",
             "price": "2299000",
             "color": "Black",
             "status": "1",
@@ -72,7 +81,8 @@
             "size": "40MM"
         },
         {
-            "name": "Colosseum Sterling",
+            "name": "Sterling",
+            "brand": "Colosseum",
             "price": "3099000",
             "color": "Navy",
             "status": "1",
@@ -81,7 +91,8 @@
             "size": "42MM"
         },
         {
-            "name": "Mykonos Tad",
+            "name": "Tad",
+            "brand": "Mykonos",
             "price": "2294000",
             "color": "Black",
             "status": "1",
@@ -90,7 +101,8 @@
             "size": "32x38MM"
         },
         {
-            "name": "Mykonos Alexei",
+            "name": "Alexei",
+            "brand": "Mykonos",
             "price": "1954000",
             "color": "Black",
             "status": "1",
@@ -99,7 +111,8 @@
             "size": "32x38MM"
         },
         {
-            "name": "Colosseum Nova",
+            "name": "Nova",
+            "brand": "Colosseum",
             "price": "3099000",
             "color": "Black",
             "status": "1",
@@ -108,7 +121,8 @@
             "size": "42MM"
         },
         {
-            "name": "Weimar Paul",
+            "name": "Paul",
+            "brand": "Weimar",
             "price": "2299000",
             "color": "Black",
             "status": "1",
@@ -117,7 +131,8 @@
             "size": "40MM"
         },
         {
-            "name": "Colosseum Mace",
+            "name": "Mace",
+            "brand": "Colosseum",
             "price": "3099000",
             "color": "Black",
             "status": "1",
@@ -126,7 +141,8 @@
             "size": "42MM"
         },
         {
-            "name": "Kashmir Calm",
+            "name": "Calm",
+            "brand": "Kashmir",
             "price": "2299000",
             "color": "White",
             "status": "1",
@@ -135,7 +151,8 @@
             "size": "42MM"
         },
         {
-            "name": "Kashmir Grand",
+            "name": "Grand",
+            "brand": "Kashmir",
             "price": "2199000",
             "color": "Navy",
             "status": "1",
@@ -144,7 +161,8 @@
             "size": "40MM"
         },
         {
-            "name": "Colosseum Guandao",
+            "name": "Guandao",
+            "brand": "Colosseum",
             "price": "2799000",
             "color": "Navy",
             "status": "1",
@@ -153,7 +171,8 @@
             "size": "42MM"
         },
         {
-            "name": "Mykonos Maximus",
+            "name": "Maximus",
+            "brand": "Mykonos",
             "price": "2294000",
             "color": "White",
             "status": "1",
@@ -162,7 +181,8 @@
             "size": "32X38MM"
         },
         {
-            "name": "Kashmir Robust",
+            "name": "Robust",
+            "brand": "Kashmir",
             "price": "2299000",
             "color": "White",
             "status": "1",
@@ -171,7 +191,8 @@
             "size": "40MM"
         },
         {
-            "name": "Colosseum Cannon",
+            "name": "Cannon",
+            "brand": "Colosseum",
             "price": "3099000",
             "color": "Black",
             "status": "0",
@@ -180,7 +201,8 @@
             "size": "42MM"
         },
         {
-            "name": "Mykonos Constantine",
+            "name": "Constantine",
+            "brand": "Mykonos",
             "price": "2699000",
             "color": "Navy",
             "status": "0",
