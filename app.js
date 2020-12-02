@@ -4,17 +4,21 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const ejs = require('ejs');
+const cors = require('cors');
+const dotenv = require('dotenv');
 
-var indexRouter = require('./routes/indexRoute');
-var usersRouter = require('./routes/userRoute');
-var productRouter = require('./routes/productRoute');
+const indexRouter = require('./routes/indexRoute');
+const usersRouter = require('./routes/userRoute');
+const productRouter = require('./routes/productRoute');
 
-var app = express();
-
+const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs'); // set ejs to default
+
+// Implement CORS
+app.use(cors());
+app.options('*', cors());
 
 app.use(logger('dev'));
 app.use(express.json());
