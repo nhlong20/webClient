@@ -17,6 +17,7 @@
     "liquidjs": "^9.16.1",
     "mongoose": "^5.10.18",
     "morgan": "^1.10.0",
+    "slugify": "^1.4.6",
     "validator": "^13.5.1"
   },
   "devDependencies": {
