@@ -30,5 +30,6 @@ exports.getProduct = async (req, res) => {
 };
 
 exports.getAccessory = async (req, res) => {
+    
     res.render('accessory');
 };
