@@ -56,7 +56,6 @@ p {
     font-weight: 400;
 }
 
-
 a {
     @include transition(all 500ms ease 0s);
     text-decoration: none;
@@ -87,7 +86,6 @@ img {
     height: auto;
     max-width: 100%;
 }
-
 
 /* Spacing */
 
@@ -252,7 +250,7 @@ img {
         left: 0;
         width: 100%;
         height: 100%;
-        content: "";
+        content: '';
     }
 }
 
@@ -726,13 +724,13 @@ img {
     z-index: 1;
     width: 100%;
     height: 900px;
-    .welcome-container{
+    .welcome-container {
         padding-left: 95px;
         @media #{$breakpoint-md} {
-            padding-left: 50px
+            padding-left: 50px;
         }
         @media #{$breakpoint-xs} {
-            padding-left: 20px
+            padding-left: 20px;
         }
     }
     @media #{$breakpoint-md} {
@@ -742,7 +740,6 @@ img {
         height: 350px;
     }
     .hero-content {
-        
         h2 {
             font-size: 40px;
             color: #fff;
@@ -781,7 +778,7 @@ img {
     }
     &:after {
         @include trans-duration(500ms);
-        content: "";
+        content: '';
         width: 100%;
         height: 100%;
         background-color: rgba(255, 255, 255, 0.6);
@@ -937,7 +934,7 @@ img {
             letter-spacing: 0.75px;
             font-weight: 600;
         }
-        .product-name{
+        .product-name {
             color: #222222;
             margin-bottom: 5px;
             text-transform: uppercase;
@@ -980,7 +977,7 @@ img {
             color: $hover-color !important;
         }
         &.is_animating {
-            animation: favme-anime .5s;
+            animation: favme-anime 0.5s;
         }
     }
     &:hover {
@@ -1008,14 +1005,14 @@ img {
         -webkit-text-stroke-color: transparent;
     }
     25% {
-        opacity: .6;
+        opacity: 0.6;
         color: $white-color;
         font-size: 15px;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: $hover-color;
     }
     75% {
-        opacity: .6;
+        opacity: 0.6;
         color: $white-color;
         font-size: 15px;
         -webkit-text-stroke-width: 1px;
@@ -1338,9 +1335,9 @@ img {
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 140px;
+    height: 260px;
     &:after {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(44, 44, 44, 0.2);
         position: absolute;
         width: 100%;
         height: 100%;
@@ -1352,16 +1349,21 @@ img {
     .page-title {
         h2 {
             font-size: 30px;
-            text-transform: uppercase;
             font-weight: 700;
+            color: #fff !important;
             font-family: $font-ubuntu;
             letter-spacing: 1px;
             margin-bottom: 0;
         }
+        h3 {
+            color: #fff !important;
+        }
+        height: 3px;
     }
+
     &.breadcumb-style-two {
         width: 100%;
-        height: 390px;
+        height: 770px;
         @media #{$breakpoint-md} {
             height: 300px;
         }
@@ -1371,8 +1373,8 @@ img {
         .page-title {
             h2 {
                 font-size: 72px;
-                text-transform: uppercase;
                 font-weight: 700;
+                text-transform: none;
                 font-family: $font-ubuntu;
                 letter-spacing: 1px;
                 margin-bottom: 0;

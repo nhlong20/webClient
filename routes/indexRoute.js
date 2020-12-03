@@ -15,6 +15,9 @@ router.get('/checkout', function(req, res, next) {
 router.get('/shop', function(req, res, next) {
   res.render('shop');
 });
+router.get('/about', function(req, res, next) {
+  res.render('about');
+});
 router.get('/contact', function(req, res, next) {
   res.render('contact');
 });

@@ -15,7 +15,7 @@ const orderSchema = new mongoose.Schema({
         type: Number,
         require: [true, 'Order must have a price.']
     },
-    createdAt: {
+    orderData: {
         type: Date,
         default: Date.now()
     },

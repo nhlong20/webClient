@@ -1,8 +1,7 @@
-const fs = require('fs');
-let products = JSON.parse(fs.readFileSync(`${__dirname}/../data/products.json`, 'utf-8'));
+const Product = require('../models/productModel');
 
-
-exports.getAllProducts = (req,res)=>{
+exports.getAllProducts = async (req,res)=>{
+ const products = await Product.find({});
  res.render('shop', {products});
 }
 exports.getProduct = (req,res)=>{
