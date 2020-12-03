@@ -28,3 +28,7 @@ exports.getProduct = async (req, res) => {
     const product = await Product.findById(id);
     res.render('single-product-details', { product });
 };
+
+exports.getAccessory = async (req, res) => {
+    res.render('accessory');
+};
