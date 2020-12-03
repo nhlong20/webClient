@@ -39,7 +39,7 @@
             margin: 0,
             loop: true,
             nav: true,
-            navText: ["<img src='img/core-img/long-arrow-left.svg' alt=''>", "<img src='img/core-img/long-arrow-right.svg' alt=''>"],
+            navText: ["<img src='/img/core-img/long-arrow-left.svg' alt=''>", "<img src='/img/core-img/long-arrow-right.svg' alt=''>"],
             dots: false,
             autoplay: true,
             autoplayTimeout: 5000,
@@ -147,5 +147,9 @@
     $("a[href='#']").on('click', function ($) {
         $.preventDefault();
     });
-
+    function numberWithCommas(price) {
+        var parts = price.toString().split(".");
+        parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
+        return parts.join(",");
+        }
 })(jQuery);

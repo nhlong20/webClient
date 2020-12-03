@@ -1,6 +1,12 @@
 <%- include("./partials/header.ejs") %>
+<%  function numberWithCommas(price) {
+    var parts = price.toString().split(".");
+    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
+    return parts.join(",");
+    }
+ %>
 <!-- ##### Breadcumb Area Start ##### -->
-<div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+<div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/breadcumb.jpg);">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
@@ -19,7 +25,7 @@
         <div class="row">
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="shop_sidebar_area">
-                        <!-- ##### Single Widget ##### -->
+                    <!-- ##### Single Widget ##### -->
                     <div class="widget price mb-50">
                         <!-- Widget Title -->
                         <h6 class="widget-title mb-30">Lọc</h6>
@@ -102,14 +108,9 @@
                     </div>
 
                     <div class="row">
-                        <%  function numberWithCommas(price) {
-                            var parts = price.toString().split(".");
-                            parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
-                            return parts.join(",");
-                            }
-                         %>
+
                         <!-- Single Product -->
-                        <%for(product of products) {%>
+                        <%products.forEach(product =>{%>
                         <div class="col-12 col-sm-6 col-lg-4">
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
@@ -131,7 +132,7 @@
                                 <!-- Product Description -->
                                 <div class="product-description">
                                     <span><%=product.brand%> - <%=product.size%></span>
-                                    <a href="/product/id">
+                                    <a href="/product/<%=product._id%>">
                                         <h6 class="product-name"><%=product.name%></h6>
                                     </a>
                                     <p class="product-price"><span class="old-price">$75.00</span>
@@ -147,7 +148,7 @@
                                 </div>
                             </div>
                         </div>
-                        <% }%>
+                        <% });%>
                     </div>
                 </div>
                 <!-- Pagination -->
