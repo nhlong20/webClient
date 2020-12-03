@@ -30,6 +30,6 @@ exports.getProduct = async(req, res) => {
 };
 
 exports.getAccessory = async(req, res) => {
-    const product = await Product.findById("5fc8af6da5493b162cb95562");
+    const product = await Product.findById("5fc8ee3a11043817044c9c24");
     res.render('accessory', { product });
 };
