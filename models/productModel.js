@@ -39,7 +39,6 @@ const productSchema = new Schema({
     },
     color: {
         type: String,
-        required: [true, 'A product must have color']
     },
     images: [
         {
@@ -48,7 +47,6 @@ const productSchema = new Schema({
     ],
     size: {
         type: String,
-        required: [true, 'A product must have sizes']
     }
 });
 

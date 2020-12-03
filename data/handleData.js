@@ -1,3 +1,6 @@
+// node ./data/hanldeData.js --delete 
+
+
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -23,7 +26,9 @@ mongoose
  .then(() => console.log('DB connection successful!'));
 
 
-let products = JSON.parse(fs.readFileSync(`${__dirname}/../data/products.json`, 'utf-8'));
+let products = JSON.parse(fs.readFileSync(`${__dirname}/../data/products${process.argv[3]}.json`, 'utf-8'));
+
+
 
 // IMPORT DATA INTO DB
 const importData = async () => {
