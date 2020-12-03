@@ -1,13 +1,39 @@
 <%- include("./partials/header.ejs") %>
 
-<%function numberWithCommas(price) {
+    <%function numberWithCommas(price) {
     var parts = price.toString().split(".");
     parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
     return parts.join(",");
     }
 %>
 
-NAM GOES FORM HERE
+        <section class="single_product_details_area d-flex align-items-center">
+            <div class="single_product_thumb clearfix">
+                <div class="product_thumbnail_slides owl-carousel">
+                    <%product.images.forEach(image =>{%>
+                        <img src="<%=image%>" alt="">
+                        <%})%>
+                </div>
+            </div>
+            <div class="single_product_desc clearfix">
+                <h2>Phuong Nam</h2>
+
+                <p class="product-price"> 16742</p>
+
+                <div class="cart-fav-box d-flex align-items-center">
+                    <!-- Cart -->
+                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
+                    <!-- Favourite -->
+                    <div class="product-favourite ml-4">
+                        <a href="#" class="favme fa fa-heart"></a>
+                    </div>
+                </div>
+                </form>
+            </div>
 
 
-<%- include("./partials/footer.ejs") %>
+        </section>
+
+
+
+        <%- include("./partials/footer.ejs") %>
