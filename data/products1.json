@@ -1,13 +1,16 @@
-[{
+[
+    {
         "name": "Lava",
         "brand": "Jackson",
         "price": "3199000",
         "color": "Black",
-        
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Phối màu đen nhám cùng các điểm nhấn Rosegold tạo nên vẻ đẹp nổi bật, mạnh mẽ cho người đàn ông cá tính khi sở hữu Lava.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/l/a/lava.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-4-5-f2-crpp.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-4-5-f2-crpp.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/4/_/4_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/u/n/untitled_capture6850.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -18,10 +21,13 @@
         "brand": "Jackson",
         "price": "3199000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Sự kết hợp giữa Silver và Black tạo nên vẻ đẹp hiện đại, tối giản và giúp cổ tay bạn được chú ý trên nền mọi trang phục.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/t/h/thunder.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-3-3-f2-crpp.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-3-3-f2-crpp.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/5/_/5_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/u/n/untitled_capture8190.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -32,10 +38,13 @@
         "brand": "Jackson",
         "price": "3199000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Với texture đặc biệt trên mặt đồng hồ kết hợp cùng Rosegold và Black giúp “Bão sa Mạc” trở thành điểm nhấn khác biệt và mạnh mẽ nhất.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/s/a/sandstorm.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-5-3-final-f-crpped.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-5-3-final-f-crpped.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/8/_/8.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/u/n/untitled_capture9245.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -46,10 +55,13 @@
         "brand": "Jackson",
         "price": "3199000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Phối màu Batman của vòng Bezel trên nền kim loại Silver sẽ đem đến cho bạn sự năng động và sự dễ dàng kết hợp trang phục.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/b/l/blizzard.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-2-3-f2-crpp.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-2-3-f2-crpp.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/7/_/7_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/c/u/curnon6083.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -60,10 +72,13 @@
         "brand": "Jackson",
         "price": "3199000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Phần khung và Dây thép không gỉ Silver cùng phối màu Pepsi kinh điển trên vòng Bezel sẽ đem đến cho bạn sự phóng khoáng và trưởng thành.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/e/a/earthquake.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-1-3-f2-crpp.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/j/k/jksn-1-3-f2-crpp.png?auto=png&format=png&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/3/_/3_3.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/u/n/untitled_capture1056.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -74,10 +89,13 @@
         "brand": "Kashmir",
         "price": "2299000",
         "color": "Navy",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Là người trẻ, bạn nghiêm túc trong công việc và năng động trong những hoạt động với bạn bè? Đồng hồ Kashmir Swank chính là sự lựa chọn hoàn hảo nhất. Thiết kế mặt đồng hồ màu xanh ấn tượng, kết hợp cùng dây kim loại bạc tạo nên một tổng thể trẻ trung, khác biệt, nhưng vẫn cực kì lịch lãm khi đi làm.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/b/x/bx.swank.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/b/x/bx.swank.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/b/x/bx.swank.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/l/b/lbkm.swank1-min.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/l/b/lbkm.swank2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -88,10 +106,13 @@
         "brand": "Kashmir",
         "price": "2299000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Ấn tượng và sắc bén, chính là những cá tính của người đàn ông thời hiện đại, và cũng chính là điểm nổi bật của đồng hồ Kashmir Sharp. Không cần quá nhiều màu sắc hay sự phức tạp, Kashmir Sharp chính là minh chứng rõ ràng nhất cho việc bạn chỉ cần một chiếc đồng hồ phù hợp, đủ ấn tượng và sắc bén để tự tin trải nghiệm cuộc sống.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/v/d/vd.sharp.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/b/r/br.sharp.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/b/r/br.sharp.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/s/h/sharp_3.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "40MM"
@@ -101,10 +122,13 @@
         "brand": "Weimar",
         "price": "2299000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Là một trong những phối màu sang trọng và bán chạy nhất của Curnon, đồng hồ Weimar Herbert dành cho các chàng trai yêu thích phong cách cổ điển và muốn tạo điểm nhấn tinh tế cho bộ trang phục của mình.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/h/e/herbert.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/h/e/herbert_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/h/e/herbert_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/p/h/ph.l.1_1_cropped.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/3/_/3_1_.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -115,10 +139,13 @@
         "brand": "Colosseum",
         "price": "3099000",
         "color": "Navy",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Là sự kết hợp hoàn hảo giữa màu sắc và chất liệu dây thép mạnh mẽ, Colosseum Sterling chính là tuyên ngôn mạnh mẽ nhất của một người đàn ông trưởng thành.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/s/t/sterling.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/s/t/sterling.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/s/t/sterling.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/b/a/ba_n_sao_cu_a_10_cropped.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/b/a/ba_n_sao_cu_a_2_cropped.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -129,10 +156,13 @@
         "brand": "Colosseum",
         "price": "3099000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Được mệnh danh là Ngôi sao vụt sáng hay The Beast của Curnon, Colosseum Nova mang thiết kế đầy ấn tượng với tông màu đen huyền bí và màu kim ánh vàng, đem đến sự mạnh mẽ, nổi bật cho mọi chàng trai đeo nó.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/n/o/nova.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/n/o/nova.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/n/o/nova.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/0/4/04_cropped.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/0/f/0f9a8675_cropped.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -143,10 +173,13 @@
         "brand": "Weimar",
         "price": "2299000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Một chiếc Đồng hồ dành cho những chàng trai yêu thích sự sang trọng và cổ điển. Với sự kết hợp giữa mặt kính vòm, sắc đen cùng rosegold đầy quyến rũ, đồng hồ Weimar Paul sẽ giúp bạn nâng tầm bất cứ bộ trang phục nào.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/p/a/paul.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/p/a/paul_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/p/a/paul_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/p/h/ph.l.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/p/h/ph.l.4.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -157,10 +190,13 @@
         "brand": "Colosseum",
         "price": "3099000",
         "color": "Black",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Đồng hồ Colosseum Mace mang thiết kế tối giản và được kết hợp với tone màu Silver nhám đặc biệt, tạo nên sự mạnh mẻ, khỏe khoắn cho những người đàn ông sở hữu nó.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/m/a/mace.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/m/a/mace2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/m/a/mace2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/1/0/10.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/_/n/_ndp8860.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -171,10 +207,13 @@
         "brand": "Kashmir",
         "price": "2299000",
         "color": "White",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Với tông màu trắng và bạc, kết hợp cùng điểm nhấn xanh Navy tinh tế, đồng hồ Kashmir Calm là sự lựa chọn số một cho những bạn trẻ yêu thích sự đơn giản nhưng không hề đơn điệu. Bền bỉ như chính cái tên của mình nhờ trang bị dây kim loại màu bạc, đồng hồ Kashmir Calm sẽ cùng bạn tự tin trong mọi hoạt động hàng ngày.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/b/t/bt.calm.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/s/_/s.calm.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/s/_/s.calm.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/c/a/calm_3.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/s/dsc_2865.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -185,10 +224,13 @@
         "brand": "WEIMAR ",
         "price": "2299000",
         "color": "White",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Đồng hồ Weimar Stefan chính là cách một chàng trai thích sự cổ điển thể hiện cái “tôi” của mình. Với thiết kế tinh tế và cùng điểm nhấn màu sắc, đơn giản mà không bình thường, Weimar Stefan làm toát lên khí chất rất đàn ông cho những ai diện nó lên tay.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/s/t/stefan_1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/s/_/s.stefan.2_1_.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/s/_/s.stefan.2_1_.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/l/i/life_style_nam00347-edit_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "40MM"
@@ -198,10 +240,13 @@
         "brand": "Kashmir",
         "price": "2199000",
         "color": "Navy",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Kết hợp giữa mặt xanh độc đáo và dây da đen sang trọng, đồng hồ Kashmir Grand chính là lựa chọn cho những người đàn ông trưởng thành, chín chắn và mong muốn sự tự tin trong những sự kiện quan trọng.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/b/x/bx.grand.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/b/x/bx.grand.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/b/x/bx.grand.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/l/b/lbkm.grand_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "40MM"
@@ -211,10 +256,13 @@
         "brand": "Colosseum",
         "price": "2799000",
         "color": "Navy",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Đồng hồ Colosseum Guandao được ví như mũi giáo, đại diện cho người đàn ông mạnh mẽ tiến về phía trước, và luôn tự tin với chiếc đồng hồ hiện đại trên tay.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/g/u/guandao.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/g/u/guandao-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/g/u/guandao-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/s/dsc_2803_cropped.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "42MM"
@@ -224,10 +272,13 @@
         "brand": "Kashmir",
         "price": "2299000",
         "color": "White",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Với thiết kế tối giản sử dụng tông màu đen chủ đạo và dây kim loại, đồng hồ Kashmir Robust mang đến sự mạnh mẽ, bí ẩn cùng tính ứng dụng cao, giúp bạn vững vàng trước mọi điều kiện môi trường và thời tiết trong hoạt động hàng ngày.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/d/_/d.robust.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/d/_/d.robust.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/d/_/d.robust.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/i/m/img_5881.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "40MM"
@@ -237,10 +288,13 @@
         "brand": "KASHMIR ",
         "price": "2199000",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Tinh tế và sang trọng là những ngôn từ được lựa chọn để miêu tả khí chất của đồng hồ Kashmir Dapper. Với tông màu vàng hồng kết hợp dây da tinh xảo, chiếc đồng hồ sẽ rất phù hợp khi kết hợp với những bộ trang phục công sở thanh lịch. Bên cạnh đó, sự đơn giản trong đường nét thiết kế kết hợp tông màu đậm tính thời trang, Kashmir Dapper cũng sẽ làm hài lòng cả những bạn trẻ cá tính và năng động.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/v/d/vd.dapper.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/b/r/br.dapper.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/b/r/br.dapper.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/a/dapper_3.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "40MM"
@@ -250,10 +304,13 @@
         "brand": "MYKONOS ",
         "price": "1954000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Dòng đồng hồ mặt chữ nhật đầu tiên cho nam của Curnon ra đời với tiếng nói góc cạnh, dám dấn thân và khác biệt cùng những chi tiết hiện đại được tô điểm trên nền thiết kế cổ điển.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/a/c/achilles.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/a/c/achilles.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/a/c/achilles.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/s/dsc_2708_1_.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "32X38MM"
@@ -263,10 +320,13 @@
         "brand": "KASHMIR ",
         "price": "2199000",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Hunk có nghĩa là sự mạnh mẽ, lớn lao của người đàn ông và cũng chính là cảm hứng để Curnon tạo ra chiếc đồng hồ Kashmir Hunk. Dây da và mặt đồng hồ đen kết hợp cùng điểm nhấn rosegold giúp bạn dễ dàng kết hợp với mọi trang phục, đồng thời toát lên khí chất mạnh mẽ để chinh phục mọi mục tiêu trong cuộc sống.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/v/d/vd.hunk.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/b/r/br.hunk.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/b/r/br.hunk.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/h/u/hunk_3.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "40MM"
@@ -276,10 +336,13 @@
         "brand": "WEIMAR ",
         "price": "2299000",
         "color": "GREY",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Thiết kế Bauhaus tối giản của Weimar Otto được Curnon thể hiện trên nền của sự kết hợp màu sắc tinh tế và hiện đại. Cặp dây da màu Sand cùng chi tiết kim xanh chính là điểm nhấn giúp bạn kết hợp hoàn hảo với bất kì bộ trang phục nào.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/o/t/otto.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/2/_/2_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/2/_/2_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/w/w/wwo.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/w/w/wwo.1_cropped.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -290,10 +353,13 @@
         "brand": "MYKONOS ",
         "price": "1954000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Dòng đồng hồ mặt chữ nhật đầu tiên cho nam của Curnon ra đời với tiếng nói góc cạnh, dám dấn thân và khác biệt cùng những chi tiết hiện đại được tô điểm trên nền thiết kế cổ điển.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/n/i/nicholas.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/n/i/nicholas.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/n/i/nicholas.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/p/a/part_of_curnon_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "32X38MM"
@@ -303,10 +369,13 @@
         "brand": "KASHMIR ",
         "price": "2199000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Bằng nhiệt huyết và sự thấu hiểu, Curnon đem đến cho người trẻ Việt một chiếc đồng hồ bền bỉ với thời gian nhưng vẫn không quên đi kèm với sự lịch lãm như chính tên gọi Gallant của nó. Kashmir Gallant được xem như một chiếc đồng hồ dành cho mọi dịp, bạn có thể trở nên lịch lãm trong một buổi họp quan trọng hay trẻ trung, hiện đại vào những bữa ăn tối với bạn bè.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/b/t/bt.gallant.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/s/_/s.gallant.2_1_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/s/_/s.gallant.2_1_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/i/m/img_5756_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/3/_/3_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -317,10 +386,13 @@
         "brand": "KASHMIR",
         "price": "2199000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Men",
         "status": "0",
         "description": "Thiết kế tối giản, kết hợp tông màu trắng cùng rosegold và dây da màu nâu sáng tạo ra vẻ đẹp hiện đại pha lẫn chút cổ điển.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/v/t/vt.noble_1_1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/w/r/wr.noble.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/w/r/wr.noble.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/n/o/noble_3_1_.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/1/_/1_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -331,10 +403,13 @@
         "brand": "WEIMAR ",
         "price": "2299000",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Men",
         "status": "1",
         "description": "Weimar Klaus mang một phối màu cơ bản cùng dây da đen là một sự lựa chọn dễ dàng cho những chàng trai ăn mặc không quá cầu kì. Với thiết kế cổ điển cùng chính những tông màu trung tính sẽ giúp bạn có thể kết hợp với mọi bộ trang phục.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/k/l/klaus.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/k/l/klaus_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/k/l/klaus_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/3/_/3_2_.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "40MM"

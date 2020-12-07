@@ -1,12 +1,16 @@
-[{
+[
+    {
         "name": "DAHLIA",
         "brand": "FLORENGE ",
         "price": "249900",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "BST Florenge cùng 5 phối màu mang đậm dấu ấn hài hoà giữa cổ điển và hiện đại trong từng chi tiết với mặt đồng hồ được chạm khắc vân Guilloche - biểu tượng của nghệ thuật chế tác, sẽ là 5 bông hoa luôn nở rộ nhắc bạn rằng không cần phải đợi tới những cột mốc quan trọng để xinh đẹp và toả sáng.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/d/3/d3-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/n/3/n3-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/n/3/n3-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6305-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6340-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -17,10 +21,13 @@
         "brand": "FLORENGE ",
         "price": "249900",
         "color": "ROSEGOLD",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "BST Florenge cùng 5 phối màu mang đậm dấu ấn hài hoà giữa cổ điển và hiện đại trong từng chi tiết với mặt đồng hồ được chạm khắc vân Guilloche - biểu tượng của nghệ thuật chế tác, sẽ là 5 bông hoa luôn nở rộ nhắc bạn rằng không cần phải đợi tới những cột mốc quan trọng để xinh đẹp và toả sáng.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/d/1/d1-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/n/1/n1-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/n/1/n1-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6531-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6523-edit-edit-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -31,10 +38,13 @@
         "brand": "FLORENGE ",
         "price": "2499000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "BST Florenge cùng 5 phối màu mang đậm dấu ấn hài hoà giữa cổ điển và hiện đại trong từng chi tiết với mặt đồng hồ được chạm khắc vân Guilloche - biểu tượng của nghệ thuật chế tác, sẽ là 5 bông hoa luôn nở rộ nhắc bạn rằng không cần phải đợi tới những cột mốc quan trọng để xinh đẹp và toả sáng.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/d/2/d2-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/n/2/n2-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/n/2/n2-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6299-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6690-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -45,10 +55,13 @@
         "brand": "FLORENGE ",
         "price": "2499000",
         "color": "PEARL",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "BST Florenge cùng 5 phối màu mang đậm dấu ấn hài hoà giữa cổ điển và hiện đại trong từng chi tiết với mặt đồng hồ được chạm khắc vân Guilloche - biểu tượng của nghệ thuật chế tác, sẽ là 5 bông hoa luôn nở rộ nhắc bạn rằng không cần phải đợi tới những cột mốc quan trọng để xinh đẹp và toả sáng",
         "coverImage": "https://curnonwatch.com/media/catalog/product/d/4/d4-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/n/4/n4-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/n/4/n4-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6394-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6459-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -59,10 +72,13 @@
         "brand": "FLORENGE",
         "price": "2499000",
         "color": "NAVY",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "BST Florenge cùng 5 phối màu mang đậm dấu ấn hài hoà giữa cổ điển và hiện đại trong từng chi tiết với mặt đồng hồ được chạm khắc vân Guilloche - biểu tượng của nghệ thuật chế tác, sẽ là 5 bông hoa luôn nở rộ nhắc bạn rằng không cần phải đợi tới những cột mốc quan trọng để xinh đẹp và toả sáng.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/d/5/d5-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/n/5/n5-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/n/5/n5-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6701-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/ann_6723-edit.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -73,10 +89,13 @@
         "brand": "MELISSANI ",
         "price": "2299000",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Lấy cảm hứng từ vẻ đẹp thiên nhiên hoang sơ được ví như nàng tiên bước ra từ thần thoại, Melissani mang đầy đủ những nét đẹp của chiếc đồng hồ đáng mơ ước cho phái nữ: cá tính, quyến rũ và đầy bí ẩn. Đường kính 32mm, dễ dàng kết hợp cùng dây da và dây kim loại, phù hợp với mọi phong cách thời trang bạn yêu thích.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/h/a/haze.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/h/a/haze.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/h/a/haze.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/i/m/img_2420-min.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/_/n/_ndp8276.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -87,10 +106,13 @@
         "brand": "MORAINE ",
         "price": "2299000",
         "color": "PINK",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Là dòng đồng hồ 28mm đầu tiên của Curnon, Moraine dành cho những cô gái có cổ tay nhỏ và yêu thích sự tối giản theo triết lí Less is more. Các tông màu trung tính hay vàng hồng sang trọng luôn phù hợp để bạn tỏa sáng trong mọi dịp.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/k/i/kiss.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/k/i/kiss.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/k/i/kiss.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/k/i/kiss.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "28MM"
@@ -100,10 +122,13 @@
         "brand": "SANTORINI ",
         "price": "1954000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Là dòng đồng hồ mặt chữ nhật đầu tiên của Curnon dành cho nữ, Santorini mang đến tiếng nói góc cạnh, khác biệt và đầy cá tính cho những cô gái hiện đại.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/f/a/fauna.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/f/a/fauna.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/f/a/fauna.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/x/dx_06994.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "24X30MM"
@@ -113,10 +138,13 @@
         "brand": "HAMILTON ",
         "price": "2299000",
         "color": "PINK",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Là hòn đảo thơ mộng ở nước Úc xa xôi, Hamilton đại diện cho sự vui vẻ và tinh thần tràn đầy năng lượng của những cô gái hiện đại. Hơn thế nữa, đây chính là dòng sản phẩm đầu tiên dành cho nữ có mặt kính vòm giúp bạn thêm phần cuốn hút và thanh lịch.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/c/o/cora.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/c/o/cora.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/c/o/cora.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/x/dx-01319-copy.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/x/dx_06222-2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -127,10 +155,13 @@
         "brand": "MELISSANI ",
         "price": "2299000",
         "color": "PINK",
+        "department": "Watch",
+        "category": "Women",
         "status": "0",
         "description": "Lấy cảm hứng từ vẻ đẹp thiên nhiên hoang sơ được ví như nàng tiên bước ra từ thần thoại, Melissani mang đầy đủ những nét đẹp của chiếc đồng hồ đáng mơ ước cho phái nữ: cá tính, quyến rũ và đầy bí ẩn. Đường kính 32mm, dễ dàng kết hợp cùng dây da và dây kim loại, phù hợp với mọi phong cách thời trang bạn yêu thích.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/a/u/autumn_1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/a/u/autumn.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/a/u/autumn.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/0/f/0f9a0034.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/5/_/5.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -141,10 +172,13 @@
         "brand": "MORAINE ",
         "price": "2299000",
         "color": "NAVY",
+        "department": "Watch",
+        "category": "Women",
         "status": "0",
         "description": "Là dòng đồng hồ 28mm đầu tiên của Curnon, Moraine dành cho những cô gái có cổ tay nhỏ và yêu thích sự tối giản theo triết lí Less is more. Các tông màu trung tính hay vàng hồng sang trọng luôn phù hợp để bạn tỏa sáng trong mọi dịp.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/c/h/charm.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/p/r/pr.charm.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/p/r/pr.charm.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/c/h/charm.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/7/_/7_3.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -155,10 +189,13 @@
         "brand": "SANTORINI ",
         "price": "1954000",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Là dòng đồng hồ mặt chữ nhật đầu tiên của Curnon dành cho nữ, Santorini mang đến tiếng nói góc cạnh, khác biệt và đầy cá tính cho những cô gái hiện đại.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/g/a/gaia.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/g/a/gaia.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/g/a/gaia.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/x/dx_06811-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/c/u/curnon-03209.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -169,10 +206,13 @@
         "brand": "HAMILTON ",
         "price": "1954000",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Là hòn đảo thơ mộng ở nước Úc xa xôi, Hamilton đại diện cho sự vui vẻ và tinh thần tràn đầy năng lượng của những cô gái hiện đại. Hơn thế nữa, đây chính là dòng sản phẩm đầu tiên dành cho nữ có mặt kính vòm giúp bạn thêm phần cuốn hút và thanh lịch.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/s/y/sylvia.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/s/y/sylvia.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/s/y/sylvia.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/r/e/recovered.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/i/m/img_0028.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -183,10 +223,13 @@
         "brand": "MELISSANI ",
         "price": "2299000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "0",
         "description": "Lấy cảm hứng từ vẻ đẹp thiên nhiên hoang sơ được ví như nàng tiên bước ra từ thần thoại, Melissani mang đầy đủ những nét đẹp của chiếc đồng hồ đáng mơ ước cho phái nữ: cá tính, quyến rũ và đầy bí ẩn. Đường kính 32mm, dễ dàng kết hợp cùng dây da và dây kim loại, phù hợp với mọi phong cách thời trang bạn yêu thích.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/s/e/serene.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/s/e/serene.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/s/e/serene.2_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/1/3/13.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "32MM"
@@ -196,10 +239,13 @@
         "brand": "MORAINE ",
         "price": "2299000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "0",
         "description": "Là dòng đồng hồ 28mm đầu tiên của Curnon, Moraine dành cho những cô gái có cổ tay nhỏ và yêu thích sự tối giản theo triết lí Less is more. Các tông màu trung tính hay vàng hồng sang trọng luôn phù hợp để bạn tỏa sáng trong mọi dịp.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/t/e/tear.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/t/e/tear.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/t/e/tear.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/t/e/tear.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "28MM"
@@ -209,10 +255,13 @@
         "brand": "SANTORINI ",
         "price": "2339000",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Women",
         "status": "0",
         "description": "Là dòng đồng hồ mặt chữ nhật đầu tiên của Curnon dành cho nữ, Santorini mang đến tiếng nói góc cạnh, khác biệt và đầy cá tính cho những cô gái hiện đại.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/l/e/lexie.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/l/e/lexie.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/l/e/lexie.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/s/dsc_3306.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "24X30MM"
@@ -222,10 +271,13 @@
         "brand": "HAMILTON ",
         "price": "1954000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Là hòn đảo thơ mộng ở nước Úc xa xôi, Hamilton đại diện cho sự vui vẻ và tinh thần tràn đầy năng lượng của những cô gái hiện đại. Hơn thế nữa, đây chính là dòng sản phẩm đầu tiên dành cho nữ có mặt kính vòm giúp bạn thêm phần cuốn hút và thanh lịch.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/a/n/anne.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/a/n/anne.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/a/n/anne.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/s/dsc_2464.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "32MM"
@@ -235,10 +287,13 @@
         "brand": "MELISSANI ",
         "price": "2299000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "0",
         "description": "Lấy cảm hứng từ vẻ đẹp thiên nhiên hoang sơ được ví như nàng tiên bước ra từ thần thoại, Melissani mang đầy đủ những nét đẹp của chiếc đồng hồ đáng mơ ước cho phái nữ: cá tính, quyến rũ và đầy bí ẩn. Đường kính 32mm, dễ dàng kết hợp cùng dây da và dây kim loại, phù hợp với mọi phong cách thời trang bạn yêu thích.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/w/i/wind.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/w/i/wind.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/w/i/wind.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/s/dsc_3111.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/1/5/15.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -249,10 +304,13 @@
         "brand": "MORAINE ",
         "price": "2299000",
         "color": "BLACK",
+        "department": "Watch",
+        "category": "Women",
         "status": "0",
         "description": "Là dòng đồng hồ 28mm đầu tiên của Curnon, Moraine dành cho những cô gái có cổ tay nhỏ và yêu thích sự tối giản theo triết lí Less is more. Các tông màu trung tính hay vàng hồng sang trọng luôn phù hợp để bạn tỏa sáng trong mọi dịp.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/g/r/grace.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/g/r/grace.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/g/r/grace.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/g/r/grace.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "28MM"
@@ -262,10 +320,13 @@
         "brand": "SANTORINI ",
         "price": "2209000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Là dòng đồng hồ mặt chữ nhật đầu tiên của Curnon dành cho nữ, Santorini mang đến tiếng nói góc cạnh, khác biệt và đầy cá tính cho những cô gái hiện đại.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/c/a/cadie.1.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/c/a/cadie.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/c/a/cadie.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/2/5/25.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "24X30MM"
@@ -275,10 +336,13 @@
         "brand": "BEVERLY ",
         "price": "2209000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Cảm giác bước đi trên ngọn đồi Beverly Hills sang trọng bậc nhất Hollywood sẽ thế nào? Đó chính là sự mềm mại, thanh lịch được truyền tải qua thiết kế tối giản với điểm nhấn là hình ảnh chiếc lá của Beverly.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/m/i/mindful.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/w/1/w1-2-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/w/1/w1-2-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/c/u/curnon-4470.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/u/n/untitled-1_1.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -289,10 +353,13 @@
         "brand": "BEVERLY ",
         "price": "2339000",
         "color": "ROSEGOLD",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Cảm giác bước đi trên ngọn đồi Beverly Hills sang trọng bậc nhất Hollywood sẽ thế nào? Đó chính là sự mềm mại, thanh lịch được truyền tải qua thiết kế tối giản với điểm nhấn là hình ảnh chiếc lá của Beverly.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/t/a/tasteful.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/g/1/g1-2-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/g/1/g1-2-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/x/dx_05708.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/c/u/curnon-8109.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -303,10 +370,13 @@
         "brand": "BEVERLY ",
         "price": "2209000",
         "color": "PEARL",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Cảm giác bước đi trên ngọn đồi Beverly Hills sang trọng bậc nhất Hollywood sẽ thế nào? Đó chính là sự mềm mại, thanh lịch được truyền tải qua thiết kế tối giản với điểm nhấn là hình ảnh chiếc lá của Beverly.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/e/l/elegant.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/e/l/elegant_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/e/l/elegant_2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/7/_/7.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "30MM"
@@ -316,10 +386,13 @@
         "brand": "BEVERLY",
         "price": "2209000",
         "color": "NAVY",
+        "department": "Watch",
+        "category": "Women",
         "status": "1",
         "description": "Cảm giác bước đi trên ngọn đồi Beverly Hills sang trọng bậc nhất Hollywood sẽ thế nào? Đó chính là sự mềm mại, thanh lịch được truyền tải qua thiết kế tối giản với điểm nhấn là hình ảnh chiếc lá của Beverly.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/c/l/classy.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/g/2/g2-2-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/g/2/g2-2-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/x/dx_06918-2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/x/dx_07472.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
@@ -330,10 +403,13 @@
         "brand": "MORAINE ",
         "price": "2299000",
         "color": "WHITE",
+        "department": "Watch",
+        "category": "Women",
         "status": "0",
         "description": "Là dòng đồng hồ 28mm đầu tiên của Curnon, Moraine dành cho những cô gái có cổ tay nhỏ và yêu thích sự tối giản theo triết lí Less is more. Các tông màu trung tính hay vàng hồng sang trọng luôn phù hợp để bạn tỏa sáng trong mọi dịp.",
         "coverImage": "https://curnonwatch.com/media/catalog/product/d/e/desire.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true",
-        "images": ["https://beta-admin.curnonwatch.com/media/catalog/product/d/e/desire.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
+        "images": [
+            "https://beta-admin.curnonwatch.com/media/catalog/product/d/e/desire.2.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255",
             "https://beta-admin.curnonwatch.com/media/catalog/product/d/e/desire.jpg?auto=png&format=pjpg&width=1920&height=1280&fit=cover&background=255%2C255%2C255"
         ],
         "size": "28MM"
