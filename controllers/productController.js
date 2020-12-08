@@ -46,11 +46,7 @@ exports.getMenWatches = async (req, res) => {
     };
     const page = req.query.page * 1 || 1;
     const limit = req.query.limit * 1 || ITEM_PER_PAGE;
-    const paginate = await productService.listMenWatches(
-        filterObj,
-        page,
-        limit
-    );
+    const paginate = await productService.listProduct(filterObj, page, limit);
     const categoryPath = `/san-pham/dong-ho-nam`;
     renderView(res, paginate, categoryPath);
 };
@@ -62,19 +58,23 @@ exports.getWomenWatches = async (req, res) => {
     };
     const page = req.query.page * 1 || 1;
     const limit = req.query.limit * 1 || ITEM_PER_PAGE;
-    const paginate = await productService.listMenWatches(
-        filterObj,
-        page,
-        limit
-    );
+    const paginate = await productService.listProduct(filterObj, page, limit);
     const categoryPath = `/san-pham/dong-ho-nu`;
     renderView(res, paginate, categoryPath);
 };
 exports.getAccessories = async (req, res) => {
-    const products = await Product.find({
-        department: 'Accessory'
-    });
-    res.render('shop', { products });
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
+    const paginate = await productService.listProduct(
+        {
+            department: 'Accessory'
+        },
+        page,
+        limit
+    );
+    const categoryPath = `/san-pham/phu-kien`;
+    renderView(res, paginate, categoryPath);
+
 };
 
 exports.getProduct = async (req, res) => {

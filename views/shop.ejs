@@ -154,19 +154,21 @@
                 <!-- Pagination -->
                 <nav aria-label="navigation">
                     <ul class="pagination mt-50 mb-70">
-                        <% if(currentPage > 1){%>
-                        <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>"><i class="fa fa-angle-left"></i></a></li>
+                        <% if(currentPage && currentPage > 1){%>
+                        <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>"><i
+                                    class="fa fa-angle-left"></i></a></li>
                         <% }%>
                         <%if(hasPrevPage){%>
                         <li class="page-item"><a class="page-link"
                                 href="<%=categoryPath%>?page=<%=prevPage%>"><%=prevPage%></a></li>
                         <% }%>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)" tabindex="-1"><%=currentPage%></a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)"
+                                tabindex="-1"><%=currentPage%></a></li>
                         <%if(hasNextPage){%>
                         <li class="page-item"><a class="page-link"
                                 href="<%=categoryPath%>?page=<%=nextPage%>"><%=nextPage%></a></li>
                         <%}%>
-                        <%if(lastPage>currentPage){%>
+                            <%if(lastPage>currentPage){%>
                         <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>"><i
                                     class="fa fa-angle-right"></i></a></li>
                         <%}%>
