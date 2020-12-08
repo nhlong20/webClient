@@ -110,7 +110,7 @@
                     <p>Sắp xếp</p>
                     <form action="<%=categoryPath%>" method="GET">
                         <select name="sort" id="sortByselect" onchange="this.form.submit()">
-                                <option value="all">Tất cả</option>
+                            <option value="all">Tất cả</option>
                             <option value="price">Giá tăng dần</option>
                             <option value="-price">Giá giảm dần</option>
                             <option value="name">Tên: A - Z</option>
@@ -173,12 +173,12 @@
     <nav aria-label="navigation">
         <ul class="pagination mt-50 mb-70">
             <% if(currentPage && currentPage > 1){%>
-            <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>"><i
+            <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&sort=<%=sort%>"><i
                         class="fa fa-angle-left"></i></a></li>
             <% }%>
             <%if(hasPrevPage){%>
             <li class="page-item">
-                <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>">
+                <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&sort=<%=sort%>">
                     <%=prevPage%>
                 </a>
             </li>
@@ -190,13 +190,15 @@
             </li>
             <%if(hasNextPage){%>
             <li class="page-item">
-                <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>">
+                <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&sort=<%=sort%>">
                     <%=nextPage%>
                 </a>
             </li>
             <%}%>
-                                                    <%if(lastPage>currentPage){%>
-            <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>"><i
+             <%if(lastPage>currentPage){
+                 
+                %>
+            <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&sort=<%=sort%>"><i
                         class="fa fa-angle-right"></i></a></li>
             <%}%>
                         </ul>

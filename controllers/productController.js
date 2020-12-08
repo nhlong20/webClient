@@ -45,7 +45,7 @@ exports.getAllProducts = async (req, res) => {
         sort: sort || 'all'
     };
     const paginate = await productService.listProduct(query, options);
-    if (sort && sort != 'name') {
+    if (sort && sort != 'all') {
         paginate.sort = sort;
     }
     const categoryPath = `/san-pham`;
@@ -66,7 +66,7 @@ exports.getMenWatches = async (req, res) => {
         sort: sort || 'all'
     };
     const paginate = await productService.listProduct(query, options);
-    if (sort && sort != 'name') {
+    if (sort && sort != 'all') {
         paginate.sort = sort;
     }
     const categoryPath = `/san-pham/dong-ho-nam`;
@@ -88,7 +88,7 @@ exports.getWomenWatches = async (req, res) => {
         sort: sort || 'all'
     };
     const paginate = await productService.listProduct(query, options);
-    if (sort && sort != 'name') {
+    if (sort && sort != 'all') {
         paginate.sort = sort;
     }
     const categoryPath = `/san-pham/dong-ho-nu`;
@@ -105,7 +105,7 @@ exports.getAccessories = async (req, res) => {
         sort: sort || 'all'
     };
     const paginate = await productService.listProduct(query, options);
-    if (sort && sort != 'name') {
+    if (sort && sort != 'all') {
         paginate.sort = sort;
     }
     const categoryPath = `/san-pham/phu-kien`;
@@ -125,7 +125,7 @@ exports.getBrand = async (req, res) => {
         sort: sort || 'all'
     };
     const paginate = await productService.listProduct(query, options);
-    if (sort && sort != 'name') {
+    if (sort && sort != 'all') {
         paginate.sort = sort;
     }
     const categoryPath = `/san-pham/thuong-hieu`;
