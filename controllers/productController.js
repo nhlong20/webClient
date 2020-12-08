@@ -15,7 +15,8 @@ function renderView(res, paginate, categoryPath) {
         prevPage: paginate.prevPage,
         nextPage: paginate.nextPage,
         categoryPath: categoryPath,
-        sort: paginate.sort
+        sort: paginate.sort,
+        searchString: paginate.search
     };
     res.render('shop', pageControlObj);
 }
@@ -139,4 +140,27 @@ exports.getProduct = async (req, res) => {
         res.render('accessory', { product });
     }
     res.render('single', { product });
+};
+
+exports.searchProducts = async (req, res) => {
+    const search = req.query.search;
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
+    const sort = req.query.sort || 'all';
+    const color = req.query.color || '';
+
+    var searchKey = new RegExp(search, 'i');
+    let query = { name: searchKey };
+
+    if (color) {
+        query.color = color;
+    }
+    const options = { page, limit, sort };
+    const paginate = await productService.listProduct(query, options);
+    paginate.sort = sort;
+    paginate.search = search;
+    const product = await Product.find({ $text: { $search: 'Jackson' } });
+    console.log(product);
+    const categoryPath = `/tim-kiem`;
+    renderView(res, paginate, categoryPath);
 };

@@ -27,4 +27,5 @@ router.get('/register', function (req, res, next) {
 router.get('/forgot-password', function (req, res, next) {
     res.render('forgot-password');
 });
+router.get('/tim-kiem', productController.searchProducts);
 module.exports = router;
