@@ -1,4 +1,21 @@
 const Product = require('../models/productModel');
+const productService = require('../services/productService.js');
+
+
+function renderView(res, paginate, categoryPath){
+    const pageControlObj =  { 
+        products: paginate.docs,
+        lastPage: paginate.totalDocs,
+        currentPage: paginate.page,
+        hasPrevPage: paginate.hasPrevPage,
+        hasNextPage: paginate.hasNextPage,
+        ITEM_PER_PAGE: paginate.limit,
+        prevPage: paginate.prevPage,
+        nextPage: paginate.nextPage,
+        categoryPath: categoryPath
+     }
+    res.render('shop',pageControlObj);
+}
 
 exports.topPopularProducts = (req, res, next) => {
     req.query.limit = '5';
@@ -22,13 +39,23 @@ exports.getAllProducts = async (req, res) => {
     const products = await query;
     res.render('shop', { products });
 };
+const ITEM_PER_PAGE = 9;
 exports.getMenWatches = async (req, res) => {
-    const products = await Product.find({
+    const filterObj = {
         department: 'Watch',
         category: 'Men'
-    });
-    res.render('shop', { products });
+    };
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
+    const paginate = await productService.listMenWatches(
+        filterObj,
+        page,
+        limit
+    );
+    const categoryPath = `/san-pham/dong-ho-nam`;
+    renderView(res, paginate, categoryPath);
 };
+
 exports.getWomenWatches = async (req, res) => {
     const products = await Product.find({
         department: 'Watch',
@@ -38,7 +65,7 @@ exports.getWomenWatches = async (req, res) => {
 };
 exports.getAccessories = async (req, res) => {
     const products = await Product.find({
-        department: 'Accessory',
+        department: 'Accessory'
     });
     res.render('shop', { products });
 };
@@ -46,10 +73,9 @@ exports.getAccessories = async (req, res) => {
 exports.getProduct = async (req, res) => {
     const id = req.params.id;
     const product = await Product.findById(id);
-    if(product & product.department == 'Accessory'){
+    if (product & (product.department == 'Accessory')) {
         res.render('accessory', { product });
         return;
     }
     res.render('single', { product });
-    
 };

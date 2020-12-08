@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const Schema = mongoose.Schema;
+const mongoosePaginate = require('mongoose-paginate-v2');
 const productSchema = new Schema({
     name: {
         type: String,
@@ -49,6 +50,7 @@ const productSchema = new Schema({
         type: String,
     }
 });
+productSchema.plugin(mongoosePaginate);
 
 const Product = mongoose.model('Product', productSchema);
 
