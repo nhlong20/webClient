@@ -4,7 +4,8 @@ const productService = require('../services/productService.js');
 function renderView(res, paginate, categoryPath) {
     const pageControlObj = {
         products: paginate.docs,
-        lastPage: paginate.totalDocs,
+        lastPage: paginate.totalPages,
+        totalProducts: paginate.totalDocs,
         currentPage: paginate.page,
         hasPrevPage: paginate.hasPrevPage,
         hasNextPage: paginate.hasNextPage,
