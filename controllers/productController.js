@@ -37,7 +37,7 @@ exports.getAllProducts = async (req, res) => {
     const { color, sort } = req.query;
     const query = {};
     if (color) {
-        filterObj.color = color;
+        query.color = color;
     }
     const options = {
         page: req.query.page * 1 || 1,
@@ -80,7 +80,7 @@ exports.getWomenWatches = async (req, res) => {
         category: 'Women'
     };
     if (color) {
-        filterObj.color = color;
+        query.color = color;
     }
     const options = {
         page: req.query.page * 1 || 1,
@@ -112,12 +112,12 @@ exports.getAccessories = async (req, res) => {
     renderView(res, paginate, categoryPath);
 };
 exports.getBrand = async (req, res) => {
-    const { brand, color, sort } = req.query;
+    const { name, color, sort } = req.query;
     const query = {
-        brand: brand
+        brand: name
     };
     if (color) {
-        filterObj.color = color;
+        query.color = color;
     }
     const options = {
         page: req.query.page * 1 || 1,
