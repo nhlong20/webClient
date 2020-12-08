@@ -1,34 +1,455 @@
-<% function numberWithCommas(price) {
-    var parts=price.toString().split(".");
-    parts[0]=parts[0].replace(/\B(?=(\d {
-        3
+/* [Master Stylesheet v-1.0.0] */
+
+
+/* :: 1.0 Import Web Fonts */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Ubuntu:300,400,500,700");
+
+/* :: 2.0 Import All CSS */
+
+
+/* :: 3.0 Common/Base CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    margin-top: 85px;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        margin-top: 80px;
     }
-    )+(?!\d))/g, ".");
-    return parts.join(",");
 }
 
-%><!-- ##### Breadcumb Area Start ##### --><div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/breadcumb.jpg);"><div class="container h-100"><div class="row h-100 align-items-center"><div class="col-12"><div class="page-title text-center"><h2>Đồng hồ</h2></div></div></div></div></div><!-- ##### Breadcumb Area End ##### --><!-- ##### Shop Grid Area Start ##### --><section class="shop_grid_area section-padding-80"><div class="container"><div class="row"><div class="col-12 col-md-4 col-lg-3"><div class="shop_sidebar_area"><!-- ##### Single Widget ##### --><div class="widget price mb-50"><!-- Widget Title --><h6 class="widget-title mb-30">Lọc</h6><!-- Widget Title 2 --><p class="widget-title2 mb-30">Giá</p><div class="widget-desc"><div class="slider-range"><div data-min="49" data-max="360" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="49" data-value-max="360" data-label-result="Range:"><div class="ui-slider-range ui-widget-header ui-corner-all"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span></div><div class="range-price">Khoảng: $49.00 - $360.00</div></div></div></div><!-- ##### Single Widget ##### --><div class="widget color mb-50"><!-- Widget Title 2 --><p class="widget-title2 mb-30">Màu sắc</p><div class="widget-desc"><ul class="d-flex"><li><a href="<%=categoryPath%>?color=WHITE" class="color--white"></a></li><li><a href="<%=categoryPath%>?color=BLACK" class="color--black"></a></li><li><a href="<%=categoryPath%>?color=NAVY" class="color--navy"></a></li><li><a href="<%=categoryPath%>?color=ROSEGOLD" class="color--rosegold"></a></li><li><a href="<%=categoryPath%>?color=PEARL" class="color--pearl"></a></li><li><a href="<%=categoryPath%>?color=GREY" class="color--grey"></a></li><li><a href="#" class="color7"></a></li><li><a href="#" class="color8"></a></li><li><a href="#" class="color9"></a></li><li><a href="#" class="color10"></a></li></ul></div></div><!-- ##### Single Widget ##### --><div class="widget brands mb-50"><!-- Widget Title 2 --><p class="widget-title2 mb-30">Thương hiệu</p><div class="widget-desc"><ul><li><a href="/san-pham/thuong-hieu?name=Jackson">Jackson</a></li><li><a href="/san-pham/thuong-hieu?name=Kashmir">Kashmir</a></li><li><a href="/san-pham/thuong-hieu?name=Colosseum">Colosseum</a></li><li><a href="/san-pham/thuong-hieu?name=Mykonos">Mykonos</a></li></ul></div></div></div></div><div class="col-12 col-md-8 col-lg-9"><div class="shop_grid_product_area"><div class="row"><div class="col-12"><div class="product-topbar d-flex align-items-center justify-content-between"><!-- Total Products --><div class="total-products"><p><span><%=products.length%>/<%=totalProducts%></span>sản phẩm được tìm thấy</p></div><!-- Sorting --><div class="product-sorting d-flex"><p>Sắp xếp</p><form action="#" method="get"><select name="select" id="sortByselect"><option value="value">Tất cả</option><option value="value">Giá tăng dần</option><option value="value">Giá giảm dần</option></select><input type="submit" class="d-none" value=""></form></div></div></div></div><div class="row"><!-- Single Product --><%products.forEach(product=> {
-    %> <div class="col-12 col-sm-6 col-lg-4"> <div class="single-product-wrapper"> <!-- Product Image --> <div class="product-img"> <img src="<%=product.coverImage%>" alt="<%=product.name%> image"> <!-- Hover Thumb --> <!-- <img class="hover-img" src="img/product-img/product-2.jpg" alt=""> --> <!-- Product Badge --> <div class="product-badge offer-badge"> <span>-40%</span> </div> <!-- Favourite --> <div class="product-favourite"> <a href="#" class="favme fa fa-heart"></a> </div> </div> <!-- Product Description --> <div class="product-description"> <span><%=product.brand%> - <%=product.size%></span> <a href="/san-pham/<%=product._id%>"> <h6 class="product-name"> <%=product.name%> </h6> </a> <p class="product-price"><span class="old-price">$75.00</span> <%=numberWithCommas(product.price)%> đ</p> <!-- Hover Content --> <div class="hover-content"> <!-- Add to Cart --> <div class="add-to-cart-btn"> <a href="#" class="btn essence-btn">Add to Cart</a> </div> </div> </div> </div> </div> <%
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #000000;
+    line-height: 1.3;
+    font-weight: 700;
+    font-family: "Ubuntu", sans-serif;
 }
 
-);
-%></div></div><!-- Pagination --><nav aria-label="navigation"><ul class="pagination mt-50 mb-70"><% if(currentPage && currentPage > 1) {
-    %><li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>"><i class="fa fa-angle-left"></i></a></li><%
+p {
+    color: #787878;
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 400;
 }
 
-%><%if(hasPrevPage) {
-    %><li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>"><%=prevPage%></a></li><%
+a {
+    -webkit-transition: all 500ms ease 0s;
+    transition: all 500ms ease 0s;
+    text-decoration: none;
+    outline: 0 solid transparent;
+    color: #000000;
+    font-weight: 600;
+    font-size: 12px;
 }
 
-%><li class="page-item"><a class="page-link" href="javascript:void(0)" tabindex="-1"><%=currentPage%></a></li><%if(hasNextPage) {
-    %><li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>"><%=nextPage%></a></li><%
+a:hover,
+a:focus {
+    -webkit-transition: all 500ms ease 0s;
+    transition: all 500ms ease 0s;
+    text-decoration: none;
+    outline: 0 solid transparent;
+    color: #000000;
+    font-weight: 600;
+    font-size: 12px;
 }
 
-%><%if(lastPage>currentPage) {
-    %><li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>"><i class="fa fa-angle-right"></i></a></li><%
+ul,
+ol {
+    margin: 0;
 }
 
-%></ul></nav></div></div></div></section><!-- ##### Shop Grid Area End ##### -->nd (max-width: 991px) {
+ul li,
+ol li {
+    list-style: none;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+
+/* Spacing */
+
+.mt-15 {
+    margin-top: 15px !important;
+}
+
+.mt-30 {
+    margin-top: 30px !important;
+}
+
+.mt-50 {
+    margin-top: 50px !important;
+}
+
+.mt-70 {
+    margin-top: 70px !important;
+}
+
+.mt-100 {
+    margin-top: 100px !important;
+}
+
+.mb-15 {
+    margin-bottom: 15px !important;
+}
+
+.mb-30 {
+    margin-bottom: 30px !important;
+}
+
+.mb-50 {
+    margin-bottom: 50px !important;
+}
+
+.mb-70 {
+    margin-bottom: 70px !important;
+}
+
+.mb-100 {
+    margin-bottom: 100px !important;
+}
+
+.ml-15 {
+    margin-left: 15px !important;
+}
+
+.ml-30 {
+    margin-left: 30px !important;
+}
+
+.ml-50 {
+    margin-left: 50px !important;
+}
+
+.mr-15 {
+    margin-right: 15px !important;
+}
+
+.mr-30 {
+    margin-right: 30px !important;
+}
+
+.mr-50 {
+    margin-right: 50px !important;
+}
+
+
+/* Height */
+
+.height-400 {
+    height: 400px !important;
+}
+
+.height-500 {
+    height: 500px !important;
+}
+
+.height-600 {
+    height: 600px !important;
+}
+
+.height-700 {
+    height: 700px !important;
+}
+
+.height-800 {
+    height: 800px !important;
+}
+
+
+/* Section Padding */
+
+.section-padding-80 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.section-padding-80-0 {
+    padding-top: 80px;
+    padding-bottom: 0;
+}
+
+.section-padding-0-80 {
+    padding-top: 0;
+    padding-bottom: 80px;
+}
+
+
+/* Section Heading */
+
+.section-heading {
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.section-heading.text-left {
+    text-align: left !important;
+}
+
+
+/* Miscellaneous */
+
+.bg-img {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.bg-dark {
+    background-color: #000000 !important;
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.bg-overlay,
+.bg-overlay-white {
+    position: relative;
+    z-index: 2;
+    background-position: center center;
+    background-size: cover;
+}
+
+.bg-overlay:hover,
+.bg-overlay-white:hover {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+}
+
+.bg-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-overlay-white:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* ScrollUp */
+
+#scrollUp {
+    background-color: #ff084e;
+    border-radius: 0;
+    bottom: 60px;
+    -webkit-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    right: 60px;
+    text-align: center;
+    width: 40px;
+}
+
+@media only screen and (max-width: 767px) {
+    #scrollUp {
+        bottom: 30px;
+        right: 30px;
+    }
+}
+
+
+/* Essence Button */
+
+.essence- {
+    display: inline-block;
+    min-width: 170px;
+    height: 50px;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+    padding: 0 40px;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 50px;
+    background-color: #0315ff;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.essence-btn:hover,
+.essence-btn:focus {
+    color: #ffffff;
+    background-color: #dc0345;
+}
+
+
+/* :: 4.0 Header Area CSS */
+
+.header_area {
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+@media only screen and (max-width: 767px) {
+    .header_area .classy-nav-container {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .header_area .classy-nav-container .classy-navbar-toggler {
+        margin-left: auto;
+        margin-right: 15px;
+    }
+}
+
+.header_area .classy-navbar,
+.header_area .header-meta {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    min-width: 50%;
+    width: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+    .header_area .classy-navbar,
+    .header_area .header-meta {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        min-width: 100%;
+        width: 100%;
+    }
+}
+
+.header_area .classy-navbar {
+    height: 85px;
+    padding: 5px 0 5px 5%;
+}
+
+@media only screen and (max-width: 767px) {
+    .header_area .classy-navbar {
+        height: 40px;
+        border-bottom: 1px solid #ebebeb;
+    }
+}
+
+.header_area .header-meta {
+    height: 85px;
+    position: relative;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 767px) {
+    .header_area .header-meta {
+        height: 40px;
+    }
+}
+
+.header_area .classynav ul li a {
+    font-size: 16px;
+    color: #787878;
+}
+
+.header_area .classynav ul li a:hover {
+    color: #000000;
+}
+
+.header_area .classynav ul li .megamenu li a,
+.header_area .classynav ul li .dropdown li a {
+    font-size: 14px;
+    color: #787878;
+}
+
+.header_area .classynav ul li .megamenu li a:hover,
+.header_area .classynav ul li .dropdown li a:hover {
+    color: #000000;
+}
+
+.header_area .search-area form {
+    position: relative;
+    z-index: 1;
+    height: 85px;
+    border-left: 1px solid #ebebeb;
+}
+
+@media only screen and (max-width: 767px) {
+    .header_area .search-area form {
+        height: 40px;
+        border-left: none;
+    }
+}
+
+.header_area .search-area form input {
+    border: none;
+    background-color: #ffffff;
+    width: 200px;
+    height: 85px;
+    padding: 0 15px 0 60px;
+    color: #787878;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+@media only screen and (max-width: 767px) {
+    .header_area .search-area form input {
+        width: 170px;
+        height: 40px;
+        padding: 0 10px 0 30px;
+    }
+}
+
+.header_area .search-area form input:focus {
+    outline: none !important;
+    width: 350px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
     .right-side-cart-area {
         width: 500px;
         right: -600px;

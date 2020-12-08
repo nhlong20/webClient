@@ -1,6 +1,7 @@
-const { query } = require('express');
+'use strict';
 const Product = require('../models/productModel');
 const productService = require('../services/productService.js');
+const ITEM_PER_PAGE = 9;
 
 function renderView(res, paginate, categoryPath) {
     const pageControlObj = {
@@ -32,15 +33,17 @@ exports.getPopularProducts = async(req, res) => {
     res.render('index', { products });
 };
 exports.getAllProducts = async(req, res) => {
-    let query = Product.find({});
-    const limit = req.query.limit;
-    if (limit) {
-        query = query.limit(~~limit);
+    let color = req.query.color;
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
+    const filterObj = {};
+    if (color) {
+        filterObj.color = color;
     }
-    const products = await query;
-    res.render('shop', { products });
+    const paginate = await productService.listProduct(filterObj, page, limit);
+    const categoryPath = `/san-pham`;
+    renderView(res, paginate, categoryPath);
 };
-const ITEM_PER_PAGE = 9;
 exports.getMenWatches = async(req, res) => {
     let color = req.query.color;
     const filterObj = {
@@ -84,7 +87,6 @@ exports.getAccessories = async(req, res) => {
     );
     const categoryPath = `/san-pham/phu-kien`;
     renderView(res, paginate, categoryPath);
-
 };
 exports.getBrand = async(req, res) => {
     console.log(req.query)
@@ -106,7 +108,7 @@ exports.getBrand = async(req, res) => {
 exports.getProduct = async(req, res) => {
     const id = req.params.id;
     const product = await Product.findById(id);
-    if (product && (product.department == 'Accessory')) {
+    if (product && product.department == 'Accessory') {
         res.render('accessory', { product });
     }
     res.render('single', { product });
