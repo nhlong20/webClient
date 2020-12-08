@@ -80,7 +80,7 @@ exports.getAccessories = async (req, res) => {
 exports.getProduct = async (req, res) => {
     const id = req.params.id;
     const product = await Product.findById(id);
-    if (product & (product.department == 'Accessory')) {
+    if (product  && (product.department == 'Accessory')) {
         res.render('accessory', { product });
         return;
     }
