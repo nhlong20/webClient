@@ -16,7 +16,8 @@ function renderView(res, paginate, categoryPath) {
         nextPage: paginate.nextPage,
         categoryPath: categoryPath,
         sort: paginate.sort,
-        searchString: paginate.search
+        searchString: paginate.search,
+        pageType: paginate.pageType || 'Sản phẩm'
     };
     res.render('shop', pageControlObj);
 }
@@ -49,6 +50,7 @@ exports.getAllProducts = async (req, res) => {
     if (sort && sort != 'all') {
         paginate.sort = sort;
     }
+
     const categoryPath = `/san-pham`;
     renderView(res, paginate, categoryPath);
 };
@@ -70,6 +72,7 @@ exports.getMenWatches = async (req, res) => {
     if (sort && sort != 'all') {
         paginate.sort = sort;
     }
+    paginate.pageType = 'Đồng hồ nam';
     const categoryPath = `/san-pham/dong-ho-nam`;
     renderView(res, paginate, categoryPath);
 };
@@ -92,6 +95,7 @@ exports.getWomenWatches = async (req, res) => {
     if (sort && sort != 'all') {
         paginate.sort = sort;
     }
+    paginate.pageType = 'Đồng hồ nữ';
     const categoryPath = `/san-pham/dong-ho-nu`;
     renderView(res, paginate, categoryPath);
 };
@@ -109,6 +113,7 @@ exports.getAccessories = async (req, res) => {
     if (sort && sort != 'all') {
         paginate.sort = sort;
     }
+    paginate.pageType = 'Phụ kiện';
     const categoryPath = `/san-pham/phu-kien`;
     renderView(res, paginate, categoryPath);
 };
@@ -129,6 +134,7 @@ exports.getBrand = async (req, res) => {
     if (sort && sort != 'all') {
         paginate.sort = sort;
     }
+    paginate.pageType = 'Thương hiệu';
     const categoryPath = `/san-pham/thuong-hieu`;
     renderView(res, paginate, categoryPath);
 };
@@ -160,5 +166,6 @@ exports.searchProducts = async (req, res) => {
     paginate.sort = sort;
     paginate.search = search;
     const categoryPath = `/tim-kiem`;
+    paginate.pageType = 'Tìm kiếm';
     renderView(res, paginate, categoryPath);
 };

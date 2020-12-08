@@ -9,22 +9,22 @@ router.route('/').get(productController.topPopularProducts, productController.ge
 router.get('/cart', function (req, res, next) {
     res.render('cart');
 });
-router.get('/checkout', function (req, res, next) {
+router.get('/thanh-toan', function (req, res, next) {
     res.render('checkout');
 });
-router.get('/about', function (req, res, next) {
+router.get('/ve-chung-toi', function (req, res, next) {
     res.render('about');
 });
-router.get('/contact', function (req, res, next) {
+router.get('/lien-he', function (req, res, next) {
     res.render('contact');
 });
-router.get('/login', function (req, res, next) {
+router.get('/dang-nhap', function (req, res, next) {
     res.render('login');
 });
-router.get('/register', function (req, res, next) {
+router.get('/dang-ky', function (req, res, next) {
     res.render('register');
 });
-router.get('/forgot-password', function (req, res, next) {
+router.get('/quen-mat-khau', function (req, res, next) {
     res.render('forgot-password');
 });
 router.get('/tim-kiem', productController.searchProducts);

@@ -1,7 +1,8 @@
-(function($) {
+(function ($) {
     'use strict';
 
     var $window = $(window);
+    // Initialize and add the map
 
     // :: Nav Active Code
     if ($.fn.classyNav) {
@@ -39,7 +40,10 @@
             margin: 0,
             loop: true,
             nav: true,
-            navText: ["<img src='/img/core-img/long-arrow-left.svg' alt=''>", "<img src='/img/core-img/long-arrow-right.svg' alt=''>"],
+            navText: [
+                "<img src='/img/core-img/long-arrow-left.svg' alt=''>",
+                "<img src='/img/core-img/long-arrow-right.svg' alt=''>"
+            ],
             dots: false,
             autoplay: true,
             autoplayTimeout: 5000,
@@ -49,21 +53,21 @@
 
     // :: Header Cart Active Code
     var cartbtn1 = $('#essenceCartBtn');
-    var cartOverlay = $(".cart-bg-overlay");
-    var cartWrapper = $(".right-side-cart-area");
-    var cartbtn2 = $("#rightSideCart");
-    var cartOverlayOn = "cart-bg-overlay-on";
-    var cartOn = "cart-on";
+    var cartOverlay = $('.cart-bg-overlay');
+    var cartWrapper = $('.right-side-cart-area');
+    var cartbtn2 = $('#rightSideCart');
+    var cartOverlayOn = 'cart-bg-overlay-on';
+    var cartOn = 'cart-on';
 
-    cartbtn1.on('click', function() {
+    cartbtn1.on('click', function () {
         cartOverlay.toggleClass(cartOverlayOn);
         cartWrapper.toggleClass(cartOn);
     });
-    cartOverlay.on('click', function() {
+    cartOverlay.on('click', function () {
         $(this).removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
-    cartbtn2.on('click', function() {
+    cartbtn2.on('click', function () {
         cartOverlay.removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
@@ -78,7 +82,7 @@
     }
 
     // :: Sticky Active Code
-    $window.on('scroll', function() {
+    $window.on('scroll', function () {
         if ($window.scrollTop() > 0) {
             $('.header_area').addClass('sticky');
         } else {
@@ -92,13 +96,13 @@
     }
 
     function numberWithCommas(price) {
-        var parts = price.toString().split(".");
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        return parts.join(",");
+        var parts = price.toString().split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        return parts.join(',');
     }
     // :: Slider Range Price Active Code
-    
-    $('.slider-range-price').each(function() {
+
+    $('.slider-range-price').each(function () {
         var min = jQuery(this).data('min');
         var max = jQuery(this).data('max');
         var unit = jQuery(this).data('unit');
@@ -111,8 +115,15 @@
             min: min,
             max: max,
             values: [value_min, value_max],
-            slide: function(event, ui) {
-                var result = label_result + " " + numberWithCommas(ui.values[0]) + unit + ' - ' + numberWithCommas(ui.values[1]) + unit;
+            slide: function (event, ui) {
+                var result =
+                    label_result +
+                    ' ' +
+                    numberWithCommas(ui.values[0]) +
+                    unit +
+                    ' - ' +
+                    numberWithCommas(ui.values[1]) +
+                    unit;
                 console.log(t);
                 t.closest('.slider-range').find('.range-price').html(result);
             }
@@ -120,23 +131,23 @@
     });
 
     // :: Favorite Button Active Code
-    var favme = $(".favme");
+    var favme = $('.favme');
 
-    favme.on('click', function() {
+    favme.on('click', function () {
         $(this).toggleClass('active');
     });
 
-    favme.on('click touchstart', function() {
+    favme.on('click touchstart', function () {
         $(this).toggleClass('is_animating');
     });
 
-    favme.on('animationend', function() {
+    favme.on('animationend', function () {
         $(this).toggleClass('is_animating');
     });
 
     // :: Nicescroll Active Code
     if ($.fn.niceScroll) {
-        $(".cart-list, .cart-content").niceScroll();
+        $('.cart-list, .cart-content').niceScroll();
     }
 
     // :: wow Active Code
@@ -150,13 +161,13 @@
     }
 
     // :: PreventDefault a Click
-    $("a[href='#']").on('click', function($) {
+    $("a[href='#']").on('click', function ($) {
         $.preventDefault();
     });
 
     function numberWithCommas(price) {
-        var parts = price.toString().split(".");
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        return parts.join(",");
+        var parts = price.toString().split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        return parts.join(',');
     }
 })(jQuery);

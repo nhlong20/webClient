@@ -20,15 +20,15 @@
                     <ul>
                         <li><a href="/san-pham">Sản phẩm</a>
                             <ul class="dropdown">
-                                <li><a href="/san-pham/dong-ho-nam">Đồng hồ Nam</a></li>
-                                <li><a href="/san-pham/dong-ho-nu">Đồng hồ Nữ</a></li>
-                                <li><a href="/san-pham/phu-kien">Phụ kiện</a></li>
+                                <li><a class="dropdown-item" href="/san-pham/dong-ho-nam">Đồng hồ Nam</a></li>
+                                <li><a class="dropdown-item" href="/san-pham/dong-ho-nu">Đồng hồ Nữ</a></li>
+                                <li><a class="dropdown-item" href="/san-pham/phu-kien">Phụ kiện</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Về chúng tôi</a>
                             <ul class="dropdown">
-                                <li><a href="/about">Giới thiệu</a></li>
-                                <li><a href="/contact">Liên hệ</a></li>
+                                <li><a class="dropdown-item" href="/ve-chung-toi">Giới thiệu</a></li>
+                                <li><a class="dropdown-item" href="/lien-he">Liên hệ</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -43,20 +43,29 @@
             <div class="search-area">
                 <form action="/tim-kiem" method="GET">
                     <input type="search" name="search" id="headerSearch" placeholder="Tìm kiếm">
-                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button type="submit"><i class="fal fa-search fa-lg" aria-hidden="true"></i></button>
                 </form>
             </div>
             <!-- Favourite Area -->
             <div class="favourite-area">
-                <a href="#"><img src="/img/core-img/heart.svg" alt=""></a>
+                <a href="#"> <i class="fal fa-heart fa-lg"></i></a>
             </div>
             <!-- User Login Info -->
-            <div class="user-login-info">
-                <a href="/user"><img src="/img/core-img/user.svg" alt=""></a>
+
+            <div class="user-login-info user-dropdown">
+                <ul>
+                    <a class="dropdown" href="#"> <i class="fal fa-user fa-lg"></i></a>
+
+                    <div class="dropdown-content">
+                        <a href="/dang-nhap">Đăng nhập</a>
+                        <a  href="/dang-ky">Đăng ký</a>
+                    </div>
+
+                </ul>
             </div>
             <!-- Cart Area -->
             <div class="cart-area">
-                <a href="#" id="essenceCartBtn"><img src="/img/core-img/bag.svg" alt=""> <span>3</span></a>
+                <a href="#" id="essenceCartBtn"><i class="fal fa-shopping-cart fa-lg"></i><span>3</span></a>
             </div>
         </div>
 
@@ -71,7 +80,7 @@
 
     <!-- Cart Button -->
     <div class="cart-button">
-        <a href="#" id="rightSideCart"><img src="/img/core-img/bag.svg" alt=""> <span>3</span></a>
+        <a href="#" id="rightSideCart"><i class="fal fa-shopping-cart fa-lg"></i> <span>3</span></a>
     </div>
 
     <div class="cart-content d-flex">
@@ -114,15 +123,15 @@
         <!-- Cart Summary -->
         <div class="cart-amount-summary">
 
-            <h2>Summary</h2>
+            <h2>Giỏ hàng của bạn </h2>
             <ul class="summary-table">
-                <li><span>subtotal:</span> <span>$274.00</span></li>
-                <li><span>delivery:</span> <span>Free</span></li>
-                <li><span>discount:</span> <span>-15%</span></li>
-                <li><span>total:</span> <span>$232.00</span></li>
+                <li><span>Tổng tiển:</span> <span>$274.00</span></li>
+                <li><span>Phí vận chuyển:</span> <span>Free</span></li>
+                <li><span>Giảm giá:</span> <span>-15%</span></li>
+                <li><span>Tổng cộng:</span> <span>$232.00</span></li>
             </ul>
             <div class="checkout-btn mt-100">
-                <a href="/checkout" class="btn essence-btn">check out</a>
+                <a href="/thanh-toan" class="btn essence-btn">Thanh toán</a>
             </div>
         </div>
     </div>

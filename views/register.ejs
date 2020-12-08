@@ -15,45 +15,44 @@
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="text" class="form-control form-control-user" id="first-name" name="firstName"
                                             placeholder="Tên">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input type="text" class="form-control form-control-user" id="last-name" name="lastName"
                                             placeholder="Họ">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" class="form-control form-control-user" id="email" name="email"
                                         placeholder="Địa chỉ email">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Mật khẩu">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Xác nhận mật khẩu">
-                                    </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" id="password" name="password"
+                                        placeholder="Mật khẩu">
                                 </div>
-                                <a href="/login" class="btn btn-primary btn-user btn-block">
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" id="repeat-password" name="resetPassword"
+                                        placeholder="Xác nhận mật khẩu">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Đăng ký
-                                </a>
+                                </button>
                                 <hr>
                                 <a href="#" class="btn btn-google btn-user btn-block">
-                                    <i class="fa fa-google fa-fw"></i> Đăng ký với Google
+                                    <i class="fab fa-google"></i> Đăng ký với Google
                                 </a>
                                 <a href="#" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fa fa-facebook-f fa-fw"></i> Đăng ký với Facebook
+                                    <i class="fab fa-facebook-square"></i></i> Đăng ký với Facebook
                                 </a>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="/forgot-password">Quên mật khẩu?</a>
+                                <a class="small" href="/quen-mat-khau">Quên mật khẩu?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="/login">Bạn đã có tài khoản? Đăng nhập ngay!</a>
+                                <a class="small" href="/dang-nhap">Bạn đã có tài khoản? Đăng nhập ngay!</a>
                             </div>
                         </div>
                     </div>
