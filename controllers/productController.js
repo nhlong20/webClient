@@ -14,7 +14,8 @@ function renderView(res, paginate, categoryPath) {
         ITEM_PER_PAGE: paginate.limit,
         prevPage: paginate.prevPage,
         nextPage: paginate.nextPage,
-        categoryPath: categoryPath
+        categoryPath: categoryPath,
+        sort: paginate.sort
     };
     res.render('shop', pageControlObj);
 }
@@ -23,7 +24,7 @@ exports.topPopularProducts = (req, res, next) => {
     req.query.limit = '5';
     next();
 };
-exports.getPopularProducts = async(req, res) => {
+exports.getPopularProducts = async (req, res) => {
     let query = Product.find({});
     const limit = req.query.limit;
     if (limit) {
@@ -32,80 +33,106 @@ exports.getPopularProducts = async(req, res) => {
     const products = await query;
     res.render('index', { products });
 };
-exports.getAllProducts = async(req, res) => {
-    let color = req.query.color;
-    const page = req.query.page * 1 || 1;
-    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
-    const filterObj = {};
+exports.getAllProducts = async (req, res) => {
+    const { color, sort } = req.query;
+    const query = {};
     if (color) {
         filterObj.color = color;
     }
-    const paginate = await productService.listProduct(filterObj, page, limit);
+    const options = {
+        page: req.query.page * 1 || 1,
+        limit: req.query.limit * 1 || ITEM_PER_PAGE,
+        sort: sort || 'all'
+    };
+    const paginate = await productService.listProduct(query, options);
+    if (sort && sort != 'name') {
+        paginate.sort = sort;
+    }
     const categoryPath = `/san-pham`;
     renderView(res, paginate, categoryPath);
 };
-exports.getMenWatches = async(req, res) => {
-    let color = req.query.color;
-    const filterObj = {
+exports.getMenWatches = async (req, res) => {
+    const { color, sort } = req.query;
+    const query = {
         department: 'Watch',
-        category: 'Men',
-
+        category: 'Men'
     };
     if (color) {
-        filterObj.color = color;
+        query.color = color;
     }
-    const page = req.query.page * 1 || 1;
-    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
-    const paginate = await productService.listProduct(filterObj, page, limit);
+    const options = {
+        page: req.query.page * 1 || 1,
+        limit: req.query.limit * 1 || ITEM_PER_PAGE,
+        sort: sort || 'all'
+    };
+    const paginate = await productService.listProduct(query, options);
+    if (sort && sort != 'name') {
+        paginate.sort = sort;
+    }
     const categoryPath = `/san-pham/dong-ho-nam`;
     renderView(res, paginate, categoryPath);
 };
 
-exports.getWomenWatches = async(req, res) => {
-    let color = req.query.color;
-    const filterObj = {
+exports.getWomenWatches = async (req, res) => {
+    const { color, sort } = req.query;
+    const query = {
         department: 'Watch',
         category: 'Women'
     };
     if (color) {
         filterObj.color = color;
     }
-    const page = req.query.page * 1 || 1;
-    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
-    const paginate = await productService.listProduct(filterObj, page, limit);
+    const options = {
+        page: req.query.page * 1 || 1,
+        limit: req.query.limit * 1 || ITEM_PER_PAGE,
+        sort: sort || 'all'
+    };
+    const paginate = await productService.listProduct(query, options);
+    if (sort && sort != 'name') {
+        paginate.sort = sort;
+    }
     const categoryPath = `/san-pham/dong-ho-nu`;
     renderView(res, paginate, categoryPath);
 };
-exports.getAccessories = async(req, res) => {
-    const page = req.query.page * 1 || 1;
-    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
-    const paginate = await productService.listProduct({
-            department: 'Accessory'
-        },
-        page,
-        limit
-    );
+exports.getAccessories = async (req, res) => {
+    const sort = req.query.sort;
+    const query = {
+        department: 'Accessory'
+    };
+    const options = {
+        page: req.query.page * 1 || 1,
+        limit: req.query.limit * 1 || ITEM_PER_PAGE,
+        sort: sort || 'all'
+    };
+    const paginate = await productService.listProduct(query, options);
+    if (sort && sort != 'name') {
+        paginate.sort = sort;
+    }
     const categoryPath = `/san-pham/phu-kien`;
     renderView(res, paginate, categoryPath);
 };
-exports.getBrand = async(req, res) => {
-    console.log(req.query)
-    const brand = req.query.name
-    let color = req.query.color;
-    const filterObj = {
+exports.getBrand = async (req, res) => {
+    const { brand, color, sort } = req.query;
+    const query = {
         brand: brand
     };
     if (color) {
         filterObj.color = color;
     }
-    const page = req.query.page * 1 || 1;
-    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
-    const paginate = await productService.listProduct(filterObj, page, limit);
+    const options = {
+        page: req.query.page * 1 || 1,
+        limit: req.query.limit * 1 || ITEM_PER_PAGE,
+        sort: sort || 'all'
+    };
+    const paginate = await productService.listProduct(query, options);
+    if (sort && sort != 'name') {
+        paginate.sort = sort;
+    }
     const categoryPath = `/san-pham/thuong-hieu`;
     renderView(res, paginate, categoryPath);
 };
 
-exports.getProduct = async(req, res) => {
+exports.getProduct = async (req, res) => {
     const id = req.params.id;
     const product = await Product.findById(id);
     if (product && product.department == 'Accessory') {
