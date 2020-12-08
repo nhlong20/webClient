@@ -1,7 +1,6 @@
-[
-    {
+[{
         "name": "DAHLIA",
-        "brand": "FLORENGE ",
+        "brand": "FLORENGE",
         "price": "249900",
         "color": "BLACK",
         "department": "Watch",
@@ -18,7 +17,7 @@
     },
     {
         "name": "ROSE",
-        "brand": "FLORENGE ",
+        "brand": "FLORENGE",
         "price": "249900",
         "color": "ROSEGOLD",
         "department": "Watch",
@@ -35,7 +34,7 @@
     },
     {
         "name": "IVY",
-        "brand": "FLORENGE ",
+        "brand": "FLORENGE",
         "price": "2499000",
         "color": "WHITE",
         "department": "Watch",
@@ -52,7 +51,7 @@
     },
     {
         "name": "ORCHID",
-        "brand": "FLORENGE ",
+        "brand": "FLORENGE",
         "price": "2499000",
         "color": "PEARL",
         "department": "Watch",
@@ -86,7 +85,7 @@
     },
     {
         "name": "HAZE",
-        "brand": "MELISSANI ",
+        "brand": "MELISSANI",
         "price": "2299000",
         "color": "BLACK",
         "department": "Watch",
@@ -103,7 +102,7 @@
     },
     {
         "name": "KISS",
-        "brand": "MORAINE ",
+        "brand": "MORAINE",
         "price": "2299000",
         "color": "PINK",
         "department": "Watch",
@@ -119,7 +118,7 @@
     },
     {
         "name": "FAUNA",
-        "brand": "SANTORINI ",
+        "brand": "SANTORINI",
         "price": "1954000",
         "color": "WHITE",
         "department": "Watch",
@@ -135,7 +134,7 @@
     },
     {
         "name": "CORA",
-        "brand": "HAMILTON ",
+        "brand": "HAMILTON",
         "price": "2299000",
         "color": "PINK",
         "department": "Watch",
@@ -152,7 +151,7 @@
     },
     {
         "name": "AUTUMN",
-        "brand": "MELISSANI ",
+        "brand": "MELISSANI",
         "price": "2299000",
         "color": "PINK",
         "department": "Watch",
@@ -169,7 +168,7 @@
     },
     {
         "name": "CHARM",
-        "brand": "MORAINE ",
+        "brand": "MORAINE",
         "price": "2299000",
         "color": "NAVY",
         "department": "Watch",
@@ -186,7 +185,7 @@
     },
     {
         "name": "GAIA",
-        "brand": "SANTORINI ",
+        "brand": "SANTORINI",
         "price": "1954000",
         "color": "BLACK",
         "department": "Watch",
@@ -203,7 +202,7 @@
     },
     {
         "name": "SYLVIA",
-        "brand": "HAMILTON ",
+        "brand": "HAMILTON",
         "price": "1954000",
         "color": "BLACK",
         "department": "Watch",
@@ -220,7 +219,7 @@
     },
     {
         "name": "SERENE",
-        "brand": "MELISSANI ",
+        "brand": "MELISSANI",
         "price": "2299000",
         "color": "WHITE",
         "department": "Watch",
@@ -236,7 +235,7 @@
     },
     {
         "name": "TEAR",
-        "brand": "MORAINE ",
+        "brand": "MORAINE",
         "price": "2299000",
         "color": "WHITE",
         "department": "Watch",
@@ -252,7 +251,7 @@
     },
     {
         "name": "LEXIE",
-        "brand": "SANTORINI ",
+        "brand": "SANTORINI",
         "price": "2339000",
         "color": "BLACK",
         "department": "Watch",
@@ -268,7 +267,7 @@
     },
     {
         "name": "ANNE",
-        "brand": "HAMILTON ",
+        "brand": "HAMILTON",
         "price": "1954000",
         "color": "WHITE",
         "department": "Watch",
@@ -284,7 +283,7 @@
     },
     {
         "name": "WIND",
-        "brand": "MELISSANI ",
+        "brand": "MELISSANI",
         "price": "2299000",
         "color": "WHITE",
         "department": "Watch",
@@ -301,7 +300,7 @@
     },
     {
         "name": "GRACE",
-        "brand": "MORAINE ",
+        "brand": "MORAINE",
         "price": "2299000",
         "color": "BLACK",
         "department": "Watch",
@@ -317,7 +316,7 @@
     },
     {
         "name": "CADIE",
-        "brand": "SANTORINI ",
+        "brand": "SANTORINI",
         "price": "2209000",
         "color": "WHITE",
         "department": "Watch",
@@ -333,7 +332,7 @@
     },
     {
         "name": "MINDFUL",
-        "brand": "BEVERLY ",
+        "brand": "BEVERLY",
         "price": "2209000",
         "color": "WHITE",
         "department": "Watch",
@@ -350,7 +349,7 @@
     },
     {
         "name": "TASTEFUL",
-        "brand": "BEVERLY ",
+        "brand": "BEVERLY",
         "price": "2339000",
         "color": "ROSEGOLD",
         "department": "Watch",
@@ -367,7 +366,7 @@
     },
     {
         "name": "ELEGANT",
-        "brand": "BEVERLY ",
+        "brand": "BEVERLY",
         "price": "2209000",
         "color": "PEARL",
         "department": "Watch",
@@ -400,7 +399,7 @@
     },
     {
         "name": "DESIRE",
-        "brand": "MORAINE ",
+        "brand": "MORAINE",
         "price": "2299000",
         "color": "WHITE",
         "department": "Watch",

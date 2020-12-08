@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
     'use strict';
 
     var $window = $(window);
@@ -55,15 +55,15 @@
     var cartOverlayOn = "cart-bg-overlay-on";
     var cartOn = "cart-on";
 
-    cartbtn1.on('click', function () {
+    cartbtn1.on('click', function() {
         cartOverlay.toggleClass(cartOverlayOn);
         cartWrapper.toggleClass(cartOn);
     });
-    cartOverlay.on('click', function () {
+    cartOverlay.on('click', function() {
         $(this).removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
-    cartbtn2.on('click', function () {
+    cartbtn2.on('click', function() {
         cartOverlay.removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
@@ -78,7 +78,7 @@
     }
 
     // :: Sticky Active Code
-    $window.on('scroll', function () {
+    $window.on('scroll', function() {
         if ($window.scrollTop() > 0) {
             $('.header_area').addClass('sticky');
         } else {
@@ -91,8 +91,13 @@
         $('select').niceSelect();
     }
 
+    function numberWithCommas(price) {
+        var parts = price.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        return parts.join(",");
+    }
     // :: Slider Range Price Active Code
-    $('.slider-range-price').each(function () {
+    $('.slider-range-price').each(function() {
         var min = jQuery(this).data('min');
         var max = jQuery(this).data('max');
         var unit = jQuery(this).data('unit');
@@ -105,8 +110,8 @@
             min: min,
             max: max,
             values: [value_min, value_max],
-            slide: function (event, ui) {
-                var result = label_result + " " + unit + ui.values[0] + ' - ' + unit + ui.values[1];
+            slide: function(event, ui) {
+                var result = label_result + " " + numberWithCommas(ui.values[0]) + unit + ' - ' + numberWithCommas(ui.values[1]) + unit;
                 console.log(t);
                 t.closest('.slider-range').find('.range-price').html(result);
             }
@@ -116,15 +121,15 @@
     // :: Favorite Button Active Code
     var favme = $(".favme");
 
-    favme.on('click', function () {
+    favme.on('click', function() {
         $(this).toggleClass('active');
     });
 
-    favme.on('click touchstart', function () {
+    favme.on('click touchstart', function() {
         $(this).toggleClass('is_animating');
     });
 
-    favme.on('animationend', function () {
+    favme.on('animationend', function() {
         $(this).toggleClass('is_animating');
     });
 
@@ -144,12 +149,13 @@
     }
 
     // :: PreventDefault a Click
-    $("a[href='#']").on('click', function ($) {
+    $("a[href='#']").on('click', function($) {
         $.preventDefault();
     });
+
     function numberWithCommas(price) {
         var parts = price.toString().split(".");
-        parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         return parts.join(",");
-        }
+    }
 })(jQuery);

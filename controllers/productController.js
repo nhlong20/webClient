@@ -1,3 +1,4 @@
+const { query } = require('express');
 const Product = require('../models/productModel');
 const productService = require('../services/productService.js');
 
@@ -41,10 +42,15 @@ exports.getAllProducts = async(req, res) => {
 };
 const ITEM_PER_PAGE = 9;
 exports.getMenWatches = async(req, res) => {
+    let color = req.query.color;
     const filterObj = {
         department: 'Watch',
-        category: 'Men'
+        category: 'Men',
+
     };
+    if (color) {
+        filterObj.color = color;
+    }
     const page = req.query.page * 1 || 1;
     const limit = req.query.limit * 1 || ITEM_PER_PAGE;
     const paginate = await productService.listProduct(filterObj, page, limit);
@@ -53,10 +59,14 @@ exports.getMenWatches = async(req, res) => {
 };
 
 exports.getWomenWatches = async(req, res) => {
+    let color = req.query.color;
     const filterObj = {
         department: 'Watch',
         category: 'Women'
     };
+    if (color) {
+        filterObj.color = color;
+    }
     const page = req.query.page * 1 || 1;
     const limit = req.query.limit * 1 || ITEM_PER_PAGE;
     const paginate = await productService.listProduct(filterObj, page, limit);
@@ -75,6 +85,22 @@ exports.getAccessories = async(req, res) => {
     const categoryPath = `/san-pham/phu-kien`;
     renderView(res, paginate, categoryPath);
 
+};
+exports.getBrand = async(req, res) => {
+    console.log(req.query)
+    const brand = req.query.name
+    let color = req.query.color;
+    const filterObj = {
+        brand: brand
+    };
+    if (color) {
+        filterObj.color = color;
+    }
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
+    const paginate = await productService.listProduct(filterObj, page, limit);
+    const categoryPath = `/san-pham/thuong-hieu`;
+    renderView(res, paginate, categoryPath);
 };
 
 exports.getProduct = async(req, res) => {
