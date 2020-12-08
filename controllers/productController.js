@@ -1,9 +1,8 @@
 const Product = require('../models/productModel');
 const productService = require('../services/productService.js');
 
-
-function renderView(res, paginate, categoryPath){
-    const pageControlObj =  { 
+function renderView(res, paginate, categoryPath) {
+    const pageControlObj = {
         products: paginate.docs,
         lastPage: paginate.totalDocs,
         currentPage: paginate.page,
@@ -13,8 +12,8 @@ function renderView(res, paginate, categoryPath){
         prevPage: paginate.prevPage,
         nextPage: paginate.nextPage,
         categoryPath: categoryPath
-     }
-    res.render('shop',pageControlObj);
+    };
+    res.render('shop', pageControlObj);
 }
 
 exports.topPopularProducts = (req, res, next) => {
@@ -57,11 +56,19 @@ exports.getMenWatches = async (req, res) => {
 };
 
 exports.getWomenWatches = async (req, res) => {
-    const products = await Product.find({
+    const filterObj = {
         department: 'Watch',
         category: 'Women'
-    });
-    res.render('shop', { products });
+    };
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
+    const paginate = await productService.listMenWatches(
+        filterObj,
+        page,
+        limit
+    );
+    const categoryPath = `/san-pham/dong-ho-nu`;
+    renderView(res, paginate, categoryPath);
 };
 exports.getAccessories = async (req, res) => {
     const products = await Product.find({
