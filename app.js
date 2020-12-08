@@ -14,7 +14,6 @@ const productRouter = require('./routes/productRoute');
 const app = express();
 // view engine setup
 app.use(expressLayout);
-app.set('views', path.join(__dirname, 'views'));
 app.set('layout', './layouts/layout.ejs');
 app.set('view engine', 'ejs'); // set ejs to default
 
