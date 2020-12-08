@@ -1,5 +1,7 @@
+'use strict';
 const Product = require('../models/productModel');
 const productService = require('../services/productService.js');
+const ITEM_PER_PAGE = 9;
 
 function renderView(res, paginate, categoryPath) {
     const pageControlObj = {
@@ -21,7 +23,7 @@ exports.topPopularProducts = (req, res, next) => {
     req.query.limit = '5';
     next();
 };
-exports.getPopularProducts = async(req, res) => {
+exports.getPopularProducts = async (req, res) => {
     let query = Product.find({});
     const limit = req.query.limit;
     if (limit) {
@@ -30,17 +32,15 @@ exports.getPopularProducts = async(req, res) => {
     const products = await query;
     res.render('index', { products });
 };
-exports.getAllProducts = async(req, res) => {
-    let query = Product.find({});
-    const limit = req.query.limit;
-    if (limit) {
-        query = query.limit(~~limit);
-    }
-    const products = await query;
-    res.render('shop', { products });
+exports.getAllProducts = async (req, res) => {
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || ITEM_PER_PAGE;
+    const paginate = await productService.listProduct({}, page, limit);
+    const categoryPath = `/san-pham`;
+    renderView(res, paginate, categoryPath);
 };
-const ITEM_PER_PAGE = 9;
-exports.getMenWatches = async(req, res) => {
+
+exports.getMenWatches = async (req, res) => {
     const filterObj = {
         department: 'Watch',
         category: 'Men'
@@ -52,7 +52,7 @@ exports.getMenWatches = async(req, res) => {
     renderView(res, paginate, categoryPath);
 };
 
-exports.getWomenWatches = async(req, res) => {
+exports.getWomenWatches = async (req, res) => {
     const filterObj = {
         department: 'Watch',
         category: 'Women'
@@ -63,10 +63,11 @@ exports.getWomenWatches = async(req, res) => {
     const categoryPath = `/san-pham/dong-ho-nu`;
     renderView(res, paginate, categoryPath);
 };
-exports.getAccessories = async(req, res) => {
+exports.getAccessories = async (req, res) => {
     const page = req.query.page * 1 || 1;
     const limit = req.query.limit * 1 || ITEM_PER_PAGE;
-    const paginate = await productService.listProduct({
+    const paginate = await productService.listProduct(
+        {
             department: 'Accessory'
         },
         page,
@@ -74,13 +75,12 @@ exports.getAccessories = async(req, res) => {
     );
     const categoryPath = `/san-pham/phu-kien`;
     renderView(res, paginate, categoryPath);
-
 };
 
-exports.getProduct = async(req, res) => {
+exports.getProduct = async (req, res) => {
     const id = req.params.id;
     const product = await Product.findById(id);
-    if (product && (product.department == 'Accessory')) {
+    if (product && product.department == 'Accessory') {
         res.render('accessory', { product });
     }
     res.render('single', { product });
