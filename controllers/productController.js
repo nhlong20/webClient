@@ -159,8 +159,6 @@ exports.searchProducts = async (req, res) => {
     const paginate = await productService.listProduct(query, options);
     paginate.sort = sort;
     paginate.search = search;
-    const product = await Product.find({ $text: { $search: 'Jackson' } });
-    console.log(product);
     const categoryPath = `/tim-kiem`;
     renderView(res, paginate, categoryPath);
 };
