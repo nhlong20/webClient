@@ -17,7 +17,6 @@ exports.getUserProfile = async(req, res, next) => {
 exports.changeInfo = async(req, res) => {
     //var product = req.body.product;
     //console.log(product);
-    console.log("--++++++++++++++++++++++++++++++++++++++++++++++");
     const form = new formidable.IncomingForm();
 
     form.uploadDir = path.join(__dirname, '/../uploads');
