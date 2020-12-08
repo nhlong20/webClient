@@ -1,10 +1,11 @@
-'use strict'
+'use strict';
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const expressLayout = require('express-ejs-layouts');
 
 const indexRouter = require('./routes/indexRoute');
 const usersRouter = require('./routes/userRoute');
@@ -12,7 +13,9 @@ const productRouter = require('./routes/productRoute');
 
 const app = express();
 // view engine setup
+app.use(expressLayout);
 app.set('views', path.join(__dirname, 'views'));
+app.set('layout', './layouts/layout.ejs');
 app.set('view engine', 'ejs'); // set ejs to default
 
 // Implement CORS
