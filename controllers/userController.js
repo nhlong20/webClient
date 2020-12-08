@@ -33,8 +33,7 @@ exports.changeInfo = async (req, res) => {
             { _id: '5fcef6e138e0b6cd47a3d49a' },
             { coverImage: uploadedRes.secure_url }
         );
-
-        fs.unlinkSync(uploadedPath);
+        // fs.unlinkSync(uploadedPath);
         console.log('Uploaded product successfully');
         res.redirect('/user');
     });
