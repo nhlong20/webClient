@@ -2,7 +2,7 @@
 const Product = require('../models/productModel');
 const productService = require('../services/productService.js');
 const ITEM_PER_PAGE = 9;
-
+const ejs = require('ejs');
 function renderView(res, paginate, categoryPath) {
     const pageControlObj = {
         products: paginate.docs,
@@ -15,32 +15,70 @@ function renderView(res, paginate, categoryPath) {
         prevPage: paginate.prevPage,
         nextPage: paginate.nextPage,
         categoryPath: categoryPath,
-        sort: paginate.sort,
+        sort: paginate.sort || 'all',
         searchString: paginate.search,
         pageType: paginate.pageType || 'Sản phẩm'
     };
+    res.status(200);
     res.render('shop', pageControlObj);
 }
-
+const baseDir = __dirname + '/../views/api/';
+function toUpperOnlyFirstChar(word) {
+    return word[0].toUpperCase() + word.substr(1).toLowerCase();
+}
+exports.apiGetBrand = async (req, res) => {
+    let { brand, color, sort, category } = req.query;
+    const query = {};
+    sort ='all';
+    color ? (query.color = color) : null;
+    brand ? (query.brand = toUpperOnlyFirstChar(brand)) : null;
+    let categoryPath = `/san-pham/` + category;
+    category == 'dong-ho-nam' ? (query.category = 'Men') : null;
+    category == 'dong-ho-nu' ? (query.category = 'Women') : null;
+    if (category == 'san-pham' || category == 'tim-kiem') {
+        categoryPath = '/' + category;
+        category = '';
+    }
+    const options = {
+        page: req.query.page * 1 || 1,
+        limit: req.query.limit * 1 || ITEM_PER_PAGE,
+        sort: sort || 'all'
+    };
+    const paginate = await productService.listProduct(query, options);
+    const html = await ejs.renderFile(baseDir + 'ajax_products.ejs', {
+        products: paginate.docs,
+        lastPage: paginate.totalPages,
+        totalProducts: paginate.totalDocs,
+        currentPage: paginate.page,
+        hasPrevPage: paginate.hasPrevPage,
+        hasNextPage: paginate.hasNextPage,
+        ITEM_PER_PAGE: paginate.limit,
+        prevPage: paginate.prevPage,
+        nextPage: paginate.nextPage,
+        categoryPath: categoryPath,
+        sort: paginate.sort || 'all',
+        searchString: paginate.search || '',
+        pageType: paginate.pageType || 'Sản phẩm'
+    });
+    res.json(html);
+};
 exports.topPopularProducts = (req, res, next) => {
     req.query.limit = '5';
     next();
 };
+
 exports.getPopularProducts = async (req, res) => {
     let query = Product.find({});
     const limit = req.query.limit;
-    if (limit) {
-        query = query.limit(~~limit);
-    }
+    limit ? (query = query.limit(~~limit)) : null;
     const products = await query;
     res.render('index', { products });
 };
 exports.getAllProducts = async (req, res) => {
-    const { color, sort } = req.query;
+    const { color, sort, brand } = req.query;
     const query = {};
-    if (color) {
-        query.color = color;
-    }
+    color ? (query.color = color) : null;
+    brand ? (query.brand = toUpperOnlyFirstChar(brand)) : null;
     const options = {
         page: req.query.page * 1 || 1,
         limit: req.query.limit * 1 || ITEM_PER_PAGE,
@@ -50,19 +88,18 @@ exports.getAllProducts = async (req, res) => {
     if (sort && sort != 'all') {
         paginate.sort = sort;
     }
-
+    paginate.pageType = 'Đồng hồ';
     const categoryPath = `/san-pham`;
     renderView(res, paginate, categoryPath);
 };
 exports.getMenWatches = async (req, res) => {
-    const { color, sort } = req.query;
+    const { color, sort, brand } = req.query;
     const query = {
         department: 'Watch',
         category: 'Men'
     };
-    if (color) {
-        query.color = color;
-    }
+    color ? (query.color = color) : null;
+    brand ? (query.brand = toUpperOnlyFirstChar(brand)) : null;
     const options = {
         page: req.query.page * 1 || 1,
         limit: req.query.limit * 1 || ITEM_PER_PAGE,
@@ -78,14 +115,14 @@ exports.getMenWatches = async (req, res) => {
 };
 
 exports.getWomenWatches = async (req, res) => {
-    const { color, sort } = req.query;
+    const { color, sort, brand } = req.query;
     const query = {
         department: 'Watch',
         category: 'Women'
     };
-    if (color) {
-        query.color = color;
-    }
+    color ? (query.color = color) : null;
+    brand ? (query.brand = toUpperOnlyFirstChar(brand)) : null;
+
     const options = {
         page: req.query.page * 1 || 1,
         limit: req.query.limit * 1 || ITEM_PER_PAGE,
@@ -120,7 +157,7 @@ exports.getAccessories = async (req, res) => {
 exports.getBrand = async (req, res) => {
     const { name, color, sort } = req.query;
     const query = {
-        brand: name
+        brand: toUpperOnlyFirstChar(name)
     };
     if (color) {
         query.color = color;

@@ -95,11 +95,7 @@
         $('select').niceSelect();
     }
 
-    function numberWithCommas(price) {
-        var parts = price.toString().split('.');
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-        return parts.join(',');
-    }
+    
     // :: Slider Range Price Active Code
 
     $('.slider-range-price').each(function () {

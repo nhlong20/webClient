@@ -10,6 +10,7 @@ const expressLayout = require('express-ejs-layouts');
 const indexRouter = require('./routes/indexRoute');
 const usersRouter = require('./routes/userRoute');
 const productRouter = require('./routes/productRoute');
+const productApiRouter = require('./routes/api/productRoute');
 
 const app = express();
 // view engine setup
@@ -30,11 +31,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/san-pham', productRouter);
 app.use('/user', usersRouter);
+app.use('/api/v1', productApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
-});
+}); 
 
 // error handler
 app.use(function(err, req, res, next) {

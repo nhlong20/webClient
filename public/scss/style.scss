@@ -1516,27 +1516,34 @@ img {
                     position: relative;
                     z-index: 1;
                     box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-                    &.color1 {
-                        background-color: $white-color;
+                    &.color--white {
+                        background-color: #ffffff;
                     }
-                    &.color2 {
-                        background-color: #969696;
+                    
+                    &.color--black {
+                        background-color: #000000;
                     }
-                    &.color3 {
-                        background-color: #030303;
+                    
+                    &.color--navy {
+                        background-color: #000080;
                     }
-                    &.color4 {
-                        background-color: #0315ff;
+                    
+                    &.color--rosegold {
+                        background-color: #b76e79;
                     }
-                    &.color5 {
-                        background-color: #dc0647;
+                    
+                    &.color--pearl {
+                        background-color: #eae0c8;
                     }
-                    &.color6 {
-                        background-color: #fff56a;
+                    
+                    &.color--grey {
+                        background-color: #DCDCDC;
                     }
-                    &.color7 {
-                        background-color: #f26e51;
+                    
+                    &.color--pink {
+                        background-color: #FFC0CB;
                     }
+                    
                     &.color8 {
                         background-color: #9a8777;
                     }

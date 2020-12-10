@@ -1,4 +1,5 @@
-[{
+[
+    {
         "name": "Lava",
         "brand": "Jackson",
         "price": "3199000",
@@ -220,7 +221,7 @@
     },
     {
         "name": "STEFAN",
-        "brand": "WEIMAR ",
+        "brand": "Weimar",
         "price": "2299000",
         "color": "WHITE",
         "department": "Watch",
@@ -270,7 +271,7 @@
         "name": "Robust",
         "brand": "Kashmir",
         "price": "2299000",
-        "color": "WHITE",
+        "color": "BLACK",
         "department": "Watch",
         "category": "Men",
         "status": "1",
@@ -284,7 +285,7 @@
     },
     {
         "name": "DAPPER",
-        "brand": "KASHMIR ",
+        "brand": "Kashmir",
         "price": "2199000",
         "color": "BLACK",
         "department": "Watch",
@@ -300,7 +301,7 @@
     },
     {
         "name": "ACHILLES",
-        "brand": "MYKONOS ",
+        "brand": "Mykonos",
         "price": "1954000",
         "color": "WHITE",
         "department": "Watch",
@@ -332,7 +333,7 @@
     },
     {
         "name": "OTTO",
-        "brand": "WEIMAR ",
+        "brand": "Weimar",
         "price": "2299000",
         "color": "GREY",
         "department": "Watch",
@@ -349,7 +350,7 @@
     },
     {
         "name": "NICHOLAS",
-        "brand": "MYKONOS ",
+        "brand": "Mykonos",
         "price": "1954000",
         "color": "WHITE",
         "department": "Watch",
@@ -365,7 +366,7 @@
     },
     {
         "name": "GALLANT",
-        "brand": "KASHMIR ",
+        "brand": "Kashmir",
         "price": "2199000",
         "color": "WHITE",
         "department": "Watch",
@@ -382,7 +383,7 @@
     },
     {
         "name": "NOBLE",
-        "brand": "KASHMIR",
+        "brand": "Kashmir",
         "price": "2199000",
         "color": "WHITE",
         "department": "Watch",
@@ -399,7 +400,7 @@
     },
     {
         "name": "KLAUS",
-        "brand": "WEIMAR ",
+        "brand": "Weimar",
         "price": "2299000",
         "color": "BLACK",
         "department": "Watch",

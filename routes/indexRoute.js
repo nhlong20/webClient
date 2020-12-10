@@ -6,6 +6,8 @@ const router = express.Router();
 /* GET home page. */
 router.route('/').get(productController.topPopularProducts, productController.getPopularProducts);
 
+
+
 router.get('/cart', function (req, res, next) {
     res.render('cart');
 });

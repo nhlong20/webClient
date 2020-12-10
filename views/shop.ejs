@@ -65,57 +65,85 @@
                                     <div class="widget-desc">
                                         <ul class="d-flex">
                                             <li>
-                                                <a href="<%=categoryPath%>?color=WHITE" class="color--white"></a>
+                                                <a href="<%=categoryPath%>?color=WHITE" data-view-label="WHITE"
+                                                    class="color-label color--white"></a>
                                             </li>
                                             <li>
-                                                <a href="<%=categoryPath%>?color=BLACK" class="color--black"></a>
+                                                <a href="<%=categoryPath%>?color=BLACK" data-view-label="BLACK"
+                                                    class="color-label color--black"></a>
                                             </li>
                                             <li>
-                                                <a href="<%=categoryPath%>?color=NAVY" class="color--navy"></a>
+                                                <a href="<%=categoryPath%>?color=NAVY" data-view-label="NAVY"
+                                                    class="color-label color--navy"></a>
                                             </li>
                                             <li>
-                                                <a href="<%=categoryPath%>?color=ROSEGOLD" class="color--rosegold"></a>
+                                                <a href="<%=categoryPath%>?color=ROSEGOLD" data-view-label="ROSEGOLD"
+                                                    class="color-label color--rosegold"></a>
                                             </li>
                                             <li>
-                                                <a href="<%=categoryPath%>?color=PEARL" class="color--pearl"></a>
+                                                <a href="<%=categoryPath%>?color=PEARL" data-view-label="PEARL"
+                                                    class="color-label color--pearl"></a>
                                             </li>
                                             <li>
-                                                <a href="<%=categoryPath%>?color=GREY" class="color--grey"></a>
+                                                <a href="<%=categoryPath%>?color=GREY" data-view-label="GREY"
+                                                    class="color-label color--grey"></a>
                                             </li>
                                             <li>
-                                                <a href="<%=categoryPath%>?color=PINK" class="color--pink"></a>
+                                                <a href="<%=categoryPath%>?color=PINK" data-view-label="PINK"
+                                                    class="color-label color--pink"></a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <%}%>
-                            <%if (pageType != "Phụ kiện") {%>
+                       
                                 <!-- ##### Single Widget ##### -->
                                 <div class="widget brands mb-50">
                                     <!-- Widget Title 2 -->
                                     <p class="widget-title2 mb-30">Thương hiệu</p>
                                     <div class="widget-desc">
                                         <ul>
-                                            <li><a href="/san-pham/thuong-hieu?name=Jackson">Jackson</a></li>
-                                            <li><a href="/san-pham/thuong-hieu?name=Kashmir">Kashmir</a></li>
-                                            <li><a href="/san-pham/thuong-hieu?name=Colosseum">Colosseum</a></li>
-                                            <li><a href="/san-pham/thuong-hieu?name=Mykonos">Mykonos</a></li>
+                                            <%if(pageType == "Đồng hồ nam" || pageType == "Đồng hồ" ){%>
+                                <li><a href="<%=categoryPath%>?brand=Jackson" class="brand-label"
+                                        data-view-label="Jackson">Jackson</a></li>
+                                <li><a href="<%=categoryPath%>?brand=Kashmir" class="brand-label"
+                                        data-view-label="Kashmir">Kashmir</a></li>
+                                <li><a href="<%=categoryPath%>?brand=Colosseum" class="brand-label"
+                                        data-view-label="Colosseum">Colosseum</a></li>
+                                <li><a href="<%=categoryPath%>?brand=Mykonos" class="brand-label"
+                                        data-view-label="Mykonos">Mykonos</a></li>
+                                <%}%>
+                                             <%if(pageType == "Đồng hồ nữ" || pageType == "Đồng hồ" ){%>
+                                <li><a href="<%=categoryPath%>?brand=Santorini" class="brand-label"
+                                        data-view-label="Santorini">Santorini</a></li>
+                                <li><a href="<%=categoryPath%>?brand=Florenge" class="brand-label"
+                                        data-view-label="Florenge">Florenge</a></li>
+                                <li><a href="<%=categoryPath%>?brand=Melissani" class="brand-label"
+                                        data-view-label="Melissani">Melissani</a></li>
+                                <li><a href="<%=categoryPath%>?brand=Hamilton" class="brand-label"
+                                        data-view-label="Hamilton">Hamilton</a></li>
+                                <li><a href="<%=categoryPath%>?brand=Moraine" class="brand-label"
+                                        data-view-label="Moraine">Moraine</a></li>
+                                <li><a href="<%=categoryPath%>?brand=Beverly" class="brand-label"
+                                        data-view-label="Beverly">Beverly</a></li>
+                                <%}%>
+
                                         </ul>
                                     </div>
                                 </div>
-                                <%}%>
+                            
+                    
 </div>
 </div>
 
-<div class="col-12 col-md-8 col-lg-9">
-    <div class="shop_grid_product_area">
-        <div class="row">
+<div class="col-12 col-md-8 col-lg-9" id="products">
+         <div class="shop_grid_product_area">
+            <div class="row">
             <div class="col-12">
                 <div class="product-topbar d-flex align-items-center justify-content-between">
                     <!-- Total Products -->
                     <div class="total-products">
-                        <p>hiển thị <span><%=products.length%></span>/<span><%=totalProducts%></span>
-                                sản phẩm</p>
+                        <p>hiển thị <span><%=products.length%></span>/<span><%=totalProducts%></span> sản phẩm</p>
                             </div>
                             <!-- Sorting -->
                             <div class="product-sorting d-flex">
@@ -134,9 +162,8 @@
                         </div>
                     </div>
                 </div>
-
+                <div id="loader"></div>
                 <div class="row">
-
                     <!-- Single Product -->
                     <%products.forEach(product =>{%>
                     <div class="col-12 col-sm-6 col-lg-4">
@@ -144,19 +171,15 @@
                             <!-- Product Image -->
                             <div class="product-img">
                                 <img src="<%=product.coverImage%>" alt="<%=product.name%> image">
-                                <!-- Hover Thumb -->
-                                <!-- <img class="hover-img" src="img/product-img/product-2.jpg" alt=""> -->
 
                                 <!-- Product Badge -->
-                                <div class="product-badge offer-badge">
-                                    <span>-40%</span>
+                                <div class="product-badge offer-badge"><span>-40%</span>
                                 </div>
                                 <!-- Favourite -->
                                 <div class="product-favourite">
                                     <a href="#" class="favme fa fa-heart"></a>
                                 </div>
                             </div>
-
                             <!-- Product Description -->
                             <div class="product-description">
                                 <span><%=product.brand%> - <%=product.size%></span>
@@ -182,6 +205,7 @@
                 </div>
             </div>
             <!-- Pagination -->
+            <%if(totalProducts >ITEM_PER_PAGE){%>
             <nav aria-label="navigation">
                 <ul class="pagination mt-50 mb-70">
                     <% if(currentPage && currentPage > 1){%>
@@ -244,7 +268,8 @@
              <%}%>
                 </ul>
             </nav>
-        </div>
+            <%}%>
+</div>
     </div>
 </div>
 </section>

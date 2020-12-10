@@ -1,0 +1,133 @@
+<%  function numberWithCommas(price) {
+    var parts = price.toString().split(".");
+    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
+    return parts.join(",");
+    }
+ %>
+<div class="shop_grid_product_area">
+    <div class="row">
+        <div class="col-12">
+            <div class="product-topbar d-flex align-items-center justify-content-between">
+                <!-- Total Products -->
+                <div class="total-products">
+                    <p>hiển thị <span><%=products.length%></span>/<span><%=totalProducts%></span> sản phẩm</p>
+                </div>
+                <!-- Sorting -->
+                <div class="product-sorting d-flex">
+                    <p>Sắp xếp</p>
+                    <form action="<%=categoryPath%>" method="GET">
+                        <select name="sort" id="sortByselect" onchange="this.form.submit()">
+                            <option value="all">Tất cả</option>
+                            <option value="price">Giá tăng dần</option>
+                            <option value="-price">Giá giảm dần</option>
+                            <option value="name">Tên: A - Z</option>
+                            <option value="-name">Tên: Z - A</option>
+                        </select>
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loader"></div>
+    <div class="row">
+        <!-- Single Product -->
+        <%products.forEach(product =>{%>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="single-product-wrapper">
+                <!-- Product Image -->
+                <div class="product-img">
+                    <img src="<%=product.coverImage%>" alt="<%=product.name%> image">
+
+                    <!-- Product Badge -->
+                    <div class="product-badge offer-badge"><span>-40%</span>
+                    </div>
+                    <!-- Favourite -->
+                    <div class="product-favourite">
+                        <a href="#" class="favme fa fa-heart"></a>
+                    </div>
+                </div>
+                <!-- Product Description -->
+                <div class="product-description">
+                    <span><%=product.brand%> - <%=product.size%></span>
+                    <a href="/san-pham/<%=product._id%>">
+                        <h6 class="product-name">
+                            <%=product.name%>
+                        </h6>
+                    </a>
+                    <p class="product-price"><span class="old-price">$75.00</span>
+                        <%=numberWithCommas(product.price)%> đ</p>
+
+                    <!-- Hover Content -->
+                    <div class="hover-content">
+                        <!-- Add to Cart -->
+                        <div class="add-to-cart-btn">
+                            <a href="#" class="btn essence-btn">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% });%>
+    </div>
+</div>
+<!-- Pagination -->
+<%if(totalProducts >ITEM_PER_PAGE){%>
+<nav aria-label="navigation">
+    <ul class="pagination mt-50 mb-70">
+        <% if(currentPage && currentPage > 1){%>
+        <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&sort=<%=sort%>"><i
+                    class="fa fa-angle-left"></i></a></li>
+        <% }%>
+        <%if(hasPrevPage){%>
+        <%if(searchString){%>
+        <li class="page-item">
+            <a class="page-link" href="<%=categoryPath%>?search=<%=searchString%>&page=<%=prevPage%>&sort=<%=sort%>">
+                <%=nextPage%>
+            </a>
+        </li>
+        <%} else{%>
+        <li class="page-item">
+            <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&sort=<%=sort%>">
+                <%=prevPage%>
+            </a>
+        </li>
+        <% }%>
+        <% }%>
+        <li class="page-item">
+            <a class="page-link" href="javascript:void(0)" style="background-color: rgb(52, 127, 224); color: #fff"
+                tabindex="-1">
+                <%=currentPage%>
+            </a>
+        </li>
+        <%if(hasNextPage){%>
+        <%if(searchString){%>
+        <li class="page-item">
+            <a class="page-link" href="<%=categoryPath%>?search=<%=searchString%>&page=<%=nextPage%>&sort=<%=sort%>">
+                <%=nextPage%>
+            </a>
+        </li>
+        <%} else{%>
+        <li class="page-item">
+            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&sort=<%=sort%>">
+                <%=nextPage%>
+            </a>
+        </li>
+        <%}%>
+       <%}%>
+
+        <%if(lastPage>currentPage){%>
+        <%if(searchString){%>
+        <li class="page-item">
+            <a class="page-link" href="<%=categoryPath%>?search=<%=searchString%>&page=<%=nextPage%>&sort=<%=sort%>">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+        <%} else{%>
+        <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&sort=<%=sort%>"><i
+                    class="fa fa-angle-right"></i></a></li>
+        <%}%>
+        <%}%>
+    </ul>
+</nav>
+<%}%>
