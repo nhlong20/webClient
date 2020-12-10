@@ -80,19 +80,11 @@
                     class="fa fa-angle-left"></i></a></li>
         <% }%>
         <%if(hasPrevPage){%>
-        <%if(searchString){%>
         <li class="page-item">
-            <a class="page-link" href="<%=categoryPath%>?search=<%=searchString%>&page=<%=prevPage%>&sort=<%=sort%>">
-                <%=nextPage%>
-            </a>
-        </li>
-        <%} else{%>
-        <li class="page-item">
-            <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&sort=<%=sort%>">
+            <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&<%=queryString%>">
                 <%=prevPage%>
             </a>
         </li>
-        <% }%>
         <% }%>
         <li class="page-item">
             <a class="page-link" href="javascript:void(0)" style="background-color: rgb(52, 127, 224); color: #fff"
@@ -101,32 +93,20 @@
             </a>
         </li>
         <%if(hasNextPage){%>
-        <%if(searchString){%>
         <li class="page-item">
-            <a class="page-link" href="<%=categoryPath%>?search=<%=searchString%>&page=<%=nextPage%>&sort=<%=sort%>">
+            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&<%=queryString%>">
                 <%=nextPage%>
             </a>
         </li>
-        <%} else{%>
-        <li class="page-item">
-            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&sort=<%=sort%>">
-                <%=nextPage%>
-            </a>
-        </li>
-        <%}%>
        <%}%>
 
         <%if(lastPage>currentPage){%>
-        <%if(searchString){%>
         <li class="page-item">
-            <a class="page-link" href="<%=categoryPath%>?search=<%=searchString%>&page=<%=nextPage%>&sort=<%=sort%>">
+            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&<%=queryString%>">
                 <i class="fa fa-angle-right"></i>
             </a>
         </li>
-        <%} else{%>
-        <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&sort=<%=sort%>"><i
-                    class="fa fa-angle-right"></i></a></li>
-        <%}%>
+
         <%}%>
     </ul>
 </nav>

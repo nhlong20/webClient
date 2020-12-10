@@ -3,6 +3,7 @@ const Product = require('../models/productModel');
 const productService = require('../services/productService.js');
 const ITEM_PER_PAGE = 9;
 const ejs = require('ejs');
+const { skips } = require('debug');
 function renderView(res, paginate, categoryPath) {
     const pageControlObj = {
         products: paginate.docs,
@@ -26,6 +27,15 @@ const baseDir = __dirname + '/../views/api/';
 function toUpperOnlyFirstChar(word) {
     return word[0].toUpperCase() + word.substr(1).toLowerCase();
 }
+function serializeQuery(obj) {
+    var str = [];
+    for (var p in obj)
+      if (obj.hasOwnProperty(p) && p!= 'category') {
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+      }
+    return str.join("&");
+  }
+
 exports.apiGetBrand = async (req, res) => {
     let { brand, color, sort, category } = req.query;
     const query = {};
@@ -45,6 +55,7 @@ exports.apiGetBrand = async (req, res) => {
         sort: sort || 'all'
     };
     const paginate = await productService.listProduct(query, options);
+    const queryString = serializeQuery(req.query)
     const html = await ejs.renderFile(baseDir + 'ajax_products.ejs', {
         products: paginate.docs,
         lastPage: paginate.totalPages,
@@ -58,7 +69,8 @@ exports.apiGetBrand = async (req, res) => {
         categoryPath: categoryPath,
         sort: paginate.sort || 'all',
         searchString: paginate.search || '',
-        pageType: paginate.pageType || 'Sản phẩm'
+        pageType: paginate.pageType || 'Sản phẩm',
+        queryString
     });
     res.json(html);
 };
@@ -198,6 +210,7 @@ exports.searchProducts = async (req, res) => {
     if (color) {
         query.color = color;
     }
+    
     const options = { page, limit, sort };
     const paginate = await productService.listProduct(query, options);
     paginate.sort = sort;
