@@ -29,9 +29,11 @@
         <!-- ##### Breadcumb Area End ##### -->
 
         <!-- ##### Shop Grid Area Start ##### -->
-<section class="shop_grid_area section-padding-80">
+        <section class="shop_grid_area section-padding-80" id="products">
+            <div id="loader"></div>
             <div class="container">
                 <div class="row">
+                    <%if(pageType == "Đồng hồ" || pageType =="Đồng hồ nam" || pageType =="Đồng hồ nữ"){%>
                     <div class="col-12 col-md-4 col-lg-3">
                         <div class="shop_sidebar_area">
                             <!-- ##### Single Widget ##### -->
@@ -39,8 +41,8 @@
                                 <!-- Widget Title -->
                                 <h6 class="widget-title mb-30">Lọc</h6>
                                 <!-- Widget Title 2 -->
-                                <p class="widget-title2 mb-30">Giá</p>
-
+                                <!-- <p class="widget-title2 mb-30">Giá</p>
+        
                                 <div class="widget-desc">
                                     <div class="slider-range">
                                         <div data-min="0" data-max="5000000" data-unit="VNĐ"
@@ -54,89 +56,92 @@
                                         </div>
                                         <div class="range-price">Khoảng: 0VNĐ - 5.000.000VNĐ</div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-
+        
                             <!-- ##### Single Widget ##### -->
-                            <%if (pageType != "Phụ kiện" && pageType != "Thương hiệu") {%>
                                 <div class="widget color mb-50">
                                     <!-- Widget Title 2 -->
                                     <p class="widget-title2 mb-30">Màu sắc</p>
                                     <div class="widget-desc">
                                         <ul class="d-flex">
                                             <li>
-                                                <a href="<%=categoryPath%>?color=WHITE" data-view-label="WHITE"
-                                                    class="color-label color--white"></a>
-                                            </li>
-                                            <li>
-                                                <a href="<%=categoryPath%>?color=BLACK" data-view-label="BLACK"
-                                                    class="color-label color--black"></a>
-                                            </li>
-                                            <li>
-                                                <a href="<%=categoryPath%>?color=NAVY" data-view-label="NAVY"
-                                                    class="color-label color--navy"></a>
-                                            </li>
-                                            <li>
-                                                <a href="<%=categoryPath%>?color=ROSEGOLD" data-view-label="ROSEGOLD"
-                                                    class="color-label color--rosegold"></a>
-                                            </li>
-                                            <li>
-                                                <a href="<%=categoryPath%>?color=PEARL" data-view-label="PEARL"
-                                                    class="color-label color--pearl"></a>
-                                            </li>
-                                            <li>
-                                                <a href="<%=categoryPath%>?color=GREY" data-view-label="GREY"
-                                                    class="color-label color--grey"></a>
-                                            </li>
-                                            <li>
-                                                <a href="<%=categoryPath%>?color=PINK" data-view-label="PINK"
-                                                    class="color-label color--pink"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <%}%>
-                       
-                                <!-- ##### Single Widget ##### -->
-                                <div class="widget brands mb-50">
-                                    <!-- Widget Title 2 -->
-                                    <p class="widget-title2 mb-30">Thương hiệu</p>
-                                    <div class="widget-desc">
-                                        <ul>
-                                            <%if(pageType == "Đồng hồ nam" || pageType == "Đồng hồ" ){%>
-                                <li><a href="<%=categoryPath%>?brand=Jackson" class="brand-label"
-                                        data-view-label="Jackson">Jackson</a></li>
-                                <li><a href="<%=categoryPath%>?brand=Kashmir" class="brand-label"
-                                        data-view-label="Kashmir">Kashmir</a></li>
-                                <li><a href="<%=categoryPath%>?brand=Colosseum" class="brand-label"
-                                        data-view-label="Colosseum">Colosseum</a></li>
-                                <li><a href="<%=categoryPath%>?brand=Mykonos" class="brand-label"
-                                        data-view-label="Mykonos">Mykonos</a></li>
-                                <%}%>
-                                             <%if(pageType == "Đồng hồ nữ" || pageType == "Đồng hồ" ){%>
-                                <li><a href="<%=categoryPath%>?brand=Santorini" class="brand-label"
-                                        data-view-label="Santorini">Santorini</a></li>
-                                <li><a href="<%=categoryPath%>?brand=Florenge" class="brand-label"
-                                        data-view-label="Florenge">Florenge</a></li>
-                                <li><a href="<%=categoryPath%>?brand=Melissani" class="brand-label"
-                                        data-view-label="Melissani">Melissani</a></li>
-                                <li><a href="<%=categoryPath%>?brand=Hamilton" class="brand-label"
-                                        data-view-label="Hamilton">Hamilton</a></li>
-                                <li><a href="<%=categoryPath%>?brand=Moraine" class="brand-label"
-                                        data-view-label="Moraine">Moraine</a></li>
-                                <li><a href="<%=categoryPath%>?brand=Beverly" class="brand-label"
-                                        data-view-label="Beverly">Beverly</a></li>
-                                <%}%>
+                                                <a href="<%=categoryPath%>?color=WHITE<%=queryString%>" data-view-label="WHITE"
+                                class="color-label color--white"></a>
+                                </li>
+                                <li>
+                                    <a href="<%=categoryPath%>?color=BLACK<%=queryString%>" data-view-label="BLACK"
+                                        class="color-label color--black"></a>
+                                </li>
+                                <li>
+                                    <a href="<%=categoryPath%>?color=NAVY<%=queryString%>" data-view-label="NAVY"
+                                        class="color-label color--navy"></a>
+                                </li>
+                                <li>
+                                    <a href="<%=categoryPath%>?color=ROSEGOLD<%=queryString%>" data-view-label="ROSEGOLD"
+                                        class="color-label color--rosegold"></a>
+                                </li>
+                                <li>
+                                    <a href="<%=categoryPath%>?color=PEARL<%=queryString%>" data-view-label="PEARL"
+                                        class="color-label color--pearl"></a>
+                                </li>
+                                <li>
+                                    <a href="<%=categoryPath%>?color=GREY<%=queryString%>" data-view-label="GREY"
+                                        class="color-label color--grey"></a>
+                                </li>
+                                <li>
+                                    <a href="<%=categoryPath%>?color=PINK<%=queryString%>" data-view-label="PINK"
+                                        class="color-label color--pink"></a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
 
+                        <!-- ##### Single Widget ##### -->
+
+                        <div class="widget brands mb-50">
+                            <!-- Widget Title 2 -->
+                            <p class="widget-title2 mb-30">Thương hiệu</p>
+                            <div class="widget-desc">
+                                <ul>
+                                    <%if(pageType == "Đồng hồ nam" || pageType =="Đồng hồ" ){%>
+                                    <li><a href="<%=categoryPath%>?brand=Jackson<%=queryString%>" class="brand-label"
+                                            data-view-label="Jackson">Jackson</a></li>
+                                    <li><a href="<%=categoryPath%>?brand=Kashmir<%=queryString%>" class="brand-label"
+                                            data-view-label="Kashmir">Kashmir</a></li>
+                                    <li><a href="<%=categoryPath%>?brand=Colosseum<%=queryString%>" class="brand-label"
+                                            data-view-label="Colosseum">Colosseum</a></li>
+                                    <li><a href="<%=categoryPath%>?brand=Mykonos<%=queryString%>" class="brand-label"
+                                            data-view-label="Mykonos">Mykonos</a></li>
+                                    <%}%>
+                                             <%if(pageType == "Đồng hồ nữ" || pageType == "Đồng hồ"){%>
+                                    <li><a href="<%=categoryPath%>?brand=Santorini<%=queryString%>" class="brand-label"
+                                            data-view-label="Santorini">Santorini</a></li>
+                                    <li><a href="<%=categoryPath%>?brand=Florenge<%=queryString%>" class="brand-label"
+                                            data-view-label="Florenge">Florenge</a></li>
+                                    <li><a href="<%=categoryPath%>?brand=Melissani<%=queryString%>" class="brand-label"
+                                            data-view-label="Melissani">Melissani</a></li>
+                                    <li><a href="<%=categoryPath%>?brand=Hamilton<%=queryString%>" class="brand-label"
+                                            data-view-label="Hamilton">Hamilton</a></li>
+                                    <li><a href="<%=categoryPath%>?brand=Moraine<%=queryString%>" class="brand-label"
+                                            data-view-label="Moraine">Moraine</a></li>
+                                    <li><a href="<%=categoryPath%>?brand=Beverly<%=queryString%>" class="brand-label"
+                                            data-view-label="Beverly">Beverly</a></li>
+                                    <%}%>
+        
                                         </ul>
                                     </div>
                                 </div>
                             
                     
-</div>
-</div>
-
-<div class="col-12 col-md-8 col-lg-9" id="products">
+                        </div>
+                    </div>
+                    <%}%>
+                    <% if(pageType == "Phụ kiện" || pageType == "Tìm kiếm"){%>
+            <div class="col-12" id="product-content">    
+                <% }else{%>
+            <div class="col-12 col-md-8 col-lg-9" id="product-content">
+                <% }%>
          <div class="shop_grid_product_area">
             <div class="row">
             <div class="col-12">
@@ -162,7 +167,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="loader"></div>
+
                 <div class="row">
                     <!-- Single Product -->
                     <%products.forEach(product =>{%>
@@ -249,6 +254,9 @@
             <%}%>
         </div>
     </div>
-</div>
+            </div>
+            </div>
+<!-- Main js -->
+<script defer src="/js/main.js"></script>
 </section>
 <!-- ##### Shop Grid Area End ##### -->

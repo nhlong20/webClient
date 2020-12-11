@@ -18,7 +18,7 @@ function renderView(res, paginate, custom) {
         categoryPath: custom.categoryPath,
         searchString: custom.search,
         pageType: custom.pageType || 'Sản phẩm',
-        queryString: '&' + custom.queryString || ''
+        queryString: custom.queryString ? '&' + custom.queryString : ''
     };
     res.status(200);
     res.render('shop', pageControlObj);
@@ -46,18 +46,25 @@ exports.apiGetBrand = async (req, res) => {
     const custom = {};
     custom.queryString = serializeQuery(req.query);
     custom.categoryPath = `/san-pham/` + category;
+
     if (category == 'dong-ho-nam') {
         query.category = 'Men';
         custom.categoryPath = `/san-pham/` + category;
-    }
-    if (category == 'dong-ho-nu') {
+        custom.pageType = 'Đồng hồ nam';
+    } else if (category == 'dong-ho-nu') {
         query.category = 'Women';
         custom.categoryPath = `/san-pham/` + category;
-    }
-    if (category == 'san-pham' || category == 'tim-kiem') {
+        custom.pageType = 'Đồng hồ nữ';
+    } else if (category == 'san-pham') {
         custom.categoryPath = '/' + category;
+        custom.pageType = 'Đồng hồ';
+        category = '';
+    } else if (category == 'tim-kiem') {
+        custom.categoryPath = '/' + category;
+        custom.pageType = 'Tìm kiếm';
         category = '';
     }
+
     const options = {
         page: req.query.page * 1 || 1,
         limit: req.query.limit * 1 || ITEM_PER_PAGE,
@@ -77,8 +84,8 @@ exports.apiGetBrand = async (req, res) => {
         nextPage: paginate.nextPage,
 
         categoryPath: custom.categoryPath || '',
-        pageType: custom.pageType || 'Sản phẩm',
-        queryString: '&' + custom.queryString || ''
+        pageType: custom.pageType || 'Đồng hồ',
+        queryString: custom.queryString ? '&' + custom.queryString : ''
     });
     res.json(html);
 };
@@ -94,9 +101,11 @@ exports.getPopularProducts = async (req, res) => {
     const products = await query;
     res.render('index', { products });
 };
-exports.getAllProducts = async (req, res) => {
+exports.getAllWatches = async (req, res) => {
     const { color, sort, brand } = req.query;
-    const query = {};
+    const query = {
+        department: 'Watch'
+    };
     color ? (query.color = color) : null;
     brand ? (query.brand = toUpperOnlyFirstChar(brand)) : null;
 
@@ -114,6 +123,9 @@ exports.getAllProducts = async (req, res) => {
 
     renderView(res, paginate, custom);
 };
+function getWatches(req,res){
+
+}
 exports.getMenWatches = async (req, res) => {
     const { color, sort, brand } = req.query;
     const query = {
@@ -133,7 +145,6 @@ exports.getMenWatches = async (req, res) => {
     custom.queryString = serializeQuery(req.query);
     custom.pageType = 'Đồng hồ nam';
     custom.categoryPath = `/san-pham/dong-ho-nam`;
-    console.log(custom);
 
     const paginate = await productService.listProduct(query, options);
     renderView(res, paginate, custom);
@@ -227,8 +238,8 @@ exports.searchProducts = async (req, res) => {
     const paginate = await productService.listProduct(query, options);
 
     const custom = {};
-    custom.queryString = serializeQuery(req.query);
-    console.log(custom.queryString)
+    custom.queryString = serializeQuery({search: req.query.search});
+    console.log(custom.queryString);
     custom.search = search;
     custom.categoryPath = `/tim-kiem`;
     custom.pageType = 'Tìm kiếm';

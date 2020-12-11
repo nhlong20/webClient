@@ -1,7 +1,7 @@
 $(document).ready(function () {
     function showPage(response) {
         $('#loader').css('display', 'none');
-        $('#products').css('display', 'block');
+        $('#product-content').css('display', 'block');
         $('#products').html(response);
         $('#current-page').css({
             'background-color': 'rgb(52, 127, 224)',
@@ -10,7 +10,7 @@ $(document).ready(function () {
     }
     function configEventListener(value, DOM) {
         $('#loader').css('display', 'block');
-        $('#products').css('display', 'none');
+        $('#product-content').css('display', 'none');
         let query = '';
         if (DOM != null) {
             query = value + '=' + DOM.data('view-label');
@@ -21,7 +21,6 @@ $(document).ready(function () {
     }
     function getQuery(url) {
         query = url.split('?').pop();
-        console.log(query);
         return query;
     }
 
