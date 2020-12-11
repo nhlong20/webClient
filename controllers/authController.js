@@ -1,25 +1,31 @@
 const User = require('../models/userModel');
-exports.login = async (req, res) => {
-    const { email, password } = req.body;
-    // Check whether email and password exist or not
-    if (!email || !password) {
-        console.log('Email or password is empty');
-    }
-    const user = await User.findOne({ email }).select('+password');
-    // Check whether user exists && password is correct or not
-    if (!user || password != user.password) {
-        console.log('Incorrect email or password');
-    }
-    res.redirect('/user');
-};
+const authService = require('../services/authService');
+const userService = require('../services/userService');
+
+// exports.login = async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         // 1. Check whether email and password exist or not
+//         if (!email || !password) {
+//             throw 'Email or password is empty';
+//         }
+//         const loginUser = await authService.checkCredentials(email, password);
+//         // 3) If everything ok, redirect user back to homepage
+//         res.redirect('/');
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
 exports.signup = async (req, res, next) => {
-    const newUser = await User.create({
-        name: req.body.firstName + req.body.lastName,
+    const newUser = {
+        name: req.body.fullname,
         email: req.body.email,
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm
-    });
-    console.log(newUser);
+    };
+
+    await userService.createUser(newUser);
+
     res.redirect('/dang-nhap');
     // Send email after sign up to confirm
 };

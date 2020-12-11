@@ -6,11 +6,16 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const expressLayout = require('express-ejs-layouts');
+const passport = require('./passport');
+const session = require('express-session');
 
 const indexRouter = require('./routes/indexRoute');
 const usersRouter = require('./routes/userRoute');
 const productRouter = require('./routes/productRoute');
+const authRouter = require('./routes/authRoute');
+
 const productApiRouter = require('./routes/api/productRoute');
+
 
 const app = express();
 // view engine setup
@@ -27,19 +32,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//passport set up
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET_KEY,
+        resave: true,
+        saveUninitialized: true
+    })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/san-pham', productRouter);
 app.use('/user', usersRouter);
+app.use('/auth', authRouter);
 app.use('/api/v1', productApiRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     next(createError(404));
-}); 
+});
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     // set locals,  only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
