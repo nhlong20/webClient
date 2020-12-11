@@ -32,16 +32,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//passport set up
+//passport middleware
 app.use(
     session({
         secret: process.env.SESSION_SECRET_KEY,
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
+        cookie:{
+            maxAge:60*1000 //5s
+        }
     })
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req,res,next)=>{
+    res.locals.currentUser = req.user;
+    next()
+})
 
 app.use('/', indexRouter);
 app.use('/san-pham', productRouter);

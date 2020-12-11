@@ -12,5 +12,4 @@ router.route('/login').post(
 );
 
 router.route('/signup').post(authCtrl.signup);
-
 module.exports = router;

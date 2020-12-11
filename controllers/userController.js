@@ -9,6 +9,11 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+exports.logout = (req, res) => {
+    req.logout();
+    res.redirect('/');
+};
+
 exports.getUserProfile = async (req, res, next) => {
     let user = await User.findById('5fcef6e138e0b6cd47a3d49a');
     res.render('user', { user });

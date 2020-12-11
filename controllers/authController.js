@@ -29,3 +29,4 @@ exports.signup = async (req, res, next) => {
     res.redirect('/dang-nhap');
     // Send email after sign up to confirm
 };
+

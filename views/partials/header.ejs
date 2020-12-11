@@ -53,15 +53,24 @@
             <!-- User Login Info -->
 
             <div class="user-login-info user-dropdown">
+                <%if(currentUser){%>
                 <ul>
-                    <a class="dropdown" href="/user"> <i class="fal fa-user fa-lg"></i></a>
-
+                    <a class="dropdown" href="#"><i class="fal fa-user fa-lg"></i></a>
+                    <div class="dropdown-content">
+                        <a href="/user">Trang cá nhân</a>
+                        <a href="/user">Đơn hàng</a>
+                        <a href="/user/dang-xuat">Đăng xuất</a>
+                    </div>
+                </ul>
+                <%} else {%>
+                <ul>
+                    <a class="dropdown" href="#"><i class="fal fa-sign-in-alt fa-lg"></i></a>
                     <div class="dropdown-content">
                         <a href="/dang-nhap">Đăng nhập</a>
                         <a href="/dang-ky">Đăng ký</a>
                     </div>
-
                 </ul>
+                <%} %>
             </div>
             <!-- Cart Area -->
             <div class="cart-area">
