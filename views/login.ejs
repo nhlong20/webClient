@@ -1,50 +1,49 @@
-<div class="bg-gradient-light mt-5">
+<div class="bg-gradient-light">
     <div class="container">
-
         <!-- Outer Row -->
-        <div class="row justify-content-center">
+        <div class="row justify-content-center align-items-center body-container">
 
             <div class="col-xl-10 col-lg-12 col-md-9">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row"
-                            style="background:transparent url('/img/bg-img/rp2.jpg') no-repeat center center /cover">
-                            <div class="col-lg-6 d-none d-lg-block">
+                        <div class="row" id="bg-login">
+                            <div class="col-lg-5 d-none d-lg-block" id="login-img">
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-7">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-white mb-4 ">Chào bạn</h1>
+                                        <h1 class="h2 text-gray-900 mb-3 ">Xin chào,</h1>
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="text-gray-900 mb-5 ">Đăng nhập để theo dõi đơn hàng, lưu
+                                            danh sách sản phẩm yêu thích, nhận
+                                            nhiều ưu đãi hấp dẫn</p>
                                     </div>
                                     <form class="user" action="/auth/login" method="POST">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user" id="email"
-                                                aria-describedby="emailHelp" name="email"
+                                                aria-describedby="email" name="email"
                                                 placeholder="Nhập địa chỉ email...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                name="password" id="password" placeholder="Mật khẩu">
+                                                aria-describedby="password" name="password" id="password"
+                                                placeholder="Mật khẩu">
                                         </div>
-                                        <!-- <div class="form-group ml-5">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label text-gray-900" for="customCheck">Lưu
-                                                    thông tin đăng nhập</label>
-                                            </div>
-                                        </div> -->
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+
+                                        <button type="submit" class="btn btn-warning btn-user btn-block">
                                             Đăng nhập
                                         </button>
                                         <hr>
-                                        <a href="#" class="btn btn-google btn-user btn-block">
+                                        <button  class="btn btn-light btn-user btn-block">
                                             <i class="fab fa-google"></i> Đăng nhập với Google
-                                        </a>
-                                        <a href="#" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-square"></i></i> Đăng nhập với Facebook
-                                        </a>
+                                        </button>
+
+                                        <button class="btn btn-light btn-user btn-block">
+                                           <i class="fab fa-facebook-square"></i></i> Đăng nhập với Facebook 
+                                        </button>
 
                                     </form>
                                     <hr>
@@ -52,10 +51,11 @@
                                         <a class="small" href="/quen-mat-khau">Bạn quên mật khẩu?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="/dang-ky">Tạo tải khoản ngay</a>
+                                        <a  href="/dang-ky">Tạo tài khoản ngay</a>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

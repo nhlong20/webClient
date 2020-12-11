@@ -2,20 +2,6 @@ const User = require('../models/userModel');
 const authService = require('../services/authService');
 const userService = require('../services/userService');
 
-// exports.login = async (req, res) => {
-//     try {
-//         const { email, password } = req.body;
-//         // 1. Check whether email and password exist or not
-//         if (!email || !password) {
-//             throw 'Email or password is empty';
-//         }
-//         const loginUser = await authService.checkCredentials(email, password);
-//         // 3) If everything ok, redirect user back to homepage
-//         res.redirect('/');
-//     } catch (error) {
-//         console.error(error);
-//     }
-// };
 exports.signup = async (req, res, next) => {
     const newUser = {
         name: req.body.fullname,
@@ -30,3 +16,10 @@ exports.signup = async (req, res, next) => {
     // Send email after sign up to confirm
 };
 
+exports.isLoggedIn = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    req.flash('error', 'Bạn cần đăng nhập trước để tiếp tục');
+    res.redirect('/dang-nhap');
+};

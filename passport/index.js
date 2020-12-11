@@ -13,7 +13,7 @@ passport.use(
             const user = await authService.checkCredentials(email, password);
             if (!user) {
                 return done(null, false, {
-                    message: 'Incorrect username or password'
+                    message: 'Bạn nhập sai tên đăng nhập hoặc mật khẩu'
                 });
             }
             return done(null, user);

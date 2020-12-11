@@ -57,8 +57,8 @@
                 <ul>
                     <a class="dropdown" href="#"><i class="fal fa-user fa-lg"></i></a>
                     <div class="dropdown-content">
-                        <a href="/user">Trang cá nhân</a>
-                        <a href="/user">Đơn hàng</a>
+                        <a href="/profile">Trang cá nhân</a>
+                        <a href="/profile">Đơn hàng</a>
                         <a href="/user/dang-xuat">Đăng xuất</a>
                     </div>
                 </ul>
@@ -146,3 +146,9 @@
     </div>
 </div>
 <!-- ##### Right Side Cart End ##### -->
+<% if(error && error.length >0){%>
+<div class="alert text-center alert-danger" role="alert"><%=error%></div>
+<% } %>
+<% if(success && success.length >0){%>
+<div class="alert text-center alert-success" role="alert"><%=success%></div>
+<% } %>

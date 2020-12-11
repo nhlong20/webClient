@@ -15,13 +15,11 @@ exports.logout = (req, res) => {
 };
 
 exports.getUserProfile = async (req, res, next) => {
-    let user = await User.findById('5fcef6e138e0b6cd47a3d49a');
-    res.render('user', { user });
+    let user = req.user;
+    res.render('profile', { user });
 };
 
-exports.changeInfo = async (req, res) => {
-    //var product = req.body.product;
-    //console.log(product);
+exports.updateUser = async (req, res) => {
     const form = new formidable.IncomingForm();
 
     form.uploadDir = path.join(__dirname, '/../uploads');
@@ -31,15 +29,14 @@ exports.changeInfo = async (req, res) => {
         if (err) {
             return;
         }
-        console.log(files);
         const uploadedPath = files.images.path;
         const uploadedRes = await cloudinary.uploader.upload(uploadedPath);
         let user = await User.findOneAndUpdate(
-            { _id: '5fcef6e138e0b6cd47a3d49a' },
-            { coverImage: uploadedRes.secure_url }
+            { _id: '5fd351d791dc080898e62e79' },
+            { avatar: uploadedRes.secure_url }
         );
         // fs.unlinkSync(uploadedPath);
         console.log('Uploaded product successfully');
-        res.redirect('/user');
+        res.redirect('/profile');
     });
 };

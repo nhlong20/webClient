@@ -45,3 +45,16 @@
 #products{
  min-height: 700px;
 }
+.body-container{
+ min-height: 850px;
+}
+#login-img{
+ background: no-repeat center center /cover;
+ background-image: url('/img/bg-img/background-login.png');
+
+}
+#signup-img{
+ background: no-repeat center center /cover;
+ background-image: url('/img/bg-img/bg-signup.png');
+
+}

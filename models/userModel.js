@@ -7,8 +7,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please tell us your name!']
     },
-    coverImage: {
-        type: String
+    avatar: {
+        type: String,
+        default:
+            'https://res.cloudinary.com/dh5xeom6f/image/upload/v1607703995/hsi57cqpkpxjzxoela74.jpg'
     },
     email: {
         type: String,

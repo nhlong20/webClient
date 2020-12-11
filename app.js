@@ -8,6 +8,7 @@ const cors = require('cors');
 const expressLayout = require('express-ejs-layouts');
 const passport = require('./passport');
 const session = require('express-session');
+const flash = require('express-flash');
 
 const indexRouter = require('./routes/indexRoute');
 const usersRouter = require('./routes/userRoute');
@@ -15,7 +16,6 @@ const productRouter = require('./routes/productRoute');
 const authRouter = require('./routes/authRoute');
 
 const productApiRouter = require('./routes/api/productRoute');
-
 
 const app = express();
 // view engine setup
@@ -32,23 +32,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 //passport middleware
 app.use(
     session({
         secret: process.env.SESSION_SECRET_KEY,
-        resave: true,
-        saveUninitialized: true,
-        cookie:{
-            maxAge:60*1000 //5s
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 360 * 1000 //60p
         }
     })
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use((req,res,next)=>{
+
+// Middleware express-flash
+app.use(flash());
+
+app.use((req, res, next) => {
     res.locals.currentUser = req.user;
-    next()
-})
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
+    next();
+});
 
 app.use('/', indexRouter);
 app.use('/san-pham', productRouter);
