@@ -29,7 +29,7 @@
         <!-- ##### Breadcumb Area End ##### -->
 
         <!-- ##### Shop Grid Area Start ##### -->
-        <section class="shop_grid_area section-padding-80">
+<section class="shop_grid_area section-padding-80">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-4 col-lg-3">
@@ -210,66 +210,44 @@
                 <ul class="pagination mt-50 mb-70">
                     <% if(currentPage && currentPage > 1){%>
                     <li class="page-item"><a class="page-link"
-                            href="<%=categoryPath%>?page=<%=prevPage%>&sort=<%=sort%>"><i
-                                class="fa fa-angle-left"></i></a></li>
+                            href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>"
+                            data-view-label="<%=prevPage%>"><i class="fa fa-angle-left"></i></a></li>
                     <% }%>
                     <%if(hasPrevPage){%>
-                    <%if(searchString){%>
                     <li class="page-item">
-                        <a class="page-link"
-                            href="<%=categoryPath%>?search=<%=searchString%>&page=<%=prevPage%>&sort=<%=sort%>">
-                            <%=nextPage%>
-                        </a>
-                    </li>
-                    <%} else{%>
-                    <li class="page-item">
-                        <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&sort=<%=sort%>">
+                        <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>"
+                            data-view-label="<%=prevPage%>">
                             <%=prevPage%>
                         </a>
                     </li>
                     <% }%>
-                    <% }%>
                     <li class="page-item">
-                        <a class="page-link" href="javascript:void(0)"
-                            style="background-color: rgb(52, 127, 224); color: #fff" tabindex="-1">
+                        <a class="page-link" href="javascript:void(0)" id="current-page" tabindex="-1"
+                            data-view-label="<%=currentPage%>">
                             <%=currentPage%>
                         </a>
                     </li>
                     <%if(hasNextPage){%>
-                    <%if(searchString){%>
                     <li class="page-item">
-                        <a class="page-link"
-                            href="<%=categoryPath%>?search=<%=searchString%>&page=<%=nextPage%>&sort=<%=sort%>">
-                            <%=nextPage%>
-                        </a>
-                    </li>
-                    <%} else{%>
-                    <li class="page-item">
-                        <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&sort=<%=sort%>">
+                        <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%><%=queryString%>"
+                            data-view-label="<%=nextPage%>">
                             <%=nextPage%>
                         </a>
                     </li>
                     <%}%>
-            <%}%>
-
-                    <%if(lastPage>currentPage){%>
-                    <%if(searchString){%>
+                
+                        <%if(lastPage>currentPage){%>
                     <li class="page-item">
-                        <a class="page-link"
-                            href="<%=categoryPath%>?search=<%=searchString%>&page=<%=nextPage%>&sort=<%=sort%>">
+                        <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%><%=queryString%>"
+                            data-view-label="<%=nextPage%>">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
-                    <%} else{%>
-                    <li class="page-item"><a class="page-link"
-                            href="<%=categoryPath%>?page=<%=nextPage%>&sort=<%=sort%>"><i
-                                class="fa fa-angle-right"></i></a></li>
                     <%}%>
-             <%}%>
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
             <%}%>
-</div>
+        </div>
     </div>
 </div>
 </section>

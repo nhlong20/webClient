@@ -76,33 +76,36 @@
 <nav aria-label="navigation">
     <ul class="pagination mt-50 mb-70">
         <% if(currentPage && currentPage > 1){%>
-        <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&sort=<%=sort%>"><i
-                    class="fa fa-angle-left"></i></a></li>
+        <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>"
+                data-view-label="<%=prevPage%>"><i class="fa fa-angle-left"></i></a></li>
         <% }%>
         <%if(hasPrevPage){%>
         <li class="page-item">
-            <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%>&<%=queryString%>">
+            <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>"
+                data-view-label="<%=prevPage%>">
                 <%=prevPage%>
             </a>
         </li>
         <% }%>
         <li class="page-item">
-            <a class="page-link" href="javascript:void(0)" style="background-color: rgb(52, 127, 224); color: #fff"
-                tabindex="-1">
+            <a class="page-link" href="javascript:void(0)" id="current-page" tabindex="-1"
+                data-view-label="<%=currentPage%>">
                 <%=currentPage%>
             </a>
         </li>
         <%if(hasNextPage){%>
         <li class="page-item">
-            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&<%=queryString%>">
+            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%><%=queryString%>"
+                data-view-label="<%=nextPage%>">
                 <%=nextPage%>
             </a>
         </li>
-       <%}%>
+        <%}%>
 
         <%if(lastPage>currentPage){%>
         <li class="page-item">
-            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%>&<%=queryString%>">
+            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%><%=queryString%>"
+                data-view-label="<%=nextPage%>">
                 <i class="fa fa-angle-right"></i>
             </a>
         </li>
