@@ -9,7 +9,9 @@ router
     .route('/')
     .get(productCtrl.topPopularProducts, productCtrl.getPopularProducts);
 
-router.route('/profile').get(authCtrl.isLoggedIn, userCtrl.getUserProfile);
+router.route('/account/edit').get(authCtrl.isLoggedIn, userCtrl.getProfile);
+router.route('/account/password/change').get(authCtrl.isLoggedIn, userCtrl.getProfile);
+
 router.route('/reset-password').get((req, res, next) => {
     const token = req.query.token;
     if (!token) {

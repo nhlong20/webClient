@@ -166,4 +166,10 @@
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         return parts.join(',');
     }
+    
+    $('#upload-file-btn').on('change', function () {
+        console.log('aaaaaaaaaaaaaaaa');
+        const fileChosen = document.getElementById('file-chosen');
+        fileChosen.textContent = this.files[0].name;
+    });
 })(jQuery);

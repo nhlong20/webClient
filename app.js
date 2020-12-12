@@ -15,7 +15,7 @@ const usersRouter = require('./routes/userRoute');
 const productRouter = require('./routes/productRoute');
 const authRouter = require('./routes/authRoute');
 
-const productApiRouter = require('./routes/api/productRoute');
+const productApiRouter = require('./routes/api/indexRoute');
 
 const app = express();
 // view engine setup

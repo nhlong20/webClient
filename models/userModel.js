@@ -17,23 +17,23 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please provide your email'],
         unique: true,
         lowercase: true,
-        validate: [validator.isEmail, 'Please provide a valid email']
+        validate: [validator.isEmail, 'Vui lòng cung cấp địa chỉ email hợp lệ']
     },
     password: {
         type: String,
         required: [true, 'Please provide a password'],
-        minlength: 6,
+        minlength: [6, 'Mật khẩu phải chứa ít nhất 6 ký tự'],
         select: false
     },
     passwordConfirm: {
         type: String,
-        required: [true, 'Please confirm your password'],
+        required: [true, 'Vui lòng xác nhận mật khẩu của bạn'],
         validate: {
             // This only works on CREATE and SAVE!!!
             validator: function (el) {
                 return el === this.password;
             },
-            message: 'Passwords are not the same!'
+            message: 'Mật khẩu xác nhận không trùng khớp'
         }
     },
     passwordChangedAt: Date,

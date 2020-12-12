@@ -63,6 +63,29 @@ $(document).ready(function () {
         });
     }
 
+    // $('#change-password').click(function (e) {
+    //     e.preventDefault();
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: '/api/v1/password/change',
+    //         contentType: 'application/json',
+    //         success: function (response) {
+    //             if (history.pushState) {
+    //                 var newurl =
+    //                     window.location.protocol +
+    //                     '//' +
+    //                     window.location.host +
+    //                     window.location.pathname +
+    //                     '/password/change';
+    //                 window.history.pushState({}, '', newurl);
+    //             }
+    //             $('#profile-wrapper').html(response);
+    //         },
+    //         error: function (err) {
+    //             console.log(err);
+    //         }
+    //     });
+    // });
     $('#current-page').css({
         'background-color': 'rgb(52, 127, 224)',
         color: '#fff'

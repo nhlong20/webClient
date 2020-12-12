@@ -1,10 +1,12 @@
-<h5 class="pt-3 pl-5">Hồ sơ của tôi</h5>
-<p class="pl-5">Quản lý thông tin và bảo mật tài khoản</p>
-<hr>
+<div class="container">
+    <h5 class="pt-3">Hồ sơ của tôi</h5>
+    <p>Quản lý thông tin và bảo mật tài khoản</p>
+</div>
 <div id="profile-wrapper">
     <div class="container bootstrap snippets bootdey">
+        <hr>
         <div class="row">
-            <div class="profile-nav col-md-3">
+            <div class="profile-nav col-md-5 col-lg-3">
                 <div class="panel">
                     <div class="user-heading round">
                         <a href="#">
@@ -19,133 +21,191 @@
                         </p>
                     </div>
 
-                    <ul class="nav nav-pills nav-stacked d-flex flex-column">
-                        <li class="active"><a href="#"> <i class="fa fa-user"></i>Hồ sơ</a></li>
-                        <li><a href="#"> <i class="fa fa-calendar"></i>Quản lý đơn hàng<span
-                                    class="label label-warning pull-right r-activity"></span></a></li>
+                    <ul class="d-flex flex-column">
+                        <li class="active"><a href="/account/edit"> <i class="fa fa-user"></i>Hồ sơ</a></li>
+                        <li><a id="change-password" href="/account/password/change"> <i class="fa fa-key"></i>Đổi mật
+                                khẩu</a></li>
+                        <li><a href="#"> <i class="fa fa-calendar"></i>Quản lý đơn hàng</a></li>
                         <li><a href="#"> <i class="fa fa-edit"></i>Địa chỉ giao hàng</a></li>
+
                     </ul>
                 </div>
             </div>
-            <div class="profile-info col-md-9">
+            <div class="profile-info col-md-7 col-lg-9">
 
                 <div class="panel">
-
-                    <div class="panel-body bio-graph-info">
-                        <h1 class="bio-header">Thông tin tài khoản</h1>
-                        <form class="row bio-info mb-4 pr-5">
-                            <div class="form-group row bio-row">
-                                <label for="name" class="col-sm-2 col-form-label">Họ tên:</label>
-                                <div class="col-sm-10">
-                                    <input type="name" class="form-control" id="name" value="<%=user.name%>">
-                                </div>
-
-                            </div>
-
-                            <div class="form-group row bio-row">
-                                <label for="phone" class="col-sm-2 col-form-label">Số điện thoại:</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="phone" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row bio-row">
-                                <label for="email" class="col-sm-2 col-form-label">Email:</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="email" value="<%=user.email%>">
-                                </div>
-
-                            </div>
-
-                            <div class="form-group row bio-row">
-                                <label class="col-sm-2 col-form-label">Giới tính</label>
-                                <div class="row col-sm-10 ml-1">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                                            value="option1" checked>
-                                        <label class="form-check-label" for="male">Nam</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
-                                            value="option2">
-                                        <label class="form-check-label" for="female">Nữ</label>
-
+                    <!-- Profile View -->
+                    <%if(pageType=="/account/edit" ){%>
+                        <div class="panel-body bio-graph-info">
+                            <h1 class="bio-header">Thông tin tài khoản</h1>
+                            <form class="row bio-info mb-4 pr-lg-5">
+                                <div class="form-group row bio-row">
+                                    <label for="name" class="col-lg-2 col-form-label">Họ tên:</label>
+                                    <div class="col-lg-10">
+                                        <input type="name" class="form-control" id="name" value="<%=user.name%>">
                                     </div>
 
                                 </div>
-                            </div>
-                            <div class="form-group row bio-row">
-                                <label class="col-sm-2 col-form-label">Ngày sinh</label>
-                                <div class="row col-sm-10 ml-1">
-                                    <select name="day" class="form-check form-check-inline">
-                                        <option value="0">Ngày</option>
-                                        <% for(let i=1;i<=31;i++){%>
-                                            <option value="<%=i%>">
-                                                <%=i%>
-                                            </option>
-                                            <% }%>
 
-                                    </select>
-                                    <select name="month" class="form-check form-check-inline">
-                                        <option value="0">Tháng</option>
-                                        <% for(let i=1;i<=12;i++){%>
-                                            <option value="<%=i%>">
-                                                <%=i%>
-                                            </option>
-                                            <% }%>
-                                    </select>
-                                    <select name="year" class="form-check form-check-inline">
-                                        <option value="0">Năm</option>
-                                        <% for(let i=2020;i>=1955;i--){%>
-                                            <option value="<%=i%>">
-                                                <%=i%>
-                                            </option>
-                                            <% }%>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row bio-row">
-                                <label class="col-sm-2 input-label">&nbsp;</label>
-                                <div class="row col-sm-10 ml-1">
-                                    <button type="submit" class="btn btn-warning btn-user">Cập nhật thông tin
-                                    </button>
-
-                                </div>
-                            </div>
-
-                        </form>
-
-                    </div>
-                    <div class="panel-body bio-graph-info">
-                        <h1 class="bio-header">Thay ảnh đại diện</h1>
-                        <form class="row bio-info mb-4 pr-5" action="/user/update" method="POST"
-                            enctype="multipart/form-data">
-
-
-                            <div class="form-group row bio-row">
-                                <label for="name" class="col-sm-2 col-form-label">Chọn file:</label>
-                                <div class="col-sm-10">
-                                    <div >
-                                        <input type="file" id="file" name="images"
-                                            accept="image/jpeg, image/png, image/jpg">
-                                    </div>
-                                    <div >
-                                        <p>Định dạng: .jpeg, .png, .jpg</p>
+                                <div class="form-group row bio-row">
+                                    <label for="phone" class="col-lg-2 col-form-label">Số điện thoại:</label>
+                                    <div class="col-lg-10">
+                                        <input type="number" class="form-control" id="phone" value="">
                                     </div>
                                 </div>
-                          
-                            </div>
-                            <div class="form-group row bio-row">
-                                <label class="col-sm-2 input-label">&nbsp;</label>
-                                <div class="row col-sm-10 ml-1">
-                                    <button type="submit" class="btn btn-warning btn-user">Cập nhật ảnh
-                                    </button>
+                                <div class="form-group row bio-row">
+                                    <label for="email" class="col-lg-2 col-form-label">Email:</label>
+                                    <div class="col-lg-10">
+                                        <input type="email" class="form-control" id="email" value="<%=user.email%>">
+                                    </div>
 
                                 </div>
-                            </div>
-                        </form>
-                    </div>
+
+                                <div class="form-group row bio-row">
+                                    <label class="col-lg-2 col-form-label">Giới tính</label>
+                                    <div class="row col-lg-10 ml-1">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                id="gridRadios1" value="option1" checked>
+                                            <label class="form-check-label" for="male">Nam</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                id="gridRadios2" value="option2">
+                                            <label class="form-check-label" for="female">Nữ</label>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group row bio-row">
+                                    <label class="col-lg-2 col-form-label">Ngày sinh</label>
+                                    <div class="row col-lg-10 ml-1">
+                                        <select name="day" class="form-check form-check-inline">
+                                            <option value="0">Ngày</option>
+                                            <% for(let i=1;i<=31;i++){%>
+                                                <option value="<%=i%>">
+                                                    <%=i%>
+                                                </option>
+                                                <% }%>
+    
+                                        </select>
+                                        <select name="month" class="form-check form-check-inline">
+                                            <option value="0">Tháng</option>
+                                            <% for(let i=1;i<=12;i++){%>
+                                                <option value="<%=i%>">
+                                                    <%=i%>
+                                                </option>
+                                                <% }%>
+                                        </select>
+                                        <select name="year" class="form-check form-check-inline">
+                                            <option value="0">Năm</option>
+                                            <% for(let i=2020;i>=1955;i--){%>
+                                                <option value="<%=i%>">
+                                                    <%=i%>
+                                                </option>
+                                                <% }%>
+                                        </select>
+                                    </div>
+                                </div> -->
+                                <div class="form-group row bio-row">
+                                    <label class="col-lg-2 input-label">&nbsp;</label>
+                                    <div class="row col-lg-10 ml-1">
+                                        <button type="submit" class="btn btn-warning btn-user">Cập nhật thông tin
+                                        </button>
+
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <div class="panel-body bio-graph-info">
+                            <h1 class="bio-header">Thay ảnh đại diện</h1>
+                            <form class="row bio-info mb-4 pr-lg-5" action="/user/update" method="POST"
+                                enctype="multipart/form-data">
+
+
+                                <div class="form-group row bio-row">
+                                    <label class="col-lg-2 col-form-label">Chọn file:</label>
+                                    <div class="col-lg-10">
+                                        <div id="upload-file-control">
+                                            <input type="file" id="upload-file-btn" name="images"
+                                                accept="image/jpeg, image/png, image/jpg" hidden>
+                                            <label id="upload-file-label" for="upload-file-btn">Chọn ảnh</label>
+                                            <span id="file-chosen">Không có ảnh nào được chọn</span>
+                                        </div>
+                                        <div>
+                                            <p>Định dạng: .jpeg, .png, .jpg</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row bio-row">
+                                    <label class="col-lg-2 input-label">&nbsp;</label>
+                                    <div class="row col-lg-10 ml-1">
+                                        <button type="submit" class="btn btn-warning btn-user">Cập nhật ảnh
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <% }%>
+
+                            <!--#End Profile View -->
+
+                            <!-- Change Password View -->
+                            <%if(pageType=="/account/password/change" ){%>
+                                <div class="panel-body bio-graph-info">
+                                    <h1 class="bio-header">Đổi mật khẩu</h1>
+                                    <form class="row bio-info mb-4 pr-lg-5" action="/user/change-password"
+                                        method="POST">
+                                        <div class="form-group row bio-row">
+                                            <label for="oldPassword" class="col-lg-2 col-form-label">Mật khẩu
+                                                cũ:</label>
+                                            <div class="col-lg-10">
+                                                <input type="password" class="form-control" id="old-password"
+                                                    name="oldPassword" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row bio-row">
+                                            <label for="newPassword" class="col-lg-2 col-form-label">Mật khẩu
+                                                mới:</label>
+                                            <div class="col-lg-10">
+                                                <input type="password" class="form-control" id="new-password"
+                                                    name="newPassword" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row bio-row">
+                                            <label for="passwordConfirm" class="col-lg-2 col-form-label">Xác nhận mật
+                                                khẩu
+                                                mới:</label>
+                                            <div class="col-lg-10">
+                                                <input type="password" class="form-control" id="password-confirm"
+                                                    name="passwordConfirm" required>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row bio-row">
+                                            <label class="col-lg-2 input-label">&nbsp;</label>
+                                            <div class="row col-lg-10 ml-1">
+                                                <button type="submit" class="btn btn-warning btn-user">Đổi mật khẩu
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                                <% }%>
+
+                                    <!-- #End Change Password View -->
                 </div>
             </div>
         </div>
     </div>
+    <!-- Main js -->
+    <script defer src="/js/main.js"></script>
 </div>

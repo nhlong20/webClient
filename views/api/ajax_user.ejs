@@ -1,0 +1,73 @@
+<div class="container bootstrap snippets bootdey">
+ <hr>
+ <div class="row">
+  <div class="profile-nav col-md-3">
+   <div class="panel">
+    <div class="user-heading round">
+     <a href="#">
+      <img src="<%=user.avatar%>" alt="Ảnh đại diện người dùng">
+     </a>
+
+     <h1>
+      <%=user.name%>
+     </h1>
+     <p>
+      <%=user.email%>
+     </p>
+    </div>
+
+    <ul class="d-flex flex-column">
+     <li class="active"><a href="#"> <i class="fa fa-user"></i>Hồ sơ</a></li>
+     <li><a id="change-password" href="#"> <i class="fa fa-edit"></i>Đổi mật khẩu</a></li>
+     <li><a href="#"> <i class="fa fa-calendar"></i>Quản lý đơn hàng</a></li>
+     <li><a href="#"> <i class="fa fa-edit"></i>Địa chỉ giao hàng</a></li>
+
+    </ul>
+   </div>
+  </div>
+  <div class="profile-info col-md-9">
+
+   <div class="panel">
+    <div class="panel-body bio-graph-info">
+     <h1 class="bio-header">Đổi mật khẩu</h1>
+     <form class="row bio-info mb-4 pr-5">
+      <div class="form-group row bio-row">
+       <label for="name" class="col-sm-2 col-form-label">Mật khẩu cũ:</label>
+       <div class="col-sm-10">
+        <input type="name" class="form-control" id="name" value="<%=user.name%>">
+       </div>
+
+      </div>
+
+      <div class="form-group row bio-row">
+       <label for="phone" class="col-sm-2 col-form-label">Mật khẩu mới:</label>
+       <div class="col-sm-10">
+        <input type="number" class="form-control" id="phone" value="">
+       </div>
+      </div>
+      <div class="form-group row bio-row">
+       <label for="email" class="col-sm-2 col-form-label">Xác nhận mật khẩu mới:</label>
+       <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" value="<%=user.email%>">
+       </div>
+
+      </div>
+      <div class="form-group row bio-row">
+       <label class="col-sm-2 input-label">&nbsp;</label>
+       <div class="row col-sm-10 ml-1">
+        <button type="submit" class="btn btn-warning btn-user">Đổi mật khẩu
+        </button>
+
+       </div>
+      </div>
+
+     </form>
+
+    </div>
+
+   </div>
+  </div>
+ </div>
+</div>
+<!-- Main js -->
+<script defer src="/js/main.js"></script>

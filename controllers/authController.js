@@ -87,6 +87,29 @@ exports.resetPassword = async (req, res) => {
     res.redirect('/dang-nhap');
 };
 
+exports.changePassword = async (req, res) => {
+    try {
+        // Get user from db
+        const user = await User.findById(req.user._id).select('+password');
+        // Check posted password and userpassword
+        if (!(await user.checkPassword(req.body.oldPassword, user.password))) {
+            throw new Error('Mật khẩu cũ không đúng, vui lòng kiểm tra lại');
+        }
+        // Update password
+        user.password = req.body.newPassword;
+        user.passwordConfirm = req.body.passwordConfirm;
+        await user.save();
+
+        //Redirect user
+        req.flash('success', 'Mật khẩu của bạn đã được cập nhật thành công');
+        res.redirect('/account/password/change');
+    } catch (error) {
+        const errorMsg = error.message.split(":").pop();
+        req.flash('error', errorMsg);
+        res.redirect('/account/password/change');
+    }
+};
+
 // Middleware
 exports.isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
