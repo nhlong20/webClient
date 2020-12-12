@@ -1,3 +1,6 @@
+'use strict';
+const crypto = require('crypto');
+
 const User = require('../models/userModel');
 const authService = require('../services/authService');
 const userService = require('../services/userService');
@@ -29,7 +32,7 @@ exports.forgotPassword = async (req, res) => {
     //Send Email to User
     const resetURL = `${req.protocol}://${req.get(
         'host'
-    )}/user/reset-password/${resetToken}`;
+    )}/reset-password?token=${resetToken}`;
     const message = `Click to set new password: ${resetURL}`;
     try {
         await sendEmail({
@@ -41,25 +44,47 @@ exports.forgotPassword = async (req, res) => {
             'success',
             'Email đã được gửi, vui lòng kiểm tra hộp thư để cập nhật thông tin.'
         );
-        res.redirect('/dang-nhap');
+        res.redirect('/quen-mat-khau');
     } catch (err) {
         user.passwordResetToken = undefined;
         user.passwordResetExpires = undefined;
         await user.save({ validateBeforeSave: false }); // turn off all validator defined in userSchema
-        req.flash('error', 'Có lỗi trong quá trình gửi email, vui lòng thử lại');
+        req.flash(
+            'error',
+            'Có lỗi trong quá trình gửi email, vui lòng thử lại'
+        );
         res.redirect('/quen-mat-khau');
     }
 };
 exports.resetPassword = async (req, res) => {
     // Get user token
-    const token = req.params.token;
-
+    const plainToken = req.query.token;
+    console.log(plainToken);
+    const hashToken = crypto
+        .createHash('sha256')
+        .update(plainToken)
+        .digest('hex');
     // Check expire time of token, Compare token to token in db, set new password
-    
-    // Update changePasswordAt property for user
+    const user = await userService.getUser({
+        passwordResetToken: hashToken,
+        passwordResetExpires: { $gt: Date.now() }
+    });
+    if (!user) {
+        req.flash(
+            'error',
+            'Token không hợp lệ hoặc đã hết hạn, vui lòng kiểm tra lại'
+        );
+        return res.redirect('/dang-nhap');
+    }
+    user.password = req.body.password;
+    user.passwordConfirm = req.body.passwordConfirm;
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
+    await user.save();
 
-    // Log the user in
-
+    // Redirect user to login page
+    req.flash('success', 'Cập nhật mật khẩu thành công, đăng nhập để tiếp tục');
+    res.redirect('/dang-nhap');
 };
 
 // Middleware

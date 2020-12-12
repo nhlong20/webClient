@@ -2,13 +2,21 @@ const express = require('express');
 const productCtrl = require('./../controllers/productController');
 const userCtrl = require('./../controllers/userController');
 const authCtrl = require('./../controllers/authController');
+const AppError = require('./../utils/appError');
 const router = express.Router();
 /* GET home page. */
 router
     .route('/')
     .get(productCtrl.topPopularProducts, productCtrl.getPopularProducts);
-    
-router.route('/profile').get(authCtrl.isLoggedIn,userCtrl.getUserProfile);
+
+router.route('/profile').get(authCtrl.isLoggedIn, userCtrl.getUserProfile);
+router.route('/reset-password').get((req, res, next) => {
+    const token = req.query.token;
+    if (!token) {
+        return next(new AppError(`Không tìm thấy trang`, 404));
+    }
+    res.render('reset-password', { token });
+});
 
 router.get('/cart', function (req, res, next) {
     res.render('cart');
