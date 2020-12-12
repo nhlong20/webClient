@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, 'Please provide your email'],
-        unique: true,
+        unique: [true, "Email đã tổn tại, vui lòng kiểm tra lại"],
         lowercase: true,
         validate: [validator.isEmail, 'Vui lòng cung cấp địa chỉ email hợp lệ']
     },
@@ -38,7 +38,12 @@ const userSchema = new mongoose.Schema({
     },
     passwordChangedAt: Date,
     passwordResetToken: String,
-    passwordResetExpires: Date
+    passwordResetExpires: Date,
+    active: {
+        type: Boolean,
+        default: false
+    },
+    verifyToken: String
 });
 
 userSchema.pre('save', async function (next) {
@@ -57,7 +62,7 @@ userSchema.pre('save', async function (next) {
     if (!this.isModified('password') || this.isNew) return next();
 
     this.passwordChangedAt = Date.now() - 1000; // - 1s is approximately requested time
-    
+
     next();
 });
 userSchema.methods.checkPassword = async function (
@@ -75,6 +80,12 @@ userSchema.methods.createPasswordResetToken = function () {
         .digest('hex');
     this.passwordResetExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
     return resetToken;
+};
+userSchema.methods.createVerifyToken = function () {
+    const verifyToken = crypto.randomBytes(32).toString('hex');
+    this.verifyToken = verifyToken;
+    console.log(this.verifyToken);
+    return verifyToken;
 };
 
 const User = mongoose.model('User', userSchema);

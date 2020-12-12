@@ -5,18 +5,75 @@ const User = require('../models/userModel');
 const authService = require('../services/authService');
 const userService = require('../services/userService');
 const { sendEmail } = require('../services/emailService');
+
 exports.signup = async (req, res, next) => {
-    const newUser = {
-        name: req.body.fullname,
-        email: req.body.email,
-        password: req.body.password,
-        passwordConfirm: req.body.passwordConfirm
-    };
+    try {
+        const newUser = {
+            name: req.body.fullname,
+            email: req.body.email,
+            password: req.body.password,
+            passwordConfirm: req.body.passwordConfirm
+        };
+        if (await userService.getUser({ email: newUser.email })) {
+            throw new Error('Email đã được đăng ký');
+        }
+        const user = await userService.createUser(newUser);
+        // Send email after sign up to confirm
+        const verifyToken = user.createVerifyToken();
+        await user.save({ validateBeforeSave: false }); // turn off all validator defined in userSchema
 
-    await userService.createUser(newUser);
+        const verifyURL = `${req.protocol}://${req.get(
+            'host'
+        )}/auth/verify-email?token=${verifyToken}`;
+        try {
+            await sendEmail({
+                email: user.email,
+                subject: `AWS-OS: Verify your email`,
+                message: verifyURL
+            });
+            req.flash(
+                'success',
+                'Email xác thực đã được gửi, vui lòng kiểm tra hộp thư của bạn.'
+            );
+            res.redirect('/dang-nhap');
+        } catch (error) {
+            user.verifyToken = undefined;
+            user.save();
+            req.flash(
+                'error',
+                'Có lỗi trong quá trình gửi email, vui lòng thử lại'
+            );
+            res.redirect('/dang-nhap');
+        }
+    } catch (error) {
+        req.flash('error', error.message);
+        res.redirect('/dang-ky');
+    }
+};
+exports.verifyEmail = async (req, res) => {
+    try {
+        // Find user with token
+        const user = await userService.getUser({
+            verifyToken: req.query.token
+        });
+        if (!user) {
+            throw new Error('Có gì đó không đúng, vui lòng kiểm tra lại.');
+        }
+        console.log(user);
+        // activated user
+        user.active = true;
+        user.verifyToken = undefined;
+        await user.save({ validateBeforeSave: false }); // turn off all validator defined in userSchema
 
-    res.redirect('/dang-nhap');
-    // Send email after sign up to confirm
+        req.flash(
+            'success',
+            'Xác thực email thành công, đăng nhập để tiếp tục'
+        );
+        res.redirect('/dang-nhap');
+    } catch (error) {
+        req.flash('error', error.message);
+        res.redirect('/');
+    }
 };
 exports.forgotPassword = async (req, res) => {
     //Get posted email
@@ -104,7 +161,7 @@ exports.changePassword = async (req, res) => {
         req.flash('success', 'Mật khẩu của bạn đã được cập nhật thành công');
         res.redirect('/account/password/change');
     } catch (error) {
-        const errorMsg = error.message.split(":").pop();
+        const errorMsg = error.message.split(':').pop();
         req.flash('error', errorMsg);
         res.redirect('/account/password/change');
     }

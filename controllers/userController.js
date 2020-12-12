@@ -46,6 +46,6 @@ exports.updateUser = async (req, res) => {
         );
         // fs.unlinkSync(uploadedPath);
         console.log('Uploaded product successfully');
-        res.redirect('/profile');
+        res.redirect('/account/edit');
     });
 };

@@ -16,6 +16,11 @@ passport.use(
                     message: 'Bạn nhập sai tên đăng nhập hoặc mật khẩu'
                 });
             }
+            if (!user.active) {
+                return done(null, false, {
+                    message: 'Email chưa được xác thực, vui lòng kiểm tra lại'
+                });
+            }
             return done(null, user);
         }
     )

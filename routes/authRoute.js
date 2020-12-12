@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('./../passport');
+const authCtrl = require('./../controllers/authController');
 
 router.route('/login').post(
     passport.authenticate('local', {
@@ -11,6 +12,6 @@ router.route('/login').post(
     })
 );
 
-
+router.route('/verify-email').get(authCtrl.verifyEmail)
 
 module.exports = router;
