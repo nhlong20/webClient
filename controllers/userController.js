@@ -32,7 +32,7 @@ exports.updateUser = async (req, res) => {
         const uploadedPath = files.images.path;
         const uploadedRes = await cloudinary.uploader.upload(uploadedPath);
         let user = await User.findOneAndUpdate(
-            { _id: '5fd351d791dc080898e62e79' },
+            { _id: req.user._id},
             { avatar: uploadedRes.secure_url }
         );
         // fs.unlinkSync(uploadedPath);
