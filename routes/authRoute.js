@@ -13,4 +13,8 @@ router.route('/login').post(
 );
 
 router.route('/signup').post(authCtrl.signup);
+router.route('/forgot-password').post(authCtrl.forgotPassword);
+router.route('/reset-password/:token').post(authCtrl.resetPassword);
+
+
 module.exports = router;

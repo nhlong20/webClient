@@ -35,7 +35,9 @@ const userSchema = new mongoose.Schema({
             },
             message: 'Passwords are not the same!'
         }
-    }
+    },
+    passwordResetToken: String,
+    passwordResetExpires: Date
 });
 
 userSchema.pre('save', async function (next) {
@@ -55,6 +57,16 @@ userSchema.methods.checkPassword = async function (
     userPassword
 ) {
     return await bcrypt.compare(inputPassword, userPassword);
+};
+
+userSchema.methods.createPasswordResetToken = function () {
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    this.passwordResetToken = crypto
+        .createHash('sha256', process.env.CRYPTO_SECRET_KEY)
+        .update(resetToken)
+        .digest('hex');
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+    return resetToken;
 };
 
 const User = mongoose.model('User', userSchema);
