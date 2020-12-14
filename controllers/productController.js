@@ -1,7 +1,7 @@
 'use strict';
 const Product = require('../models/productModel');
 const productService = require('../services/productService.js');
-const ITEM_PER_PAGE = 9;
+const ITEM_PER_PAGE = 8;
 const ejs = require('ejs');
 function renderView(res, paginate, custom) {
     const pageControlObj = {

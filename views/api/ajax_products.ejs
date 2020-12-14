@@ -191,7 +191,7 @@
                                     <!-- Pagination -->
                                     <%if(totalProducts >ITEM_PER_PAGE){%>
                                     <nav aria-label="navigation">
-                                        <ul class="pagination mt-50 mb-70">
+                                        <ul class="pagination mt-50 mb-70 d-flex justify-content-center">
                                             <% if(currentPage && currentPage > 1){%>
                                             <li class="page-item"><a class="page-link"
                                                     href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>"
