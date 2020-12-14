@@ -31,10 +31,10 @@
         <!-- ##### Shop Grid Area Start ##### -->
         <section class="shop_grid_area section-padding-80" id="products">
             <div id="loader"></div>
-            <div class="container">
+            <div class="container-fluid px-5">
                 <div class="row">
                     <%if(pageType == "Đồng hồ" || pageType =="Đồng hồ nam" || pageType =="Đồng hồ nữ"){%>
-                    <div class="col-12 col-md-4 col-lg-3">
+                    <div class="col-12 col-md-2 col-lg-1">
                         <div class="shop_sidebar_area">
                             <!-- ##### Single Widget ##### -->
                             <div class="widget price mb-50">
@@ -140,7 +140,7 @@
                     <% if(pageType == "Phụ kiện" || pageType == "Tìm kiếm"){%>
             <div class="col-12" id="product-content">    
                 <% }else{%>
-            <div class="col-12 col-md-8 col-lg-9" id="product-content">
+            <div class="col-12 col-md-10 col-lg-11" id="product-content">
                 <% }%>
          <div class="shop_grid_product_area">
             <div class="row">
@@ -171,7 +171,7 @@
                 <div class="row">
                     <!-- Single Product -->
                     <%products.forEach(product =>{%>
-                    <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
                             <div class="product-img">
