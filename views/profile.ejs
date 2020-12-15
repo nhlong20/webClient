@@ -30,7 +30,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/account/history"> <i class="fa fa-calendar"></i>Quản lý đơn hàng</a>
+                            <a href="/order/history"> <i class="fa fa-calendar"></i>Quản lý đơn hàng</a>
                         </li>
                         <li>
                             <a href="/account/address"> <i class="fa fa-edit"></i>Địa chỉ giao hàng</a>
@@ -163,13 +163,13 @@
                                 </div>
                             </form>
                         </div>
-                        <% }%>
+                    <% }%>
 
-                            <!--#End Profile View -->
+                    <!--#End Profile View -->
 
-                            <!-- Change Password View -->
-                            <%if(pageType=="/account/password/change" ){%>
-                                <div class="panel-body bio-graph-info">
+                    <!-- Change Password View -->
+                    <%if(pageType=="/account/password/change"){%>
+                         <div class="panel-body bio-graph-info">
                                     <h1 class="bio-header">Đổi mật khẩu</h1>
                                     <form class="row bio-info mb-4 pr-lg-5" action="/user/change-password" method="POST">
                                         <div class="form-group row bio-row">
@@ -205,11 +205,11 @@
 
                                     </form>
 
-                                </div>
-                                <% }%>
+                        </div>
+                     <% }%>
+                     <!-- #End Change Password View -->
 
-                                    <!-- #End Change Password View -->
-                                    <%if(pageType=="/account/address" ){%>
+                         <%if(pageType=="/account/address" ){%>
                                         <div class="panel-body bio-graph-info">
                                             <h1 class="bio-header">Địa chỉ</h1>
                                             <form class="row bio-info mb-4 pr-lg-5" action="/user/address" method="POST">
@@ -231,52 +231,57 @@
                                             </form>
 
                                         </div>
-                                        <% }%>
-                                            <%if(pageType=="/account/history" ){%>
-                                                <div class="panel-body bio-graph-info">
-                                                    <h1 class="bio-header">Đơn hàng của tôi</h1>
-                                                    <table class="table table-striped table-sm" aria-describedby="Product list">
-                                                        <thead>
-                                                            <tr>
-                                                                <th id="id">Mã đơn hàng</th>
-                                                                <th id="name">Tên sản phẩm</th>
-                                                                <th id="date">Ngày mua</th>
-                                                                <th id="price">Tổng tiền</th>
-                                                                <th id="status">Trạng thái</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <%if(order.length != 0){
-                                                                <tr>
-                                                                    <td>
-                                                                        <%=order._id%>
-                                                                </td>
-                                                                order.products.forEach(data =>{ %>
-                                                                <td>
-                                                                    <%=data.name%>
-                                                                </td>
-                                                                <%  }) %>
-                                                                    <td>
-                                                                        <%=order.orderData()%>
-                                                                    </td>
-                                                                    <td>
-                                                                        <%=order.totalPrice()%>
-                                                                    </td>
-                                                                    <td>
-                                                                        <%=data.status%>
-                                                                    </td>
-                                                                    </tr>
-                                                                    <%  }else{%>
-                                                                        <td colspan="7">Không có đơn hàng</td>
-                                                                        <%}%>
-                                                        </tbody>
-                                                    </table>
+                         <% }%>
 
-                                                </div>
-                                                <% }%>
+                         <%if(pageType=="orders" ){%>
+                        <div class="panel-body bio-graph-info">
+                            <h1 class="bio-header">Đơn hàng của tôi</h1>
+                            <table class="table table-striped table-sm" aria-describedby="Product list">
+                                <thead>
+                                    <tr>
+                                        <th id="id">Mã đơn hàng</th>
+                                        <th id="name">Tên sản phẩm</th>
+                                        <th id="date">Ngày mua</th>
+                                        <th id="price">Tổng tiền</th>
+                                        <th id="status">Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%if(orders.length != 0){%>
+                                        <% orders.forEach(order => { %>
+                                            <tr>
+                                                <td>
+                                                    <%=order._id%>
+                                                </td>
+                                                <td>
+                                                <% order.products.forEach(data =>{ %>
+                                                    <%=data.name%>
+                                                <%  }) %>
+                                                </td>
+                                                <td>
+                                                    <%=order.orderDate%>
+                                                </td>
+                                                <td>
+                                                    <%=order.totalPrice%>
+                                                </td>
+                                                <td>
+                                                    <%=order.status%>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                            
+                                    <%}else{%>
+                                            <td colspan="7">Không có đơn hàng</td>
+                                    <%}%>
+                                </tbody>
+                            </table>
+            
+                        </div>
+                     <% }%>
                 </div>
             </div>
         </div>
         <!-- Main js -->
-        <script defer src="/js/main.js"></script>
     </div>
+    <script defer src="/js/main.js"></script>
+</div>  

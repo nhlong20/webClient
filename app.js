@@ -64,6 +64,7 @@ app.use('/', indexRouter);
 app.use('/san-pham', productRouter);
 app.use('/user', usersRouter);
 app.use('/auth', authRouter);
+app.use('/order', orderRouter);
 app.use('/api/v1', productApiRouter);
 
 // catch 404 and forward to error handler

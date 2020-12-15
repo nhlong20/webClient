@@ -22,20 +22,16 @@ exports.logout = (req, res) => {
 exports.getProfile = async(req, res, next) => {
     let user = req.user;
     const pageType = req.originalUrl;
-    res.render('profile', { user, pageType });
+    res.render('profile', { user, pageType});
 };
 
-exports.getOrders = async(req, res, next) => {
+exports.getOrders = async(req, res) => {
     let user = req.user;
-    const order = await Order.find({ user: user._id }).populate({
-        path: 'products',
-        populate: { path: 'products' }
-    });
-    console.log(order.products);
-
-    // const pageType = req.originalUrl;
-    res.render('profile', { order, pageType });
+    const orders = await Order.find({ user: user._id });
+    const pageType = 'orders';
+    res.render('profile', { user, orders, pageType });
 };
+
 exports.apiGetProfile = async(req, res) => {
     const html = await ejs.renderFile(baseDir + 'ajax_user.ejs', {
         user: req.user

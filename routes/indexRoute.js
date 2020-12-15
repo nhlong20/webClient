@@ -12,7 +12,6 @@ router
 router.route('/account/edit').get(authCtrl.isLoggedIn, userCtrl.getProfile);
 router.route('/account/password/change').get(authCtrl.isLoggedIn, userCtrl.getProfile);
 router.route('/account/address').get(authCtrl.isLoggedIn, userCtrl.getProfile);
-router.route('/account/history').get(authCtrl.isLoggedIn, userCtrl.getOrders);
 
 router.route('/reset-password').get((req, res, next) => {
     const token = req.query.token;
