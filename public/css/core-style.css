@@ -1,13 +1,13 @@
 /* [Master Stylesheet v-1.0.0] */
 /* :: 1.0 Import Web Fonts */
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Ubuntu:300,400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* :: 3.0 Common/Base CSS */
 * {
   margin: 0;
   padding: 0; }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   background-color: #ffffff;
   margin-top: 85px; }
@@ -24,7 +24,7 @@ h6 {
   color: #000000;
   line-height: 1.3;
   font-weight: 700;
-  font-family: "Ubuntu", sans-serif; }
+  font-family: "Montserrat", sans-serif; }
 
 p {
   color: #787878;
@@ -145,9 +145,19 @@ img {
   z-index: 1; }
   .section-heading h2 {
     font-size: 30px;
-    margin-bottom: 0;
-    text-transform: capitalize;
-    font-weight: 600; }
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 300; }
+  .section-heading span {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .section-heading span:hover {
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: underline;
+  }
+
   .section-heading.text-left {
     text-align: left !important; }
 
@@ -213,24 +223,61 @@ img {
       right: 30px; } }
 
 /* Essence Button */
-.essence-btn {
+.aws-btn{
   display: inline-block;
   min-width: 170px;
-  height: 50px;
   color: #ffffff;
   border: none;
   border-radius: 0;
-  padding: 0 40px;
+  padding: 22px 70px;
   text-transform: uppercase;
-  font-size: 12px;
-  line-height: 50px;
-  background-color: #0315ff;
+  font-size: 14px;
+  border: solid 1px #fff;
   letter-spacing: 1.5px;
   font-weight: 600; }
-  .essence-btn:hover, .essence-btn:focus {
-    color: #ffffff;
-    background-color: #dc0345; }
+.aws-btn:hover, .aws-btn:focus {
+    color: #000;
+  font-size: 14px;
 
+    background-color: #fff; }
+    .aws-btn--type-2 {
+      display: inline-block;
+      min-width: 170px;
+      height: 50px;
+      color: #000;
+      border: none;
+      border-radius: 0;
+      padding: 0 40px;
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 50px;
+      background-color: #fff;
+      letter-spacing: 1.5px;
+      font-weight: 600; }
+      .aws-btn--type-2:hover, .aws-btn--type-2:focus {
+        color: #fff;
+        background: transparent;
+        border: solid 1px #fff;  }
+        .essence-btn {
+          display: inline-block;
+          min-width: 170px;
+          height: 50px;
+          color: #ffffff;
+          border: none;
+          border-radius: 0;
+          padding: 0 40px;
+          text-transform: uppercase;
+          font-size: 12px;
+          line-height: 50px;
+          background-color: #0315ff;
+          letter-spacing: 1.5px;
+          font-weight: 600;
+        }
+        
+        .essence-btn:hover, .essence-btn:focus {
+          color: #ffffff;
+          background-color: #dc0345;
+        }
 /* :: 4.0 Header Area CSS */
 .header_area {
   position: fixed;
@@ -375,7 +422,7 @@ img {
     .header_area .favourite-area a span,
     .header_area .user-login-info a span,
     .header_area .cart-area a span {
-      font-family: "Ubuntu", sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-size: 18px;
       color: #0315ff;
       font-weight: 700;
@@ -451,7 +498,7 @@ img {
     .right-side-cart-area .cart-button a img {
       max-width: 20px; }
     .right-side-cart-area .cart-button a span {
-      font-family: "Ubuntu", sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-size: 18px;
       color: #0315ff;
       font-weight: 700;
@@ -546,7 +593,7 @@ img {
               margin-bottom: 5px;
               line-height: 1; }
             .right-side-cart-area .cart-content .cart-list .single-cart-item .product-image .cart-item-desc .price {
-              font-family: "Ubuntu", sans-serif;
+              font-family: "Montserrat", sans-serif;
               font-size: 16px;
               font-weight: 700;
               margin-bottom: 0;
@@ -614,7 +661,7 @@ img {
             margin-bottom: 15px; } }
         .right-side-cart-area .cart-content .cart-amount-summary .summary-table li span:last-child {
           font-weight: 700;
-          font-family: "Ubuntu", sans-serif; }
+          font-family: "Montserrat", sans-serif; }
       @media only screen and (max-width: 767px) {
         .right-side-cart-area .cart-content .cart-amount-summary .essence-btn {
           min-width: 140px;
@@ -626,28 +673,40 @@ img {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 600px; }
+  height: 900px; }
+  .welcome_area .welcome-container{
+    padding-left: 95px;
+  }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .welcome_area {
-      height: 450px; } }
+      height: 450px; }
+      .welcome_area .welcome-container {
+        padding-left: 50px;
+      }}
   @media only screen and (max-width: 767px) {
     .welcome_area {
-      height: 350px; } }
+      height: 350px; }
+      .welcome_area .welcome-container {
+        padding-left: 20px;
+      } }
+ 
   .welcome_area .hero-content h6 {
     font-size: 18px;
     color: #787878;
     margin-bottom: 10px; }
   .welcome_area .hero-content h2 {
-    font-size: 60px;
-    color: #000000;
-    margin-bottom: 50px; }
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 10px; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .welcome_area .hero-content h2 {
-        font-size: 48px; } }
+            font-size: 32px; } }
     @media only screen and (max-width: 767px) {
       .welcome_area .hero-content h2 {
-        font-size: 30px; } }
-
+        font-size: 24px; } }
+    .welcome_area .hero-content p {
+      color: #fff;
+       }
 /* :: 6.0 Top Catagory Area CSS */
 .single_catagory_area {
   position: relative;
@@ -671,16 +730,16 @@ img {
     content: "";
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
     position: absolute;
+    background-color: #00000027;
     top: 0;
     left: 0;
     z-index: -10; }
   .single_catagory_area .catagory-content a {
     display: block;
-    font-size: 30px;
+    font-size: 1.7rem;
     font-weight: 700;
-    color: #000000;
+    color: #fff;
     letter-spacing: 1px;
     text-transform: uppercase; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -690,41 +749,47 @@ img {
       .single_catagory_area .catagory-content a {
         font-size: 18px; } }
   .single_catagory_area:hover .catagory-content a {
-    color: #0315ff; }
+    color: #ffee00; }
 
 /* :: 7.0 CTA Area CSS */
 .cta-area {
+  margin-top: 100px;
   position: relative;
   z-index: 1; }
   .cta-area .cta-content {
     width: 100%;
-    height: 550px; }
-    @media only screen and (max-width: 767px) {
+    height: 690px; }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
       .cta-area .cta-content {
         height: 400px; } }
+    @media only screen and (max-width: 767px) {
+      .cta-area .cta-content {
+        height: 600px; } }
     .cta-area .cta-content h6 {
-      font-size: 24px;
-      color: #dc0345;
+      font-size: 20px;
+      font-weight: 300;
+      color: #fff;
+    margin: 0;
       margin-bottom: 10px; }
     .cta-area .cta-content h2 {
-      font-size: 60px;
-      color: #000000;
-      margin-bottom: 50px; }
+      font-size: 40px;
+    margin: 0;
+      font-weight: 500;
+      color: #fff; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .cta-area .cta-content h2 {
+        
           font-size: 48px; } }
       @media only screen and (max-width: 767px) {
+        .cta-area .cta-content {
+          align-items: flex-end;
+        text-align: center; }
         .cta-area .cta-content h2 {
           font-size: 30px; } }
-    .cta-area .cta-content .cta--text {
-      padding-right: 150px; }
-      @media only screen and (min-width: 768px) and (max-width: 991px) {
-        .cta-area .cta-content .cta--text {
-          padding-right: 50px; } }
-      @media only screen and (max-width: 767px) {
-        .cta-area .cta-content .cta--text {
-          padding-right: 0; } }
-
+      .cta-area .cta-content p {
+            font-size: 30px;
+            font-weight: 400;
+            color: #fff; }
 /* :: 8.0 Popular Products Area CSS */
 .single-product-wrapper {
   position: relative;
@@ -754,7 +819,7 @@ img {
       height: 25px;
       background-color: #000000;
       color: #ffffff;
-      font-family: "Ubuntu", sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-weight: 700;
       font-size: 12px;
       padding: 0 10px;
@@ -788,10 +853,11 @@ img {
         visibility: visible; }
   .single-product-wrapper .product-description {
     position: relative;
+    text-align: center;
     z-index: 1;
     padding-top: 25px; }
     .single-product-wrapper .product-description span {
-      font-size: 10px;
+      font-size: 0.8rem;
       text-transform: uppercase;
       color: #787878;
       margin-bottom: 15px;
@@ -799,16 +865,19 @@ img {
       font-weight: 600; }
     .single-product-wrapper .product-description h6 {
       color: #222222;
-      margin-bottom: 5px; }
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.8rem;}
     .single-product-wrapper .product-description p {
       margin-bottom: 0;
       font-size: 14px;
-      font-family: "Ubuntu", sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-weight: 700;
       color: #000000; }
       .single-product-wrapper .product-description p span {
         font-size: 14px;
-        font-family: "Ubuntu", sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         color: #aaaaaa;
         margin-right: 10px;
@@ -994,7 +1063,7 @@ img {
           font-size: 20px; } }
     .single_product_details_area .single_product_desc .product-price {
       margin-bottom: 0;
-      font-family: "Ubuntu", sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-size: 24px;
       color: #dc0345;
       font-weight: 700; }
@@ -1003,7 +1072,7 @@ img {
           font-size: 20px; } }
       .single_product_details_area .single_product_desc .product-price span {
         display: inline-block;
-        font-family: "Ubuntu", sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 24px;
         color: #787878;
         font-weight: 700;
@@ -1057,7 +1126,7 @@ img {
       color: rgba(255, 255, 255, 0.6);
       display: block;
       font-weight: 400;
-      font-family: "Ubuntu", sans-serif;
+      font-family: "Montserrat", sans-serif;
       padding: 0 10px;
       text-transform: capitalize; }
       .footer_area .single_widget_area .footer_menu ul li a:hover, .footer_area .single_widget_area .footer_menu ul li a:focus {
@@ -1127,9 +1196,9 @@ img {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 140px; }
+  height: 260px; }
   .breadcumb_area:after {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(44, 44, 44, 0.2);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1141,12 +1210,13 @@ img {
     font-size: 30px;
     text-transform: uppercase;
     font-weight: 700;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Montserrat", sans-serif;
     letter-spacing: 1px;
     margin-bottom: 0; }
+    
   .breadcumb_area.breadcumb-style-two {
     width: 100%;
-    height: 390px; }
+    height: 770px;  }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .breadcumb_area.breadcumb-style-two {
         height: 300px; } }
@@ -1157,10 +1227,13 @@ img {
       font-size: 72px;
       text-transform: uppercase;
       font-weight: 700;
-      font-family: "Ubuntu", sans-serif;
+      font-family: "Montserrat", sans-serif;
       letter-spacing: 1px;
       margin-bottom: 0;
-      color: #0315ff; }
+      color: #fff; }
+      .breadcumb_area.breadcumb-style-two .page-title h3 {
+        color: #fff;
+      }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .breadcumb_area.breadcumb-style-two .page-title h2 {
           font-size: 48px; } }
@@ -1235,26 +1308,20 @@ img {
         position: relative;
         z-index: 1;
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.15); }
-        .widget.color .widget-desc ul li a.color1 {
+        .widget.color .widget-desc ul li a.color--white {
           background-color: #ffffff; }
-        .widget.color .widget-desc ul li a.color2 {
-          background-color: #969696; }
-        .widget.color .widget-desc ul li a.color3 {
-          background-color: #030303; }
-        .widget.color .widget-desc ul li a.color4 {
-          background-color: #0315ff; }
-        .widget.color .widget-desc ul li a.color5 {
-          background-color: #dc0647; }
-        .widget.color .widget-desc ul li a.color6 {
-          background-color: #fff56a; }
-        .widget.color .widget-desc ul li a.color7 {
-          background-color: #f26e51; }
-        .widget.color .widget-desc ul li a.color8 {
-          background-color: #9a8777; }
-        .widget.color .widget-desc ul li a.color9 {
-          background-color: #5b862a; }
-        .widget.color .widget-desc ul li a.color10 {
-          background-color: #8662a9; }
+        .widget.color .widget-desc ul li a.color--black {
+          background-color: #000000; }
+        .widget.color .widget-desc ul li a.color--navy {
+          background-color: #000080; }
+        .widget.color .widget-desc ul li a.color--rosegold {
+          background-color: #b76e79; }
+        .widget.color .widget-desc ul li a.color--pearl {
+          background-color: #eae0c8; }
+        .widget.color .widget-desc ul li a.color--grey {
+          background-color: #dcdcdc; }
+        .widget.color .widget-desc ul li a.color--pink {
+          background-color: #ffc0cb; }
   .widget.brands ul li {
     display: block; }
     .widget.brands ul li a {

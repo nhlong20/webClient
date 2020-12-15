@@ -6,7 +6,7 @@
                 <div class="hero-content">
                     <h2>KASHMIR NIỀM TỰ HÀO ĐẦU TIÊN</h2>
                     <p>Kashmir định hình một triết lí thiết kế tối giản, hiện đại và đại diện cho sự tự tin.</p>
-                    <a href="/san-pham" class="btn essence-btn">Khám phá ngay</a>
+                    <a href="/san-pham" class="btn aws-btn">Khám phá ngay</a>
                 </div>
             </div>
         </div>
@@ -46,33 +46,15 @@
 </div>
 <!-- ##### Top Catagory Area End ##### -->
 
-<!-- ##### CTA Area Start ##### -->
-<div class="cta-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="cta-content bg-img background-overlay" style="background-image: url(img/bg-img/bg-5.jpg);">
-                    <div class="h-100 d-flex align-items-center justify-content-end">
-                        <div class="cta--text">
-                            <h6>-60%</h6>
-                            <h2>Black Friday</h2>
-                            <a href="/san-pham" class="btn essence-btn">Mua ngay</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ##### CTA Area End ##### -->
 
-<!-- ##### New Arrivals Area Start ##### -->
-<section class="new_arrivals_area section-padding-80 clearfix">
+<!-- ##### Men's best seller Area Start ##### -->
+<section class="new_arrivals_area clearfix">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="section-heading text-center">
-                    <h2>Sản phẩm phổ biến</h2>
+                    <h2>Đồng hồ Nam bán chạy nhất</h2>
+                    <a href="/san-pham/dong-ho-nam"><span>Khám phá thêm &rarr;</span></a>
                 </div>
             </div>
         </div>
@@ -122,7 +104,85 @@
 </div>
 </div>
 </section>
-<!-- ##### New Arrivals Area End ##### -->
+<!-- #####   Men's best seller Area End ##### -->
+
+<!-- ##### CTA Area Start ##### -->
+<div class="cta-area">
+        <div class="row">
+            <div class="col-12">
+                <div class="cta-content bg-img background-overlay" style="background-image: url(img/bg-img/vu-64Z.png);">
+                    <div class="container h-100 d-flex align-items-center">
+                        <div class="cta--text" >
+                            <h6>#GOCCANHDI</h6>
+                            <h2>VŨ. X AWSOS</h2>
+                            <p>BST đồng hồ góc cạnh Mykonos                            </p>
+                            <a href="/san-pham" class="btn aws-btn--type-2">Mua ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- ##### CTA Area End ##### -->
+
+<!-- #####  Women's best seller  Area Start ##### -->
+<section class="new_arrivals_area section-padding-80 clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>Đồng hồ Nữ bán chạy nhất</h2>
+                    <a href="/san-pham/dong-ho-nu"><span>Khám phá thêm &rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="popular-products-slides owl-carousel">
+                    <!-- Single Product -->
+                    <%products.forEach(product => {%>
+<div class="single-product-wrapper">
+    <!-- Product Image -->
+    <div class="product-img">
+        <img src="<%=product.coverImage%>" alt="">
+        <!-- Favourite -->
+        <div class="product-favourite">
+            <a href="#" class="favme fa fa-heart"></a>
+        </div>
+    </div>
+    <!-- Product Description -->
+    <div class="product-description">
+        <span><%=product.brand%></span>
+        <a href="/san-pham/<%=product._id%>">
+            <h6>
+                <%=product.name%>
+            </h6>
+        </a>
+        <p class="product-price">
+            <%=product.price%>
+        </p>
+
+        <!-- Hover Content -->
+        <div class="hover-content">
+            <!-- Add to Cart -->
+            <div class="add-to-cart-btn">
+                <a href="#" class="btn essence-btn">THÊM VÀO GIỎ</a>
+            </div>
+        </div>
+    </div>
+</div>
+<%}) %>
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- #####  Women's best seller Area End ##### -->
 
 <!-- ##### Brands Area Start ##### -->
 <div class="brands-area d-flex align-items-center justify-content-between">
