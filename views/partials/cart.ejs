@@ -1,0 +1,49 @@
+<!-- ##### Right Side Cart Area ##### -->
+<div class="cart-bg-overlay"></div>
+
+<div class="right-side-cart-area">
+ <h2>Giỏ hàng của bạn </h2>
+ <!-- Cart Button -->
+ <div class="cart-button">
+  <a href="#" id="rightSideCart"><i class="fal fa-shopping-cart fa-lg"></i> <span>3</span></a>
+ </div>
+
+ <div class="cart-content">
+
+  <!-- Cart List Area -->
+  <ul class="cart-product-list">
+   <li class="cart-product-item">
+    <div class="cart-product-image--container">
+     <img class="cart-product-image" src="/img/product-img/product-1.jpg" class="cart-thumb" alt="">
+    </div>
+    <div class="cart-product-content">
+     <div class="cart-product-label">RISE <span>KASHMIR - 40MM</span></div>
+     <div class="cart-product-quantity">
+      <form action="/api/v1/cart/change" method="POST">
+       <div class="quantity-group">
+        <input class="quantity-input" type="number" name="quantity" min=0 pattern="[0-9]" value=1>
+       </div>
+      </form>
+      <span class="cart-product-oxF">x</span>
+      <div class="cart-product-price">2.299.000 VNĐ</div>
+     </div>
+    </div>
+    <div class="cart-product-action">
+     <i class="fal fa-trash-alt fa-lg"></i>
+    </div>
+   </li>
+  </ul>
+
+  <!-- Cart Summary -->
+  <div class="cart-footer-summary">
+   <ul class="summary-table">
+    <div class="label-summary">Thành tiền</div>
+    <div class="value-summary">1.750.000 VNĐ</div>
+   </ul>
+   <div class="checkout-btn">
+    <a href="/thanh-toan" class="btn essence-btn">Thanh toán</a>
+   </div>
+
+  </div>
+ </div>
+</div>
