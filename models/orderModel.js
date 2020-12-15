@@ -4,7 +4,7 @@ const orderSchema = new mongoose.Schema({
     products: [{
         type: mongoose.Schema.ObjectId,
         ref: 'Product',
-        required: [true, 'Booking must belong to a Product!']
+        required: [true, 'Booking must belong to a Product!'],
     }],
     user: {
         type: mongoose.Schema.ObjectId,
@@ -22,7 +22,12 @@ const orderSchema = new mongoose.Schema({
     paid: {
         type: Boolean,
         default: true
+    },
+    status: {
+        type: String,
+        require: false
     }
+
 });
 
 const Order = mongoose.model('Order', orderSchema);

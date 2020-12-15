@@ -11,6 +11,8 @@ router
 
 router.route('/account/edit').get(authCtrl.isLoggedIn, userCtrl.getProfile);
 router.route('/account/password/change').get(authCtrl.isLoggedIn, userCtrl.getProfile);
+router.route('/account/address').get(authCtrl.isLoggedIn, userCtrl.getProfile);
+router.route('/account/history').get(authCtrl.isLoggedIn, userCtrl.getOrders);
 
 router.route('/reset-password').get((req, res, next) => {
     const token = req.query.token;
@@ -20,25 +22,25 @@ router.route('/reset-password').get((req, res, next) => {
     res.render('reset-password', { token });
 });
 
-router.get('/cart', function (req, res, next) {
+router.get('/cart', function(req, res, next) {
     res.render('cart');
 });
-router.get('/thanh-toan', function (req, res, next) {
+router.get('/thanh-toan', function(req, res, next) {
     res.render('checkout');
 });
-router.get('/ve-chung-toi', function (req, res, next) {
+router.get('/ve-chung-toi', function(req, res, next) {
     res.render('about');
 });
-router.get('/lien-he', function (req, res, next) {
+router.get('/lien-he', function(req, res, next) {
     res.render('contact');
 });
-router.get('/dang-nhap', function (req, res, next) {
+router.get('/dang-nhap', function(req, res, next) {
     res.render('login');
 });
-router.get('/dang-ky', function (req, res, next) {
+router.get('/dang-ky', function(req, res, next) {
     res.render('register');
 });
-router.get('/quen-mat-khau', function (req, res, next) {
+router.get('/quen-mat-khau', function(req, res, next) {
     res.render('forgot-password');
 });
 router.get('/tim-kiem', productCtrl.searchProducts);

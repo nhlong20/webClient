@@ -4,7 +4,10 @@ const userCtrl = require('./../controllers/userController');
 const authCtrl = require('./../controllers/authController');
 
 router.route('/dang-xuat').get(userCtrl.logout);
-router.post('/update', userCtrl.updateUser);
+router.post('/updateAvatar', userCtrl.updateUserAvatar);
+router.post('/updateInformation', userCtrl.updateUserInformation);
+router.post('/address', userCtrl.updateAddress);
+router.post('/history', userCtrl.getOrders);
 
 router.route('/signup').post(authCtrl.signup);
 router.route('/forgot-password').post(authCtrl.forgotPassword);

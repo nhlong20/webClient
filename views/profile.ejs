@@ -9,7 +9,7 @@
             <div class="profile-nav col-md-5 col-lg-3">
                 <div class="panel">
                     <div class="user-heading round">
-                        <a href="#">
+                        <a href="<%=user.avatar%>">
                             <img src="<%=user.avatar%>" alt="Ảnh đại diện người dùng">
                         </a>
 
@@ -22,11 +22,19 @@
                     </div>
 
                     <ul class="d-flex flex-column">
-                        <li class="active"><a href="/account/edit"> <i class="fa fa-user"></i>Hồ sơ</a></li>
-                        <li><a id="change-password" href="/account/password/change"> <i class="fa fa-key"></i>Đổi mật
-                                khẩu</a></li>
-                        <li><a href="#"> <i class="fa fa-calendar"></i>Quản lý đơn hàng</a></li>
-                        <li><a href="#"> <i class="fa fa-edit"></i>Địa chỉ giao hàng</a></li>
+                        <li class="active">
+                            <a href="/account/edit"> <i class="fa fa-user"></i>Hồ sơ</a>
+                        </li>
+                        <li>
+                            <a id="change-password" href="/account/password/change"> <i class="fa fa-key"></i>Đổi mật khẩu
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/account/history"> <i class="fa fa-calendar"></i>Quản lý đơn hàng</a>
+                        </li>
+                        <li>
+                            <a href="/account/address"> <i class="fa fa-edit"></i>Địa chỉ giao hàng</a>
+                        </li>
 
                     </ul>
                 </div>
@@ -38,11 +46,20 @@
                     <%if(pageType=="/account/edit" ){%>
                         <div class="panel-body bio-graph-info">
                             <h1 class="bio-header">Thông tin tài khoản</h1>
-                            <form class="row bio-info mb-4 pr-lg-5">
+                            <form class="row bio-info mb-4 pr-lg-5" action="/user/updateInformation" method="POST">
+
+                                <div class="form-group row bio-row">
+                                    <label for="email" class="col-lg-2 col-form-label">Email:</label>
+                                    <div class="col-lg-10">
+                                        <span><%=user.email%></span>
+                                    </div>
+
+                                </div>
+
                                 <div class="form-group row bio-row">
                                     <label for="name" class="col-lg-2 col-form-label">Họ tên:</label>
                                     <div class="col-lg-10">
-                                        <input type="name" class="form-control" id="name" value="<%=user.name%>">
+                                        <input type="name" class="form-control" id="name" name="name" value="<%=user.name%>">
                                     </div>
 
                                 </div>
@@ -50,29 +67,25 @@
                                 <div class="form-group row bio-row">
                                     <label for="phone" class="col-lg-2 col-form-label">Số điện thoại:</label>
                                     <div class="col-lg-10">
-                                        <input type="number" class="form-control" id="phone" value="">
+                                        <input type="number" class="form-control" id="phone" name="phoneNumber" value="<%=user.phoneNumber%>">
                                     </div>
-                                </div>
-                                <div class="form-group row bio-row">
-                                    <label for="email" class="col-lg-2 col-form-label">Email:</label>
-                                    <div class="col-lg-10">
-                                        <input type="email" class="form-control" id="email" value="<%=user.email%>">
-                                    </div>
-
                                 </div>
 
                                 <div class="form-group row bio-row">
                                     <label class="col-lg-2 col-form-label">Giới tính</label>
                                     <div class="row col-lg-10 ml-1">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="gridRadios"
-                                                id="gridRadios1" value="option1" checked>
-                                            <label class="form-check-label" for="male">Nam</label>
+                                            <input class="form-check-input" type="radio" name="gender" id="Male" value="Male" <%if(user.gender=="Male" ){%>
+                                            <%="checked"%>
+                                                <%}%>
+                                                    >
+                                                    <label class="form-check-label" for="Male">Nam</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="gridRadios"
-                                                id="gridRadios2" value="option2">
-                                            <label class="form-check-label" for="female">Nữ</label>
+                                            <input class="form-check-input" type="radio" name="gender" id="Female" value="Female" <%if(user.gender=="Female" ){%>
+                                            <%="checked"%>
+                                                <%}%>>
+                                                    <label class="form-check-label" for="Female">Nữ</label>
 
                                         </div>
 
@@ -123,16 +136,14 @@
 
                         <div class="panel-body bio-graph-info">
                             <h1 class="bio-header">Thay ảnh đại diện</h1>
-                            <form class="row bio-info mb-4 pr-lg-5" action="/user/update" method="POST"
-                                enctype="multipart/form-data">
+                            <form class="row bio-info mb-4 pr-lg-5" action="/user/updateAvatar" method="POST" enctype="multipart/form-data">
 
 
                                 <div class="form-group row bio-row">
                                     <label class="col-lg-2 col-form-label">Chọn file:</label>
                                     <div class="col-lg-10">
                                         <div id="upload-file-control">
-                                            <input type="file" id="upload-file-btn" name="images"
-                                                accept="image/jpeg, image/png, image/jpg" hidden>
+                                            <input type="file" id="upload-file-btn" name="images" accept="image/jpeg, image/png, image/jpg" hidden>
                                             <label id="upload-file-label" for="upload-file-btn">Chọn ảnh</label>
                                             <span id="file-chosen">Không có ảnh nào được chọn</span>
                                         </div>
@@ -160,22 +171,19 @@
                             <%if(pageType=="/account/password/change" ){%>
                                 <div class="panel-body bio-graph-info">
                                     <h1 class="bio-header">Đổi mật khẩu</h1>
-                                    <form class="row bio-info mb-4 pr-lg-5" action="/user/change-password"
-                                        method="POST">
+                                    <form class="row bio-info mb-4 pr-lg-5" action="/user/change-password" method="POST">
                                         <div class="form-group row bio-row">
                                             <label for="oldPassword" class="col-lg-2 col-form-label">Mật khẩu
                                                 cũ:</label>
                                             <div class="col-lg-10">
-                                                <input type="password" class="form-control" id="old-password"
-                                                    name="oldPassword" required>
+                                                <input type="password" class="form-control" id="old-password" name="oldPassword" required>
                                             </div>
                                         </div>
                                         <div class="form-group row bio-row">
                                             <label for="newPassword" class="col-lg-2 col-form-label">Mật khẩu
                                                 mới:</label>
                                             <div class="col-lg-10">
-                                                <input type="password" class="form-control" id="new-password"
-                                                    name="newPassword" required>
+                                                <input type="password" class="form-control" id="new-password" name="newPassword" required>
                                             </div>
                                         </div>
                                         <div class="form-group row bio-row">
@@ -183,8 +191,7 @@
                                                 khẩu
                                                 mới:</label>
                                             <div class="col-lg-10">
-                                                <input type="password" class="form-control" id="password-confirm"
-                                                    name="passwordConfirm" required>
+                                                <input type="password" class="form-control" id="password-confirm" name="passwordConfirm" required>
                                             </div>
 
                                         </div>
@@ -202,10 +209,74 @@
                                 <% }%>
 
                                     <!-- #End Change Password View -->
+                                    <%if(pageType=="/account/address" ){%>
+                                        <div class="panel-body bio-graph-info">
+                                            <h1 class="bio-header">Địa chỉ</h1>
+                                            <form class="row bio-info mb-4 pr-lg-5" action="/user/address" method="POST">
+
+                                                <div class="form-group row bio-row">
+                                                    <label for="address" class="col-lg-2 col-form-label">Địa chỉ: </label>
+                                                    <div class="col-lg-10">
+                                                        <input type="text" class="form-control" id="address" name="address" value="<%=user.address%>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row bio-row">
+                                                    <label class="col-lg-2 input-label">&nbsp;</label>
+                                                    <div class="row col-lg-10 ml-1">
+                                                        <button type="submit" class="btn btn-warning btn-user">Lưu địa chỉ
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                        <% }%>
+                                            <%if(pageType=="/account/history" ){%>
+                                                <div class="panel-body bio-graph-info">
+                                                    <h1 class="bio-header">Đơn hàng của tôi</h1>
+                                                    <table class="table table-striped table-sm" aria-describedby="Product list">
+                                                        <thead>
+                                                            <tr>
+                                                                <th id="id">Mã đơn hàng</th>
+                                                                <th id="name">Tên sản phẩm</th>
+                                                                <th id="date">Ngày mua</th>
+                                                                <th id="price">Tổng tiền</th>
+                                                                <th id="status">Trạng thái</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <%if(order.length != 0){
+                                                                <tr>
+                                                                    <td>
+                                                                        <%=order._id%>
+                                                                </td>
+                                                                order.products.forEach(data =>{ %>
+                                                                <td>
+                                                                    <%=data.name%>
+                                                                </td>
+                                                                <%  }) %>
+                                                                    <td>
+                                                                        <%=order.orderData()%>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%=order.totalPrice()%>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%=data.status%>
+                                                                    </td>
+                                                                    </tr>
+                                                                    <%  }else{%>
+                                                                        <td colspan="7">Không có đơn hàng</td>
+                                                                        <%}%>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                                <% }%>
                 </div>
             </div>
         </div>
+        <!-- Main js -->
+        <script defer src="/js/main.js"></script>
     </div>
-    <!-- Main js -->
-    <script defer src="/js/main.js"></script>
-</div>
