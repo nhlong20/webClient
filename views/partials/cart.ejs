@@ -1,39 +1,68 @@
 <!-- ##### Right Side Cart Area ##### -->
 <div class="cart-bg-overlay"></div>
-
 <div class="right-side-cart-area">
- <h2>Giỏ hàng của bạn </h2>
- <!-- Cart Button -->
- <div class="cart-button">
-  <a href="#" id="rightSideCart"><i class="fal fa-shopping-cart fa-lg"></i> <span>3</span></a>
+ <div class="cart-header">
+  <h3 class="header-title">Giỏ hàng của bạn</h3>
+  <button id="close-cart-btn"><i class="fa fa-times"></i></button>
  </div>
-
  <div class="cart-content">
 
   <!-- Cart List Area -->
-  <ul class="cart-product-list">
-   <li class="cart-product-item">
-    <div class="cart-product-image--container">
-     <img class="cart-product-image" src="/img/product-img/product-1.jpg" class="cart-thumb" alt="">
+  <ul class="cart-list">
+   <!-- Single Cart Item -->
+   <li class="cart-item">
+    <div class="cart-item-image--container">
+     <img class="cart-item-image"
+      src="https://curnonwatch.com/media/catalog/product/d/3/d3-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true"
+      class="cart-thumb" alt="">
     </div>
-    <div class="cart-product-content">
-     <div class="cart-product-label">RISE <span>KASHMIR - 40MM</span></div>
-     <div class="cart-product-quantity">
+    <div class="cart-item-content">
+     <div class="cart-item-label"><span class="cart-item-name">RISE</span><span>KASHMIR - 40MM</span></div>
+
+     <div class="cart-item-quantity">
       <form action="/api/v1/cart/change" method="POST">
        <div class="quantity-group">
         <input class="quantity-input" type="number" name="quantity" min=0 pattern="[0-9]" value=1>
        </div>
       </form>
-      <span class="cart-product-oxF">x</span>
-      <div class="cart-product-price">2.299.000 VNĐ</div>
+      <span class="cart-item-oxF">x</span>
+      <div class="cart-item-price">2.299.000 VNĐ</div>
      </div>
+
     </div>
-    <div class="cart-product-action">
+    <div class="cart-item-action">
      <i class="fal fa-trash-alt fa-lg"></i>
     </div>
    </li>
+   <li class="cart-item">
+    <div class="cart-item-image--container">
+     <img class="cart-item-image"
+      src="https://curnonwatch.com/media/catalog/product/d/3/d3-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true"
+      class="cart-thumb" alt="">
+    </div>
+    <div class="cart-item-content">
+     <div class="cart-item-label"><span class="cart-item-name">RISE</span><span>KASHMIR - 40MM</span></div>
+
+     <div class="cart-item-quantity">
+      <form action="/api/v1/cart/change" method="POST">
+       <div class="quantity-group">
+        <input class="quantity-input" type="number" name="quantity" min=0 pattern="[0-9]" value=1>
+       </div>
+      </form>
+      <span class="cart-item-oxF">x</span>
+      <div class="cart-item-price">2.299.000 VNĐ</div>
+     </div>
+
+    </div>
+    <div class="cart-item-action">
+     <i class="fal fa-trash-alt fa-lg"></i>
+    </div>
+   </li>
+ 
   </ul>
 
+ </div>
+ 
   <!-- Cart Summary -->
   <div class="cart-footer-summary">
    <ul class="summary-table">
@@ -45,5 +74,17 @@
    </div>
 
   </div>
- </div>
+
+  <!-- Cart Service -->
+  <div class="cart-footer-service">
+   <div class="service-item">
+    <span><img class="svgIcon-image-2AT " src="/img/svg/warranty-81R.svg" alt="warranty icon"></span>
+    <p>Bảo hành 10 năm lỗi nhà sản xuất</p>
+   </div>
+   <div class="service-item">
+    <span><img class="svgIcon-image-2AT " src="/img/svg/shipping-tZV.svg" alt="shipping icon"></span>
+    <p>Freeship với đơn hàng > 700K</p>
+   </div>
+  </div>
+  
 </div>

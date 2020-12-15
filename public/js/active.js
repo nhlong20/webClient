@@ -55,7 +55,7 @@
     var cartbtn1 = $('#essenceCartBtn');
     var cartOverlay = $('.cart-bg-overlay');
     var cartWrapper = $('.right-side-cart-area');
-    var cartbtn2 = $('#rightSideCart');
+    var closeCartBtn = $('#close-cart-btn');
     var cartOverlayOn = 'cart-bg-overlay-on';
     var cartOn = 'cart-on';
 
@@ -67,11 +67,11 @@
         $(this).removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
-    cartbtn2.on('click', function () {
+    closeCartBtn.on('click', function () {
         cartOverlay.removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
-
+    
     // :: ScrollUp Active Code
     if ($.fn.scrollUp) {
         $.scrollUp({
