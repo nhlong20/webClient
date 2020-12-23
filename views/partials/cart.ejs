@@ -57,7 +57,7 @@
   <div class="cart-footer-summary">
     <ul class="summary-table">
       <div class="label-summary">Thành tiền</div>
-      <div class="value-summary"><%= session.cart? numberWithCommas(session.cart.totalPrice) : "0" %>  VNĐ</div>
+      <div class="value-summary"><%= session.cart? numberWithCommas(session.cart.totalPrice) : "" %>  VNĐ</div>
     </ul>
     <div class="checkout-btn">
       <a href="/thanh-toan" class="btn essence-btn">Thanh toán</a>

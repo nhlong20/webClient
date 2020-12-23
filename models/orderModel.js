@@ -4,7 +4,7 @@ const orderSchema = new mongoose.Schema({
     products: [{
         type: mongoose.Schema.ObjectId,
         ref: 'Product',
-        required: [true, 'Booking must belong to a Product!'],
+        required: [true, 'Order must contain a Product!'],
     }],
     user: {
         type: mongoose.Schema.ObjectId,
@@ -28,7 +28,7 @@ const orderSchema = new mongoose.Schema({
         require: false
     }
 
-});
+}, {timestamps:true});
 
 orderSchema.pre(/^find/, function(next) {
     this.populate({

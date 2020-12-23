@@ -6,7 +6,7 @@ const authService = require('../services/authService');
 const userService = require('../services/userService');
 const { sendEmail } = require('../services/emailService');
 
-exports.signup = async(req, res, next) => {
+exports.signup = async (req, res, next) => {
     try {
         const newUser = {
             name: req.body.fullname,
@@ -50,7 +50,7 @@ exports.signup = async(req, res, next) => {
         res.redirect('/dang-ky');
     }
 };
-exports.verifyEmail = async(req, res) => {
+exports.verifyEmail = async (req, res) => {
     try {
         // Find user with token
         const user = await userService.getUser({
@@ -75,7 +75,7 @@ exports.verifyEmail = async(req, res) => {
         res.redirect('/');
     }
 };
-exports.forgotPassword = async(req, res) => {
+exports.forgotPassword = async (req, res) => {
     //Get posted email
     const user = await userService.getUser({ email: req.body.email });
     if (!user) {
@@ -113,7 +113,7 @@ exports.forgotPassword = async(req, res) => {
         res.redirect('/quen-mat-khau');
     }
 };
-exports.resetPassword = async(req, res) => {
+exports.resetPassword = async (req, res) => {
     // Get user token
     const plainToken = req.query.token;
     console.log(plainToken);
@@ -144,7 +144,7 @@ exports.resetPassword = async(req, res) => {
     res.redirect('/dang-nhap');
 };
 
-exports.changePassword = async(req, res) => {
+exports.changePassword = async (req, res) => {
     try {
         // Get user from db
         const user = await User.findById(req.user._id).select('+password');
@@ -174,4 +174,10 @@ exports.isLoggedIn = (req, res, next) => {
     }
     req.flash('error', 'Bạn cần đăng nhập trước để tiếp tục');
     res.redirect('/dang-nhap');
+};
+exports.isGuest = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
 };
