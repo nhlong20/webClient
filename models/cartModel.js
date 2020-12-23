@@ -1,26 +1,37 @@
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
-    products: [
-        {
-            quantity: {
-                type: Number,
-                default: 0
-            },
-            product: {
-                type: product
-            }
-        }
-    ],
+   
     user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: [true, 'Cart must belong to a User!']
     },
-    subTotal: {
+    status: {
+        type: String,
+        enum: ['active', 'unactive']
+    },
+    total: {
         type: Number,
         required: true
     },
+    quantity:{
+        type: Number,
+        default: 0,
+    },
+    products: [
+        {
+            _id: {
+                type: mongoose.Schema.ObjectId,
+                ref: 'Product',
+                required: [true, 'Review must belong to a tour.']
+            },
+            quantity: {
+                type: Number,
+                default: 1
+            }
+        }
+    ],
     createdAt: {
         type: Date,
         default: Date.now()

@@ -54,32 +54,32 @@
 
             <div class="user-login-info user-dropdown">
                 <%if(currentUser){%>
-                <ul>
-                    <a class="dropdown" href="#"><i class="fal fa-user fa-lg"></i></a>
-                    <div class="dropdown-content">
-                        <a href="/account/edit">Trang cá nhân</a>
-                        <a href="/account">Đơn hàng</a>
-                        <a href="/user/dang-xuat">Đăng xuất</a>
-                    </div>
-                </ul>
-                <%} else {%>
-                <ul>
-                    <a class="dropdown" href="#"><i class="fal fa-sign-in-alt fa-lg"></i></a>
-                    <div class="dropdown-content">
-                        <a href="/dang-nhap">Đăng nhập</a>
-                        <a href="/dang-ky">Đăng ký</a>
-                    </div>
-                </ul>
-                <%} %>
+                    <ul>
+                        <a class="dropdown" href="#"><i class="fal fa-user fa-lg"></i></a>
+                        <div class="dropdown-content">
+                            <a href="/account/edit">Trang cá nhân</a>
+                            <a href="/account">Đơn hàng</a>
+                            <a href="/user/dang-xuat">Đăng xuất</a>
+                        </div>
+                    </ul>
+                    <%} else {%>
+                        <ul>
+                            <a class="dropdown" href="#"><i class="fal fa-sign-in-alt fa-lg"></i></a>
+                            <div class="dropdown-content">
+                                <a href="/dang-nhap">Đăng nhập</a>
+                                <a href="/dang-ky">Đăng ký</a>
+                            </div>
+                        </ul>
+                        <%} %>
             </div>
             <!-- Cart Area -->
-            <div class="cart-area">
-                <a href="#" id="essenceCartBtn"><i class="fal fa-shopping-cart fa-lg"></i><span>3</span></a>
+            <div id="cart-no" class="cart-area">
+                <a href="#" id="essenceCartBtn"><i class="fal fa-shopping-cart fa-lg"></i>
+                        <span><%=session.cart? session.cart.totalQty : "0"%>  </span>
+                </a>
             </div>
         </div>
-
+        
     </div>
 </header>
 <!-- ##### Header Area End ##### -->
-
-

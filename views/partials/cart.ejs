@@ -1,90 +1,80 @@
+<%  function numberWithCommas(price) {
+  var parts = price.toString().split(".");
+  parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
+  return parts.join(",");
+  }
+%>
 <!-- ##### Right Side Cart Area ##### -->
-<div class="cart-bg-overlay"></div>
+<div id="cart-items" class="cart-bg-overlay"></div>
 <div class="right-side-cart-area">
- <div class="cart-header">
-  <h3 class="header-title">Giỏ hàng của bạn</h3>
-  <button id="close-cart-btn"><i class="fa fa-times"></i></button>
- </div>
- <div class="cart-content">
+  <div class="cart-header">
+    <h3 class="header-title">Giỏ hàng của bạn</h3>
+    <button id="close-cart-btn"><i class="fa fa-times"></i></button>
+  </div>
 
-  <!-- Cart List Area -->
-  <ul class="cart-list">
-   <!-- Single Cart Item -->
-   <li class="cart-item">
-    <div class="cart-item-image--container">
-     <img class="cart-item-image"
-      src="https://curnonwatch.com/media/catalog/product/d/3/d3-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true"
-      class="cart-thumb" alt="">
-    </div>
-    <div class="cart-item-content">
-     <div class="cart-item-label"><span class="cart-item-name">RISE</span><span>KASHMIR - 40MM</span></div>
+  <!-- Cart Content -->
+  <div id="cart-content-ajax" class="cart-content">
+    <!-- Cart List Area -->
+    <ul class="cart-list">
+      <!-- Single Cart Item -->
+      <% if(session.cart){ let cartItems=session.cart.items; for(let id in cartItems) { %>
+        <li class="cart-item">
+          <div class="cart-item-image--container">
+            <img class="cart-item-image" src="<%=cartItems[id].item.coverImage%> " class="cart-thumb" alt="">
+          </div>
+          <div class="cart-item-content">
+            <div class="cart-item-label"><span class="cart-item-name">
+                <%=cartItems[id].item.name%>
+              </span><span>
+                <%=cartItems[id].item.brand%> - <%=cartItems[id].item.size%>
+              </span></div>
 
-     <div class="cart-item-quantity">
-      <form action="/api/v1/cart/change" method="POST">
-       <div class="quantity-group">
-        <input class="quantity-input" type="number" name="quantity" min=0 pattern="[0-9]" value=1>
-       </div>
-      </form>
-      <span class="cart-item-oxF">x</span>
-      <div class="cart-item-price">2.299.000 VNĐ</div>
-     </div>
+            <div class="cart-item-quantity">
+              <form action="/api/v1/cart/change" method="POST">
+                <div class="quantity-group">
+                  <input class="quantity-input" type="number" name="quantity" min=0 pattern="[0-9]"
+                    value="<%=cartItems[id].qty%>">
+                </div>
+              </form>
+              <span class="cart-item-oxF">x</span>
+              <div class="cart-item-price">
+                <%=numberWithCommas(cartItems[id].item.price*cartItems[id].qty)%> VNĐ
+              </div>
+            </div>
 
-    </div>
-    <div class="cart-item-action">
-     <i class="fal fa-trash-alt fa-lg"></i>
-    </div>
-   </li>
-   <li class="cart-item">
-    <div class="cart-item-image--container">
-     <img class="cart-item-image"
-      src="https://curnonwatch.com/media/catalog/product/d/3/d3-2.png?auto=webp&format=png&width=640&height=640&fit=cover&method=fit&nocrop=true"
-      class="cart-thumb" alt="">
-    </div>
-    <div class="cart-item-content">
-     <div class="cart-item-label"><span class="cart-item-name">RISE</span><span>KASHMIR - 40MM</span></div>
+          </div>
+          <div class="cart-item-action">
+            <i class="fal fa-trash-alt fa-lg"></i>
+          </div>
+        </li>
+        <% } %>
+          <% } %>
+    </ul>
 
-     <div class="cart-item-quantity">
-      <form action="/api/v1/cart/change" method="POST">
-       <div class="quantity-group">
-        <input class="quantity-input" type="number" name="quantity" min=0 pattern="[0-9]" value=1>
-       </div>
-      </form>
-      <span class="cart-item-oxF">x</span>
-      <div class="cart-item-price">2.299.000 VNĐ</div>
-     </div>
+  </div>
 
-    </div>
-    <div class="cart-item-action">
-     <i class="fal fa-trash-alt fa-lg"></i>
-    </div>
-   </li>
- 
-  </ul>
-
- </div>
- 
   <!-- Cart Summary -->
   <div class="cart-footer-summary">
-   <ul class="summary-table">
-    <div class="label-summary">Thành tiền</div>
-    <div class="value-summary">1.750.000 VNĐ</div>
-   </ul>
-   <div class="checkout-btn">
-    <a href="/thanh-toan" class="btn essence-btn">Thanh toán</a>
-   </div>
+    <ul class="summary-table">
+      <div class="label-summary">Thành tiền</div>
+      <div class="value-summary"><%= session.cart? numberWithCommas(session.cart.totalPrice) : "0" %>  VNĐ</div>
+    </ul>
+    <div class="checkout-btn">
+      <a href="/thanh-toan" class="btn essence-btn">Thanh toán</a>
+    </div>
 
   </div>
 
   <!-- Cart Service -->
   <div class="cart-footer-service">
-   <div class="service-item">
-    <span><img class="svgIcon-image-2AT " src="/img/svg/warranty-81R.svg" alt="warranty icon"></span>
-    <p>Bảo hành 10 năm lỗi nhà sản xuất</p>
-   </div>
-   <div class="service-item">
-    <span><img class="svgIcon-image-2AT " src="/img/svg/shipping-tZV.svg" alt="shipping icon"></span>
-    <p>Freeship với đơn hàng > 700K</p>
-   </div>
+    <div class="service-item">
+      <span><img class="svgIcon-image-2AT " src="/img/svg/warranty-81R.svg" alt="warranty icon"></span>
+      <p>Bảo hành 10 năm lỗi nhà sản xuất</p>
+    </div>
+    <div class="service-item">
+      <span><img class="svgIcon-image-2AT " src="/img/svg/shipping-tZV.svg" alt="shipping icon"></span>
+      <p>Freeship với đơn hàng > 700K</p>
+    </div>
   </div>
-  
+
 </div>

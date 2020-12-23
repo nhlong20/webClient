@@ -52,14 +52,13 @@
     }
 
     // :: Header Cart Active Code
-    var cartbtn1 = $('#essenceCartBtn');
     var cartOverlay = $('.cart-bg-overlay');
     var cartWrapper = $('.right-side-cart-area');
     var closeCartBtn = $('#close-cart-btn');
     var cartOverlayOn = 'cart-bg-overlay-on';
     var cartOn = 'cart-on';
 
-    cartbtn1.on('click', function () {
+    $('#cart-no').on('click','#essenceCartBtn', function () {
         cartOverlay.toggleClass(cartOverlayOn);
         cartWrapper.toggleClass(cartOn);
     });
