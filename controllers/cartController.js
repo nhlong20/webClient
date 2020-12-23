@@ -39,7 +39,7 @@ exports.addToCart = async (req, res, next) => {
 };
 
 exports.removeItem = async (req, res, next) => {
-    console.log("ssssssssssssssssssss")
+    console.log('ssssssssssssssssssss');
     const productId = req.params.id;
     if (!req.session.cart) {
         return res.status(400).json({
@@ -48,15 +48,16 @@ exports.removeItem = async (req, res, next) => {
         });
     }
     let cart = req.session.cart;
-    if (!cart.items[productId]) {
+    const currentItem = cart.items[productId];
+    if (!currentItem) {
         return res.status(400).json({
             status: 'fail',
             message: 'The item is not in the cart'
         });
     }
     console.log(cart);
-    cart.totalQty --;
-    cart.totalPrice -=  cart.items[productId].item.price*cart.items[productId].qty
+    cart.totalQty -= currentItem.qty;
+    cart.totalPrice -= currentItem.item.price * currentItem.qty;
     delete cart.items[productId];
     res.status(200).json({
         status: 'success',

@@ -115,7 +115,7 @@ $(document).ready(function () {
                 $('#cart-content-ajax').html(htmlCartItems);
                 $('#cart-no')
                     .html(`<a href="#" id="essenceCartBtn"><i class="fal fa-shopping-cart fa-lg"></i>
-                    <span>${cart.totalQty}</span>         
+                    <span>${cart.totalQty!=0?cart.totalQty:""}</span>         
             </a>`);
             },
             error: function (err) {
@@ -174,7 +174,7 @@ $(document).ready(function () {
                 $('#cart-content-ajax').html(htmlCartItems);
                 $('#cart-no')
                     .html(`<a href="#" id="essenceCartBtn"><i class="fal fa-shopping-cart fa-lg"></i>
-                    <span>${cart.totalQty}</span>         
+                    <span>${cart.totalQty!=0?cart.totalQty:""}</span>         
             </a>`);
             },
             error: function (err) {
