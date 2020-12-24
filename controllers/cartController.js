@@ -38,8 +38,20 @@ exports.addToCart = async (req, res, next) => {
     });
 };
 
+// Not done yet
+exports.updateItem = async (req,res,next) =>{
+    const productId = req.params.id;
+    if (!req.session.cart) {
+        return res.status(400).json({
+            status: 'fail',
+            message: 'Cart is not exist'
+        });
+    }
+    let cart = req.session.cart;
+    const currentItem = cart.items[productId];
+    
+}
 exports.removeItem = async (req, res, next) => {
-    console.log('ssssssssssssssssssss');
     const productId = req.params.id;
     if (!req.session.cart) {
         return res.status(400).json({
@@ -55,7 +67,6 @@ exports.removeItem = async (req, res, next) => {
             message: 'The item is not in the cart'
         });
     }
-    console.log(cart);
     cart.totalQty -= currentItem.qty;
     cart.totalPrice -= currentItem.item.price * currentItem.qty;
     delete cart.items[productId];

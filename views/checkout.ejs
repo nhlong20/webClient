@@ -20,40 +20,38 @@
             <div class="row">
 
                 <div class="col-12 col-md-6">
-                    <div class="checkout_details_area mt-50 clearfix">
+                    <div class="checkout_details_area mt-5 clearfix">
 
                         <div class="cart-page-heading mb-30">
-                            <h5>THÔNG TIN KHÁCH HÀNG</h5>
+                            <h5>THÔNG TIN KHÁCH HÀNG</h5> 
                             <p>Phương thức vận chuyển là <strong>FREESHIP</strong> với đơn hàng trên 700.000 VNĐ</p>
                         </div>
 
-                        <form action="#" method="post">
+                        <form action="/order" method="post">
                             <div class="row mb-3">
                                 <div class="col-md-12 mb-3">
-                                    <label for="name">Họ và tên <span>*</span></label>
-                                    <input type="text" class="form-control" id="name" value="<%=currentUser.name%>"
-                                        required>
+                                    <label for="name">Họ và tên:</label><span name="name"> <%=currentUser.name%></span>
+             
+                                </div>
+                                    
+                                <div class="col-12 mb-3">
+                                    <label for="street_address">Địa chỉ giao hàng:</label><span name="address"> <%=currentUser.address%></span>
+                        
                                 </div>
 
                                 <div class="col-12 mb-3">
-                                    <label for="street_address">Địa chỉ <span>*</span></label>
-                                    <input type="text" class="form-control" id="street_address"
-                                        value="<%=currentUser.address%>" required>
+                                    <label for="phone_number">Số điện thoại:</label><span name="phoneno"> <%=currentUser.phoneNumber%></span>
+                                
                                 </div>
-
                                 <div class="col-12 mb-3">
-                                    <label for="phone_number">Số điện thoại <span>*</span></label>
-                                    <input type="number" class="form-control" id="phone_number" min="0"
-                                        value="<%=currentUser.phoneNumber%>" required>
+                                    <label for="email_address">Email:</label><span name="email"> <%=currentUser.email%></span>
                                 </div>
-                                <div class="col-12 mb-5">
-                                    <label for="email_address">Email <span>*</span></label>
-                                    <input type="email" class="form-control" id="email_address"
-                                        value="<%=currentUser.email%>" required>
+                                <div id="edit-info" class="btn ml-3 mb-5">
+                                    <a href="/account/edit">Chỉnh sửa thông tin</a>
                                 </div>
                                 <h6 class="col-12 mb-3">CHỌN PHƯƠNG THỨC THANH TOÁN <span>*</span></h6>
                                 <div class="col-12 mb-3">
-                                    <select class="w-100" id="payment">
+                                    <select class="w-100" name="payment" id="payment">
                                         <option value="cod">Thanh toán tiền mặt khi nhận hàng</option>
                                         <!-- <option value="paypal" >Thanh toán bằng thẻ</option> -->
                                     </select>
@@ -65,7 +63,7 @@
                                                 Date()).getFullYear() %>
                                 </strong></p>
 
-                            <button type="submit"><a href="#" class="btn essence-btn">Tiến hành thanh toán</a></button>
+                            <button type="submit" class="btn essence-btn">Đặt hàng</button>
 
                         </form>
                     </div>
