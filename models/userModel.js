@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         default: 'https://res.cloudinary.com/dh5xeom6f/image/upload/v1607703995/hsi57cqpkpxjzxoela74.jpg'
     },
     phoneNumber: {
-        type: Number,
+        type: String,
         required: false
     },
     gender: {

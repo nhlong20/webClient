@@ -86,6 +86,11 @@ $(document).ready(function () {
     //         }
     //     });
     // });
+    function numberWithCommas(price) {
+        var parts = price.toString().split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        return parts.join(',');
+    }
     $('#current-page').css({
         'background-color': 'rgb(52, 127, 224)',
         color: '#fff'

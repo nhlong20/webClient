@@ -1,3 +1,9 @@
+<%  function numberWithCommas(price) {
+    var parts = price.toString().split(".");
+    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
+    return parts.join(",");
+    }
+  %>
 <!-- ##### Welcome Area Start ##### -->
 <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/bg-1.jpg);">
     <div class="welcome-container h-100">
@@ -84,15 +90,15 @@
             </h6>
         </a>
         <p class="product-price">
-            <%=product.price%>
+            <%=numberWithCommas(product.price)%>
         </p>
 
         <!-- Hover Content -->
         <div class="hover-content">
             <!-- Add to Cart -->
-            <div class="add-to-cart-btn">
+            <form data-product-id="<%=product._id%>" class="add-to-cart-btn">
                 <a href="#" class="btn essence-btn">Thêm vào giỏ</a>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -162,15 +168,15 @@
             </h6>
         </a>
         <p class="product-price">
-            <%=product.price%>
+            <%=numberWithCommas(product.price)%>
         </p>
 
         <!-- Hover Content -->
         <div class="hover-content">
             <!-- Add to Cart -->
-            <div class="add-to-cart-btn">
-                <a href="#" class="btn essence-btn">THÊM VÀO GIỎ</a>
-            </div>
+          <form data-product-id="<%=product._id%>" class="add-to-cart-btn">
+                <a href="#" class="btn essence-btn">Thêm vào giỏ</a>
+            </form>
         </div>
     </div>
 </div>

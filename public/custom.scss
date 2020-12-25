@@ -95,6 +95,7 @@ a {
 .profile-nav,
 .profile-info {
     margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .profile-nav .user-heading {
@@ -143,6 +144,7 @@ a {
 
 .profile-nav ul > li > a {
     border-radius: 0;
+    font-size: 1rem;
     color: #89817f;
     border-left: 5px solid #fff;
 }
@@ -217,4 +219,20 @@ a {
  color: #fff;
  transition: ease-in-out 0.2s;
 background-color: #000;
+}
+.cart-item-action:hover{
+    cursor: pointer;
+}
+#edit-info{
+    border-radius: 0%;
+    background-color: #d8d7d7;
+}
+#edit-info a {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 14px;
+}
+#edit-info:hover{
+
+    background-color: #eeeb55;
 }
