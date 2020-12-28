@@ -212,7 +212,7 @@
             }
         });
     })
-    
+
     // :: Slider Range Price Active Code
 
     // $('.slider-range-price').each(function () {

@@ -19,17 +19,24 @@ exports.logout = (req, res) => {
     res.redirect('/');
 };
 
-exports.getProfile = async(req, res, next) => {
-    let user = req.user;
-    const pageType = req.originalUrl;
-    res.render('profile', { user, pageType});
+exports.getUserInfo = async(req, res, next) => {
+    const pageType = "userInfo";
+    res.render('profile', {pageType});
+};
+exports.getChangePassword = async(req, res, next) => {
+    const pageType = "changePassword";
+    res.render('profile', {pageType});
+};
+exports.getShippingAdress = async(req, res, next) => {
+     const pageType = "address";
+    res.render('profile', { pageType});
 };
 
 exports.getOrders = async(req, res) => {
     let user = req.user;
     const orders = await Order.find({ user: user._id });
     const pageType = 'orders';
-    res.render('profile', { user, orders, pageType });
+    res.render('profile', { orders, pageType });
 };
 
 exports.apiGetProfile = async(req, res) => {
@@ -95,6 +102,5 @@ exports.updateAddress = async(req, res) => {
         req.flash('error', errorMsg);
         res.redirect('/account/address');
     }
-    console.log('Change address successfully');
     res.redirect('/account/address');
 }

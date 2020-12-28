@@ -9,11 +9,11 @@ router
     .route('/')
     .get(productCtrl.topPopularProducts, productCtrl.getPopularProducts);
 
-router.route('/account/edit').get(authCtrl.isLoggedIn, userCtrl.getProfile);
+router.route('/account/edit').get(authCtrl.isLoggedIn, userCtrl.getUserInfo);
 router
     .route('/account/password/change')
-    .get(authCtrl.isLoggedIn, userCtrl.getProfile);
-router.route('/account/address').get(authCtrl.isLoggedIn, userCtrl.getProfile);
+    .get(authCtrl.isLoggedIn, userCtrl.getChangePassword);
+router.route('/account/address').get(authCtrl.isLoggedIn, userCtrl.getShippingAdress);
 
 router.route('/reset-password').get((req, res, next) => {
     const token = req.query.token;
