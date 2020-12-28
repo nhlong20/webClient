@@ -42,16 +42,12 @@
                 <div class="profile-info col-md-7 col-lg-9">
 
                     <div class="panel">
-                        <!-- Profile View -->
                         <%if(pageType=="userInfo" ){%>
                              <%-include("./user/information.ejs");%>
                         <%}%>
-                        <!--#End Profile View -->
-                        <!-- Change Password View -->
                         <%if(pageType=="changePassword"){%>
                              <%-include("./user/change-password.ejs");%>
                         <%}%>
-                        <!-- #End Change Password View -->
                         <%if(pageType=="address" ){%>
                              <%-include("./user/address.ejs");%>
                         <%}%>
@@ -60,11 +56,11 @@
                         <%}%>
                         <%if(pageType=="order-detail" ){%>
                             <%-include("./orders/order-detail.ejs",{order});%>
-                        <%} %> 
+                        <%}%> 
                     </div>
                 </div>
             </div>
-            <!-- Main js -->
         </div>
+            <!-- Main js -->
         <script defer src="/js/main.js"></script>
     </div>

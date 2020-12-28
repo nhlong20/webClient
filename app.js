@@ -48,7 +48,7 @@ app.use(
             collection: 'sessions'
         }),
         cookie: {
-            maxAge: 60* 60  * 1000 //15 secs
+            maxAge: 60 * 60 * 1000 //15 secs
             // maxAge: 60* 60 * 1000 //180 mins
         }
     })
@@ -66,6 +66,7 @@ app.use((req, res, next) => {
     res.locals.success = req.flash('success');
     res.locals.info = req.flash('info');
     res.locals.session = req.session;
+    res.locals.moment = require('moment');
     next();
 });
 
