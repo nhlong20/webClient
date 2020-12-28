@@ -240,7 +240,14 @@
                                                                                 <%=numberWithCommas(order.totalPrice)%> đ
                                                                             </td>
                                                                             <td>
-                                                                                <%=order.status%>
+                                                                                <% if (order.status == 1) { %>
+                                                                                    Đang giao hàng
+                                                                                <% } else if (order.status == 0) { %>
+                                                                                    Giao hàng thành công
+                                                                                    <%} else if (order.status ==-1) { %>
+                                                                                        Đã hủy
+                                                                                <%}%>
+                                                                               
                                                                             </td>
                                                                         </tr>
                                                                         <% }) %>

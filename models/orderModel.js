@@ -28,8 +28,8 @@ const orderSchema = new mongoose.Schema(
             default: false
         },
         status: {
-            type: String,
-            default: 'Đang giao hàng',
+            type: Number,
+            default: 1,
             require: true
         }
     },
