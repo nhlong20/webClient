@@ -21,6 +21,11 @@ passport.use(
                     message: 'Email chưa được xác thực, vui lòng kiểm tra lại'
                 });
             }
+            if(user.locked){
+                return done(null, false, {
+                    message: 'Tài khoản đã bị khóa, vui lòng liên hệ admin để được hỗ trợ'
+                });
+            }
             return done(null, user);
         }
     )
