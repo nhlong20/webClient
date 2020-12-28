@@ -236,3 +236,128 @@ background-color: #000;
 
     background-color: #eeeb55;
 }
+
+// --------------
+
+.checked {
+    color: yellow;
+}
+
+.rating-body {
+    background-color: whitesmoke;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 20px;
+}
+
+.customer-review-heading {
+    font-size: x-large;
+    margin-top: 1rem;
+    margin-left: 20px;
+}
+
+.reiview-rating-heading {
+    font-size: x-large;
+}
+
+.rating-inner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.rating-comment {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.rating-comment-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.rating-comment-name {
+    font-size: 15px;
+}
+
+.rating-comment-date {
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+.rating-comment-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.rating-comment-content {
+    font-size: 15px;
+}
+
+.review-heading {
+    font-size: x-large;
+    margin-top: 1rem;
+    margin-left: 20px;
+}
+
+.review-body {
+    background-color: whitesmoke;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+input[type=text] {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin-top: 8px;
+}
+
+div.stars {
+    display: inline;
+}
+
+input.star {
+    display: none;
+}
+
+label.star {
+    float: right;
+    font-size: 20px;
+    color: #444;
+    transition: all .2s;
+    padding-left: 5px;
+}
+
+input.star:checked~label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+}
+
+input.star-5:checked~label.star:before {
+    color: #FE7;
+    text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked~label.star:before {
+    color: #F62;
+}
+
+label.star:hover {
+    transform: rotate(-15deg) scale(1.3);
+}
+
+label.star:before {
+    content: '\f006';
+    font-family: FontAwesome;
+}
+
+input.star:checked~.rev-box {
+    height: 125px;
+    overflow: visible;
+} 

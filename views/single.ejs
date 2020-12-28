@@ -1,9 +1,5 @@
-<%function numberWithCommas(price) {
-    var parts = price.toString().split(".");
-    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
-    return parts.join(",");
-    }
-%>
+<%function numberWithCommas(price) { var parts=price.toString().split(".");
+    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,"."); return parts.join(","); } %>
 
     <!-- ##### Single Product Details Area Start ##### -->
     <section class="single_product_details_area d-flex align-items-center">
@@ -11,7 +7,7 @@
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
             <div class="product_thumbnail_slides owl-carousel">
-                <%product.images.forEach(image =>{%>
+                <%product.images.forEach(image=>{%>
                     <img src="<%=image%>" alt="">
                     <%})%>
 
@@ -20,22 +16,26 @@
 
         <!-- Single Product Description -->
         <div class="single_product_desc clearfix">
-            <span><%=product.brand%></span>
+            <span>
+                <%=product.brand%>
+            </span>
             <h2 style="color: black;">
                 <%=product.name%>
             </h2>
 
-            <p class="product-price"><span class="old-price">$65.00</span>
-                <%=numberWithCommas(product.price)%>
+            <p class="product-price"><span class="old-price"> <%=numberWithCommas(Math.floor(product.price*100/(100-40)))%> VNĐ</span>
+                <%=numberWithCommas(product.price)%> VNĐ
             </p>
-            <%if(reviews.length != 0){%>
+            <%if(reviews.length !=0){%>
                 <div class="d-flex flex-row bd-highlight mb-3">
                     <span class="fas fa-star" style="color: yellow;"></span>
                     <span class="fas fa-star" style="color: yellow;"></span>
                     <span class="fas fa-star" style="color: yellow;"></span>
                     <span class="fas fa-star"></span>
                     <span class="fas fa-star"></span>
-                    <span class="ml-2"><%=reviews.length%> bài đánh giá</span>
+                    <span class="ml-2">
+                        <%=reviews.length%> bài đánh giá
+                    </span>
                 </div>
                 <%} else { %>
                     <span>chưa có bài đánh giá</span>
@@ -45,27 +45,22 @@
                         </p>
 
                         <!-- Form -->
-                        <form class="cart-form clearfix" method="post">
-                            <!-- Select Box -->
-                            <div class="select-box d-flex mt-50 mb-30">
-                                <select name="select" id="productSize" class="mr-5">
-                    <option value="value">Size: 40MM</option>
-                </select>
-                                <select name="select" id="productColor">
-                    <option value="value">Color: Black</option>
-                    <option value="value">Color: White</option>
-                </select>
-                            </div>
-                            <!-- Cart & Favourite Box -->
-                            <div class="cart-fav-box d-flex align-items-center">
-                                <!-- Cart -->
-                                <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
-                                <!-- Favourite -->
-                                <div class="product-favourite ml-4">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                        </form>
+                        <!-- Select Box -->
+                        <div class="select-box d-flex mt-50 mb-30">
+                            <select name="select" id="productSize" class="mr-5">
+                                <option value="value">Size: <%=product.size%></option>
+                            </select>
+                            <select name="select" id="productColor">
+                                <option value="<%=product.color%>">Color: <%=product.color%></option>
+                            </select>
+                        </div>
+                        <!-- Cart & Favourite Box -->
+                        <div class="cart-fav-box d-flex align-items-center">
+                            <!-- Cart -->
+                            <form data-product-id="<%=product._id%>" class="add-to-cart-btn">
+                                <button type="submit" class="btn essence-btn">THÊM VÀO GIỎ</button>
+                            </form> 
+                        </div>
         </div>
     </section>
     <!-- ##### Single Product Details Area End ##### -->
@@ -114,10 +109,12 @@
                         <span class="fas fa-star "></span>
                         <span class="ml-2"> (3.2)</span>
                     </div>
-                    <span><%=reviews.length%> nhận xét</span>
+                    <span>
+                        <%=reviews.length%> nhận xét
+                    </span>
                 </div>
-                <%if(reviews.length != 0){%>
-                    <% reviews.forEach(comment => { %>
+                <%if(reviews.length !=0){%>
+                    <% reviews.forEach(comment=> { %>
                         <hr>
                         <div class="rating-comment ">
                             <div class="d-flex flex-row bd-highlight mb-3 ">
@@ -125,29 +122,31 @@
                                     <img src="<%=comment.user.avatar%>" alt="Ảnh đại diện người dùng ">
                                 </div>
                                 <div class="d-flex flex-column bd-highlight ml-15 ">
-                                    <span class="rating-comment-name "> <%=comment.user.name%></span>
+                                    <span class="rating-comment-name ">
+                                        <%=comment.user.name%>
+                                    </span>
                                     <span class="rating-comment-date ">
                                         nhận xét vào ngày <%=comment.createdAt.getDate()%>
-                                        tháng <%=comment.createdAt.getMonth()+1%>
-                                        năm <%=comment.createdAt.getFullYear()%></span>
+                                            tháng <%=comment.createdAt.getMonth()+1%>
+                                                năm <%=comment.createdAt.getFullYear()%></span>
                                 </div>
                             </div>
                             <div class="d-flex flex-row bd-highlight mb-3 ">
-                                <span class="fas fa-star " <%if(comment.rating>= 1 ){%> 
+                                <span class="fas fa-star " <%if(comment.rating>= 1 ){%>
                                     style="color: yellow; " <%}%>
-                                    ></span>
-                                <span class="fas fa-star " <%if(comment.rating>= 2 ){%> 
+                                        ></span>
+                                <span class="fas fa-star " <%if(comment.rating>= 2 ){%>
                                     style="color: yellow; " <%}%>
-                                    ></span>
-                                <span class="fas fa-star " <%if(comment.rating>= 3 ){%> 
+                                        ></span>
+                                <span class="fas fa-star " <%if(comment.rating>= 3 ){%>
                                     style="color: yellow; " <%}%>
-                                    ></span>
-                                <span class="fas fa-star " <%if(comment.rating>= 4 ){%> 
+                                        ></span>
+                                <span class="fas fa-star " <%if(comment.rating>= 4 ){%>
                                     style="color: yellow; " <%}%>
-                                    ></span>
-                                <span class="fas fa-star " <%if(comment.rating==5 ){%> 
+                                        ></span>
+                                <span class="fas fa-star " <%if(comment.rating==5 ){%>
                                     style="color: yellow; " <%}%>
-                                    ></span>
+                                        ></span>
                             </div>
                             <div class="rating-comment-title ">
                                 <%=comment.title%>
