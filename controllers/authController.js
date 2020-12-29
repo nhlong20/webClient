@@ -88,11 +88,7 @@ exports.forgotPassword = async (req, res) => {
     )}/reset-password?token=${resetToken}`;
     const message = `Click to set new password: ${resetURL}`;
     try {
-        await sendEmail({
-            email: user.email,
-            subject: `Reset your AWS-OS password`,
-            message
-        });
+        new Email(user, resetURL).sendResetPassword();
         req.flash(
             'success',
             'Email đã được gửi, vui lòng kiểm tra hộp thư để cập nhật thông tin.'

@@ -48,6 +48,9 @@ module.exports = class Email {
     async sendVerify() {
         await this.send('verifyEmail', 'Xác thực địa chỉ email');
     }
+    async sendResetPassword() {
+        await this.send('resetPassword', 'Đặt lại mật khẩu');
+    }
 };
 // module.exports.sendEmail = async options => {
 //     const transporter = nodemailer.createTransport({

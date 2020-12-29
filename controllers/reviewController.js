@@ -25,13 +25,12 @@ exports.createReview = async (req, res) => {
         product: productId
     };
     const review = await Review.create(newReview);
-
+    req.flash('success', 'Bạn đã gửi đánh giá cho sản phẩm này thành công');
     return res.redirect('/san-pham/' + productId);
 };
 exports.updateReview = async (req, res) => {
     const id = req.params.id;
     const { title, review } = req.body;
-
     if (!title || !review) {
         return res.status(400).json({
             status: 'error',
@@ -41,11 +40,12 @@ exports.updateReview = async (req, res) => {
     // Update review
     const updatedReview = await Review.findByIdAndUpdate(id, { title, review });
 
-    const reviews = await Review.find({ product: review.product }).populate({
+    const reviews = await Review.find({
+        product: updatedReview.product
+    }).populate({
         path: 'user',
         select: 'name avatar'
     });
-
     res.status(201).json({
         status: 'success',
         message: 'Bài đánh giá của bạn đã được cập nhật nội dung',
@@ -56,7 +56,6 @@ exports.updateReview = async (req, res) => {
 exports.deleteReview = async (req, res) => {
     const id = req.params.id;
     const review = await Review.findById(id);
-
     const productID = review.product;
     const userID = review.user._id;
 
@@ -67,7 +66,7 @@ exports.deleteReview = async (req, res) => {
         select: 'name avatar'
     });
 
-    res.status(204).json({
+    res.status(200).json({
         status: 'success',
         message: 'Bài đánh giá của bạn đã được xóa',
         reviews,

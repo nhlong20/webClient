@@ -1,11 +1,9 @@
 'use strict'
 const express = require('express');
-const productCtrl = require('../../controllers/productController');
 const reviewCtrl = require('../../controllers/reviewController');
-
-const router = express.Router();
-
+const router = express.Router({ mergeParams: true });
+// UPDATE review
 router.route('/:id').patch(reviewCtrl.updateReview);
-
+// DELETE review
 router.route('/:id').delete(reviewCtrl.deleteReview);
 module.exports = router;

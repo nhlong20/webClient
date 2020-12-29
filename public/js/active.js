@@ -227,22 +227,21 @@
         let title = document
             .getElementById('title-review-' + id)
             .textContent.trim();
-        let content = document
+        let review = document
             .getElementById('content-review-' + id)
             .textContent.trim();
-        
         $.ajax({
             type: 'PATCH',
             url: '/api/v1/review/' + id,
-            data: { title, content },
+            data: { title, review },
             contentType: 'application/x-www-form-urlencoded',
             success: function (response) {
                 const { message } = response;
                 const { reviews } = response;
-                let date = new Date(reviews[0].createdAt);
+                let date = new Date(reviews[0].updatedAt);
                 let htmlReviews = '';
                 htmlReviews += `<div class="rating-inner ">
-                <div class="reiview-rating-heading ">đánh giá</div>`;
+                <div class="reiview-rating-heading ">Đánh giá</div>`;
                 if (reviews)
                     htmlReviews += ` <div class = "d-flex flex-row bd-highlight mb-3 " >
                                      <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); "> </span>
@@ -254,11 +253,11 @@
                                     </div>
                                 </div>`;
                 else
-                    htmlReviews += `<span> chưa có bài đánh giá </span>
+                    htmlReviews += `<span> Chưa có bài đánh giá </span>
                 /div>`;
                 if (reviews)
                     reviews.forEach(comment => {
-                        let date = new Date(comment.createdAt);
+                        let date = new Date(comment.updatedAt);
                         htmlReviews += ` 
                         <hr>
                         <div class="rating-comment ">
@@ -273,9 +272,7 @@
                                         comment.user.name
                                     }</span>
                                     <span class="rating-comment-date ">
-                                    nhận xét vào ngày ${date.getDate()}
-                                    tháng  ${date.getMonth()}
-                                    năm  ${date.getFullYear()}
+                                    Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
                                 </span>
                                 </div>
                             </div>
@@ -347,7 +344,7 @@
                 //update all revierw
                 let htmlReviews = '';
 
-                htmlReviews += `<div class="message" id="message" style="display: block;">${message}</div>`;
+                htmlReviews += `<div class="message alert text-center alert-success" id="message" style="display: block; color: #000;">${message}</div>`;
                 if (reviews)
                     reviews.forEach(comment => {
                         if (comment.user._id == userID) {
@@ -366,9 +363,7 @@
                                             comment.user.name
                                         }</span>
                                         <span class="rating-comment-date ">
-                                        nhận xét vào ngày ${date.getDate()}
-                                        tháng  ${date.getMonth()}
-                                        năm  ${date.getFullYear()}
+                                        Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
                                     </span>
                                     </div>
                                 </div>
@@ -422,39 +417,39 @@
                 htmlReviews = '';
                 htmlReviews += `<div class="rating-inner ">
                 <div class="reiview-rating-heading ">đánh giá</div>`;
-                if (reviews)
+                if (reviews){
                     htmlReviews += ` <div class = "d-flex flex-row bd-highlight mb-3 " >
-                                     <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); "> </span>
-                                    <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); " > </span> 
-                                    <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); " > </span> 
-                                    <span class = "fas fa-star " > </span> 
-                                    <span class = "fas fa-star " > </span> 
-                                    <span class = "ml-2 " > ${reviews.length} bài đánh giá </span> 
-                                    </div>
-                                </div>`;
-                else
-                    htmlReviews += `<span> chưa có bài đánh giá </span>
-                /div>`;
-                if (reviews)
-                    reviews.forEach(comment => {
-                        let date = new Date(comment.createdAt);
+                    <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); "> </span>
+                   <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); " > </span> 
+                   <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); " > </span> 
+                   <span class = "fas fa-star " > </span> 
+                   <span class = "fas fa-star " > </span> 
+                   <span class = "ml-2 " > ${reviews.length} bài đánh giá </span> 
+                   </div>
+               </div>`;
+                } else{
+                    htmlReviews += `<span> Chưa có bài đánh giá </span>
+                    /div>`;
+                }
+                   
+                if (reviews){
+                    reviews.forEach(review => {
+                        let date = new Date(review.updatedAt);
                         htmlReviews += ` 
                         <hr>
                         <div class="rating-comment ">
                             <div class="d-flex flex-row bd-highlight mb-3 ">
                                 <div class="rating-comment-avatar ">
                                     <img src="${
-                                        comment.user.avatar
+                                        review.user.avatar
                                     }" alt="Ảnh đại diện người dùng ">
                                 </div>
                                 <div class="d-flex flex-column bd-highlight ml-15 ">
                                     <span class="rating-comment-name "> ${
-                                        comment.user.name
+                                        review.user.name
                                     }</span>
                                     <span class="rating-comment-date ">
-                                    nhận xét vào ngày ${date.getDate()}
-                                    tháng  ${date.getMonth()}
-                                    năm  ${date.getFullYear()}
+                                    Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
                                 </span>
                                 </div>
                             </div>
@@ -494,6 +489,8 @@
                             
                         </div>`;
                     });
+                }
+                    
 
                 $('.all-rating-body').html(htmlReviews);
             },

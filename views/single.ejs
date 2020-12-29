@@ -52,7 +52,7 @@
                 </div>
                 <%} else { %>
                     <span>Chưa có bài đánh giá</span>
-                <%} %>
+                    <%} %>
                         <p class="product-desc">
                             <%=product.description%>
                         </p>
@@ -102,8 +102,8 @@
                     <%} %>
                         <input class="input_review" type="text" placeholder="Tiêu đề nhận xét" name="title"
                             id="review_title" required>
-                        <input class="input_review" type="text" placeholder="Nội dung..."
-                            name="detail" id="review-detail" required>
+                        <textarea class="input_review" name="detail" id="review-detail" cols="40" rows="5"
+                            placeholder="Nội dung..." required></textarea>
                         <div class="d-flex flex-row-reverse bd-highlight mt-15">
                             <button type="submit" class="btn essence-btn">Đánh giá</button>
                         </div>
@@ -116,10 +116,9 @@
             <div class="rating-body ">
                 <%if(reviews.length !=0){%>
 
-                    <div class="message" id="message">err</div>
+                    <div class="message alert text-center alert-success" id="message" style="color:#000;"></div>
                     <% reviews.forEach(comment=> { %>
                         <%if(comment.user._id.equals(currentUser._id)){ %>
-                            <hr>
                             <div class=" rating-comment ">
                                 <div class="d-flex flex-row bd-highlight mb-3 ">
                                     <div class="rating-comment-avatar ">
@@ -130,7 +129,7 @@
                                             <%=comment.user.name%>
                                         </span>
                                         <span class="rating-comment-date ">
-                                            Nhận xét vào <%=moment(comment.createdAt).format('DD /MM/YYYY')%>
+                                            Nhận xét vào <%=moment(comment.updatedAt).format('DD /MM/YYYY')%>
                                         </span>
                                     </div>
                                 </div>
@@ -161,10 +160,10 @@
                                 </div>
                                 <div class="d-flex flex-row mt-3 ">
                                     <form data-comment-id="<%=comment._id%>" class="review-change-btn">
-                                        <a href="#">Thay đổi</a>
+                                        <button class="btn btn-primary">Thay đổi</button>
                                     </form>
                                     <form data-comment-id="<%=comment._id%>" class="review-delete-btn">
-                                        <a href="#">Xóa</a>
+                                        <button class="btn btn-danger">Xóa</button>
                                     </form>
                                 </div>
 

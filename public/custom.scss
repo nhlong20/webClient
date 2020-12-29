@@ -242,6 +242,18 @@ background-color: #000;
 .checked {
     color: yellow;
 }
+.message {
+    display: none;
+    font-size: 15px;
+    color: red;
+}
+
+.all-rating-body {
+    background-color: whitesmoke;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 20px;
+}
 
 .rating-body {
     background-color: whitesmoke;
@@ -309,10 +321,9 @@ background-color: #000;
     padding-bottom: 20px;
 }
 
-input[type=text] {
+.input_review {
     width: 100%;
     border: 1px solid black;
-    border-radius: 10px;
     padding: 12px 20px;
     margin-top: 8px;
 }
@@ -361,3 +372,4 @@ input.star:checked~.rev-box {
     height: 125px;
     overflow: visible;
 } 
+
