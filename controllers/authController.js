@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const User = require('../models/userModel');
 const authService = require('../services/authService');
 const userService = require('../services/userService');
-const { sendEmail } = require('../services/emailService');
+const Email = require('../services/emailService');
 
 exports.signup = async (req, res, next) => {
     try {
@@ -26,11 +26,7 @@ exports.signup = async (req, res, next) => {
             'host'
         )}/auth/verify-email?token=${verifyToken}`;
         try {
-            await sendEmail({
-                email: user.email,
-                subject: `AWS-OS: Verify your email`,
-                message: verifyURL
-            });
+            new Email(user, verifyURL).sendVerify();
             req.flash(
                 'success',
                 'Email xác thực đã được gửi, vui lòng kiểm tra hộp thư của bạn.'

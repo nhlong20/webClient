@@ -1,0 +1,14 @@
+<%- include('./emailHeader.ejs') %>
+
+<p class="name">Xin chào <strong>
+ <%= name %>
+</strong>,</p>
+<p>Cám ơn bạn đăng ký sử dụng AWS-OS</p>
+<p>Hãy click vào liên kết bên dưới để kích hoạt tài khoản của bạn</p>
+<p><em>Bằng cách click vào đường dẫn kích hoạt, bạn đồng ý chấp nhận Điều khoản sử dụng & Chính sách quyền riêng tư
+ của
+ chúng tôi.</em></p>
+<button class="verify-btn"><a href="<%= url %> target=" _blank">Xác thực email</a></button>
+<p>Trân trọng, </p>
+<p>Đội ngũ phát triển AWS-OS </p>
+  <%- include('./emailFooter.ejs') %>
