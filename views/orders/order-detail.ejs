@@ -1,0 +1,56 @@
+<% function numberWithCommas(price) { var parts=price.toString().split(".");
+ parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,"."); return parts.join(","); } %>
+ <div class="panel-body bio-graph-info">
+  <h1 class="bio-header">Chi tiết đơn hàng #<%=order.order_id%> -<strong>
+     <%if (order.status==1) { %>
+      Đang giao hàng
+      <% } else if (order.status==0) { %>
+       Giao hàng thành công
+       <%} else if (order.status==-1) { %>
+        Đã hủy
+        <%}%>
+    </strong>
+  </h1>
+  <p>Ngày đặt hàng: <%=moment(order.createdAt).format('DD /MM/YYYY, h:mm A')%>
+  </p>
+
+  <table class="table table-striped table-sm text-center" aria-describedby="Product list">
+   <thead>
+    <tr>
+     <th class="order-product">Sản phẩm</th>
+     <th class="order-price-unit">Đơn giá</th>
+     <th class="order-qty">Số lượng</th>
+     <th class="order-subtotal">Tạm tính</th>
+    </tr>
+   </thead>
+   <tbody>
+    <% for( let id in order.products ) { %>
+     <tr>
+      <td>
+       <img src="<%= order.products[id].item.coverImage %>" alt="" width="80px" height="auto">
+       <%= order.products[id].item.name %> 
+       <% if (order.products[id].item.brand) { %>
+        <%= " - " + order.products[id].item.brand %>
+       <% } %>
+       <% if (order.products[id].item.size) { %>
+        <%= " - " + order.products[id].item.size %>
+       <% } %>
+      </td>
+      <td>
+       <%= numberWithCommas(order.products[id].item.price)%> VNĐ
+      </td>
+      <td>
+       <%= order.products[id].qty %>
+      </td>
+      <td>
+       <%= numberWithCommas(order.products[id].item.price*order.products[id].qty) %> VNĐ
+      </td>
+     </tr>
+     <% } %>
+   </tbody>
+  </table>
+  <p>Tạm tính: <span><%= numberWithCommas(order.totalPrice) %> VNĐ</span> </p>
+  <p>Phí vận chuyển:  0 VNĐ</p>
+  <p>Tổng cộng: <strong style="color: red"> <%= numberWithCommas(order.totalPrice) %> VNĐ</strong></p>
+
+ </div>

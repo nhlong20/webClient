@@ -1,0 +1,57 @@
+ <% function numberWithCommas(price) { var parts=price.toString().split(".");
+    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,"."); return parts.join(","); } %>
+     <div class="panel-body bio-graph-info">
+                                                        <h1 class="bio-header">Đơn hàng của tôi</h1>
+                                                        <table class="table table-striped table-sm text-center" aria-describedby="Product list">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th id="id">Mã đơn hàng</th>
+                                                                    <th id="date">Ngày mua</th>
+                                                                    <th id="name">Tên sản phẩm</th>
+                                                                    <th id="price">Tổng tiền</th>
+                                                                    <th id="status">Trạng thái đơn hàng</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <%if(orders !== {}){%>
+                                                                    <% orders.forEach(order => { %>
+                                                                        <tr>
+                                                                            <td>
+                                                                               <a href="/order/<%=order._id%>" style="font-size: 0.9rem"><%=order.order_id%></a> 
+                                                                            </td>
+                                                                            <td>
+                                                                                <%=order.createdAt.getDate()%>/
+                                                                                    <%=order.createdAt.getMonth()+1%>/
+                                                                                        <%=order.createdAt.getFullYear()%>
+                                                                            </td>
+                                                                            <td>
+                                                                                <% for( let id in order.products ) { %>
+                                                                                    <%=order.products[id].item.name%>,
+
+                                                                                        <% } %>
+                                                                            </td>
+
+
+                                                                            <td>
+                                                                                <%=numberWithCommas(order.totalPrice)%> đ
+                                                                            </td>
+                                                                            <td>
+                                                                                <% if (order.status == 1) { %>
+                                                                                    Đang giao hàng
+                                                                                <% } else if (order.status == 0) { %>
+                                                                                    Giao hàng thành công
+                                                                                    <%} else if (order.status ==-1) { %>
+                                                                                        Đã hủy
+                                                                                <%}%>
+                                                                               
+                                                                            </td>
+                                                                        </tr>
+                                                                     <% });%>
+
+                                                                <%}else{%>
+                                                                    <td colspan="7">Không có đơn hàng</td>
+                                                                 <%}%>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>

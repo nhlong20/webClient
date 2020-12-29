@@ -193,7 +193,7 @@
                                         <%=product.name%>
                                     </h6>
                                 </a>
-                                <p class="product-price"><span class="old-price">$75.00</span>
+                                <p class="product-price"><span class="old-price"> <%=numberWithCommas(Math.floor(product.price*100/(100-40)))%> VNĐ</span>
                                     <%=numberWithCommas(product.price)%> đ</p>
 
                                 <!-- Hover Content -->

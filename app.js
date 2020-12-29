@@ -66,6 +66,7 @@ app.use((req, res, next) => {
     res.locals.success = req.flash('success');
     res.locals.info = req.flash('info');
     res.locals.session = req.session;
+    res.locals.moment = require('moment');
     next();
 });
 

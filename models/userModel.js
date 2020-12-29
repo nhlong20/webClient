@@ -54,6 +54,14 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    locked: {
+        type: Boolean,
+        default: false,
+    },
+    admin: {
+        type: Boolean,
+        default: false,
+    },
     verifyToken: String
 });
 

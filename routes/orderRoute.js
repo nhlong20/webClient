@@ -5,4 +5,5 @@ const authCtrl = require('./../controllers/authController');
 const orderCtrl = require('./../controllers/orderController')
 router.route('/history').get(authCtrl.isLoggedIn, userCtrl.getOrders);
 router.route('/').post(authCtrl.isLoggedIn, orderCtrl.createOrder);
+router.route('/:id').get(authCtrl.isLoggedIn, orderCtrl.getOrder);
 module.exports = router;
