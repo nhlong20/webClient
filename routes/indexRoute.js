@@ -13,14 +13,16 @@ router.route('/account/edit').get(authCtrl.isLoggedIn, userCtrl.getUserInfo);
 router
     .route('/account/password/change')
     .get(authCtrl.isLoggedIn, userCtrl.getChangePassword);
-router.route('/account/address').get(authCtrl.isLoggedIn, userCtrl.getShippingAdress);
+router
+    .route('/account/address')
+    .get(authCtrl.isLoggedIn, userCtrl.getShippingAdress);
 
 router.route('/reset-password').get((req, res, next) => {
     const token = req.query.token;
     if (!token) {
         return next(new AppError(`Không tìm thấy trang`, 404));
     }
-    res.render('reset-password', { token });
+    res.render('user/reset-password', { token });
 });
 
 router.route('/thanh-toan').get(authCtrl.isLoggedIn, function (req, res, next) {
@@ -33,13 +35,13 @@ router.get('/lien-he', function (req, res, next) {
     res.render('contact');
 });
 router.get('/dang-nhap', authCtrl.isGuest, function (req, res, next) {
-    res.render('login');
+    res.render('user/login');
 });
 router.get('/dang-ky', authCtrl.isGuest, function (req, res, next) {
-    res.render('register');
+    res.render('user/register');
 });
 router.get('/quen-mat-khau', function (req, res, next) {
-    res.render('forgot-password');
+    res.render('user/forgot-password');
 });
 router.get('/tim-kiem', productCtrl.searchProducts);
 module.exports = router;

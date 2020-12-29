@@ -1,12 +1,10 @@
 const User = require('../models/userModel');
 const Order = require('../models/orderModel');
 const path = require('path');
-var fs = require('fs');
 const ejs = require('ejs');
 
 const formidable = require('formidable');
 var cloudinary = require('cloudinary').v2;
-const { populate } = require('../models/userModel');
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
@@ -29,7 +27,7 @@ exports.getChangePassword = async(req, res, next) => {
 };
 exports.getShippingAdress = async(req, res, next) => {
      const pageType = "address";
-    res.render('profile', { pageType});
+    res.render('profile', {pageType});
 };
 
 exports.getOrders = async(req, res) => {
