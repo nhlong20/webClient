@@ -22,24 +22,28 @@
                 <%=product.name%>
             </h2>
 
-            <p class="product-price"><span class="old-price"> <%=numberWithCommas(Math.floor(product.price*100/(100-40)))%> VNĐ</span>
+            <p class="product-price"><span class="old-price">
+                    <%=numberWithCommas(Math.floor(product.price*100 /(100-40)))%> VNĐ
+                </span>
                 <%=numberWithCommas(product.price)%> VNĐ
             </p>
             <div class="d-flex align-items-center">
-                <span> tình trạng: </span>
+                <span> Tình trạng: </span>
                 <% if(product.status){ %>
-                    <span style="display: inline-block; width: 8px; height: 8px; margin-left: 4px; margin-right: 4px; border-radius: 50%; background: rgb(59, 177, 0);"></span>
+                    <span
+                        style="display: inline-block; width: 8px; height: 8px; margin-left: 4px; margin-right: 4px; border-radius: 50%; background: rgb(59, 177, 0);"></span>
                     <span style="color: rgb(59, 177, 0);"> Còn hàng</span>
                     <% } else{ %>
-                        <span style="display: inline-block; width: 8px; height: 8px; margin-left: 4px; margin-right: 4px; border-radius: 50%; background: rgb(255, 0, 0);"></span>
+                        <span
+                            style="display: inline-block; width: 8px; height: 8px; margin-left: 4px; margin-right: 4px; border-radius: 50%; background: rgb(255, 0, 0);"></span>
                         <span style="color: rgb(255, 0, 0);"> Hết hàng</span>
                         <% } %>
             </div>
-            <%if(reviews.length != 0){%>
+            <%if(reviews.length !=0){%>
                 <div class="d-flex flex-row bd-highlight mb-3">
-                    <span class="fas fa-star" style="color: yellow;"></span>
-                    <span class="fas fa-star" style="color: yellow;"></span>
-                    <span class="fas fa-star" style="color: yellow;"></span>
+                    <span class="fas fa-star" style="color:  rgb(0, 132, 255);"></span>
+                    <span class="fas fa-star" style="color:  rgb(0, 132, 255);"></span>
+                    <span class="fas fa-star" style="color:  rgb(0, 132, 255);"></span>
                     <span class="fas fa-star"></span>
                     <span class="fas fa-star"></span>
                     <span class="ml-2">
@@ -47,8 +51,8 @@
                     </span>
                 </div>
                 <%} else { %>
-                    <span>chưa có bài đánh giá</span>
-                    <%} %>
+                    <span>Chưa có bài đánh giá</span>
+                <%} %>
                         <p class="product-desc">
                             <%=product.description%>
                         </p>
@@ -57,10 +61,12 @@
                         <!-- Select Box -->
                         <div class="select-box d-flex mt-50 mb-30">
                             <select name="select" id="productSize" class="mr-5">
-                                <option value="value">Size: <%=product.size%></option>
+                                <option value="value">Size: <%=product.size%>
+                                </option>
                             </select>
                             <select name="select" id="productColor">
-                                <option value="<%=product.color%>">Color: <%=product.color%></option>
+                                <option value="<%=product.color%>">Color: <%=product.color%>
+                                </option>
                             </select>
                         </div>
                         <!-- Cart & Favourite Box -->
@@ -73,44 +79,132 @@
         </div>
     </section>
     <!-- ##### Single Product Details Area End ##### -->
-    <div class="review-heading">Viết nhận xét của bạn</div>
-    <div class="review-body">
-        <form action="/san-pham/<%=product._id%>/review" method="POST">
-            <span>Đánh giá của bạn về sản phẩm </span>
-            <div class="stars">
-                <input class="star star-5" id="star-5" type="radio" name="star" value="5" />
-                <label class="star star-5" for="star-5"></label>
-                <input class="star star-4" id="star-4" type="radio" name="star" value="4" />
-                <label class="star star-4" for="star-4"></label>
-                <input class="star star-3" id="star-3" type="radio" name="star" value="3" />
-                <label class="star star-3" for="star-3"></label>
-                <input class="star star-2" id="star-2" type="radio" name="star" value="2" />
-                <label class="star star-2" for="star-2"></label>
-                <input class="star star-1" id="star-1" type="radio" name="star" value="1" required />
-                <label class="star star-1" for="star-1"></label>
+    <section class="container-fluid">
+        <div class="review-heading">Viết nhận xét của bạn</div>
+        <div class="review-body">
+            <form action="/san-pham/<%=product._id%>/review" method="POST">
+                <span>Đánh giá của bạn về sản phẩm </span>
+                <div class="stars">
+                    <input class="star star-5" id="star-5" type="radio" name="star" value="5" />
+                    <label class="star star-5" for="star-5"></label>
+                    <input class="star star-4" id="star-4" type="radio" name="star" value="4" />
+                    <label class="star star-4" for="star-4"></label>
+                    <input class="star star-3" id="star-3" type="radio" name="star" value="3" />
+                    <label class="star star-3" for="star-3"></label>
+                    <input class="star star-2" id="star-2" type="radio" name="star" value="2" />
+                    <label class="star star-2" for="star-2"></label>
+                    <input class="star star-1" id="star-1" type="radio" name="star" value="1" required />
+                    <label class="star star-1" for="star-1"></label>
+                </div>
+                <%if(!currentUser){%>
+                    <input class="input_review" type="text" placeholder="Nhập Tên của bạn" name="name" id="review_name"
+                        required>
+                    <%} %>
+                        <input class="input_review" type="text" placeholder="Tiêu đề nhận xét" name="title"
+                            id="review_title" required>
+                        <input class="input_review" type="text" placeholder="Nội dung..."
+                            name="detail" id="review-detail" required>
+                        <div class="d-flex flex-row-reverse bd-highlight mt-15">
+                            <button type="submit" class="btn essence-btn">Đánh giá</button>
+                        </div>
+            </form>
+        </div>
+        <%if(currentUser){%>
+            <hr>
+            <div class="review-heading">Nhận xét của bạn</div>
+
+            <div class="rating-body ">
+                <%if(reviews.length !=0){%>
+
+                    <div class="message" id="message">err</div>
+                    <% reviews.forEach(comment=> { %>
+                        <%if(comment.user._id.equals(currentUser._id)){ %>
+                            <hr>
+                            <div class=" rating-comment ">
+                                <div class="d-flex flex-row bd-highlight mb-3 ">
+                                    <div class="rating-comment-avatar ">
+                                        <img src="<%=comment.user.avatar%>" alt="Ảnh đại diện người dùng ">
+                                    </div>
+                                    <div class="d-flex flex-column bd-highlight ml-15 ">
+                                        <span class="rating-comment-name ">
+                                            <%=comment.user.name%>
+                                        </span>
+                                        <span class="rating-comment-date ">
+                                            Nhận xét vào <%=moment(comment.createdAt).format('DD /MM/YYYY')%>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row bd-highlight mb-3 ">
+                                    <span class="fas fa-star " <%if(comment.rating>= 1 ){%>
+                                        style="color: rgb(0, 132, 255); " <%}%>
+                                            ></span>
+                                    <span class="fas fa-star " <%if(comment.rating>= 2 ){%>
+                                        style="color: rgb(0, 132, 255); " <%}%>
+                                            ></span>
+                                    <span class="fas fa-star " <%if(comment.rating>= 3 ){%>
+                                        style="color: rgb(0, 132, 255); " <%}%>
+                                            ></span>
+                                    <span class="fas fa-star " <%if(comment.rating>= 4 ){%>
+                                        style="color: rgb(0, 132, 255); " <%}%>
+                                            ></span>
+                                    <span class="fas fa-star " <%if(comment.rating==5 ){%>
+                                        style="color: rgb(0, 132, 255); " <%}%>
+                                            ></span>
+                                </div>
+                                <div contenteditable="true" class="rating-comment-title "
+                                    id="title-review-<%=comment._id%>">
+                                    <%=comment.title%>
+                                </div>
+                                <div contenteditable="true" class="rating-comment-content "
+                                    id="content-review-<%=comment._id%>">
+                                    <%=comment.review%>
+                                </div>
+                                <div class="d-flex flex-row mt-3 ">
+                                    <form data-comment-id="<%=comment._id%>" class="review-change-btn">
+                                        <a href="#">Thay đổi</a>
+                                    </form>
+                                    <form data-comment-id="<%=comment._id%>" class="review-delete-btn">
+                                        <a href="#">Xóa</a>
+                                    </form>
+                                </div>
+
+
+                            </div>
+
+                            <%} %>
+                                <% }) %>
+                                    <%} %>
+                                        <%} %>
             </div>
-            <%if(!currentUser){%>
-                <input class="input_review" type="text" placeholder="Nhập Tên của bạn" name="name" id="review_name" required>
-                <%} %>
-                    <input class="input_review" type="text" placeholder="Nhập tiêu đề nhận xét" name="title" id="review_title" required>
-                    <input class="input_review" type="text" placeholder="Nhận xét của bạn về sản phẩm này" name="detail" id="review-detail" required>
-                    <div class="d-flex flex-row-reverse bd-highlight mt-15">
-                        <button type="submit" class="btn btn-warning">Đánh giá</button>
-                    </div>
-        </form>
-    </div>
-    <%if(currentUser){%>
-        <hr>
-        <div class="review-heading">nhận xét của bạn</div>
 
-        <div class="rating-body ">
-            <%if(reviews.length != 0){%>
+            <hr>
 
-                <div class="message" id="message">err</div>
-                <% reviews.forEach(comment=> { %>
-                    <%if(comment.user._id.equals(currentUser._id)){ %>
+
+            <div class=" customer-review-heading ">Khách hàng nhận xét</div>
+            <div class="all-rating-body ">
+                <div class="rating-inner ">
+                    <div class="reiview-rating-heading ">Đánh giá</div>
+                    <%if(reviews.length !=0){%>
+                        <div class="d-flex flex-row bd-highlight mb-3 ">
+                            <span class="fas fa-star " style="color: rgb(0, 132, 255); "></span>
+                            <span class="fas fa-star " style="color:  rgb(0, 132, 255);; "></span>
+                            <span class="fas fa-star " style="color:  rgb(0, 132, 255);; "></span>
+                            <span class="fas fa-star "></span>
+                            <span class="fas fa-star "></span>
+                            <span class="ml-2 ">
+                                <%=reviews.length%> bài đánh giá
+                            </span>
+                        </div>
+                        <%} else { %>
+                            <span>Chưa có bài đánh giá</span>
+                            <%} %>
+                </div>
+
+
+                <%if(reviews.length !=0){%>
+                    <% reviews.forEach(comment=> { %>
                         <hr>
-                        <div class=" rating-comment ">
+                        <div class="rating-comment ">
                             <div class="d-flex flex-row bd-highlight mb-3 ">
                                 <div class="rating-comment-avatar ">
                                     <img src="<%=comment.user.avatar%>" alt="Ảnh đại diện người dùng ">
@@ -120,113 +214,37 @@
                                         <%=comment.user.name%>
                                     </span>
                                     <span class="rating-comment-date ">
-                                        nhận xét vào ngày <%=comment.createdAt.getDate()%>
-                                            tháng <%=comment.createdAt.getMonth()+1%>
-                                                năm <%=comment.createdAt.getFullYear()%></span>
+                                        Nhận xét vào <%=moment(comment.createdAt).format('DD /MM/YYYY')%>
+
+                                    </span>
                                 </div>
                             </div>
                             <div class="d-flex flex-row bd-highlight mb-3 ">
                                 <span class="fas fa-star " <%if(comment.rating>= 1 ){%>
-                                    style="color: yellow; " <%}%>
+                                    style="color: rgb(0, 132, 255); " <%}%>
                                         ></span>
                                 <span class="fas fa-star " <%if(comment.rating>= 2 ){%>
-                                    style="color: yellow; " <%}%>
+                                    style="color: rgb(0, 132, 255); " <%}%>
                                         ></span>
                                 <span class="fas fa-star " <%if(comment.rating>= 3 ){%>
-                                    style="color: yellow; " <%}%>
+                                    style="color: rgb(0, 132, 255); " <%}%>
                                         ></span>
                                 <span class="fas fa-star " <%if(comment.rating>= 4 ){%>
-                                    style="color: yellow; " <%}%>
+                                    style="color: rgb(0, 132, 255); " <%}%>
                                         ></span>
                                 <span class="fas fa-star " <%if(comment.rating==5 ){%>
-                                    style="color: yellow; " <%}%>
+                                    style="color: rgb(0, 132, 255); " <%}%>
                                         ></span>
                             </div>
-                            <div contenteditable="true" class="rating-comment-title " id="title-review-<%=comment._id%>">
+                            <div class="rating-comment-title ">
                                 <%=comment.title%>
                             </div>
-                            <div contenteditable="true" class="rating-comment-content " id="content-review-<%=comment._id%>">
+                            <div class="rating-comment-content ">
                                 <%=comment.review%>
                             </div>
-                            <div class="d-flex flex-row mt-3 ">
-                                <form data-comment-id="<%=comment._id%>" class="review-change-btn">
-                                    <a href="#">Thay đổi</a>
-                                </form>
-                                <form data-comment-id="<%=comment._id%>" class="review-delete-btn">
-                                    <a href="#">Xóa</a>
-                                </form>
-                            </div>
-
-
                         </div>
 
-                        <%} %>
-                            <% }) %>
-                                <%} %>
-                                    <%} %>
-        </div>
-        <hr>
-        <div class=" customer-review-heading ">Khách hàng nhận xét</div>
-        <div class="all-rating-body ">
-            <div class="rating-inner ">
-                <div class="reiview-rating-heading ">đánh giá</div>
-                <%if(reviews.length != 0){%>
-                    <div class="d-flex flex-row bd-highlight mb-3 ">
-                        <span class="fas fa-star " style="color: yellow; "></span>
-                        <span class="fas fa-star " style="color: yellow; "></span>
-                        <span class="fas fa-star " style="color: yellow; "></span>
-                        <span class="fas fa-star "></span>
-                        <span class="fas fa-star "></span>
-                        <span class="ml-2 "><%=reviews.length%> bài đánh giá</span>
-                    </div>
-                    <%} else { %>
-                        <span>chưa có bài đánh giá</span>
-                        <%} %>
+                        <% }) %>
+                            <%} %>
             </div>
-
-
-            <%if(reviews.length != 0){%>
-                <% reviews.forEach(comment => { %>
-                    <hr>
-                    <div class="rating-comment ">
-                        <div class="d-flex flex-row bd-highlight mb-3 ">
-                            <div class="rating-comment-avatar ">
-                                <img src="<%=comment.user.avatar%>" alt="Ảnh đại diện người dùng ">
-                            </div>
-                            <div class="d-flex flex-column bd-highlight ml-15 ">
-                                <span class="rating-comment-name "> <%=comment.user.name%></span>
-                                <span class="rating-comment-date ">
-                                                                nhận xét vào ngày <%=comment.createdAt.getDate()%>
-                                                                tháng <%=comment.createdAt.getMonth()+1%>
-                                                                năm <%=comment.createdAt.getFullYear()%>
-                                                            </span>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row bd-highlight mb-3 ">
-                            <span class="fas fa-star " <%if(comment.rating>= 1 ){%> 
-                                                            style="color: yellow; " <%}%>
-                                                            ></span>
-                            <span class="fas fa-star " <%if(comment.rating>= 2 ){%> 
-                                                            style="color: yellow; " <%}%>
-                                                            ></span>
-                            <span class="fas fa-star " <%if(comment.rating>= 3 ){%> 
-                                                            style="color: yellow; " <%}%>
-                                                            ></span>
-                            <span class="fas fa-star " <%if(comment.rating>= 4 ){%> 
-                                                            style="color: yellow; " <%}%>
-                                                            ></span>
-                            <span class="fas fa-star " <%if(comment.rating==5 ){%> 
-                                                            style="color: yellow; " <%}%>
-                                                            ></span>
-                        </div>
-                        <div class="rating-comment-title ">
-                            <%=comment.title%>
-                        </div>
-                        <div class="rating-comment-content ">
-                            <%=comment.review%>
-                        </div>
-                    </div>
-
-                    <% }) %>
-                        <%} %>
-        </div>
+    </section>

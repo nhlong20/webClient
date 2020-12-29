@@ -20,6 +20,7 @@ const orderRouter = require('./routes/orderRoute');
 
 const productApiRouter = require('./routes/api/indexRoute');
 const cartApiRouter = require('./routes/api/cartRoute');
+const reviewApiRouter = require('./routes/api/reviewRoute');
 
 const app = express();
 // view engine setup
@@ -77,6 +78,7 @@ app.use('/auth', authRouter);
 app.use('/order', orderRouter);
 app.use('/api/v1', productApiRouter);
 app.use('/api/v1/cart', cartApiRouter);
+app.use('/api/v1/review', reviewApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
