@@ -250,10 +250,45 @@
      margin: 20px;
  }
  
+ .message {
+     padding-top: 1rem;
+     display: none;
+     color: red;
+     font-size: 15px;
+ }
+ 
+ .all-rating-body {
+     background-color: whitesmoke;
+     padding-left: 50px;
+     padding-right: 50px;
+     margin: 20px;
+ }
+ 
  .customer-review-heading {
      font-size: x-large;
      margin-top: 1rem;
      margin-left: 20px;
+ }
+ 
+ .review-change-btn {
+     width: 80px;
+     background-color: springgreen;
+     padding-left: 5px;
+ }
+ 
+ .review-change-btn a {
+     font-weight: normal;
+ }
+ 
+ .review-delete-btn {
+     width: 60px;
+     background-color: red;
+     padding-left: 15px;
+     margin-left: 20px;
+ }
+ 
+ .review-delete-btn a {
+     font-weight: normal;
  }
  
  .reiview-rating-heading {
@@ -309,7 +344,7 @@
      padding-bottom: 20px;
  }
  
- input[type=text] {
+ .input_review {
      width: 100%;
      border: 1px solid black;
      border-radius: 10px;

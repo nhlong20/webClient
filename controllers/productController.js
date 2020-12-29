@@ -256,3 +256,99 @@ exports.searchProducts = async(req, res) => {
 
     renderView(res, paginate, custom);
 };
+
+exports.createReview = async(req, res) => {
+    const productId = req.params.id;
+    console.log(req.body);
+    if (!req.body.star) {
+        req.flash('error', 'bạn chưa đánh giá sao');
+        return res.redirect('/san-pham/' + productId);
+    };
+
+    if (!req.body.title) {
+        req.flash('error', 'bạn chưa ghi tiêu đề');
+        return res.redirect('/san-pham/' + productId);
+    };
+
+    if (!req.body.detail) {
+        req.flash('error', 'bạn chưa ghi nội dung');
+        return res.redirect('/san-pham/' + productId);
+    };
+    let userId;
+    if (req.user) {
+        userId = req.user._id;
+    } else {
+        userId = "5fd6d634985c61001789765b"; //id ảo
+    }
+
+    const newReview = {
+        user: userId,
+        rating: req.body.star,
+        title: req.body.title,
+        review: req.body.detail,
+        product: productId,
+    };
+    const review = await Review.create(newReview);
+
+    return res.redirect('/san-pham/' + productId);
+
+}
+exports.changeReview = async(req, res) => {
+
+    const id = req.body.id;
+    const title = req.body.title;
+    const content = req.body.content;
+
+    if (!title) {
+        return res.status(400).json({
+            status: 'error',
+            message: 'Tiêu để không được để trống'
+        });
+    }
+    if (!content) {
+        return res.status(400).json({
+            status: 'error',
+            message: 'Nội dung không được để trống'
+        });
+    }
+
+    const review = await Review.findById(id);
+    // Update review
+    review.title = title;
+    review.review = content;
+    await review.save({ validateBeforeSave: false });;
+
+    const reviews = await Review.find({ product: review.product }).populate({
+        path: 'user',
+        select: "name avatar"
+    });
+
+    res.status(200).json({
+        status: 'success',
+        message: 'Bài đánh giá của bạn đã được cập nhật nội dung',
+        reviews
+    });
+}
+exports.deleteReview = async(req, res) => {
+
+    const id = req.body.id;
+
+
+    const review = await Review.findById(id);
+    const productID = review.product;
+    const userID = review.user._id;
+
+    await review.remove();
+
+    const reviews = await Review.find({ product: productID }).populate({
+        path: 'user',
+        select: "name avatar"
+    });
+
+    res.status(200).json({
+        status: 'success',
+        message: 'Bài đánh giá của bạn đã được xóa',
+        reviews,
+        userID
+    });
+}

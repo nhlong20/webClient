@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
     'use strict';
 
     var $window = $(window);
@@ -58,19 +58,19 @@
     var cartOverlayOn = 'cart-bg-overlay-on';
     var cartOn = 'cart-on';
 
-    $('#cart-no').on('click','#essenceCartBtn', function () {
+    $('#cart-no').on('click', '#essenceCartBtn', function() {
         cartOverlay.toggleClass(cartOverlayOn);
         cartWrapper.toggleClass(cartOn);
     });
-    cartOverlay.on('click', function () {
+    cartOverlay.on('click', function() {
         $(this).removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
-    closeCartBtn.on('click', function () {
+    closeCartBtn.on('click', function() {
         cartOverlay.removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
-    
+
     // :: ScrollUp Active Code
     if ($.fn.scrollUp) {
         $.scrollUp({
@@ -81,7 +81,7 @@
     }
 
     // :: Sticky Active Code
-    $window.on('scroll', function () {
+    $window.on('scroll', function() {
         if ($window.scrollTop() > 0) {
             $('.header_area').addClass('sticky');
         } else {
@@ -93,7 +93,7 @@
     if ($.fn.niceSelect) {
         $('select').niceSelect();
     }
-    $('.add-to-cart-btn').click(function (e) {
+    $('.add-to-cart-btn').click(function(e) {
         e.preventDefault();
 
         $('.cart-bg-overlay').toggleClass('cart-bg-overlay-on');
@@ -102,7 +102,7 @@
             type: 'POST',
             url: '/api/v1/cart/' + $(this).data('product-id'),
             contentType: 'application/json',
-            success: function (response) {
+            success: function(response) {
                 const { cart } = response;
                 let htmlCartItems = '';
                 for (let id in cart.items) {
@@ -149,18 +149,18 @@
                     <span>${cart.totalQty!=0?cart.totalQty:""}</span>         
             </a>`);
             },
-            error: function (err) {
+            error: function(err) {
                 console.log(err);
             }
         });
     });
-    $('.right-side-cart-area').on('click','.fa-trash-alt', function(e){
+    $('.right-side-cart-area').on('click', '.fa-trash-alt', function(e) {
         e.preventDefault();
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/cart/' + $(this).data('product-id'),
             contentType: 'application/json',
-            success: function (response) {
+            success: function(response) {
                 const { cart } = response;
                 let htmlCartItems = '';
                 for (let id in cart.items) {
@@ -207,12 +207,270 @@
                     <span>${cart.totalQty!=0?cart.totalQty:""}</span>         
             </a>`);
             },
-            error: function (err) {
+            error: function(err) {
                 console.log(err);
             }
         });
     })
-    
+
+    $('.rating-body').on('click', '.review-change-btn', function(e) {
+        e.preventDefault();
+        let id = $(this).data('comment-id');
+        let title = document.getElementById("title-review-" + id).textContent.trim();
+        console.log(title);
+        let content = document.getElementById("content-review-" + id).textContent.trim();
+        console.log(content);
+        $.ajax({
+            type: 'POST',
+            url: '/api/v1/change',
+            data: { title, content, id },
+            contentType: 'application/x-www-form-urlencoded',
+            success: function(response) {
+                const { message } = response;
+                const { reviews } = response;
+                let date = new Date(reviews[0].createdAt);
+                console.log(date.getDate());
+                let htmlReviews = '';
+                htmlReviews += `<div class="rating-inner ">
+                <div class="reiview-rating-heading ">đánh giá</div>`
+                if (reviews)
+                    htmlReviews += ` <div class = "d-flex flex-row bd-highlight mb-3 " >
+                                     <span class = "fas fa-star " style = "color: yellow; "> </span>
+                                    <span class = "fas fa-star " style = "color: yellow; " > </span> 
+                                    <span class = "fas fa-star " style = "color: yellow; " > </span> 
+                                    <span class = "fas fa-star " > </span> 
+                                    <span class = "fas fa-star " > </span> 
+                                    <span class = "ml-2 " > ${reviews.length} bài đánh giá </span> 
+                                    </div>
+                                </div>`
+                else
+                    htmlReviews += `<span> chưa có bài đánh giá </span>
+                /div>`
+                if (reviews)
+                    reviews.forEach(comment => {
+                        let date = new Date(comment.createdAt);
+                        htmlReviews += ` 
+                        <hr>
+                        <div class="rating-comment ">
+                            <div class="d-flex flex-row bd-highlight mb-3 ">
+                                <div class="rating-comment-avatar ">
+                                    <img src="${comment.user.avatar}" alt="Ảnh đại diện người dùng ">
+                                </div>
+                                <div class="d-flex flex-column bd-highlight ml-15 ">
+                                    <span class="rating-comment-name "> ${comment.user.name}</span>
+                                    <span class="rating-comment-date ">
+                                    nhận xét vào ngày ${date.getDate()}
+                                    tháng  ${date.getMonth()}
+                                    năm  ${date.getFullYear()}
+                                </span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row bd-highlight mb-3 ">
+                                <span class="fas fa-star " `
+                        if (comment.rating >= 1) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += `></span>
+                                <span class="fas fa-star " `
+                        if (comment.rating >= 2) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += `></span>
+                                <span class="fas fa-star " `
+                        if (comment.rating >= 3) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += ` ></span>
+                                <span class="fas fa-star " `
+                        if (comment.rating >= 4) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += `></span>
+                                <span class="fas fa-star " `
+                        if (comment.rating == 5) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += `></span>
+                            </div>
+                            <div class="rating-comment-title ">
+                                ${comment.title}
+                            </div>
+                            <div class="rating-comment-content ">
+                                ${comment.review}
+                            </div>
+                        </div>`
+                    });
+
+                $('.all-rating-body').html(htmlReviews);
+
+                let mes = document.getElementById("message");
+                mes.style.display = "block";
+                mes.innerHTML = message;
+
+            },
+            error: function(err) {
+                const message = err.responseJSON.message;
+                console.log(message);
+
+                let mes = document.getElementById("message");
+                mes.style.display = "block";
+                mes.innerHTML = message;
+            }
+        });
+    });
+
+
+    $('.rating-body').on('click', '.review-delete-btn', function(e) {
+        e.preventDefault();
+        let id = $(this).data('comment-id');
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/v1/delete',
+            data: { id },
+            contentType: 'application/x-www-form-urlencoded',
+            success: function(response) {
+                const { message } = response;
+                const { reviews } = response;
+                const { userID } = response;
+
+                //update all revierw
+                let htmlReviews = '';
+
+
+                htmlReviews += `<div class="message" id="message" style="display: block;">${message}</div>`
+                if (reviews)
+                    reviews.forEach(comment => {
+                        if (comment.user._id == userID) {
+                            let date = new Date(comment.createdAt);
+                            htmlReviews += ` 
+                            <hr>
+                            <div class="rating-comment ">
+                                <div class="d-flex flex-row bd-highlight mb-3 ">
+                                    <div class="rating-comment-avatar ">
+                                        <img src="${comment.user.avatar}" alt="Ảnh đại diện người dùng ">
+                                    </div>
+                                    <div class="d-flex flex-column bd-highlight ml-15 ">
+                                        <span class="rating-comment-name "> ${comment.user.name}</span>
+                                        <span class="rating-comment-date ">
+                                        nhận xét vào ngày ${date.getDate()}
+                                        tháng  ${date.getMonth()}
+                                        năm  ${date.getFullYear()}
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row bd-highlight mb-3 ">
+                                    <span class="fas fa-star " `
+                            if (comment.rating >= 1) { htmlReviews += ` style="color: yellow; " ` }
+                            htmlReviews += `></span>
+                                    <span class="fas fa-star " `
+                            if (comment.rating >= 2) { htmlReviews += ` style="color: yellow; " ` }
+                            htmlReviews += `></span>
+                                    <span class="fas fa-star " `
+                            if (comment.rating >= 3) { htmlReviews += ` style="color: yellow; " ` }
+                            htmlReviews += ` ></span>
+                                    <span class="fas fa-star " `
+                            if (comment.rating >= 4) { htmlReviews += ` style="color: yellow; " ` }
+                            htmlReviews += `></span>
+                                    <span class="fas fa-star " `
+                            if (comment.rating == 5) { htmlReviews += ` style="color: yellow; " ` }
+                            htmlReviews += `></span>
+                                </div>
+                                <div contenteditable="true" class="rating-comment-title "  id="title-review-${comment._id}">
+                                    ${comment.title}
+                                </div>
+                                <div contenteditable="true" class="rating-comment-content "  id="content-review-${comment._id}">
+                                    ${comment.review}
+                                </div>
+                                <div class="d-flex flex-row mt-3 ">
+                                <form data-comment-id="${comment._id}" class="review-change-btn">
+                                    <a href="#">Thay đổi</a>
+                                </form>
+                                <form data-comment-id="${comment._id}" class="review-delete-btn">
+                                    <a href="#">Xóa</a>
+                                </form>
+                            </div> 
+                            </div>`
+                        }
+                    });
+                $('.rating-body').html(htmlReviews);
+
+
+
+
+
+
+
+
+                //update current user's review
+                htmlReviews = '';
+                htmlReviews += `<div class="rating-inner ">
+                <div class="reiview-rating-heading ">đánh giá</div>`
+                if (reviews)
+                    htmlReviews += ` <div class = "d-flex flex-row bd-highlight mb-3 " >
+                                     <span class = "fas fa-star " style = "color: yellow; "> </span>
+                                    <span class = "fas fa-star " style = "color: yellow; " > </span> 
+                                    <span class = "fas fa-star " style = "color: yellow; " > </span> 
+                                    <span class = "fas fa-star " > </span> 
+                                    <span class = "fas fa-star " > </span> 
+                                    <span class = "ml-2 " > ${reviews.length} bài đánh giá </span> 
+                                    </div>
+                                </div>`
+                else
+                    htmlReviews += `<span> chưa có bài đánh giá </span>
+                /div>`
+                if (reviews)
+                    reviews.forEach(comment => {
+                        let date = new Date(comment.createdAt);
+                        htmlReviews += ` 
+                        <hr>
+                        <div class="rating-comment ">
+                            <div class="d-flex flex-row bd-highlight mb-3 ">
+                                <div class="rating-comment-avatar ">
+                                    <img src="${comment.user.avatar}" alt="Ảnh đại diện người dùng ">
+                                </div>
+                                <div class="d-flex flex-column bd-highlight ml-15 ">
+                                    <span class="rating-comment-name "> ${comment.user.name}</span>
+                                    <span class="rating-comment-date ">
+                                    nhận xét vào ngày ${date.getDate()}
+                                    tháng  ${date.getMonth()}
+                                    năm  ${date.getFullYear()}
+                                </span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row bd-highlight mb-3 ">
+                                <span class="fas fa-star " `
+                        if (comment.rating >= 1) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += `></span>
+                                <span class="fas fa-star " `
+                        if (comment.rating >= 2) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += `></span>
+                                <span class="fas fa-star " `
+                        if (comment.rating >= 3) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += ` ></span>
+                                <span class="fas fa-star " `
+                        if (comment.rating >= 4) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += `></span>
+                                <span class="fas fa-star " `
+                        if (comment.rating == 5) { htmlReviews += ` style="color: yellow; " ` }
+                        htmlReviews += `></span>
+                            </div>
+                            <div class="rating-comment-title ">
+                                ${comment.title}
+                            </div>
+                            <div class="rating-comment-content ">
+                                ${comment.review}
+                            </div>
+                            
+                        </div>`
+
+                    });
+
+                $('.all-rating-body').html(htmlReviews);
+
+            },
+            error: function(err) {
+                const message = err.responseJSON.message;
+                console.log(message);
+
+                let mes = document.getElementById("message");
+                mes.style.display = "block";
+                mes.innerHTML = message;
+            }
+        });
+        console.log("end");
+    });
+
     // :: Slider Range Price Active Code
 
     // $('.slider-range-price').each(function () {
@@ -246,15 +504,15 @@
     // :: Favorite Button Active Code
     var favme = $('.favme');
 
-    favme.on('click', function () {
+    favme.on('click', function() {
         $(this).toggleClass('active');
     });
 
-    favme.on('click touchstart', function () {
+    favme.on('click touchstart', function() {
         $(this).toggleClass('is_animating');
     });
 
-    favme.on('animationend', function () {
+    favme.on('animationend', function() {
         $(this).toggleClass('is_animating');
     });
 
@@ -274,7 +532,7 @@
     }
 
     // :: PreventDefault a Click
-    $("a[href='#']").on('click', function ($) {
+    $("a[href='#']").on('click', function($) {
         $.preventDefault();
     });
 
@@ -283,8 +541,8 @@
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         return parts.join(',');
     }
-    
-    $('#upload-file-btn').on('change', function () {
+
+    $('#upload-file-btn').on('change', function() {
         console.log('aaaaaaaaaaaaaaaa');
         const fileChosen = document.getElementById('file-chosen');
         fileChosen.textContent = this.files[0].name;
