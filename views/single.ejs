@@ -39,7 +39,7 @@
                         <span style="color: rgb(255, 0, 0);"> Hết hàng</span>
                         <% } %>
             </div>
-            <%if(reviews.length !=0){%>
+            <%if(product.reviews.length !=0){%>
                 <div class="d-flex flex-row bd-highlight mb-3">
                     <span class="fas fa-star" style="color:  rgb(0, 132, 255);"></span>
                     <span class="fas fa-star" style="color:  rgb(0, 132, 255);"></span>
@@ -47,7 +47,7 @@
                     <span class="fas fa-star"></span>
                     <span class="fas fa-star"></span>
                     <span class="ml-2">
-                        <%=reviews.length%> bài đánh giá
+                        <%=product.reviews.length%> bài đánh giá
                     </span>
                 </div>
                 <%} else { %>
@@ -78,6 +78,7 @@
                         </div>
         </div>
     </section>
+
     <!-- ##### Single Product Details Area End ##### -->
     <section class="container-fluid">
         <div class="review-heading">Viết nhận xét của bạn</div>
@@ -109,15 +110,16 @@
                         </div>
             </form>
         </div>
+    </section>
+    <section class="container-fluid">
         <%if(currentUser){%>
             <hr>
             <div class="review-heading">Nhận xét của bạn</div>
-
             <div class="rating-body ">
-                <%if(reviews.length !=0){%>
+                <%if(product.reviews.length !=0){%>
 
                     <div class="message alert text-center alert-success" id="message" style="color:#000;"></div>
-                    <% reviews.forEach(comment=> { %>
+                    <% product.reviews.forEach(comment=> { %>
                         <%if(comment.user._id.equals(currentUser._id)){ %>
                             <div class=" rating-comment ">
                                 <div class="d-flex flex-row bd-highlight mb-3 ">
@@ -129,7 +131,7 @@
                                             <%=comment.user.name%>
                                         </span>
                                         <span class="rating-comment-date ">
-                                            Nhận xét vào <%=moment(comment.updatedAt).format('DD /MM/YYYY')%>
+                                            <%=moment(comment.updatedAt, "YYYYMMDD" ).fromNow()%>
                                         </span>
                                     </div>
                                 </div>
@@ -183,15 +185,25 @@
             <div class="all-rating-body ">
                 <div class="rating-inner ">
                     <div class="reiview-rating-heading ">Đánh giá</div>
-                    <%if(reviews.length !=0){%>
+                    <%if(product.reviews.length !=0){%>
                         <div class="d-flex flex-row bd-highlight mb-3 ">
-                            <span class="fas fa-star " style="color: rgb(0, 132, 255); "></span>
-                            <span class="fas fa-star " style="color:  rgb(0, 132, 255);; "></span>
-                            <span class="fas fa-star " style="color:  rgb(0, 132, 255);; "></span>
-                            <span class="fas fa-star "></span>
-                            <span class="fas fa-star "></span>
+                            <span class="fas fa-star " <%if(product.ratingsAverage>= 1 ){%>
+                                style="color: rgb(0, 132, 255); " <%}%>
+                                    ></span>
+                            <span class="fas fa-star " <%if(product.ratingsAverage>= 2 ){%>
+                                style="color: rgb(0, 132, 255); " <%}%>
+                                    ></span>
+                            <span class="fas fa-star " <%if(product.ratingsAverage>= 3 ){%>
+                                style="color: rgb(0, 132, 255); " <%}%>
+                                    ></span>
+                            <span class="fas fa-star " <%if(product.ratingsAverage>= 4 ){%>
+                                style="color: rgb(0, 132, 255); " <%}%>
+                                    ></span>
+                            <span class="fas fa-star " <%if(product.ratingsAverage==5 ){%>
+                                style="color: rgb(0, 132, 255); " <%}%>
+                                    ></span>
                             <span class="ml-2 ">
-                                <%=reviews.length%> bài đánh giá
+                                <%=product.ratingsAverage%>   (<%=product.reviews.length%> nhận xét)
                             </span>
                         </div>
                         <%} else { %>
@@ -200,8 +212,8 @@
                 </div>
 
 
-                <%if(reviews.length !=0){%>
-                    <% reviews.forEach(comment=> { %>
+                <%if(product.reviews.length !=0){%>
+                    <% product.reviews.forEach(comment=> { %>
                         <hr>
                         <div class="rating-comment ">
                             <div class="d-flex flex-row bd-highlight mb-3 ">
@@ -213,8 +225,7 @@
                                         <%=comment.user.name%>
                                     </span>
                                     <span class="rating-comment-date ">
-                                        Nhận xét vào <%=moment(comment.createdAt).format('DD /MM/YYYY')%>
-
+                                        <%=moment(comment.updatedAt, "YYYYMMDD" ).fromNow()%>
                                     </span>
                                 </div>
                             </div>

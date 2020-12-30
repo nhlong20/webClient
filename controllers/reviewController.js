@@ -1,5 +1,6 @@
 'use strict';
 const Review = require('../models/reviewModel');
+const Product = require('../models/productModel');
 
 exports.createReview = async (req, res) => {
     const productId = req.params.id;
@@ -29,7 +30,6 @@ exports.createReview = async (req, res) => {
     return res.redirect('/san-pham/' + productId);
 };
 exports.updateReview = async (req, res) => {
-    const id = req.params.id;
     const { title, review } = req.body;
     if (!title || !review) {
         return res.status(400).json({
@@ -38,38 +38,25 @@ exports.updateReview = async (req, res) => {
         });
     }
     // Update review
-    const updatedReview = await Review.findByIdAndUpdate(id, { title, review });
-
-    const reviews = await Review.find({
-        product: updatedReview.product
-    }).populate({
-        path: 'user',
-        select: 'name avatar'
-    });
+    await Review.findOneAndUpdate({ _id: req.params.id }, { title, review });
+    const doc = await Product.findById(req.body.productId).populate('reviews');
     res.status(201).json({
         status: 'success',
-        message: 'Bài đánh giá của bạn đã được cập nhật nội dung',
-        reviews
+        message: 'Cập nhật đánh giá thành công',
+        reviews: doc.reviews,
+        ratingAverage: doc.ratingsAverage,
     });
 };
 
 exports.deleteReview = async (req, res) => {
-    const id = req.params.id;
-    const review = await Review.findById(id);
-    const productID = review.product;
-    const userID = review.user._id;
+    await Review.findOneAndDelete({ _id: req.params.id });
 
-    await review.remove();
-
-    const reviews = await Review.find({ product: productID }).populate({
-        path: 'user',
-        select: 'name avatar'
-    });
-
+    const doc = await Product.findById(req.body.productId).populate('reviews');
     res.status(200).json({
         status: 'success',
-        message: 'Bài đánh giá của bạn đã được xóa',
-        reviews,
-        userID
+        message: 'Xóa đánh giá thành công',
+        reviews: doc.reviews,
+        ratingAverage: doc.ratingsAverage,
+        uid: req.user._id
     });
 };

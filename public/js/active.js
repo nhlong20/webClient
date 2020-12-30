@@ -224,38 +224,61 @@
     $('.rating-body').on('click', '.review-change-btn', function (e) {
         e.preventDefault();
         let id = $(this).data('comment-id');
-        let title = document
-            .getElementById('title-review-' + id)
-            .textContent.trim();
-        let review = document
-            .getElementById('content-review-' + id)
-            .textContent.trim();
+        let productId = window.location.pathname.split('/')[2];
+
+        let title = $('#title-review-' + id)
+            .text()
+            .trim();
+        let review = $('#content-review-' + id)
+            .text()
+            .trim();
         $.ajax({
             type: 'PATCH',
             url: '/api/v1/review/' + id,
-            data: { title, review },
+            data: { title, review, productId },
             contentType: 'application/x-www-form-urlencoded',
             success: function (response) {
-                const { message } = response;
-                const { reviews } = response;
-                let date = new Date(reviews[0].updatedAt);
+                const { message, ratingAverage, reviews } = response;
                 let htmlReviews = '';
                 htmlReviews += `<div class="rating-inner ">
                 <div class="reiview-rating-heading ">Đánh giá</div>`;
-                if (reviews)
-                    htmlReviews += ` <div class = "d-flex flex-row bd-highlight mb-3 " >
-                                     <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); "> </span>
-                                    <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); " > </span> 
-                                    <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); " > </span> 
-                                    <span class = "fas fa-star " > </span> 
-                                    <span class = "fas fa-star " > </span> 
-                                    <span class = "ml-2 " > ${reviews.length} bài đánh giá </span> 
-                                    </div>
-                                </div>`;
-                else
+                if (reviews.length != 0) {
+                    htmlReviews += ` <div class="d-flex flex-row bd-highlight mb-3 ">
+                    <span class="fas fa-star " `;
+                    if (ratingAverage >= 1) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += `></span>
+                            <span class="fas fa-star " `;
+                    if (ratingAverage >= 2) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += `></span>
+                            <span class="fas fa-star " `;
+                    if (ratingAverage >= 3) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += ` ></span>
+                            <span class="fas fa-star " `;
+                    if (ratingAverage >= 4) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += `></span>
+                            <span class="fas fa-star " `;
+                    if (ratingAverage == 5) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += `></span>
+                    <span class="ml-2 ">
+                        ${ratingAverage}   (${reviews.length} nhận xét)
+                    </span>
+                </div>`;
+                } else {
                     htmlReviews += `<span> Chưa có bài đánh giá </span>
-                /div>`;
-                if (reviews)
+                    </div>`;
+                }
+
+                if (reviews.length != 0)
                     reviews.forEach(comment => {
                         let date = new Date(comment.updatedAt);
                         htmlReviews += ` 
@@ -313,7 +336,6 @@
                     });
 
                 $('.all-rating-body').html(htmlReviews);
-
                 let mes = document.getElementById('message');
                 mes.style.display = 'block';
                 mes.innerHTML = message;
@@ -331,24 +353,24 @@
     $('.rating-body').on('click', '.review-delete-btn', function (e) {
         e.preventDefault();
         let id = $(this).data('comment-id');
-
+        let productId = window.location.pathname.split('/')[2];
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/review/' + id,
+            data: {
+                productId
+            },
             contentType: 'application/x-www-form-urlencoded',
             success: function (response) {
-                const { message } = response;
-                const { reviews } = response;
-                const { userID } = response;
-
+                const { message, reviews, uid, ratingAverage } = response;
                 //update all revierw
                 let htmlReviews = '';
 
                 htmlReviews += `<div class="message alert text-center alert-success" id="message" style="display: block; color: #000;">${message}</div>`;
-                if (reviews)
+                if (reviews.length != 0)
                     reviews.forEach(comment => {
-                        if (comment.user._id == userID) {
-                            let date = new Date(comment.createdAt);
+                        if (comment.user._id == uid) {
+                            let date = new Date(comment.updatedAt);
                             htmlReviews += ` 
                             <hr>
                             <div class="rating-comment ">
@@ -402,10 +424,10 @@
                                 </div>
                                 <div class="d-flex flex-row mt-3 ">
                                 <form data-comment-id="${comment._id}" class="review-change-btn">
-                                    <a href="#">Thay đổi</a>
+                                 <button class="btn btn-primary">Thay đổi</button>
                                 </form>
                                 <form data-comment-id="${comment._id}" class="review-delete-btn">
-                                    <a href="#">Xóa</a>
+                                    <button class="btn btn-danger">Xóa</button>
                                 </form>
                             </div> 
                             </div>`;
@@ -413,26 +435,47 @@
                     });
                 $('.rating-body').html(htmlReviews);
 
-                //update current user's review
+                // Render all reviews
                 htmlReviews = '';
                 htmlReviews += `<div class="rating-inner ">
-                <div class="reiview-rating-heading ">đánh giá</div>`;
-                if (reviews){
-                    htmlReviews += ` <div class = "d-flex flex-row bd-highlight mb-3 " >
-                    <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); "> </span>
-                   <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); " > </span> 
-                   <span class = "fas fa-star " style = "color:  rgb(0, 132, 255); " > </span> 
-                   <span class = "fas fa-star " > </span> 
-                   <span class = "fas fa-star " > </span> 
-                   <span class = "ml-2 " > ${reviews.length} bài đánh giá </span> 
-                   </div>
-               </div>`;
-                } else{
+                <div class="reiview-rating-heading ">Đánh giá</div>`;
+                if (reviews.length != 0) {
+                    htmlReviews += ` <div class="d-flex flex-row bd-highlight mb-3 ">
+                    <span class="fas fa-star " `;
+                    if (ratingAverage >= 1) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += `></span>
+                            <span class="fas fa-star " `;
+                    if (ratingAverage >= 2) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += `></span>
+                            <span class="fas fa-star " `;
+                    if (ratingAverage >= 3) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += ` ></span>
+                            <span class="fas fa-star " `;
+                    if (ratingAverage >= 4) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += `></span>
+                            <span class="fas fa-star " `;
+                    if (ratingAverage == 5) {
+                        htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                    }
+                    htmlReviews += `></span>
+                    <span class="ml-2 ">
+                        ${ratingAverage}   (${reviews.length} nhận xét)
+                    </span>
+                </div>`;
+                } else {
                     htmlReviews += `<span> Chưa có bài đánh giá </span>
-                    /div>`;
+                    </div>`;
                 }
-                   
-                if (reviews){
+
+                if (reviews.length != 0) {
                     reviews.forEach(review => {
                         let date = new Date(review.updatedAt);
                         htmlReviews += ` 
@@ -455,42 +498,41 @@
                             </div>
                             <div class="d-flex flex-row bd-highlight mb-3 ">
                                 <span class="fas fa-star " `;
-                        if (comment.rating >= 1) {
+                        if (review.rating >= 1) {
                             htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
                         }
                         htmlReviews += `></span>
                                 <span class="fas fa-star " `;
-                        if (comment.rating >= 2) {
+                        if (review.rating >= 2) {
                             htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
                         }
                         htmlReviews += `></span>
                                 <span class="fas fa-star " `;
-                        if (comment.rating >= 3) {
+                        if (review.rating >= 3) {
                             htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
                         }
                         htmlReviews += ` ></span>
                                 <span class="fas fa-star " `;
-                        if (comment.rating >= 4) {
+                        if (review.rating >= 4) {
                             htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
                         }
                         htmlReviews += `></span>
                                 <span class="fas fa-star " `;
-                        if (comment.rating == 5) {
+                        if (review.rating == 5) {
                             htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
                         }
                         htmlReviews += `></span>
                             </div>
                             <div class="rating-comment-title ">
-                                ${comment.title}
+                                ${review.title}
                             </div>
                             <div class="rating-comment-content ">
-                                ${comment.review}
+                                ${review.review}
                             </div>
                             
                         </div>`;
                     });
                 }
-                    
 
                 $('.all-rating-body').html(htmlReviews);
             },

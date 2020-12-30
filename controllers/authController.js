@@ -2,7 +2,6 @@
 const crypto = require('crypto');
 
 const User = require('../models/userModel');
-const authService = require('../services/authService');
 const userService = require('../services/userService');
 const Email = require('../services/emailService');
 

@@ -1,8 +1,8 @@
 'use strict';
 const Product = require('../models/productModel');
 const Review = require('../models/reviewModel');
-const User = require('../models/userModel');
 const productService = require('../services/productService.js');
+const AppError = require('../utils/appError');
 const ITEM_PER_PAGE = 8;
 const ejs = require('ejs');
 
@@ -43,7 +43,7 @@ function serializeQuery(query) {
     return str.join('&');
 }
 
-exports.apiGetBrand = async(req, res) => {
+exports.apiGetBrand = async (req, res) => {
     let { brand, color, sort, category } = req.query;
     const query = {};
     color ? (query.color = color) : null;
@@ -99,14 +99,14 @@ exports.topPopularProducts = (req, res, next) => {
     next();
 };
 
-exports.getPopularProducts = async(req, res) => {
+exports.getPopularProducts = async (req, res) => {
     let query = Product.find({});
     const limit = req.query.limit;
     limit ? (query = query.limit(~~limit)) : null;
     const products = await query;
     res.render('index', { products });
 };
-exports.getAllWatches = async(req, res) => {
+exports.getAllWatches = async (req, res) => {
     const { color, sort, brand } = req.query;
     const query = {
         department: 'Watch'
@@ -129,7 +129,7 @@ exports.getAllWatches = async(req, res) => {
     renderView(res, paginate, custom);
 };
 
-exports.getMenWatches = async(req, res) => {
+exports.getMenWatches = async (req, res) => {
     const { color, sort, brand } = req.query;
     const query = {
         department: 'Watch',
@@ -153,7 +153,7 @@ exports.getMenWatches = async(req, res) => {
     renderView(res, paginate, custom);
 };
 
-exports.getWomenWatches = async(req, res) => {
+exports.getWomenWatches = async (req, res) => {
     const { color, sort, brand } = req.query;
     const query = {
         department: 'Watch',
@@ -176,7 +176,7 @@ exports.getWomenWatches = async(req, res) => {
     const paginate = await productService.listProduct(query, options);
     renderView(res, paginate, custom);
 };
-exports.getAccessories = async(req, res) => {
+exports.getAccessories = async (req, res) => {
     const sort = req.query.sort;
     const query = {
         department: 'Accessory'
@@ -194,7 +194,7 @@ exports.getAccessories = async(req, res) => {
 
     renderView(res, paginate, custom);
 };
-exports.getBrand = async(req, res) => {
+exports.getBrand = async (req, res) => {
     const { name, color, sort } = req.query;
     const query = {
         brand: toUpperOnlyFirstChar(name)
@@ -215,20 +215,21 @@ exports.getBrand = async(req, res) => {
     renderView(res, paginate, custom);
 };
 
-exports.getProduct = async(req, res) => {
-    const id = req.params.id;
-    const product = await Product.findById(id);
-    const reviews = await Review.find({ product: product._id }).populate({
-        path: 'user',
-        select: "name avatar"
-    });
-    if (product && product.department == 'Accessory') {
-        res.render('accessory', { product, reviews });
-    } else
-        res.render('single', { product, reviews });
+exports.getProduct = async (req, res, next) => {
+    try {
+        const doc = await Product.findById(req.params.id).populate('reviews');
+        if (!doc) {
+            return next(new AppError('No document found with that ID', 404));
+        }
+        if (doc.department == 'Accessory') {
+            res.render('accessory', { product: doc});
+        } else res.render('single', { product: doc });
+    } catch (err) {
+        next(new AppError(err, 400));
+    }
 };
 
-exports.searchProducts = async(req, res) => {
+exports.searchProducts = async (req, res) => {
     const search = req.query.search;
     const page = req.query.page * 1 || 1;
     const limit = req.query.limit * 1 || ITEM_PER_PAGE;
