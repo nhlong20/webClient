@@ -5,6 +5,7 @@ const productService = require('../services/productService.js');
 const AppError = require('../utils/appError');
 const ITEM_PER_PAGE = 8;
 const ejs = require('ejs');
+const { find } = require('../models/productModel');
 
 function renderView(res, paginate, custom) {
     const pageControlObj = {
@@ -222,8 +223,13 @@ exports.getProduct = async (req, res, next) => {
             return next(new AppError('No document found with that ID', 404));
         }
         if (doc.department == 'Accessory') {
-            res.render('accessory', { product: doc});
-        } else res.render('single', { product: doc });
+            return res.render('accessory', { product: doc});
+        }
+        const relevantProducts = await Product.find({ brand: doc.brand });
+        return res.render('single', {
+            product: doc,
+            products: relevantProducts
+        });
     } catch (err) {
         next(new AppError(err, 400));
     }

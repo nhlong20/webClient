@@ -89,7 +89,71 @@
         </div>
     </section>
     <!-- ##### Single Product Details Area End ##### -->
+    <!-- #####  Relevant  Area Start ##### -->
+    <% if (products) { %>
+        <section class="new_arrivals_area section-padding-80 clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading text-center">
+                            <h2>Sản phẩm liên quan</h2>
+                            <a href="/san-pham/dong-ho-nam"><span>Khám phá thêm &rarr;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
     
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="popular-products-slides owl-carousel">
+                            <!-- Single Product -->
+                            <%products.forEach(item=> {%>
+                                <div class="single-product-wrapper">
+                                    <!-- Product Image -->
+                                    <div class="product-img">
+                                        <img src="<%=item.coverImage%>" alt="">
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-heart"></a>
+                                        </div>
+                                    </div>
+                                    <!-- Product Description -->
+                                    <div class="product-description">
+                                        <span>
+                                            <%=item.brand%>
+                                        </span>
+                                        <a href="/san-pham/<%=item._id%>">
+                                            <h6>
+                                                <%=item.name%>
+                                            </h6>
+                                        </a>
+                                        <p class="product-price">
+                                            <%=numberWithCommas(item.price)%>
+                                        </p>
+    
+                                        <!-- Hover Content -->
+                                        <div class="hover-content">
+                                            <!-- Add to Cart -->
+                                            <form data-product-id="<%=item._id%>" class="add-to-cart-btn">
+                                                <a href="#" class="btn essence-btn">Thêm vào giỏ</a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}) %>
+    
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <% } %>
+   
+    <!-- #####  Women's best seller Area End ##### -->
+
+    <!-- #####  Review Area Begins ##### -->
     <section class="container-fluid">
         <div class="review-heading">Viết nhận xét của bạn</div>
         <div class="review-body">
@@ -268,3 +332,4 @@
                             <%} %>
             </div>
     </section>
+    <!-- #####  Review Area Ends ##### -->
