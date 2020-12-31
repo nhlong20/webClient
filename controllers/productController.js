@@ -225,7 +225,11 @@ exports.getProduct = async (req, res, next) => {
         if (doc.department == 'Accessory') {
             return res.render('accessory', { product: doc});
         }
+        // Looking for relevant products
         const relevantProducts = await Product.find({ brand: doc.brand });
+
+        // Remove current view product out of relevantProducts arrays
+        relevantProducts.splice(relevantProducts.findIndex(item => item._id.equals(req.params.id) ), 1);
         return res.render('single', {
             product: doc,
             products: relevantProducts
