@@ -1,11 +1,9 @@
 'use strict';
 const Product = require('../models/productModel');
-const Review = require('../models/reviewModel');
 const productService = require('../services/productService.js');
 const AppError = require('../utils/appError');
 const ITEM_PER_PAGE = 8;
 const ejs = require('ejs');
-const { find } = require('../models/productModel');
 
 function renderView(res, paginate, custom) {
     const pageControlObj = {

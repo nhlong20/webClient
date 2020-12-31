@@ -9,7 +9,8 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: 'https://res.cloudinary.com/dh5xeom6f/image/upload/v1607703995/hsi57cqpkpxjzxoela74.jpg'
+        default:
+            'https://res.cloudinary.com/dh5xeom6f/image/upload/v1607703995/hsi57cqpkpxjzxoela74.jpg'
     },
     phoneNumber: {
         type: String,
@@ -26,7 +27,7 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, 'Please provide your email'],
-        unique: [true, "Email đã tổn tại, vui lòng kiểm tra lại"],
+        unique: [true, 'Email đã tổn tại, vui lòng kiểm tra lại'],
         lowercase: true,
         validate: [validator.isEmail, 'Vui lòng cung cấp địa chỉ email hợp lệ']
     },
@@ -41,7 +42,7 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Vui lòng xác nhận mật khẩu của bạn'],
         validate: {
             // This only works on CREATE and SAVE!!!
-            validator: function(el) {
+            validator: function (el) {
                 return el === this.password;
             },
             message: 'Mật khẩu xác nhận không trùng khớp'
@@ -56,16 +57,22 @@ const userSchema = new mongoose.Schema({
     },
     locked: {
         type: Boolean,
-        default: false,
+        default: false
     },
     admin: {
         type: Boolean,
-        default: false,
+        default: false
     },
-    verifyToken: String
+    verifyToken: String,
+    google: {
+        id: String,
+        token: String,
+        email: String,
+        name: String
+    }
 });
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
     // Only run this function if password was actually modified
     if (!this.isModified('password')) return next();
 
@@ -76,7 +83,7 @@ userSchema.pre('save', async function(next) {
     this.passwordConfirm = undefined;
     next();
 });
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
     // Only run this function if password was actually modified or this is new document
     if (!this.isModified('password') || this.isNew) return next();
 
@@ -84,14 +91,14 @@ userSchema.pre('save', async function(next) {
 
     next();
 });
-userSchema.methods.checkPassword = async function(
+userSchema.methods.checkPassword = async function (
     inputPassword,
     userPassword
 ) {
     return await bcrypt.compare(inputPassword, userPassword);
 };
 
-userSchema.methods.createPasswordResetToken = function() {
+userSchema.methods.createPasswordResetToken = function () {
     const resetToken = crypto.randomBytes(32).toString('hex');
     this.passwordResetToken = crypto
         .createHash('sha256', process.env.CRYPTO_SECRET_KEY)
@@ -100,7 +107,7 @@ userSchema.methods.createPasswordResetToken = function() {
     this.passwordResetExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
     return resetToken;
 };
-userSchema.methods.createVerifyToken = function() {
+userSchema.methods.createVerifyToken = function () {
     const verifyToken = crypto.randomBytes(32).toString('hex');
     this.verifyToken = verifyToken;
     console.log(this.verifyToken);
