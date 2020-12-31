@@ -50,7 +50,6 @@ passport.use(
                 let user = await userService.getUser({
                     'google.id': profile.id
                 });
-
                 if (user) return done(null, user);
                 user = new User();
                 user.google.id = profile.id;
@@ -61,8 +60,12 @@ passport.use(
                 user.name =
                     profile.name.givenName + ' ' + profile.name.familyName;
                 user.email = profile.emails[0].value;
+                user.avatar = profile.photos[0].value;
                 user.active = true;
                 await user.save({ validateBeforeSave: false });
+                user = await userService.getUser({
+                    'google.id': profile.id
+                });
                 return done(null, user);
             });
         }

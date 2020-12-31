@@ -92,7 +92,7 @@
     <!-- #####  Relevant  Area Start ##### -->
     <% if (products) { %>
         <section class="new_arrivals_area section-padding-80 clearfix">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="section-heading text-center">
@@ -153,7 +153,7 @@
     <!-- #####  Women's best seller Area End ##### -->
 
     <!-- #####  Review Area Begins ##### -->
-    <section class="container-fluid">
+    <section class="container">
         <div class="review-heading">Viết nhận xét của bạn</div>
         <div class="review-body">
             <form action="/san-pham/<%=product._id%>/review" method="POST">
@@ -184,7 +184,7 @@
             </form>
         </div>
     </section>
-    <section class="container-fluid">
+    <section class="container">
         <%if(currentUser){%>
             <hr>
             <div class="review-heading">Nhận xét của bạn</div>
