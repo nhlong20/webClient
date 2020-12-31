@@ -40,14 +40,24 @@
                         <% } %>
             </div>
             <%if(product.reviews.length !=0){%>
-                <div class="d-flex flex-row bd-highlight mb-3">
-                    <span class="fas fa-star" style="color:  rgb(0, 132, 255);"></span>
-                    <span class="fas fa-star" style="color:  rgb(0, 132, 255);"></span>
-                    <span class="fas fa-star" style="color:  rgb(0, 132, 255);"></span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star"></span>
-                    <span class="ml-2">
-                        <%=product.reviews.length%> bài đánh giá
+                <div class="d-flex flex-row bd-highlight mb-3 ">
+                    <span class="fas fa-star mt-1" <%if(product.ratingsAverage>= 1 ){%>
+                        style="color: rgb(0, 132, 255); " <%}%>
+                            ></span>
+                    <span class="fas fa-star mt-1" <%if(product.ratingsAverage>= 2 ){%>
+                        style="color: rgb(0, 132, 255); " <%}%>
+                            ></span>
+                    <span class="fas fa-star mt-1" <%if(product.ratingsAverage>= 3 ){%>
+                        style="color: rgb(0, 132, 255); " <%}%>
+                            ></span>
+                    <span class="fas fa-star mt-1" <%if(product.ratingsAverage>= 4 ){%>
+                        style="color: rgb(0, 132, 255); " <%}%>
+                            ></span>
+                    <span class="fas fa-star mt-1" <%if(product.ratingsAverage==5 ){%>
+                        style="color: rgb(0, 132, 255); " <%}%>
+                            ></span>
+                    <span class="ml-2 ">
+                        <%=product.ratingsAverage%>/5 (<%=product.reviews.length%> nhận xét)
                     </span>
                 </div>
                 <%} else { %>
@@ -78,8 +88,8 @@
                         </div>
         </div>
     </section>
-
     <!-- ##### Single Product Details Area End ##### -->
+    
     <section class="container-fluid">
         <div class="review-heading">Viết nhận xét của bạn</div>
         <div class="review-body">
@@ -203,7 +213,7 @@
                                 style="color: rgb(0, 132, 255); " <%}%>
                                     ></span>
                             <span class="ml-2 ">
-                                <%=product.ratingsAverage%>   (<%=product.reviews.length%> nhận xét)
+                                <%=product.ratingsAverage%> (<%=product.reviews.length%> nhận xét)
                             </span>
                         </div>
                         <%} else { %>

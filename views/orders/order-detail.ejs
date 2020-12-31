@@ -1,6 +1,7 @@
 <% function numberWithCommas(price) { var parts=price.toString().split(".");
   parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,"."); return parts.join(","); } %>
-  <div class="panel-body bio-graph-info">
+ 
+  <div class="custom-panel panel-body bio-graph-info">
     <h1 class="bio-header">Chi tiết đơn hàng #<%=order.order_id%> -<strong>
           <%if (order.status==1) { %>
             Đang giao hàng
@@ -15,7 +16,7 @@
     </p>
 
     <table class="table table-striped table-sm text-center" aria-describedby="Product list">
-      <thead>
+      <thead class="thead-dark">
         <tr>
           <th class="order-image">Hình sản phẩm</th>
           <th class="order-product">Sản phẩm</th>
@@ -27,10 +28,10 @@
       <tbody>
         <% for( let id in order.products ) { %>
           <tr>
-            <td>
+            <td class="align-middle">
               <img src="<%= order.products[id].item.coverImage %>" alt="" width="80px" height="auto">
             </td>
-            <td>
+            <td class="align-middle">
               <%= order.products[id].item.name %>
                 <% if (order.products[id].item.brand) { %>
                   <%= " - " + order.products[id].item.brand %>
@@ -39,25 +40,33 @@
                         <%= " - " + order.products[id].item.size %>
                           <% } %>
             </td>
-            <td>
+            <td class="align-middle">
               <%= numberWithCommas(order.products[id].item.price)%> VNĐ
             </td>
-            <td>
+            <td class="align-middle">
               <%= order.products[id].qty %>
             </td>
-            <td>
+            <td class="align-middle">
               <%= numberWithCommas(order.products[id].item.price*order.products[id].qty) %> VNĐ
             </td>
           </tr>
           <% } %>
       </tbody>
     </table>
-    <p>Tạm tính: <span>
-        <%= numberWithCommas(order.totalPrice) %> VNĐ
-      </span> </p>
-    <p>Phí vận chuyển: 0 VNĐ</p>
-    <p>Tổng cộng: <strong style="color: red">
-        <%= numberWithCommas(order.totalPrice) %> VNĐ
-      </strong></p>
+    <div class="order-summary">
+      <p>Tạm tính: <span>
+          <%= numberWithCommas(order.totalPrice) %> VNĐ
+        </span> </p>
+      <p>Phí vận chuyển: 0 VNĐ</p>
+      <p>Tổng cộng: <strong style="color: red">
+          <%= numberWithCommas(order.totalPrice) %> VNĐ
+        </strong></p>
 
+    </div>
+   
+  </div>
+
+  <div class="order--return mb-2">
+    <a href="/order/history"> <i class="fas fa-angle-double-left"></i>
+      Quay lại trang quản lý đơn hàng</a>
   </div>

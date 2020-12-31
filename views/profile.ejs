@@ -20,19 +20,19 @@
                                 <%=currentUser.email%>
                             </p>
                         </div>
-
-                        <ul class="d-flex flex-column">
-                            <li class="active">
+                        <ul class="d-flex flex-column  ">
+                            
+                            <li class="panel__control <%= pageType=="userInfo"?"active":""%>">
                                 <a href="/account/edit"> <i class="fa fa-user"></i>Hồ sơ</a>
                             </li>
-                            <li>
+                            <li class="panel__control <%= pageType=="changePassword"?"active":""%>">
                                 <a id="change-password" href="/account/password/change"> <i class="fa fa-key"></i>Đổi mật khẩu
                                 </a>
                             </li>
-                            <li>
+                            <li class="panel__control <%= pageType=="orders" || pageType=="order-detail"?"active":""%>">
                                 <a href="/order/history"> <i class="fa fa-calendar"></i>Quản lý đơn hàng</a>
                             </li>
-                            <li>
+                            <li class="panel__control <%= pageType=="address"?"active":""%>">
                                 <a href="/account/address"> <i class="fa fa-edit"></i>Địa chỉ giao hàng</a>
                             </li>
 

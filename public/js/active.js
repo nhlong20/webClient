@@ -93,6 +93,7 @@
     if ($.fn.niceSelect) {
         $('select').niceSelect();
     }
+
     $('.add-to-cart-btn').click(function (e) {
         e.preventDefault();
 

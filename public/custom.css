@@ -357,25 +357,25 @@ label.star {
   float: right;
   font-size: 20px;
   color: #444;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   padding-left: 5px;
 }
 
 input.star:checked ~ label.star:before {
   content: '\f005';
-  color: #FD4;
-  -webkit-transition: all .25s;
-  transition: all .25s;
+  color: #fd4;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 input.star-5:checked ~ label.star:before {
-  color: #FE7;
+  color: #fe7;
   text-shadow: 0 0 20px #952;
 }
 
 input.star-1:checked ~ label.star:before {
-  color: #F62;
+  color: #f62;
 }
 
 label.star:hover {
@@ -391,5 +391,45 @@ label.star:before {
 input.star:checked ~ .rev-box {
   height: 125px;
   overflow: visible;
+}
+
+.order-id a {
+  color: #1619cc;
+  font-weight: 500;
+}
+
+.order-id a:hover {
+  text-decoration: underline;
+}
+
+.order--return a {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1619cc;
+}
+
+.order--return a:hover {
+  text-decoration: underline;
+}
+
+.order-summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-right: 1rem;
+}
+
+.custom-panel {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 /*# sourceMappingURL=custom.css.map */
