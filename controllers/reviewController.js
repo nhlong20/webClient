@@ -2,34 +2,35 @@
 const Review = require('../models/reviewModel');
 const Product = require('../models/productModel');
 
-exports.createReview = async (req, res) => {
+exports.createReview = async(req, res) => {
     const productId = req.params.id;
-    const { star, title, detail } = req.body;
+    const { star, name, title, detail } = req.body;
 
-    if (!star || !title || !detail) {
-        req.flash('error', 'Bạn chưa nhập đủ thông tin yêu cầu');
-        return res.redirect('/san-pham/' + productId);
-    }
+    console.log(req.body);
+
+    // if (!star || !title || !detail || !name) {
+    //     req.flash('error', 'Bạn chưa nhập đủ thông tin yêu cầu');
+    //     return res.redirect('/san-pham/' + productId);
+    // }
 
     let userId;
-    if (req.user) {
+    if (req.user)
         userId = req.user._id;
-    } else {
-        userId = '5fd6d634985c61001789765b'; //id ảo
-    }
+
 
     const newReview = {
         user: userId,
         rating: star,
         title,
         review: detail,
-        product: productId
+        product: productId,
+        guestName: name
     };
     const review = await Review.create(newReview);
     req.flash('success', 'Bạn đã gửi đánh giá cho sản phẩm này thành công');
     return res.redirect('/san-pham/' + productId);
 };
-exports.updateReview = async (req, res) => {
+exports.updateReview = async(req, res) => {
     const { title, review } = req.body;
     if (!title || !review) {
         return res.status(400).json({
@@ -48,7 +49,7 @@ exports.updateReview = async (req, res) => {
     });
 };
 
-exports.deleteReview = async (req, res) => {
+exports.deleteReview = async(req, res) => {
     await Review.findOneAndDelete({ _id: req.params.id });
 
     const doc = await Product.findById(req.body.productId).populate('reviews');

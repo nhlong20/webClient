@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
     'use strict';
 
     var $window = $(window);
@@ -58,15 +58,15 @@
     var cartOverlayOn = 'cart-bg-overlay-on';
     var cartOn = 'cart-on';
 
-    $('#cart-no').on('click', '#essenceCartBtn', function () {
+    $('#cart-no').on('click', '#essenceCartBtn', function() {
         cartOverlay.toggleClass(cartOverlayOn);
         cartWrapper.toggleClass(cartOn);
     });
-    cartOverlay.on('click', function () {
+    cartOverlay.on('click', function() {
         $(this).removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
-    closeCartBtn.on('click', function () {
+    closeCartBtn.on('click', function() {
         cartOverlay.removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
@@ -81,7 +81,7 @@
     }
 
     // :: Sticky Active Code
-    $window.on('scroll', function () {
+    $window.on('scroll', function() {
         if ($window.scrollTop() > 0) {
             $('.header_area').addClass('sticky');
         } else {
@@ -94,7 +94,7 @@
         $('select').niceSelect();
     }
 
-    $('.add-to-cart-btn').click(function (e) {
+    $('.add-to-cart-btn').click(function(e) {
         e.preventDefault();
 
         $('.cart-bg-overlay').toggleClass('cart-bg-overlay-on');
@@ -103,7 +103,7 @@
             type: 'POST',
             url: '/api/v1/cart/' + $(this).data('product-id'),
             contentType: 'application/json',
-            success: function (response) {
+            success: function(response) {
                 const { cart } = response;
                 let htmlCartItems = '';
                 for (let id in cart.items) {
@@ -154,18 +154,18 @@
                     }</span>         
             </a>`);
             },
-            error: function (err) {
+            error: function(err) {
                 console.log(err);
             }
         });
     });
-    $('.right-side-cart-area').on('click', '.fa-trash-alt', function (e) {
+    $('.right-side-cart-area').on('click', '.fa-trash-alt', function(e) {
         e.preventDefault();
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/cart/' + $(this).data('product-id'),
             contentType: 'application/json',
-            success: function (response) {
+            success: function(response) {
                 const { cart } = response;
                 let htmlCartItems = '';
                 for (let id in cart.items) {
@@ -216,13 +216,13 @@
                     }</span>         
             </a>`);
             },
-            error: function (err) {
+            error: function(err) {
                 console.log(err);
             }
         });
     });
 
-    $('.rating-body').on('click', '.review-change-btn', function (e) {
+    $('.rating-body').on('click', '.review-change-btn', function(e) {
         e.preventDefault();
         let id = $(this).data('comment-id');
         let productId = window.location.pathname.split('/')[2];
@@ -238,7 +238,7 @@
             url: '/api/v1/review/' + id,
             data: { title, review, productId },
             contentType: 'application/x-www-form-urlencoded',
-            success: function (response) {
+            success: function(response) {
                 const { message, ratingAverage, reviews } = response;
                 let htmlReviews = '';
                 htmlReviews += `<div class="rating-inner ">
@@ -279,69 +279,78 @@
                     </div>`;
                 }
 
-                if (reviews.length != 0)
-                    reviews.forEach(comment => {
-                        let date = new Date(comment.updatedAt);
+                if (reviews.length != 0) {
+                    reviews.forEach(review => {
+                        let date = new Date(review.updatedAt);
                         htmlReviews += ` 
                         <hr>
                         <div class="rating-comment ">
                             <div class="d-flex flex-row bd-highlight mb-3 ">
                                 <div class="rating-comment-avatar ">
-                                    <img src="${
-                                        comment.user.avatar
-                                    }" alt="Ảnh đại diện người dùng ">
+                                `
+                        if (review.user != null) {
+                            htmlReviews += `<img src="${review.user.avatar}" alt="Ảnh đại diện người dùng ">`
+                        } else { htmlReviews += `<img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="Ảnh đại diện người dùng ">` }
+                        htmlReviews += `
                                 </div>
-                                <div class="d-flex flex-column bd-highlight ml-15 ">
-                                    <span class="rating-comment-name "> ${
-                                        comment.user.name
-                                    }</span>
-                                    <span class="rating-comment-date ">
-                                    Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
-                                </span>
+                                <div class="d-flex flex-column bd-highlight ml-15 ">`
+                        if (review.user != null) {
+                            htmlReviews += ` <span class="rating-comment-name "> ${review.user.name}</span>`
+                        } else { htmlReviews += ` <span class="rating-comment-name "> ${review.guestName}  <span style="font-size: smaller;">(khách)</span></span>` }
+                        htmlReviews += `<span class="rating-comment-date ">
+                                        Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
+                                    </span>
                                 </div>
+                            </div>`
+                        if (review.user != null) {
+                            htmlReviews += `<div class="d-flex flex-row bd-highlight mb-3 ">
+                                <span class="fas fa-star " `;
+                            if (review.rating >= 1) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+                            htmlReviews += `></span>
+                                <span class="fas fa-star " `;
+                            if (review.rating >= 2) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+                            htmlReviews += `></span>
+                                <span class="fas fa-star " `;
+                            if (review.rating >= 3) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+                            htmlReviews += ` ></span>
+                                <span class="fas fa-star " `;
+                            if (review.rating >= 4) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+                            htmlReviews += `></span>
+                                <span class="fas fa-star " `;
+                            if (review.rating == 5) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+
+                            htmlReviews += `></span>
                             </div>
-                            <div class="d-flex flex-row bd-highlight mb-3 ">
-                                <span class="fas fa-star " `;
-                        if (comment.rating >= 1) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            `
                         }
-                        htmlReviews += `></span>
-                                <span class="fas fa-star " `;
-                        if (comment.rating >= 2) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                        }
-                        htmlReviews += `></span>
-                                <span class="fas fa-star " `;
-                        if (comment.rating >= 3) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                        }
-                        htmlReviews += ` ></span>
-                                <span class="fas fa-star " `;
-                        if (comment.rating >= 4) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                        }
-                        htmlReviews += `></span>
-                                <span class="fas fa-star " `;
-                        if (comment.rating == 5) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                        }
-                        htmlReviews += `></span>
-                            </div>
+                        htmlReviews += `
                             <div class="rating-comment-title ">
-                                ${comment.title}
+                                ${review.title}
                             </div>
                             <div class="rating-comment-content ">
-                                ${comment.review}
+                                ${review.review}
                             </div>
+                            
                         </div>`;
                     });
+                }
 
                 $('.all-rating-body').html(htmlReviews);
                 let mes = document.getElementById('message');
                 mes.style.display = 'block';
                 mes.innerHTML = message;
             },
-            error: function (err) {
+            error: function(err) {
                 const message = err.responseJSON.message;
 
                 let mes = document.getElementById('message');
@@ -351,7 +360,7 @@
         });
     });
 
-    $('.rating-body').on('click', '.review-delete-btn', function (e) {
+    $('.rating-body').on('click', '.review-delete-btn', function(e) {
         e.preventDefault();
         let id = $(this).data('comment-id');
         let productId = window.location.pathname.split('/')[2];
@@ -362,7 +371,7 @@
                 productId
             },
             contentType: 'application/x-www-form-urlencoded',
-            success: function (response) {
+            success: function(response) {
                 const { message, reviews, uid, ratingAverage } = response;
                 //update all revierw
                 let htmlReviews = '';
@@ -370,9 +379,10 @@
                 htmlReviews += `<div class="message alert text-center alert-success" id="message" style="display: block; color: #000;">${message}</div>`;
                 if (reviews.length != 0)
                     reviews.forEach(comment => {
-                        if (comment.user._id == uid) {
-                            let date = new Date(comment.updatedAt);
-                            htmlReviews += ` 
+                        if (comment.user != null) {
+                            if (comment.user._id == uid) {
+                                let date = new Date(comment.updatedAt);
+                                htmlReviews += ` 
                             <hr>
                             <div class="rating-comment ">
                                 <div class="d-flex flex-row bd-highlight mb-3 ">
@@ -392,30 +402,30 @@
                                 </div>
                                 <div class="d-flex flex-row bd-highlight mb-3 ">
                                     <span class="fas fa-star " `;
-                            if (comment.rating >= 1) {
-                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                            }
-                            htmlReviews += `></span>
+                                if (comment.rating >= 1) {
+                                    htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                                }
+                                htmlReviews += `></span>
                                     <span class="fas fa-star " `;
-                            if (comment.rating >= 2) {
-                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                            }
-                            htmlReviews += `></span>
+                                if (comment.rating >= 2) {
+                                    htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                                }
+                                htmlReviews += `></span>
                                     <span class="fas fa-star " `;
-                            if (comment.rating >= 3) {
-                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                            }
-                            htmlReviews += ` ></span>
+                                if (comment.rating >= 3) {
+                                    htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                                }
+                                htmlReviews += ` ></span>
                                     <span class="fas fa-star " `;
-                            if (comment.rating >= 4) {
-                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                            }
-                            htmlReviews += `></span>
+                                if (comment.rating >= 4) {
+                                    htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                                }
+                                htmlReviews += `></span>
                                     <span class="fas fa-star " `;
-                            if (comment.rating == 5) {
-                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                            }
-                            htmlReviews += `></span>
+                                if (comment.rating == 5) {
+                                    htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                                }
+                                htmlReviews += `></span>
                                 </div>
                                 <div contenteditable="true" class="rating-comment-title "  id="title-review-${comment._id}">
                                     ${comment.title}
@@ -432,7 +442,8 @@
                                 </form>
                             </div> 
                             </div>`;
-                        }
+                            }
+                        };
                     });
                 $('.rating-body').html(htmlReviews);
 
@@ -484,46 +495,53 @@
                         <div class="rating-comment ">
                             <div class="d-flex flex-row bd-highlight mb-3 ">
                                 <div class="rating-comment-avatar ">
-                                    <img src="${
-                                        review.user.avatar
-                                    }" alt="Ảnh đại diện người dùng ">
+                                `
+                        if (review.user != null) {
+                            htmlReviews += `<img src="${review.user.avatar}" alt="Ảnh đại diện người dùng ">`
+                        } else { htmlReviews += `<img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="Ảnh đại diện người dùng ">` }
+                        htmlReviews += `
                                 </div>
-                                <div class="d-flex flex-column bd-highlight ml-15 ">
-                                    <span class="rating-comment-name "> ${
-                                        review.user.name
-                                    }</span>
-                                    <span class="rating-comment-date ">
-                                    Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
-                                </span>
+                                <div class="d-flex flex-column bd-highlight ml-15 ">`
+                        if (review.user != null) {
+                            htmlReviews += ` <span class="rating-comment-name "> ${review.user.name}</span>`
+                        } else { htmlReviews += ` <span class="rating-comment-name "> ${review.guestName}  <span style="font-size: smaller;">(khách)</span></span>` }
+                        htmlReviews += `<span class="rating-comment-date ">
+                                        Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
+                                    </span>
                                 </div>
+                            </div>`
+                        if (review.user != null) {
+                            htmlReviews += `<div class="d-flex flex-row bd-highlight mb-3 ">
+                                <span class="fas fa-star " `;
+                            if (review.rating >= 1) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+                            htmlReviews += `></span>
+                                <span class="fas fa-star " `;
+                            if (review.rating >= 2) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+                            htmlReviews += `></span>
+                                <span class="fas fa-star " `;
+                            if (review.rating >= 3) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+                            htmlReviews += ` ></span>
+                                <span class="fas fa-star " `;
+                            if (review.rating >= 4) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+                            htmlReviews += `></span>
+                                <span class="fas fa-star " `;
+                            if (review.rating == 5) {
+                                htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            }
+
+                            htmlReviews += `></span>
                             </div>
-                            <div class="d-flex flex-row bd-highlight mb-3 ">
-                                <span class="fas fa-star " `;
-                        if (review.rating >= 1) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
+                            `
                         }
-                        htmlReviews += `></span>
-                                <span class="fas fa-star " `;
-                        if (review.rating >= 2) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                        }
-                        htmlReviews += `></span>
-                                <span class="fas fa-star " `;
-                        if (review.rating >= 3) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                        }
-                        htmlReviews += ` ></span>
-                                <span class="fas fa-star " `;
-                        if (review.rating >= 4) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                        }
-                        htmlReviews += `></span>
-                                <span class="fas fa-star " `;
-                        if (review.rating == 5) {
-                            htmlReviews += ` style="color:  rgb(0, 132, 255); " `;
-                        }
-                        htmlReviews += `></span>
-                            </div>
+                        htmlReviews += `
                             <div class="rating-comment-title ">
                                 ${review.title}
                             </div>
@@ -537,7 +555,7 @@
 
                 $('.all-rating-body').html(htmlReviews);
             },
-            error: function (err) {
+            error: function(err) {
                 const message = err.responseJSON.message;
                 let mes = document.getElementById('message');
                 mes.style.display = 'block';
@@ -579,15 +597,15 @@
     // :: Favorite Button Active Code
     var favme = $('.favme');
 
-    favme.on('click', function () {
+    favme.on('click', function() {
         $(this).toggleClass('active');
     });
 
-    favme.on('click touchstart', function () {
+    favme.on('click touchstart', function() {
         $(this).toggleClass('is_animating');
     });
 
-    favme.on('animationend', function () {
+    favme.on('animationend', function() {
         $(this).toggleClass('is_animating');
     });
 
@@ -607,7 +625,7 @@
     }
 
     // :: PreventDefault a Click
-    $("a[href='#']").on('click', function ($) {
+    $("a[href='#']").on('click', function($) {
         $.preventDefault();
     });
 
@@ -617,7 +635,7 @@
         return parts.join(',');
     }
 
-    $('#upload-file-btn').on('change', function () {
+    $('#upload-file-btn').on('change', function() {
         const fileChosen = document.getElementById('file-chosen');
         fileChosen.textContent = this.files[0].name;
     });

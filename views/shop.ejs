@@ -4,259 +4,248 @@
     return parts.join(",");
     }
  %>
-<!-- ##### Breadcumb Area Start ##### -->
-<%if(pageType == "Đồng hồ nam"){%>
-<div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/breadcumb.jpg);">
-    <%}else if(pageType == "Đồng hồ nữ"){%>
-    <div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/bg-women-watches.jpg);">
-        <% }else if(pageType == "Phụ kiện"){%>
-        <div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/bg-men-ring.jpg);">
-            <% } else {%>
-            <div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/bg-brand.jpg);">
-                <% } %>
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="page-title text-center">
-                                <%if(pageType){%>
-                                <h2><%=pageType%></h2>
-                                <%}%>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ##### Breadcumb Area End ##### -->
-
-        <!-- ##### Shop Grid Area Start ##### -->
-        <section class="shop_grid_area section-padding-80" id="products">
-            <div id="loader"></div>
-            <div class="container-fluid px-5">
-                <div class="row">
-                    <%if(pageType == "Đồng hồ" || pageType =="Đồng hồ nam" || pageType =="Đồng hồ nữ"){%>
-                    <div class="col-12 col-md-2 col-lg-1">
-                        <div class="shop_sidebar_area">
-                            <!-- ##### Single Widget ##### -->
-                            <div class="widget price mb-50">
-                                <!-- Widget Title -->
-                                <h6 class="widget-title mb-30">Lọc</h6>
-                                <!-- Widget Title 2 -->
-                                <!-- <p class="widget-title2 mb-30">Giá</p>
-        
-                                <div class="widget-desc">
-                                    <div class="slider-range">
-                                        <div data-min="0" data-max="5000000" data-unit="VNĐ"
-                                            class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
-                                            data-value-min="0" data-value-max="5000000" data-label-result="Khoảng:">
-                                            <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all"
-                                                tabindex="0"></span>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all"
-                                                tabindex="0"></span>
+    <!-- ##### Breadcumb Area Start ##### -->
+    <%if(pageType == "Đồng hồ nam"){%>
+        <div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/breadcumb.jpg);">
+            <%}else if(pageType == "Đồng hồ nữ"){%>
+                <div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/bg-women-watches.jpg);">
+                    <% }else if(pageType == "Phụ kiện"){%>
+                        <div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/bg-men-ring.jpg);">
+                            <% } else {%>
+                                <div class="breadcumb_area bg-img" style="background-image: url(/img/bg-img/bg-brand.jpg);">
+                                    <% } %>
+                                        <div class="container h-100">
+                                            <div class="row h-100 align-items-center">
+                                                <div class="col-12">
+                                                    <div class="page-title text-center">
+                                                        <%if(pageType){%>
+                                                            <h2>
+                                                                <%=pageType%>
+                                                            </h2>
+                                                            <%}%>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="range-price">Khoảng: 0VNĐ - 5.000.000VNĐ</div>
-                                    </div>
-                                </div> -->
-                            </div>
-        
-                            <!-- ##### Single Widget ##### -->
-                                <div class="widget color mb-50">
-                                    <!-- Widget Title 2 -->
-                                    <p class="widget-title2 mb-30">Màu sắc</p>
-                                    <div class="widget-desc">
-                                        <ul class="d-flex">
-                                            <li>
-                                                <a href="<%=categoryPath%>?color=WHITE<%=queryString%>" data-view-label="WHITE"
-                                class="color-label color--white"></a>
-                                </li>
-                                <li>
-                                    <a href="<%=categoryPath%>?color=BLACK<%=queryString%>" data-view-label="BLACK"
-                                        class="color-label color--black"></a>
-                                </li>
-                                <li>
-                                    <a href="<%=categoryPath%>?color=NAVY<%=queryString%>" data-view-label="NAVY"
-                                        class="color-label color--navy"></a>
-                                </li>
-                                <li>
-                                    <a href="<%=categoryPath%>?color=ROSEGOLD<%=queryString%>" data-view-label="ROSEGOLD"
-                                        class="color-label color--rosegold"></a>
-                                </li>
-                                <li>
-                                    <a href="<%=categoryPath%>?color=PEARL<%=queryString%>" data-view-label="PEARL"
-                                        class="color-label color--pearl"></a>
-                                </li>
-                                <li>
-                                    <a href="<%=categoryPath%>?color=GREY<%=queryString%>" data-view-label="GREY"
-                                        class="color-label color--grey"></a>
-                                </li>
-                                <li>
-                                    <a href="<%=categoryPath%>?color=PINK<%=queryString%>" data-view-label="PINK"
-                                        class="color-label color--pink"></a>
-                                </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- ##### Single Widget ##### -->
-
-                        <div class="widget brands mb-50">
-                            <!-- Widget Title 2 -->
-                            <p class="widget-title2 mb-30">Thương hiệu</p>
-                            <div class="widget-desc">
-                                <ul>
-                                    <%if(pageType == "Đồng hồ nam" || pageType =="Đồng hồ" ){%>
-                                    <li><a href="<%=categoryPath%>?brand=Jackson<%=queryString%>" class="brand-label"
-                                            data-view-label="Jackson">Jackson</a></li>
-                                    <li><a href="<%=categoryPath%>?brand=Kashmir<%=queryString%>" class="brand-label"
-                                            data-view-label="Kashmir">Kashmir</a></li>
-                                    <li><a href="<%=categoryPath%>?brand=Colosseum<%=queryString%>" class="brand-label"
-                                            data-view-label="Colosseum">Colosseum</a></li>
-                                    <li><a href="<%=categoryPath%>?brand=Mykonos<%=queryString%>" class="brand-label"
-                                            data-view-label="Mykonos">Mykonos</a></li>
-                                    <%}%>
-                                             <%if(pageType == "Đồng hồ nữ" || pageType == "Đồng hồ"){%>
-                                    <li><a href="<%=categoryPath%>?brand=Santorini<%=queryString%>" class="brand-label"
-                                            data-view-label="Santorini">Santorini</a></li>
-                                    <li><a href="<%=categoryPath%>?brand=Florenge<%=queryString%>" class="brand-label"
-                                            data-view-label="Florenge">Florenge</a></li>
-                                    <li><a href="<%=categoryPath%>?brand=Melissani<%=queryString%>" class="brand-label"
-                                            data-view-label="Melissani">Melissani</a></li>
-                                    <li><a href="<%=categoryPath%>?brand=Hamilton<%=queryString%>" class="brand-label"
-                                            data-view-label="Hamilton">Hamilton</a></li>
-                                    <li><a href="<%=categoryPath%>?brand=Moraine<%=queryString%>" class="brand-label"
-                                            data-view-label="Moraine">Moraine</a></li>
-                                    <li><a href="<%=categoryPath%>?brand=Beverly<%=queryString%>" class="brand-label"
-                                            data-view-label="Beverly">Beverly</a></li>
-                                    <%}%>
-        
-                                        </ul>
-                                    </div>
                                 </div>
-                            
-                    
-                        </div>
-                    </div>
-                    <%}%>
-                    <% if(pageType == "Phụ kiện" || pageType == "Tìm kiếm"){%>
-            <div class="col-12" id="product-content">    
-                <% }else{%>
-            <div class="col-12 col-md-10 col-lg-11" id="product-content">
-                <% }%>
-         <div class="shop_grid_product_area">
-            <div class="row">
-            <div class="col-12">
-                <div class="product-topbar d-flex align-items-center justify-content-between">
-                    <!-- Total Products -->
-                    <div class="total-products">
-                        <p>hiển thị <span><%=products.length%></span>/<span><%=totalProducts%></span> sản phẩm</p>
-                            </div>
-                            <!-- Sorting -->
-                            <div class="product-sorting d-flex">
-                                <p>Sắp xếp</p>
-                                <form action="<%=categoryPath%>" method="GET">
-                                    <select name="sort" id="sortByselect" onchange="this.form.submit()">
+                                <!-- ##### Breadcumb Area End ##### -->
+
+                                <!-- ##### Shop Grid Area Start ##### -->
+                                <section class="shop_grid_area section-padding-80" id="products">
+                                    <div id="loader"></div>
+                                    <div class="container-fluid px-5">
+                                        <div class="row">
+                                            <%if(pageType == "Đồng hồ" || pageType =="Đồng hồ nam" || pageType =="Đồng hồ nữ"){%>
+                                                <div class="col-12 col-md-2 col-lg-1">
+                                                    <div class="shop_sidebar_area">
+                                                        <!-- ##### Single Widget ##### -->
+                                                        <div class="widget price mb-50">
+                                                            <!-- Widget Title -->
+                                                            <h6 class="widget-title mb-30">Lọc</h6>
+                                                            <!-- Widget Title 2 -->
+                                                            <p class="widget-title2 mb-30">Giá</p>
+
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div id="slider-range"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row slider-labels">
+                                                                    <div class="col-xs-6 caption">
+                                                                        <strong>Min :</strong> <span id="slider-range-value1"></span>
+                                                                    </div>
+                                                                    <div class="col-xs-6 caption">
+                                                                        <strong>Max :</strong> <span id="slider-range-value2"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <form action="<%=categoryPath%>" method="GET">
+                                                                            <input type="hidden" name="minPrice" id="minPrice" value="<%=minPrice%>">
+                                                                            <input type="hidden" name="maxPrice" id="maxPrice" value="<%=maxPrice%>">
+                                                                            <button type="submit">Lọc</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- ##### Single Widget ##### -->
+                                                        <div class="widget color mb-50">
+                                                            <!-- Widget Title 2 -->
+                                                            <p class="widget-title2 mb-30">Màu sắc</p>
+                                                            <div class="widget-desc">
+                                                                <ul class="d-flex">
+                                                                    <li>
+                                                                        <a href="<%=categoryPath%>?color=WHITE<%=queryString%>" data-view-label="WHITE" class="color-label color--white"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="<%=categoryPath%>?color=BLACK<%=queryString%>" data-view-label="BLACK" class="color-label color--black"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="<%=categoryPath%>?color=NAVY<%=queryString%>" data-view-label="NAVY" class="color-label color--navy"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="<%=categoryPath%>?color=ROSEGOLD<%=queryString%>" data-view-label="ROSEGOLD" class="color-label color--rosegold"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="<%=categoryPath%>?color=PEARL<%=queryString%>" data-view-label="PEARL" class="color-label color--pearl"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="<%=categoryPath%>?color=GREY<%=queryString%>" data-view-label="GREY" class="color-label color--grey"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="<%=categoryPath%>?color=PINK<%=queryString%>" data-view-label="PINK" class="color-label color--pink"></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- ##### Single Widget ##### -->
+
+                                                        <div class="widget brands mb-50">
+                                                            <!-- Widget Title 2 -->
+                                                            <p class="widget-title2 mb-30">Thương hiệu</p>
+                                                            <div class="widget-desc">
+                                                                <ul>
+                                                                    <%if(pageType == "Đồng hồ nam" || pageType =="Đồng hồ" ){%>
+                                                                        <li><a href="<%=categoryPath%>?brand=Jackson<%=queryString%>" class="brand-label" data-view-label="Jackson">Jackson</a></li>
+                                                                        <li><a href="<%=categoryPath%>?brand=Kashmir<%=queryString%>" class="brand-label" data-view-label="Kashmir">Kashmir</a></li>
+                                                                        <li><a href="<%=categoryPath%>?brand=Colosseum<%=queryString%>" class="brand-label" data-view-label="Colosseum">Colosseum</a></li>
+                                                                        <li><a href="<%=categoryPath%>?brand=Mykonos<%=queryString%>" class="brand-label" data-view-label="Mykonos">Mykonos</a></li>
+                                                                        <%}%>
+                                                                            <%if(pageType == "Đồng hồ nữ" || pageType == "Đồng hồ"){%>
+                                                                                <li><a href="<%=categoryPath%>?brand=Santorini<%=queryString%>" class="brand-label" data-view-label="Santorini">Santorini</a></li>
+                                                                                <li><a href="<%=categoryPath%>?brand=Florenge<%=queryString%>" class="brand-label" data-view-label="Florenge">Florenge</a></li>
+                                                                                <li><a href="<%=categoryPath%>?brand=Melissani<%=queryString%>" class="brand-label" data-view-label="Melissani">Melissani</a></li>
+                                                                                <li><a href="<%=categoryPath%>?brand=Hamilton<%=queryString%>" class="brand-label" data-view-label="Hamilton">Hamilton</a></li>
+                                                                                <li><a href="<%=categoryPath%>?brand=Moraine<%=queryString%>" class="brand-label" data-view-label="Moraine">Moraine</a></li>
+                                                                                <li><a href="<%=categoryPath%>?brand=Beverly<%=queryString%>" class="brand-label" data-view-label="Beverly">Beverly</a></li>
+                                                                                <%}%>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                                    <% if(pageType == "Phụ kiện" || pageType == "Tìm kiếm"){%>
+                                                        <div class="col-12" id="product-content">
+                                                            <% }else{%>
+                                                                <div class="col-12 col-md-10 col-lg-11" id="product-content">
+                                                                    <% }%>
+                                                                        <div class="shop_grid_product_area">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <div class="product-topbar d-flex align-items-center justify-content-between">
+                                                                                        <!-- Total Products -->
+                                                                                        <div class="total-products">
+                                                                                            <p>hiển thị <span><%=products.length%></span>/<span><%=totalProducts%></span> sản phẩm</p>
+                                                                                        </div>
+                                                                                        <!-- Sorting -->
+                                                                                        <div class="product-sorting d-flex">
+                                                                                            <p>Sắp xếp</p>
+                                                                                            <form action="<%=categoryPath%>" method="GET">
+                                                                                                <select name="sort" id="sortByselect" onchange="this.form.submit()">
                                         <option value="all">Tất cả</option>
                                         <option value="price">Giá tăng dần</option>
                                         <option value="-price">Giá giảm dần</option>
                                         <option value="name">Tên: A - Z</option>
                                         <option value="-name">Tên: Z - A</option>
                                     </select>
-                                    <input type="submit" class="d-none" value="submit">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                                                                                <input type="submit" class="d-none" value="submit">
+                                                                                            </form>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                <div class="row">
-                    <!-- Single Product -->
-                    <%products.forEach(product =>{%>
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-product-wrapper">
-                            <!-- Product Image -->
-                            <div class="product-img">
-                                <img src="<%=product.coverImage%>" alt="<%=product.name%> image">
+                                                                            <div class="row">
+                                                                                <!-- Single Product -->
+                                                                                <%products.forEach(product =>{%>
+                                                                                    <div class="col-12 col-sm-6 col-lg-3">
+                                                                                        <div class="single-product-wrapper">
+                                                                                            <!-- Product Image -->
+                                                                                            <div class="product-img">
+                                                                                                <img src="<%=product.coverImage%>" alt="<%=product.name%> image">
 
-                                <!-- Product Badge -->
-                                <div class="product-badge offer-badge"><span>-40%</span>
-                                </div>
-                                <!-- Favourite -->
-                                <div class="product-favourite">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                            <!-- Product Description -->
-                            <div class="product-description">
-                                <span><%=product.brand%> - <%=product.size%></span>
-                                <a href="/san-pham/<%=product._id%>">
-                                    <h6 class="product-name">
-                                        <%=product.name%>
-                                    </h6>
-                                </a>
-                                <p class="product-price"><span class="old-price"> <%=numberWithCommas(Math.floor(product.price*100/(100-40)))%> VNĐ</span>
-                                    <%=numberWithCommas(product.price)%> đ</p>
+                                                                                                <!-- Product Badge -->
+                                                                                                <div class="product-badge offer-badge"><span>-40%</span>
+                                                                                                </div>
+                                                                                                <!-- Favourite -->
+                                                                                                <div class="product-favourite">
+                                                                                                    <a href="#" class="favme fa fa-heart"></a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!-- Product Description -->
+                                                                                            <div class="product-description">
+                                                                                                <span><%=product.brand%> - <%=product.size%></span>
+                                                                                                <a href="/san-pham/<%=product._id%>">
+                                                                                                    <h6 class="product-name">
+                                                                                                        <%=product.name%>
+                                                                                                    </h6>
+                                                                                                </a>
+                                                                                                <p class="product-price"><span class="old-price"> <%=numberWithCommas(Math.floor(product.price*100/(100-40)))%> VNĐ</span>
+                                                                                                    <%=numberWithCommas(product.price)%> đ</p>
 
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <form data-product-id="<%=product._id%>" class="add-to-cart-btn">
-                                        <button type="submit" class="btn essence-btn">THÊM VÀO GIỎ</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <% });%>
-                </div>
-            </div>
-            <!-- Pagination -->
-            <%if(totalProducts >ITEM_PER_PAGE){%>
-            <nav aria-label="navigation ">
-                <ul class="pagination mt-50 mb-70 d-flex justify-content-center">
-                    <% if(currentPage && currentPage > 1){%>
-                    <li class="page-item"><a class="page-link"
-                            href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>"
-                            data-view-label="<%=prevPage%>"><i class="fa fa-angle-left"></i></a></li>
-                    <% }%>
-                    <%if(hasPrevPage){%>
-                    <li class="page-item">
-                        <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>"
-                            data-view-label="<%=prevPage%>">
-                            <%=prevPage%>
-                        </a>
-                    </li>
-                    <% }%>
-                    <li class="page-item">
-                        <a class="page-link" href="javascript:void(0)" id="current-page" tabindex="-1"
-                            data-view-label="<%=currentPage%>">
-                            <%=currentPage%>
-                        </a>
-                    </li>
-                    <%if(hasNextPage){%>
-                    <li class="page-item">
-                        <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%><%=queryString%>"
-                            data-view-label="<%=nextPage%>">
-                            <%=nextPage%>
-                        </a>
-                    </li>
-                    <%}%>
-                
-                        <%if(lastPage>currentPage){%>
-                    <li class="page-item">
-                        <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%><%=queryString%>"
-                            data-view-label="<%=nextPage%>">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </li>
-                    <%}%>
-                </ul>
-            </nav>
-            <%}%>
-        </div>
-    </div>
-            </div>
-            </div>
-<!-- Main js -->
-<script defer src="/js/main.js"></script>
-</section>
-<!-- ##### Shop Grid Area End ##### -->
+                                                                                                <!-- Hover Content -->
+                                                                                                <div class="hover-content">
+                                                                                                    <!-- Add to Cart -->
+                                                                                                    <form data-product-id="<%=product._id%>" class="add-to-cart-btn">
+                                                                                                        <button type="submit" class="btn essence-btn">THÊM VÀO GIỎ</button>
+                                                                                                    </form>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <% });%>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Pagination -->
+                                                                        <%if(totalProducts >ITEM_PER_PAGE){%>
+                                                                            <nav aria-label="navigation ">
+                                                                                <ul class="pagination mt-50 mb-70 d-flex justify-content-center">
+                                                                                    <% if(currentPage && currentPage > 1){%>
+                                                                                        <li class="page-item"><a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>" data-view-label="<%=prevPage%>"><i class="fa fa-angle-left"></i></a></li>
+                                                                                        <% }%>
+                                                                                            <%if(hasPrevPage){%>
+                                                                                                <li class="page-item">
+                                                                                                    <a class="page-link" href="<%=categoryPath%>?page=<%=prevPage%><%=queryString%>" data-view-label="<%=prevPage%>">
+                                                                                                        <%=prevPage%>
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                                <% }%>
+                                                                                                    <li class="page-item">
+                                                                                                        <a class="page-link" href="javascript:void(0)" id="current-page" tabindex="-1" data-view-label="<%=currentPage%>">
+                                                                                                            <%=currentPage%>
+                                                                                                        </a>
+                                                                                                    </li>
+                                                                                                    <%if(hasNextPage){%>
+                                                                                                        <li class="page-item">
+                                                                                                            <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%><%=queryString%>" data-view-label="<%=nextPage%>">
+                                                                                                                <%=nextPage%>
+                                                                                                            </a>
+                                                                                                        </li>
+                                                                                                        <%}%>
+
+                                                                                                            <%if(lastPage>currentPage){%>
+                                                                                                                <li class="page-item">
+                                                                                                                    <a class="page-link" href="<%=categoryPath%>?page=<%=nextPage%><%=queryString%>" data-view-label="<%=nextPage%>">
+                                                                                                                        <i class="fa fa-angle-right"></i>
+                                                                                                                    </a>
+                                                                                                                </li>
+                                                                                                                <%}%>
+                                                                                </ul>
+                                                                            </nav>
+                                                                            <%}%>
+                                                                </div>
+                                                        </div>
+                                        </div>
+                                    </div>
+                                    <!-- Main js -->
+                                    <script defer src="/js/main.js"></script>
+                                </section>
+                                <!-- ##### Shop Grid Area End ##### -->
