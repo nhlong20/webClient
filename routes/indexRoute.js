@@ -1,6 +1,7 @@
 const express = require('express');
 const productCtrl = require('./../controllers/productController');
 const userCtrl = require('./../controllers/userController');
+const orderCtrl = require('./../controllers/orderController');
 const authCtrl = require('./../controllers/authController');
 const AppError = require('./../utils/appError');
 const router = express.Router();
@@ -25,9 +26,8 @@ router.route('/reset-password').get((req, res, next) => {
     res.render('user/reset-password', { token });
 });
 
-router.route('/thanh-toan').get(authCtrl.isLoggedIn, function (req, res, next) {
-    res.render('checkout');
-});
+router.route('/thanh-toan').get(authCtrl.isLoggedIn, orderCtrl.getCheckOut);
+
 router.get('/ve-chung-toi', function (req, res, next) {
     res.render('about');
 });

@@ -26,7 +26,7 @@
                             <div class="cart-item-label"><span class="cart-item-name">
                 <%=cartItems[id].item.name%>
               </span><span>
-                <%=cartItems[id].item.brand%> - <%=cartItems[id].item.size%>
+                <%=cartItems[id].item.brand?cartItems[id].item.brand:""%> - <%=cartItems[id].item.size?cartItems[id].item.size:""%>
               </span></div>
 
                             <div class="cart-item-quantity">
@@ -54,15 +54,20 @@
 
         <!-- Cart Summary -->
         <div class="cart-footer-summary">
-            <ul class="summary-table">
-                <div class="label-summary">Thành tiền</div>
-                <div class="value-summary">
-                    <%= session.cart? numberWithCommas(session.cart.totalPrice) : "" %> VNĐ</div>
-            </ul>
-            <div class="checkout-btn">
-                <a href="/thanh-toan" class="btn essence-btn">Thanh toán</a>
-            </div>
-
+            <% if (session.cart && session.cart.totalQty >=1) { %>
+                <ul class="summary-table">
+                    <div class="label-summary">Thành tiền</div>
+                    <div class="value-summary">
+                        <%= numberWithCommas(session.cart.totalPrice)%> VNĐ</div>
+                </ul>
+                <div class="checkout-btn">
+                    <a href="/thanh-toan" class="btn essence-btn" ">Thanh toán</a>
+                </div>
+            <% } else {%>
+                <ul class="summary-table">
+                    <div class="label-summary">Giỏ hàng đang trống</div>
+                </ul>
+             <% }%>
         </div>
 
         <!-- Cart Service -->

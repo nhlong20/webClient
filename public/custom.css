@@ -1,604 +1,602 @@
 #loader {
-    position: absolute;
-    display: none;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 150px;
-    height: 150px;
-    margin: -75px 0 0 -75px;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #000;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+  position: absolute;
+  display: none;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #000;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
-
 /* Add animation to "page content" */
-
 .animate-bottom {
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s;
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s;
 }
 
 @-webkit-keyframes animatebottom {
-    from {
-        bottom: -100px;
-        opacity: 0;
-    }
-    to {
-        bottom: 0px;
-        opacity: 1;
-    }
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
 }
 
 @keyframes animatebottom {
-    from {
-        bottom: -100px;
-        opacity: 0;
-    }
-    to {
-        bottom: 0;
-        opacity: 1;
-    }
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
 }
 
 #products {
-    min-height: 700px;
+  min-height: 700px;
 }
 
 .body-container {
-    min-height: 850px;
+  min-height: 850px;
 }
 
 #login-img {
-    background: no-repeat center center / cover;
-    background-image: url("/img/bg-img/background-login.png");
+  background: no-repeat center center / cover;
+  background-image: url("/img/bg-img/background-login.png");
 }
 
 #signup-img {
-    background: no-repeat center center / cover;
-    background-image: url("/img/bg-img/bg-signup.png");
+  background: no-repeat center center / cover;
+  background-image: url("/img/bg-img/bg-signup.png");
 }
 
 #error-404 {
-    min-height: 700px;
+  min-height: 700px;
 }
 
-#error-404>div {
-    font-size: 10rem;
+#error-404 > div {
+  font-size: 10rem;
 }
 
-#error-404>.text-gray-500,
+#error-404 > .text-gray-500,
 a {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 #profile-wrapper {
-    color: #797979;
-    background: #f1f2f7;
+  color: #797979;
+  background: #f1f2f7;
 }
 
 .profile-nav,
 .profile-info {
-    margin-top: 30px;
-    margin-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .profile-nav .user-heading {
-    background: #ffcd4f;
-    color: #fff;
-    border-radius: 4px 4px 0 0;
-    padding: 30px;
-    text-align: center;
+  background: #ffcd4f;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+  padding: 30px;
+  text-align: center;
 }
 
 .profile-nav .user-heading.round a {
-    border-radius: 50%;
-    border: 10px solid rgba(255, 255, 255, 0.3);
-    display: inline-block;
+  border-radius: 50%;
+  border: 10px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
 }
 
 .profile-nav .user-heading a img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
 .profile-nav .user-heading h1 {
-    font-size: 22px;
-    font-weight: 300;
-    margin-bottom: 5px;
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 5px;
 }
 
 .profile-nav .user-heading p {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .profile-nav ul {
-    margin-top: 1px;
+  margin-top: 1px;
 }
 
-.profile-nav ul>li {
-    border-bottom: 1px solid #ebeae6;
-    margin-top: 0;
-    line-height: 40px;
+.profile-nav ul > li {
+  border-bottom: 1px solid #ebeae6;
+  margin-top: 0;
+  line-height: 40px;
 }
 
-.profile-nav ul>li:last-child {
-    border-bottom: none;
+.profile-nav ul > li:last-child {
+  border-bottom: none;
 }
 
-.profile-nav ul>li>a {
-    border-radius: 0;
-    font-size: 1rem;
-    color: #89817f;
-    border-left: 5px solid #fff;
+.profile-nav ul > li > a {
+  border-radius: 0;
+  font-size: 1rem;
+  color: #89817f;
+  border-left: 5px solid #fff;
 }
 
-.profile-nav ul>li>a:hover,
-.profile-nav ul>li>a:focus,
+.profile-nav ul > li > a:hover,
+.profile-nav ul > li > a:focus,
 .profile-nav ul li.active a {
-    background: #f8f7f5 !important;
-    border-left: 5px solid #ffcd4f;
-    color: #89817f !important;
+  background: #f8f7f5 !important;
+  border-left: 5px solid #ffcd4f;
+  color: #89817f !important;
 }
 
-.profile-nav ul>li:last-child>a:last-child {
-    border-radius: 0 0 4px 4px;
+.profile-nav ul > li:last-child > a:last-child {
+  border-radius: 0 0 4px 4px;
 }
 
-.profile-nav ul>li>a>i {
-    font-size: 16px;
-    padding: 0 20px 0 10px;
-    color: #bcb3aa;
+.profile-nav ul > li > a > i {
+  font-size: 16px;
+  padding: 0 20px 0 10px;
+  color: #bcb3aa;
 }
 
 .r-activity {
-    margin: 6px 0 0;
-    font-size: 12px;
+  margin: 6px 0 0;
+  font-size: 12px;
 }
 
 .p-text-area,
 .p-text-area:focus {
-    border: none;
-    font-weight: 300;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color: #c3c3c3;
-    font-size: 16px;
+  border: none;
+  font-weight: 300;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #c3c3c3;
+  font-size: 16px;
 }
 
 .bio-info {
-    background: #fff;
-    padding: 20px 3px;
-    border-radius: 4px 4px 0 0;
+  background: #fff;
+  padding: 20px 3px;
+  border-radius: 4px 4px 0 0;
 }
 
 .bio-info .bio-row {
-    width: 100%;
-    float: left;
-    margin-bottom: 10px;
-    padding: 0 15px;
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+  padding: 0 15px;
 }
 
 .bio-info .bio-row p span {
-    width: 100px;
-    display: inline-block;
+  width: 100px;
+  display: inline-block;
 }
 
 .bio-graph-info h1 {
-    font-size: 22px;
-    font-weight: 300;
-    margin: 0 0 20px;
+  font-size: 22px;
+  font-weight: 300;
+  margin: 0 0 20px;
 }
 
 #upload-file-label {
-    color: #000;
-    border: solid black 1px;
-    padding: 0.5rem;
-    font-family: sans-serif;
-    border-radius: 0.3rem;
-    cursor: pointer;
+  color: #000;
+  border: solid black 1px;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }
 
 #file-chosen {
-    margin-left: 0.3rem;
-    font-family: sans-serif;
+  margin-left: 0.3rem;
+  font-family: sans-serif;
 }
 
 #upload-file-label:hover {
-    color: #fff;
-    -webkit-transition: ease-in-out 0.2s;
-    transition: ease-in-out 0.2s;
-    background-color: #000;
+  color: #fff;
+  -webkit-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+  background-color: #000;
 }
 
 .cart-item-action:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #edit-info {
-    border-radius: 0%;
-    background-color: #d8d7d7;
+  border-radius: 0%;
+  background-color: #d8d7d7;
 }
 
 #edit-info a {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 #edit-info:hover {
-    background-color: #eeeb55;
+  background-color: #eeeb55;
 }
 
 .checked {
-    color: yellow;
+  color: yellow;
 }
 
 .message {
-    display: none;
-    font-size: 15px;
-    color: red;
+  display: none;
+  font-size: 15px;
+  color: red;
 }
 
 .all-rating-body {
-    background-color: whitesmoke;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin: 20px;
+  background-color: whitesmoke;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: 20px;
 }
 
 .rating-body {
-    background-color: whitesmoke;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin: 20px;
+  background-color: whitesmoke;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: 20px;
 }
 
 .customer-review-heading {
-    font-size: x-large;
-    margin-top: 1rem;
-    margin-left: 20px;
+  font-size: x-large;
+  margin-top: 1rem;
+  margin-left: 20px;
 }
 
 .reiview-rating-heading {
-    font-size: x-large;
+  font-size: x-large;
 }
 
 .rating-inner {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .rating-comment {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .rating-comment-avatar img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .rating-comment-name {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .rating-comment-date {
-    font-size: 13px;
-    font-weight: 300;
+  font-size: 13px;
+  font-weight: 300;
 }
 
 .rating-comment-title {
-    font-size: 20px;
-    font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .rating-comment-content {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .review-heading {
-    font-size: x-large;
-    margin-top: 1rem;
-    margin-left: 20px;
+  font-size: x-large;
+  margin-top: 1rem;
+  margin-left: 20px;
 }
 
 .review-body {
-    background-color: whitesmoke;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  background-color: whitesmoke;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .input_review {
-    width: 100%;
-    border: 1px solid black;
-    padding: 12px 20px;
-    margin-top: 8px;
+  width: 100%;
+  border: 1px solid black;
+  padding: 12px 20px;
+  margin-top: 8px;
 }
 
 div.stars {
-    display: inline;
+  display: inline;
 }
 
 input.star {
-    display: none;
+  display: none;
 }
 
 label.star {
-    float: right;
-    font-size: 20px;
-    color: #444;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
-    padding-left: 5px;
+  float: right;
+  font-size: 20px;
+  color: #444;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  padding-left: 5px;
 }
 
-input.star:checked~label.star:before {
-    content: '\f005';
-    color: #fd4;
-    -webkit-transition: all 0.25s;
-    transition: all 0.25s;
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #fd4;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
-input.star-5:checked~label.star:before {
-    color: #fe7;
-    text-shadow: 0 0 20px #952;
+input.star-5:checked ~ label.star:before {
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked~label.star:before {
-    color: #f62;
+input.star-1:checked ~ label.star:before {
+  color: #f62;
 }
 
 label.star:hover {
-    -webkit-transform: rotate(-15deg) scale(1.3);
-    transform: rotate(-15deg) scale(1.3);
+  -webkit-transform: rotate(-15deg) scale(1.3);
+          transform: rotate(-15deg) scale(1.3);
 }
 
 label.star:before {
-    content: '\f006';
-    font-family: FontAwesome;
+  content: '\f006';
+  font-family: FontAwesome;
 }
 
-input.star:checked~.rev-box {
-    height: 125px;
-    overflow: visible;
+input.star:checked ~ .rev-box {
+  height: 125px;
+  overflow: visible;
 }
 
 .order-id a {
-    color: #1619cc;
-    font-weight: 500;
+  color: #1619cc;
+  font-weight: 500;
 }
 
 .order-id a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .order--return a {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #1619cc;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1619cc;
 }
 
 .order--return a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .order-summary {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    padding-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-right: 1rem;
 }
 
 .custom-panel {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
-
-
-/*# sourceMappingURL=custom.css.map */
-
 
 /* This line can be removed it was just for display on CodePen: */
-
-.container {
-    margin-top: 15px;
-}
-
 .slider-labels {
-    margin-top: 10px;
+  margin-top: 10px;
 }
-
 
 /* Functional styling;
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.
  */
-
 .noUi-target,
 .noUi-target * {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -ms-touch-action: none;
-    touch-action: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -ms-touch-action: none;
+      touch-action: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .noUi-target {
-    position: relative;
-    direction: ltr;
+  position: relative;
+  direction: ltr;
 }
 
 .noUi-base {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1;
-    /* Fix 401 */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  /* Fix 401 */
 }
 
 .noUi-origin {
-    position: absolute;
-    right: 0;
-    top: 0;
-    left: 0;
-    bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .noUi-handle {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .noUi-stacking .noUi-handle {
-    /* This class is applied to the lower origin when
+  /* This class is applied to the lower origin when
    its values is > 50%. */
-    z-index: 10;
+  z-index: 10;
 }
 
 .noUi-state-tap .noUi-origin {
-    -webkit-transition: left 0.3s, top .3s;
-    transition: left 0.3s, top .3s;
+  -webkit-transition: left 0.3s, top .3s;
+  transition: left 0.3s, top .3s;
 }
 
 .noUi-state-drag * {
-    cursor: inherit !important;
+  cursor: inherit !important;
 }
-
 
 /* Painting and performance;
  * Browsers can paint handles in their own layer.
  */
-
 .noUi-base,
 .noUi-handle {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
-
 
 /* Slider size and handle placement;
  */
-
 .noUi-horizontal {
-    height: 4px;
+  height: 4px;
 }
 
 .noUi-horizontal .noUi-handle {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    left: -7px;
-    top: -7px;
-    background-color: #345DBB;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  left: -7px;
+  top: -7px;
+  background-color: #345DBB;
 }
-
 
 /* Styling;
  */
-
 .noUi-background {
-    background: #D6D7D9;
+  background: #D6D7D9;
 }
 
 .noUi-connect {
-    background: #345DBB;
-    -webkit-transition: background 450ms;
-    transition: background 450ms;
+  background: #345DBB;
+  -webkit-transition: background 450ms;
+  transition: background 450ms;
 }
 
 .noUi-origin {
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 .noUi-target {
-    border-radius: 2px;
+  border-radius: 2px;
 }
-
-.noUi-target.noUi-connect {}
-
 
 /* Handles and cursors;
  */
-
 .noUi-draggable {
-    cursor: w-resize;
+  cursor: w-resize;
 }
 
 .noUi-vertical .noUi-draggable {
-    cursor: n-resize;
+  cursor: n-resize;
 }
 
 .noUi-handle {
-    cursor: default;
-    -webkit-box-sizing: content-box !important;
-    -moz-box-sizing: content-box !important;
-    box-sizing: content-box !important;
+  cursor: default;
+  -webkit-box-sizing: content-box !important;
+          box-sizing: content-box !important;
 }
 
 .noUi-handle:active {
-    border: 8px solid #345DBB;
-    border: 8px solid rgba(53, 93, 187, 0.38);
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    left: -14px;
-    top: -14px;
+  border: 8px solid #345DBB;
+  border: 8px solid rgba(53, 93, 187, 0.38);
+  background-clip: padding-box;
+  left: -14px;
+  top: -14px;
 }
-
 
 /* Disabled state;
  */
-
 [disabled].noUi-connect,
-[disabled] .noUi-connect {
-    background: #B8B8B8;
+[disabled].noUi-connect {
+  background: #B8B8B8;
 }
 
 [disabled].noUi-origin,
 [disabled] .noUi-handle {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
+
+.alert {
+  -webkit-animation: hiddenAnimation 0s ease-in 3s forwards;
+          animation: hiddenAnimation 0s ease-in 3s forwards;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes hiddenAnimation {
+  to {
+    width: 0;
+    height: 0;
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@keyframes hiddenAnimation {
+  to {
+    width: 0;
+    height: 0;
+    display: none;
+    visibility: hidden;
+  }
+}
+/*# sourceMappingURL=custom.css.map */

@@ -116,13 +116,13 @@
                               class="cart-thumb" alt="">
                           </div>
                           <div class="cart-item-content">
-                            <div class="cart-item-label"><span class="cart-item-name">${
-                                cart.items[id].item.name
-                            } </span><span>${cart.items[id].item.brand}- ${
-                        cart.items[id].item.size
-                    } </span></div>
-              
-                            <div class="cart-item-quantity">
+                            <div class="cart-item-label"><span class="cart-item-name">${cart.items[id].item.name} </span>`;
+                    if (cart.items[id].item.brand)
+                        htmlCartItems += `<span>${cart.items[id].item.brand}</span>`;
+                    if (cart.items[id].item.size)
+                        htmlCartItems += `<span>- ${cart.items[id].item.size}</span>`;
+
+                    htmlCartItems += ` </div><div class="cart-item-quantity">
                               <form action="/api/v1/cart/change" method="POST">
                                 <div class="quantity-group">
                                   <input class="quantity-input" type="number" name="quantity" min=0 pattern="[0-9]" value="${
@@ -143,9 +143,15 @@
                         </li>
                   </ul>`;
                 }
-                $('.value-summary').html(
-                    `${numberWithCommas(cart.totalPrice)} VNĐ`
-                );
+                $('.cart-footer-summary').html(`  <ul class="summary-table">
+                <div class="label-summary">Thành tiền</div>
+                <div class="value-summary">
+                ${numberWithCommas(cart.totalPrice)} VNĐ</div>
+            </ul>
+            <div class="checkout-btn">
+                <a href="/thanh-toan" class="btn essence-btn" ">Thanh toán</a>
+            </div>`);
+
                 $('#cart-content-ajax').html(htmlCartItems);
                 $('#cart-no')
                     .html(`<a href="#" id="essenceCartBtn"><i class="fal fa-shopping-cart fa-lg"></i>
@@ -205,9 +211,15 @@
                         </li>
                   </ul>`;
                 }
+
                 $('.value-summary').html(
                     `${numberWithCommas(cart.totalPrice)} VNĐ`
                 );
+                if (cart.totalQty == 0) {
+                    $('.cart-footer-summary').html(`<ul class="summary-table">
+                    <div class="label-summary">Giỏ hàng đang trống</div>
+                </ul>`);
+                }
                 $('#cart-content-ajax').html(htmlCartItems);
                 $('#cart-no')
                     .html(`<a href="#" id="essenceCartBtn"><i class="fal fa-shopping-cart fa-lg"></i>
@@ -650,5 +662,3 @@
         fileChosen.textContent = this.files[0].name;
     });
 })(jQuery);
-
-
