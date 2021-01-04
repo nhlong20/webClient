@@ -17,20 +17,20 @@
                             <!-- Widget Title 2 -->
                             <p class="widget-title2 mb-30">Giá</p>
 
-                            <div class="container">
+                            <div class="widget-desc">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div id="slider-range"></div>
+                                        <div id="slider-range-price"></div>
                                     </div>
                                 </div>
                                 <div class="row slider-labels">
-                                    <div class="col-xs-6 caption">
+                                    <div class="col-12 caption">
                                         <strong>Min:</strong>
-                                        <span id="slider-range-value1"></span>
+                                        <span id="slider-range-min"></span>
                                     </div>
-                                    <div class="col-xs-6 caption">
+                                    <div class="col-12 caption">
                                         <strong>Max:</strong>
-                                        <span id="slider-range-value2"></span>
+                                        <span id="slider-range-max"></span>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -38,7 +38,7 @@
                                         <form action="<%=categoryPath%>" method="GET">
                                             <input type="hidden" name="minPrice" id="minPrice" value="<%=minPrice%>">
                                             <input type="hidden" name="maxPrice" id="maxPrice" value="<%=maxPrice%>">
-                                            <button type="submit">Lọc</button>
+                                            <button class="btn btn-outline-dark" type="submit">Lọc</button>
                                         </form>
                                     </div>
                                 </div>

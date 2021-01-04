@@ -63,36 +63,36 @@ $(document).ready(function () {
         });
     }
 
-    // $('#change-password').click(function (e) {
-    //     e.preventDefault();
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: '/api/v1/password/change',
-    //         contentType: 'application/json',
-    //         success: function (response) {
-    //             if (history.pushState) {
-    //                 var newurl =
-    //                     window.location.protocol +
-    //                     '//' +
-    //                     window.location.host +
-    //                     window.location.pathname +
-    //                     '/password/change';
-    //                 window.history.pushState({}, '', newurl);
-    //             }
-    //             $('#profile-wrapper').html(response);
-    //         },
-    //         error: function (err) {
-    //             console.log(err);
-    //         }
-    //     });
-    // });
-    function numberWithCommas(price) {
-        var parts = price.toString().split('.');
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-        return parts.join(',');
-    }
     $('#current-page').css({
         'background-color': 'rgb(52, 127, 224)',
         color: '#fff'
+    });
+});
+$(document).ready(function () {
+    let min = $('#minPrice').val();
+    let max = $('#maxPrice').val();
+    var rangeSlider = $('#slider-range-price').get(0);
+    var moneyFormat = wNumb({
+        decimals: 0,
+        thousand: '.',
+        prefix: ' VNĐ'
+    });
+    noUiSlider.create(rangeSlider, {
+        start: [min, max],
+        step: 1,
+        range: {
+            min: [0],
+            max: [5000000]
+        },
+        format: moneyFormat,
+        connect: true
+    });
+
+    // Set visual min and max values and also update value hidden form inputs
+    rangeSlider.noUiSlider.on('update', function (values, handle) {
+        $('#slider-range-min').html(values[0]);
+        $('#slider-range-max').html(values[1]);
+        $('#minPrice').val(moneyFormat.from(values[0]));
+        $('#maxPrice').val(moneyFormat.from(values[1]));
     });
 });

@@ -45,7 +45,7 @@ function serializeQuery(query) {
     return str.join('&');
 }
 
-exports.apiGetBrand = async(req, res) => {
+exports.apiFilterProduct = async(req, res) => {
     let { brand, color, sort, category, minPrice, maxPrice } = req.query;
     const query = {};
     color ? (query.color = color) : null;
