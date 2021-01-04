@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     'use strict';
 
     var $window = $(window);
@@ -58,15 +58,15 @@
     var cartOverlayOn = 'cart-bg-overlay-on';
     var cartOn = 'cart-on';
 
-    $('#cart-no').on('click', '#essenceCartBtn', function() {
+    $('#cart-no').on('click', '#essenceCartBtn', function () {
         cartOverlay.toggleClass(cartOverlayOn);
         cartWrapper.toggleClass(cartOn);
     });
-    cartOverlay.on('click', function() {
+    cartOverlay.on('click', function () {
         $(this).removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
-    closeCartBtn.on('click', function() {
+    closeCartBtn.on('click', function () {
         cartOverlay.removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
     });
@@ -81,7 +81,7 @@
     }
 
     // :: Sticky Active Code
-    $window.on('scroll', function() {
+    $window.on('scroll', function () {
         if ($window.scrollTop() > 0) {
             $('.header_area').addClass('sticky');
         } else {
@@ -94,7 +94,7 @@
         $('select').niceSelect();
     }
 
-    $('.add-to-cart-btn').click(function(e) {
+    $('.add-to-cart-btn').click(function (e) {
         e.preventDefault();
 
         $('.cart-bg-overlay').toggleClass('cart-bg-overlay-on');
@@ -103,7 +103,7 @@
             type: 'POST',
             url: '/api/v1/cart/' + $(this).data('product-id'),
             contentType: 'application/json',
-            success: function(response) {
+            success: function (response) {
                 const { cart } = response;
                 let htmlCartItems = '';
                 for (let id in cart.items) {
@@ -154,18 +154,18 @@
                     }</span>         
             </a>`);
             },
-            error: function(err) {
+            error: function (err) {
                 console.log(err);
             }
         });
     });
-    $('.right-side-cart-area').on('click', '.fa-trash-alt', function(e) {
+    $('.right-side-cart-area').on('click', '.fa-trash-alt', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/cart/' + $(this).data('product-id'),
             contentType: 'application/json',
-            success: function(response) {
+            success: function (response) {
                 const { cart } = response;
                 let htmlCartItems = '';
                 for (let id in cart.items) {
@@ -216,13 +216,13 @@
                     }</span>         
             </a>`);
             },
-            error: function(err) {
+            error: function (err) {
                 console.log(err);
             }
         });
     });
 
-    $('.rating-body').on('click', '.review-change-btn', function(e) {
+    $('.rating-body').on('click', '.review-change-btn', function (e) {
         e.preventDefault();
         let id = $(this).data('comment-id');
         let productId = window.location.pathname.split('/')[2];
@@ -238,7 +238,7 @@
             url: '/api/v1/review/' + id,
             data: { title, review, productId },
             contentType: 'application/x-www-form-urlencoded',
-            success: function(response) {
+            success: function (response) {
                 const { message, ratingAverage, reviews } = response;
                 let htmlReviews = '';
                 htmlReviews += `<div class="rating-inner ">
@@ -287,21 +287,25 @@
                         <div class="rating-comment ">
                             <div class="d-flex flex-row bd-highlight mb-3 ">
                                 <div class="rating-comment-avatar ">
-                                `
+                                `;
                         if (review.user != null) {
-                            htmlReviews += `<img src="${review.user.avatar}" alt="Ảnh đại diện người dùng ">`
-                        } else { htmlReviews += `<img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="Ảnh đại diện người dùng ">` }
+                            htmlReviews += `<img src="${review.user.avatar}" alt="Ảnh đại diện người dùng ">`;
+                        } else {
+                            htmlReviews += `<img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="Ảnh đại diện người dùng ">`;
+                        }
                         htmlReviews += `
                                 </div>
-                                <div class="d-flex flex-column bd-highlight ml-15 ">`
+                                <div class="d-flex flex-column bd-highlight ml-15 ">`;
                         if (review.user != null) {
-                            htmlReviews += ` <span class="rating-comment-name "> ${review.user.name}</span>`
-                        } else { htmlReviews += ` <span class="rating-comment-name "> ${review.guestName}  <span style="font-size: smaller;">(khách)</span></span>` }
+                            htmlReviews += ` <span class="rating-comment-name "> ${review.user.name}</span>`;
+                        } else {
+                            htmlReviews += ` <span class="rating-comment-name "> ${review.guestName}  <span style="font-size: smaller;">(khách)</span></span>`;
+                        }
                         htmlReviews += `<span class="rating-comment-date ">
                                         Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
                                     </span>
                                 </div>
-                            </div>`
+                            </div>`;
                         if (review.user != null) {
                             htmlReviews += `<div class="d-flex flex-row bd-highlight mb-3 ">
                                 <span class="fas fa-star " `;
@@ -331,7 +335,7 @@
 
                             htmlReviews += `></span>
                             </div>
-                            `
+                            `;
                         }
                         htmlReviews += `
                             <div class="rating-comment-title ">
@@ -350,7 +354,7 @@
                 mes.style.display = 'block';
                 mes.innerHTML = message;
             },
-            error: function(err) {
+            error: function (err) {
                 const message = err.responseJSON.message;
 
                 let mes = document.getElementById('message');
@@ -360,7 +364,7 @@
         });
     });
 
-    $('.rating-body').on('click', '.review-delete-btn', function(e) {
+    $('.rating-body').on('click', '.review-delete-btn', function (e) {
         e.preventDefault();
         let id = $(this).data('comment-id');
         let productId = window.location.pathname.split('/')[2];
@@ -371,7 +375,7 @@
                 productId
             },
             contentType: 'application/x-www-form-urlencoded',
-            success: function(response) {
+            success: function (response) {
                 const { message, reviews, uid, ratingAverage } = response;
                 //update all revierw
                 let htmlReviews = '';
@@ -443,7 +447,7 @@
                             </div> 
                             </div>`;
                             }
-                        };
+                        }
                     });
                 $('.rating-body').html(htmlReviews);
 
@@ -495,21 +499,25 @@
                         <div class="rating-comment ">
                             <div class="d-flex flex-row bd-highlight mb-3 ">
                                 <div class="rating-comment-avatar ">
-                                `
+                                `;
                         if (review.user != null) {
-                            htmlReviews += `<img src="${review.user.avatar}" alt="Ảnh đại diện người dùng ">`
-                        } else { htmlReviews += `<img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="Ảnh đại diện người dùng ">` }
+                            htmlReviews += `<img src="${review.user.avatar}" alt="Ảnh đại diện người dùng ">`;
+                        } else {
+                            htmlReviews += `<img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="Ảnh đại diện người dùng ">`;
+                        }
                         htmlReviews += `
                                 </div>
-                                <div class="d-flex flex-column bd-highlight ml-15 ">`
+                                <div class="d-flex flex-column bd-highlight ml-15 ">`;
                         if (review.user != null) {
-                            htmlReviews += ` <span class="rating-comment-name "> ${review.user.name}</span>`
-                        } else { htmlReviews += ` <span class="rating-comment-name "> ${review.guestName}  <span style="font-size: smaller;">(khách)</span></span>` }
+                            htmlReviews += ` <span class="rating-comment-name "> ${review.user.name}</span>`;
+                        } else {
+                            htmlReviews += ` <span class="rating-comment-name "> ${review.guestName}  <span style="font-size: smaller;">(khách)</span></span>`;
+                        }
                         htmlReviews += `<span class="rating-comment-date ">
                                         Nhận xét vào ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
                                     </span>
                                 </div>
-                            </div>`
+                            </div>`;
                         if (review.user != null) {
                             htmlReviews += `<div class="d-flex flex-row bd-highlight mb-3 ">
                                 <span class="fas fa-star " `;
@@ -539,7 +547,7 @@
 
                             htmlReviews += `></span>
                             </div>
-                            `
+                            `;
                         }
                         htmlReviews += `
                             <div class="rating-comment-title ">
@@ -555,7 +563,7 @@
 
                 $('.all-rating-body').html(htmlReviews);
             },
-            error: function(err) {
+            error: function (err) {
                 const message = err.responseJSON.message;
                 let mes = document.getElementById('message');
                 mes.style.display = 'block';
@@ -566,46 +574,48 @@
 
     // :: Slider Range Price Active Code
 
-    // $('.slider-range-price').each(function () {
-    //     var min = jQuery(this).data('min');
-    //     var max = jQuery(this).data('max');
-    //     var unit = jQuery(this).data('unit');
-    //     var value_min = jQuery(this).data('value-min');
-    //     var value_max = jQuery(this).data('value-max');
-    //     var label_result = jQuery(this).data('label-result');
-    //     var t = $(this);
-    //     $(this).slider({
-    //         range: true,
-    //         min: min,
-    //         max: max,
-    //         values: [value_min, value_max],
-    //         slide: function (event, ui) {
-    //             var result =
-    //                 label_result +
-    //                 ' ' +
-    //                 numberWithCommas(ui.values[0]) +
-    //                 unit +
-    //                 ' - ' +
-    //                 numberWithCommas(ui.values[1]) +
-    //                 unit;
-    //             console.log(t);
-    //             t.closest('.slider-range').find('.range-price').html(result);
-    //         }
-    //     });
-    // });
+    $('.slider-range-price').each(function () {
+        var min = jQuery(this).data('min');
+        var max = jQuery(this).data('max');
+        var unit = jQuery(this).data('unit');
+        var value_min = jQuery(this).data('value-min');
+        var value_max = jQuery(this).data('value-max');
+        var label_result = jQuery(this).data('label-result');
+        var t = $(this);
+        $(this).slider({
+            range: true,
+            min: min,
+            max: max,
+            values: [value_min, value_max],
+            slide: function (event, ui) {
+                var result =
+                    label_result +
+                    ' ' +
+                    numberWithCommas(ui.values[0]) +
+                    unit +
+                    ' - ' +
+                    numberWithCommas(ui.values[1]) +
+                    unit;
+                console.log(t);
+                t.closest('.slider-range').find('.range-price').html(result);
+            }
+        });
+    });
+
+    // Initialize slider:
 
     // :: Favorite Button Active Code
     var favme = $('.favme');
 
-    favme.on('click', function() {
+    favme.on('click', function () {
         $(this).toggleClass('active');
     });
 
-    favme.on('click touchstart', function() {
+    favme.on('click touchstart', function () {
         $(this).toggleClass('is_animating');
     });
 
-    favme.on('animationend', function() {
+    favme.on('animationend', function () {
         $(this).toggleClass('is_animating');
     });
 
@@ -625,7 +635,7 @@
     }
 
     // :: PreventDefault a Click
-    $("a[href='#']").on('click', function($) {
+    $("a[href='#']").on('click', function ($) {
         $.preventDefault();
     });
 
@@ -635,8 +645,37 @@
         return parts.join(',');
     }
 
-    $('#upload-file-btn').on('change', function() {
+    $('#upload-file-btn').on('change', function () {
         const fileChosen = document.getElementById('file-chosen');
         fileChosen.textContent = this.files[0].name;
     });
 })(jQuery);
+
+$(document).ready(function () {
+    let min = $('#minPrice').val();
+    let max = $('#maxPrice').val();
+    var rangeSlider = $('#slider-range-price').get(0);
+    var moneyFormat = wNumb({
+        decimals: 0,
+        thousand: '.',
+        prefix: ' VNĐ'
+    });
+    noUiSlider.create(rangeSlider, {
+        start: [min, max],
+        step: 1,
+        range: {
+            min: [0],
+            max: [5000000]
+        },
+        format: moneyFormat,
+        connect: true
+    });
+
+    // Set visual min and max values and also update value hidden form inputs
+    rangeSlider.noUiSlider.on('update', function (values, handle) {
+        $('#slider-range-min').html(values[0]);
+        $('#slider-range-max').html(values[1]);
+        $('#minPrice').val(moneyFormat.from(values[0]));
+        $('#maxPrice').val(moneyFormat.from(values[1]));
+    });
+});
