@@ -85,7 +85,6 @@ exports.forgotPassword = async (req, res) => {
     const resetURL = `${req.protocol}://${req.get(
         'host'
     )}/reset-password?token=${resetToken}`;
-    const message = `Click to set new password: ${resetURL}`;
     try {
         new Email(user, resetURL).sendResetPassword();
         req.flash(

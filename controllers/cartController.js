@@ -1,5 +1,4 @@
 'use strict';
-const Cart = require('../models/cartModel');
 const Product = require('../models/productModel');
 exports.addToCart = async(req, res, next) => {
     const productId = req.params.id;

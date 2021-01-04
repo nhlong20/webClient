@@ -7,10 +7,10 @@ module.exports = class Email {
         this.to = user.email;
         this.name = user.name;
         this.url = url;
-        this.from = `AWS-OS Support 👻<${process.env.EMAIL_FROM}>`;
+        this.from = `AWS-OS Support 👻<no-reply@awsos-client.herokuapp.com>`;
     }
 
-    // create reusable transporter object using the default SMTP transport
+    // Create reusable transporter object using the default SMTP transport
     createTransport() {
         if (process.env.NODE_ENV === 'production') {
             // Send Grid
@@ -19,6 +19,9 @@ module.exports = class Email {
         return nodemailer.createTransport({
             host: process.env.EMAIL_HOST,
             port: process.env.EMAIL_PORT,
+            service: process.env.EMAIL_SERVICE,
+            secure: false,
+            requireTLS: true,
             auth: {
                 user: process.env.EMAIL_USERNAME, // sender email
                 pass: process.env.EMAIL_PASSWORD // sender email
@@ -52,24 +55,3 @@ module.exports = class Email {
         await this.send('resetPassword', 'Đặt lại mật khẩu');
     }
 };
-// module.exports.sendEmail = async options => {
-//     const transporter = nodemailer.createTransport({
-//         host: process.env.EMAIL_HOST,
-//         port: process.env.EMAIL_PORT,
-//         auth: {
-//             user: process.env.EMAIL_USERNAME, // sender email
-//             pass: process.env.EMAIL_PASSWORD // sender email
-//         }
-//     });
-
-//     const mailOptions = {
-//         from: 'Hoàng Long Nguyễn 👻', // sender address
-//         to: options.email, // list of receivers
-//         subject: options.subject, // Subject line
-//         text: options.message // plain text body
-//         // html: "<b>Hello world?</b>", // html body
-//     };
-
-//     // send mail with defined transport options object
-//     await transporter.sendMail(mailOptions);
-// };
