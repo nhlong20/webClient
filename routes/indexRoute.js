@@ -34,7 +34,10 @@ router.get('/ve-chung-toi', function (req, res, next) {
 router.get('/lien-he', function (req, res, next) {
     res.render('contact');
 });
-router.get('/dang-nhap', authCtrl.isGuest, function (req, res, next) {
+router.route('/dang-nhap').get(authCtrl.isGuest, function (req, res, next) {
+    if(req.headers.referer){
+        req.session.returnUrl = req.headers.referer;
+    }
     res.render('user/login');
 });
 router.get('/dang-ky', authCtrl.isGuest, function (req, res, next) {

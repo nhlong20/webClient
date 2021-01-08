@@ -54,7 +54,6 @@ exports.verifyEmail = async (req, res) => {
         if (!user) {
             throw new Error('Có gì đó không đúng, vui lòng kiểm tra lại.');
         }
-        console.log(user);
         // activated user
         user.active = true;
         user.verifyToken = undefined;
@@ -80,7 +79,7 @@ exports.forgotPassword = async (req, res) => {
     // Generate reset token
     const resetToken = user.createPasswordResetToken();
     await user.save({ validateBeforeSave: false }); // turn off all validator defined in userSchema
-
+    
     //Send Email to User
     const resetURL = `${req.protocol}://${req.get(
         'host'
@@ -129,7 +128,7 @@ exports.resetPassword = async (req, res) => {
     user.passwordResetExpires = undefined;
     await user.save();
 
-    // Redirect user to login page
+    // Redirect user to b page
     req.flash('success', 'Cập nhật mật khẩu thành công, đăng nhập để tiếp tục');
     res.redirect('/dang-nhap');
 };
