@@ -12,10 +12,10 @@ module.exports = class Email {
 
     // Create reusable transporter object using the default SMTP transport
     createTransport() {
-        if (process.env.NODE_ENV === 'production') {
-            // Send Grid
-            return 1;
-        }
+        // if (process.env.NODE_ENV === 'production') {
+        //     // Send Grid
+        //     return 1;
+        // }
         return nodemailer.createTransport({
             host: process.env.EMAIL_HOST,
             port: process.env.EMAIL_PORT,
