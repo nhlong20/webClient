@@ -262,7 +262,10 @@ exports.getProduct = async(req, res, next) => {
         if (!doc) {
             return next(new AppError('No document found with that ID', 404));
         }
+        doc.views++;
+        doc.save();
         if (doc.department == 'Accessory') {
+            
             return res.render('accessory', { product: doc });
         }
         // Looking for relevant products
