@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('express-flash');
+const compression = require('compression');
 
 const indexRouter = require('./routes/indexRoute');
 const usersRouter = require('./routes/userRoute');
@@ -28,6 +29,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs'); // set ejs to default
 app.use(expressLayout);
 app.set('layout', './layouts/layout.ejs');
+// Implement Compression
+app.use(compression()); 
 // Implement CORS
 app.use(cors());
 app.options('*', cors());

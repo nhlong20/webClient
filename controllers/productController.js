@@ -304,8 +304,7 @@ exports.searchProducts = async(req, res) => {
     custom.search = search;
     custom.categoryPath = `/tim-kiem`;
     custom.pageType = 'Tìm kiếm';
-    minPrice ? (custom.minPrice = minPrice) : (custom.minPrice = 0);
-    maxPrice ? (custom.maxPrice = maxPrice) : (custom.maxPrice = 5000000);
+
 
     renderView(res, paginate, custom);
 };
