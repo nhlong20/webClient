@@ -1,5 +1,6 @@
 const { session } = require('passport');
 const Order = require('../models/orderModel');
+const Product = require('../models/productModel');
 
 exports.getCheckOut = (req, res) => {
     if (req.session.cart && req.session.cart.totalQty >= 1) {
@@ -42,6 +43,11 @@ exports.createOrder = async (req, res) => {
             'Có lỗi xảy ra trong quá trình đặt hàng, vui lòng thử lại'
         );
         return res.redirect('/thanh-toan');
+    }
+    // Update product quantity;
+    const update = { $inc: { sold: 1 } };
+    for (let productId in req.session.cart.items) {
+        await Product.updateOne({_id: productId}, update);
     }
     req.session.cart = undefined;
     req.flash('success', 'Đặt hàng thành công');

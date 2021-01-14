@@ -1,104 +1,111 @@
-<% function numberWithCommas(price) { var parts=price.toString().split(".");
-    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,"."); return parts.join(","); } %>
-    <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="page-title text-center">
-                        <h2>Checkout</h2>
-                    </div>
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2>Checkout</h2>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ##### Breadcumb Area End ##### -->
+</div>
+<!-- ##### Breadcumb Area End ##### -->
 
-    <!-- ##### Checkout Area Start ##### -->
-    <div class="checkout_area section-padding-80">
-        <div class="container">
-            <div class="row">
+<!-- ##### Checkout Area Start ##### -->
+<div class="checkout_area section-padding-80">
+    <div class="container">
+        <div class="row">
 
-                <div class="col-12 col-md-6">
-                    <div class="checkout_details_area mt-5 clearfix">
+            <div class="col-12 col-md-6">
+                <div class="checkout_details_area mt-5 clearfix">
 
-                        <div class="cart-page-heading mb-30">
-                            <h5>THÔNG TIN KHÁCH HÀNG</h5> 
-                            <p>Phương thức vận chuyển là <strong>FREESHIP</strong> với đơn hàng trên 700.000 VNĐ</p>
-                        </div>
+                    <div class="cart-page-heading mb-30">
+                        <h5>THÔNG TIN KHÁCH HÀNG</h5>
+                        <p>Phương thức vận chuyển là <strong>FREESHIP</strong> với đơn hàng trên 700.000 VNĐ</p>
+                    </div>
 
-                        <form action="/order" method="post">
-                            <div class="row mb-3">
-                                <div class="col-md-12 mb-3">
-                                    <label for="name">Họ và tên:</label><span name="name"> <%=currentUser.name%></span>
-             
-                                </div>
-                                    
-                                <div class="col-12 mb-3">
-                                    <label for="street_address">Địa chỉ giao hàng:</label><span name="address"> <%=currentUser.address%></span>
-                        
-                                </div>
-
-                                <div class="col-12 mb-3">
-                                    <label for="phone_number">Số điện thoại:</label><span name="phoneno"> <%=currentUser.phoneNumber%></span>
-                                
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <label for="email_address">Email:</label><span name="email"> <%=currentUser.email%></span>
-                                </div>
-                                <div id="edit-info" class="btn ml-3 mb-5">
-                                    <a href="/account/edit">Chỉnh sửa thông tin</a>
-                                </div>
-                                <h6 class="col-12 mb-3">CHỌN PHƯƠNG THỨC THANH TOÁN <span>*</span></h6>
-                                <div class="col-12 mb-3">
-                                    <select class="w-100" name="payment" id="payment">
-                                        <option value="cod">Thanh toán tiền mặt khi nhận hàng</option>
-                                        <!-- <option value="paypal" >Thanh toán bằng thẻ</option> -->
-                                    </select>
-                                </div>
+                    <form action="/order" method="post">
+                        <div class="row mb-3">
+                            <div class="col-md-12 mb-3">
+                                <label for="name">Họ và tên:</label><span name="name">
+                                    <%=currentUser.name%>
+                                </span>
 
                             </div>
-                            <p>Thời gian giao hàng dự kiến<strong>
-                                    <%= (new Date()).getDate()+3 %>.<%= (new Date()).getMonth()+1%>.<%= (new
-                                                Date()).getFullYear() %>
-                                </strong></p>
 
-                            <button type="submit" class="btn essence-btn">Đặt hàng</button>
+                            <div class="col-12 mb-3">
+                                <label for="street_address">Địa chỉ giao hàng:</label><span name="address">
+                                    <%=currentUser.address%>
+                                </span>
 
-                        </form>
-                    </div>
-                </div>
+                            </div>
 
-                <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
-                    <div class="order-details-confirmation">
+                            <div class="col-12 mb-3">
+                                <label for="phone_number">Số điện thoại:</label><span name="phoneno">
+                                    <%=currentUser.phoneNumber%>
+                                </span>
 
-                        <div class="cart-page-heading">
-                            <h5>Đơn hàng của bạn</h5>
-                            <p>Chi tiết đơn hàng</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="email_address">Email:</label><span name="email">
+                                    <%=currentUser.email%>
+                                </span>
+                            </div>
+                            <div id="edit-info" class="btn ml-3 mb-5">
+                                <a href="/account/edit">Chỉnh sửa thông tin</a>
+                            </div>
+                            <h6 class="col-12 mb-3">CHỌN PHƯƠNG THỨC THANH TOÁN <span>*</span></h6>
+                            <div class="col-12 mb-3">
+                                <select class="w-100" name="payment" id="payment">
+                                    <option value="cod">Thanh toán tiền mặt khi nhận hàng</option>
+                                    <!-- <option value="paypal" >Thanh toán bằng thẻ</option> -->
+                                </select>
+                            </div>
+
                         </div>
+                        <p>Thời gian giao hàng dự kiến<strong>
+                                <%= (new Date()).getDate()+3 %>.<%= (new Date()).getMonth()+1%>.<%= (new
+                                            Date()).getFullYear() %>
+                            </strong></p>
 
-                        <ul class="order-details-form mb-4">
-                            <li><span>SẢN PHẨM</span> <span>GIÁ TIỀN</span></li>
-                            <% if(session.cart){ let cartItems=session.cart.items; for(let id in cartItems) { %>
-                                <li><span>
-                                        <%=cartItems[id].item.name%> x <%= cartItems[id].qty %>
-                                    </span> <span>
-                                        <%=numberWithCommas(cartItems[id].item.price*cartItems[id].qty)%> VNĐ
-                                    </span></li>
+                        <button type="submit" class="btn essence-btn">Đặt hàng</button>
 
-                                <%}}%>
-                                    <li><span>Tạm tính</span> <span>
-                                            <%=numberWithCommas(session.cart.totalPrice)%> VNĐ
-                                        </span></li>
-                                    <li><span>Phí vận chuyển</span> <span>Free</span></li>
-                                    <li><span>Tổng (bao gồm VAT)</span> <span>
-                                            <%=numberWithCommas(session.cart.totalPrice)%> VNĐ
-                                        </span></li>
-                        </ul>
+                    </form>
+                </div>
+            </div>
 
+            <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
+                <div class="order-details-confirmation">
+
+                    <div class="cart-page-heading">
+                        <h5>Đơn hàng của bạn</h5>
+                        <p>Chi tiết đơn hàng</p>
                     </div>
+
+                    <ul class="order-details-form mb-4">
+                        <li><span>SẢN PHẨM</span> <span>GIÁ TIỀN</span></li>
+                        <% if(session.cart){ let cartItems=session.cart.items; for(let id in cartItems) { %>
+                            <li><span>
+                                    <%=cartItems[id].item.name%> x <%= cartItems[id].qty %>
+                                </span> <span>
+                                    <%=(cartItems[id].item.price*cartItems[id].qty).toLocaleString('vi-VN').replace(
+                                        /,/g,'.')%> VNĐ
+                                </span></li>
+
+                            <%}}%>
+                                <li><span>Tạm tính</span> <span>
+                                        <%=session.cart.totalPrice.toLocaleString('vi-VN').replace( /,/g,'.')%> VNĐ
+                                    </span></li>
+                                <li><span>Phí vận chuyển</span> <span>Free</span></li>
+                                <li><span>Tổng (bao gồm VAT)</span> <span>
+                                        <%=session.cart.totalPrice..toLocaleString('vi-VN').replace( /,/g,'.')%> VNĐ
+                                    </span></li>
+                    </ul>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- ##### Checkout Area End ##### -->
+</div>
+<!-- ##### Checkout Area End ##### -->
