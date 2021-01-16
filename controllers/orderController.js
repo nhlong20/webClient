@@ -3,6 +3,7 @@ const Order = require('../models/orderModel');
 const Product = require('../models/productModel');
 
 exports.getCheckOut = (req, res) => {
+    
     if (req.session.cart && req.session.cart.totalQty >= 1) {
         return res.render('checkout');
     }
@@ -44,11 +45,11 @@ exports.createOrder = async (req, res) => {
         );
         return res.redirect('/thanh-toan');
     }
-    // Update product quantity;
-    const update = { $inc: { sold: 1 } };
-    for (let productId in req.session.cart.items) {
-        await Product.updateOne({_id: productId}, update);
-    }
+    // // Update product quantity;
+    // for (let productId in req.session.cart.items) {
+    //     const update = { $inc: { sold: 1 } };
+    //     await Product.updateOne({_id: productId}, update);
+    // }
     req.session.cart = undefined;
     req.flash('success', 'Đặt hàng thành công');
     return res.redirect('/order/history');
